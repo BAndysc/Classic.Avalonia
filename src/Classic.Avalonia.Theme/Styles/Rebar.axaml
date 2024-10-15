@@ -1,0 +1,12 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
+    <ControlTheme x:Key="{x:Type commonControls:RebarHandle}"
+                  TargetType="commonControls:RebarHandle">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ClassicBorderDecorator BorderStyle="ThinRaised" BorderThickness="1" Width="3" Margin="2,0,2,0" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

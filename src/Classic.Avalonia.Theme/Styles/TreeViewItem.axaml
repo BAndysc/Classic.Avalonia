@@ -1,0 +1,171 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
+                    x:ClassModifier="internal">
+  <Design.PreviewWith>
+    <TreeView>
+      <TreeViewItem Header="Root" IsExpanded="True">
+        <TreeViewItem Header="Item 1" />
+        <TreeViewItem Header="Item 2" />
+        <TreeViewItem Header="Item 3">
+          <TreeViewItem Header="More items" />
+        </TreeViewItem>
+        <TreeViewItem Header="Item 4" />
+      </TreeViewItem>
+    </TreeView>
+  </Design.PreviewWith>
+  <converters:MarginMultiplierConverter x:Key="LeftMarginConverter"
+                                        Indent="16"
+                                        Left="True" />
+
+  <ControlTheme x:Key="&#303;"
+                TargetType="ToggleButton">
+    <Setter Property="Focusable"
+            Value="False"/>
+    <Setter Property="Width"
+            Value="19"/>
+    <Setter Property="Height"
+            Value="13"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Width="19"
+                Height="13"
+                Background="Transparent">
+          <Border Width="9"
+                  Height="9"
+                  BorderThickness="1"
+                  BorderBrush="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"
+                  Background="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}">
+            <Path x:Name="ExpandPath"
+                  Margin="1,1,1,1"
+                  Fill="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"
+                  Data="M 0 2 L 0 3 L 2 3 L 2 5 L 3 5 L 3 3 L 5 3 L 5 2 L 3 2 L 3 0 L 2 0 L 2 2 Z"/>
+          </Border>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:checked /template/ Path#ExpandPath">
+      <Setter Property="Data"
+              Value="M 0 2 L 0 3 L 5 3 L 5 2 Z"/>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TreeViewItem}"
+                TargetType="TreeViewItem">
+    <Setter Property="Background"
+            Value="Transparent"/>
+    <Setter Property="Padding"
+            Value="1,0,0,0"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <utils:TreeViewItemPanel>
+          <utils:DiagonalLine StrokeThickness="1" Stroke="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}" StrokeDashArray="1,1" RenderOptions.EdgeMode="Aliased" Name="PART_LineVert" Width="0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="9,0,0,0" />
+          <utils:DiagonalLine StrokeThickness="1" Stroke="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}" StrokeDashArray="1,1" RenderOptions.EdgeMode="Aliased" Name="PART_LineHoriz" Height="0" Width="11" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" />
+          <Grid Name="PART_RootLayout">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition MinWidth="19"
+                                Width="Auto"/>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ToggleButton x:Name="Expander"
+                          Theme="{StaticResource &#303;}"
+                          IsChecked="{TemplateBinding IsExpanded,
+                                                          Mode=TwoWay}"
+                          Name="PART_ExpandCollapseChevron"
+                          ClickMode="Press"/>
+            <Border Name="PART_Header"
+                    Grid.Column="1"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Padding="{TemplateBinding Padding}"
+                    Focusable="True"
+                    TemplatedControl.IsTemplateFocusTarget="True">
+              <ContentPresenter Name="PART_HeaderPresenter"
+                                Grid.Column="1"
+                                Background="Transparent"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalAlignment}"
+                                Content="{TemplateBinding Header}"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                Focusable="False" />
+            </Border>
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            IsVisible="{TemplateBinding IsExpanded}"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"/>
+          </Grid>
+        </utils:TreeViewItemPanel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:nth-last-child(1) /template/ utils|DiagonalLine#PART_LineVert">
+      <Setter Property="VerticalAlignment" Value="Top"/>
+      <Setter Property="Height" Value="6" />
+      <Setter Property="Margin" Value="9,1,0,0" />
+    </Style>
+
+    <!-- <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter"> -->
+    <!--   <Setter Property="Padding" Value="2" /> -->
+    <!-- </Style> -->
+    <!-- -->
+    <!-- <Style Selector="^ /template/ Border#SelectionBorder:pointerover"> -->
+    <!--   <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" /> -->
+    <!-- </Style> -->
+    <!-- -->
+    <!-- <Style Selector="^:selected /template/ Border#SelectionBorder"> -->
+    <!--   <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" /> -->
+    <!-- </Style> -->
+    <!-- -->
+    <!-- <Style Selector="^:selected /template/ Border#SelectionBorder:focus"> -->
+    <!--   <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" /> -->
+    <!-- </Style> -->
+    <!-- -->
+    <!-- <Style Selector="^:selected /template/ Border#SelectionBorder:pointerover"> -->
+    <!--   <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" /> -->
+    <!-- </Style> -->
+    <!-- -->
+    <!-- <Style Selector="^:selected /template/ Border#SelectionBorder:pointerover:focus"> -->
+    <!--   <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" /> -->
+    <!-- </Style> -->
+    <!-- -->
+
+
+    <Style Selector="^:selected">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.InactiveSelectionHighlightTextBrushKey}}"/>
+      <Style Selector="^ /template/ Border#PART_Header">
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static classic:SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+      </Style>
+    </Style>
+    <Style Selector="^:focus-within:selected">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}"/>
+      <Style Selector="^ /template/ Border#PART_Header">
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"/>
+      </Style>
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+    </Style>
+
+    <Style Selector="^:empty /template/ ToggleButton#PART_ExpandCollapseChevron">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

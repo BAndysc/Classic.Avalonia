@@ -1,0 +1,112 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="using:System"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+
+  <ControlTheme x:Key="SimpleTopLevelMenuItem"
+                TargetType="MenuItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="4 0" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="Height"
+            Value="{DynamicResource {x:Static classic:SystemParameters.MenuBarHeightKey}}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <classic:ClassicBorderDecorator x:Name="ClassicBorder"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                      BorderThickness="1">
+          <Panel>
+            <ContentPresenter Name="PART_HeaderPresenter"
+                              Margin="{TemplateBinding Padding}"
+                              Content="{TemplateBinding Header}"
+                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                              VerticalContentAlignment="Center">
+              <ContentPresenter.DataTemplates>
+                <DataTemplate DataType="sys:String">
+                  <AccessText Text="{Binding}" />
+                </DataTemplate>
+              </ContentPresenter.DataTemplates>
+            </ContentPresenter>
+            <Popup Name="PART_Popup"
+                   IsLightDismissEnabled="True"
+                   IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
+                   Placement="BottomEdgeAlignedLeft"
+                   WindowManagerAddShadowHint="True"
+                   HorizontalOffset="-2"
+                   OverlayInputPassThroughElement="{Binding $parent[Menu]}">
+              <classic:ClassicBorderDecorator Name="SubMenuBorder"
+                                            BorderStyle="AltRaised"
+                                            Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                            BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                            BorderThickness="2">
+                <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+                  <ItemsPresenter Name="PART_ItemsPresenter"
+                                  Margin="1"
+                                  Grid.IsSharedSizeScope="True"
+                                  RenderOptions.TextRenderingMode="Alias"
+                                  ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </ScrollViewer>
+              </classic:ClassicBorderDecorator>
+            </Popup>
+          </Panel>
+        </classic:ClassicBorderDecorator>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ classic|ClassicBorderDecorator#ClassicBorder">
+      <Setter Property="BorderStyle" Value="None" />
+    </Style>
+
+    <Style Selector="^:pointerover /template/ classic|ClassicBorderDecorator#ClassicBorder">
+      <Setter Property="BorderStyle" Value="ThinRaised" />
+    </Style>
+
+    <Style Selector="^[IsSubMenuOpen=True] /template/ classic|ClassicBorderDecorator#ClassicBorder">
+      <Setter Property="BorderStyle" Value="ThinPressed" />
+    </Style>
+
+    <Style Selector="^:empty /template/ Path#rightArrow">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type Menu}"
+                TargetType="Menu">
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static classic:SystemColors.MenuBrushKey}}"/>
+    <!-- <Setter Property="FontFamily" -->
+    <!--         Value="{DynamicResource {x:Static classic:SystemFonts.MenuFontFamilyKey}}"/> -->
+    <!-- <Setter Property="FontSize" -->
+    <!--         Value="{DynamicResource {x:Static classic:SystemFonts.MenuFontSizeKey}}"/> -->
+    <!-- <Setter Property="FontStyle" -->
+    <!--         Value="{DynamicResource {x:Static classic:SystemFonts.MenuFontStyleKey}}"/> -->
+    <!-- <Setter Property="FontWeight" -->
+    <!--         Value="{DynamicResource {x:Static classic:SystemFonts.MenuFontWeightKey}}"/> -->
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.MenuTextBrushKey}}"/>
+    <Setter Property="ItemContainerTheme" Value="{StaticResource SimpleTopLevelMenuItem}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Padding="{TemplateBinding Padding}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}">
+          <ItemsPresenter Name="PART_ItemsPresenter"
+                          ItemsPanel="{TemplateBinding ItemsPanel}"
+                          KeyboardNavigation.TabNavigation="Continue" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <WrapPanel Orientation="Horizontal" />
+      </ItemsPanelTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

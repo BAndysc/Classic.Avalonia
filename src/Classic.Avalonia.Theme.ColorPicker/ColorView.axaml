@@ -1,0 +1,292 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:colorPicker="clr-namespace:Classic.Avalonia.Theme.ColorPicker"
+                    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <ColorView>
+            <ColorView.Palette>
+                <colorPicker:ClassicColorPalette />
+            </ColorView.Palette>
+        </ColorView>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="ColorViewPaletteListBoxTheme" TargetType="ListBox">
+        <Setter Property="Margin" Value="2,5" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ItemsPresenter Name="PART_ItemsPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <DataTemplate DataType="{x:Type Color}">
+                <Border AutomationProperties.Name="{Binding Converter={StaticResource ColorToDisplayNameConverter}}"
+                        ToolTip.Tip="{Binding Converter={StaticResource ColorToDisplayNameConverter}}"
+                        HorizontalAlignment="Stretch"
+                        Width="16"
+                        Height="13"
+                        VerticalAlignment="Stretch">
+                    <Border.Background>
+                        <SolidColorBrush Color="{Binding}" />
+                    </Border.Background>
+                </Border>
+            </DataTemplate>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <WrapPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="ColorViewPaletteListBoxItemTheme" TargetType="ListBoxItem">
+        <Setter Property="Margin" Value="0,0,3,3" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="PART_Selection" BorderThickness="1">
+                    <ClassicBorderDecorator BorderStyle="Sunken" BorderThickness="2">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </ClassicBorderDecorator>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:selected">
+            <Style Selector="^ /template/ Border#PART_Selection">
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type ColorView}" TargetType="ColorView">
+        <Setter Property="Palette" Value="{x:Static colorPicker:ClassicColorPalette.Instance}"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="204,12,*">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock DockPanel.Dock="Top">Basic colors:</TextBlock>
+                        <ListBox Theme="{StaticResource ColorViewPaletteListBoxTheme}"
+                                 ItemContainerTheme="{StaticResource ColorViewPaletteListBoxItemTheme}"
+                                 ItemsSource="{TemplateBinding PaletteColors}"
+                                 SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DoNothingForNullConverter}, Mode=TwoWay}" />
+                        <Border Height="10"/>
+                        <TextBlock DockPanel.Dock="Top">Custom colors:</TextBlock>
+                        <ListBox Theme="{StaticResource ColorViewPaletteListBoxTheme}"
+                                 ItemContainerTheme="{StaticResource ColorViewPaletteListBoxItemTheme}"
+                                 ItemsSource="{x:Static colorPicker:CustomClassicColorPalette.Instance}"
+                                 SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DoNothingForNullConverter}, Mode=TwoWay}" />
+                        <ToggleButton IsChecked="{Binding IsColorSpectrumVisible, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">Define Custom Colors >></ToggleButton>
+                    </StackPanel>
+
+                    <Grid Grid.Column="2" RowDefinitions="177,6,Auto" IsVisible="{TemplateBinding IsColorSpectrumVisible}">
+                        <Grid Grid.Row="0" ColumnDefinitions="177,15,Auto">
+                            <ColorSpectrum x:Name="ColorSpectrum"
+                                           Components="{TemplateBinding ColorSpectrumComponents}"
+                                           HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                           MinHue="{TemplateBinding MinHue}"
+                                           MaxHue="{TemplateBinding MaxHue}"
+                                           MinSaturation="{TemplateBinding MinSaturation}"
+                                           MaxSaturation="{TemplateBinding MaxSaturation}"
+                                           MinValue="{TemplateBinding MinValue}"
+                                           MaxValue="{TemplateBinding MaxValue}"
+                                           Shape="Box"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch" />
+                            <ColorSlider x:Name="ColorSpectrumThirdComponentSlider"
+                                                    AutomationProperties.Name="Third Component"
+                                                    Grid.Column="2"
+                                                    IsAlphaVisible="False"
+                                                    IsPerceptive="True"
+                                                    Orientation="Vertical"
+                                                    ColorModel="Hsva"
+                                                    ColorComponent="{Binding ThirdComponent, ElementName=ColorSpectrum}"
+                                                    HsvColor="{Binding HsvColor, ElementName=ColorSpectrum}"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Stretch"
+                                                    Margin="0,0,12,0"
+                                                    IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"/>
+                        </Grid>
+
+                        <Grid Grid.Row="2" RowDefinitions="*,2,*,2,*" ColumnDefinitions="60,35,27,53,27">
+
+                            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Spacing="5">
+                                <ClassicBorderDecorator BorderStyle="Thin"
+                                                        Height="42"
+                                                        Background="{Binding Color, Converter={StaticResource ColorToBrushConverter}, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        BorderThickness="1" />
+                                <TextBlock>Color|Solid</TextBlock>
+                            </StackPanel>
+
+                            <TextBlock VerticalAlignment="Center"
+                                       TextAlignment="Right"
+                                       Margin="0,0,4,0"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       Text="Hue:" />
+
+                            <TextBlock VerticalAlignment="Center"
+                                       TextAlignment="Right"
+                                       Margin="0,0,4,0"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       Text="Sat:" />
+
+                            <TextBlock VerticalAlignment="Center"
+                                       TextAlignment="Right"
+                                       Margin="0,0,4,0"
+                                       Grid.Column="1"
+                                       Grid.Row="4"
+                                       Text="Lum:" />
+
+                            <TextBlock VerticalAlignment="Center"
+                                       TextAlignment="Right"
+                                       Margin="0,0,4,0"
+                                       Grid.Column="3"
+                                       Grid.Row="0"
+                                       Text="Red:" />
+
+                            <TextBlock VerticalAlignment="Center"
+                                       TextAlignment="Right"
+                                       Margin="0,0,4,0"
+                                       Grid.Column="3"
+                                       Grid.Row="2"
+                                       Text="Green:" />
+
+                            <TextBlock VerticalAlignment="Center"
+                                       TextAlignment="Right"
+                                       Margin="0,0,4,0"
+                                       Grid.Column="3"
+                                       Grid.Row="4"
+                                       Text="Blue:" />
+
+                            <!-- HSV -->
+
+                            <NumericUpDown x:Name="Component1NumericUpDown"
+                                           Grid.Column="2"
+                                           Grid.Row="0"
+                                           AllowSpin="True"
+                                           ShowButtonSpinner="False"
+                                           NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
+                                           Minimum="{Binding Minimum, ElementName=Component1Slider}"
+                                           Maximum="{Binding Maximum, ElementName=Component1Slider}"
+                                           Value="{Binding Value, ElementName=Component1Slider}"
+                                           IsVisible="True" />
+
+                            <NumericUpDown x:Name="Component2NumericUpDown"
+                                           Grid.Column="2"
+                                           Grid.Row="2"
+                                           AllowSpin="True"
+                                           ShowButtonSpinner="False"
+                                           NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
+                                           Minimum="{Binding Minimum, ElementName=Component2Slider}"
+                                           Maximum="{Binding Maximum, ElementName=Component2Slider}"
+                                           Value="{Binding Value, ElementName=Component2Slider}"
+                                           IsVisible="True" />
+
+                            <NumericUpDown x:Name="Component3NumericUpDown"
+                                           Grid.Column="2"
+                                           Grid.Row="4"
+                                           AllowSpin="True"
+                                           ShowButtonSpinner="False"
+                                           NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
+                                           Minimum="{Binding Minimum, ElementName=Component3Slider}"
+                                           Maximum="{Binding Maximum, ElementName=Component3Slider}"
+                                           Value="{Binding Value, ElementName=Component3Slider}"
+                                           IsVisible="True" />
+
+                            <!-- RGB -->
+
+                            <NumericUpDown x:Name="RedNumericUpDown"
+                                           Grid.Column="4"
+                                           Grid.Row="0"
+                                           AllowSpin="True"
+                                           ShowButtonSpinner="False"
+                                           NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
+                                           Minimum="{Binding Minimum, ElementName=RedSlider}"
+                                           Maximum="{Binding Maximum, ElementName=RedSlider}"
+                                           Value="{Binding Value, ElementName=RedSlider}"
+                                           IsVisible="True" />
+
+                            <NumericUpDown x:Name="GreenNumericUpDown"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           AllowSpin="True"
+                                           ShowButtonSpinner="False"
+                                           NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
+                                           Minimum="{Binding Minimum, ElementName=GreenSlider}"
+                                           Maximum="{Binding Maximum, ElementName=GreenSlider}"
+                                           Value="{Binding Value, ElementName=GreenSlider}"
+                                           IsVisible="True" />
+
+                            <NumericUpDown x:Name="BlueNumericUpDown"
+                                           Grid.Column="4"
+                                           Grid.Row="4"
+                                           AllowSpin="True"
+                                           ShowButtonSpinner="False"
+                                           NumberFormat="{StaticResource ColorViewComponentNumberFormat}"
+                                           Minimum="{Binding Minimum, ElementName=BlueSlider}"
+                                           Maximum="{Binding Maximum, ElementName=BlueSlider}"
+                                           Value="{Binding Value, ElementName=BlueSlider}"
+                                           IsVisible="True" />
+
+                            <!-- HSV -->
+                            <ColorSlider x:Name="Component1Slider"
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        IsRoundingEnabled="True"
+                                        ColorComponent="Component1"
+                                        ColorModel="Hsva"
+                                        HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                        IsVisible="False" />
+                            <ColorSlider x:Name="Component2Slider"
+                                         Grid.Column="0"
+                                         Grid.Row="0"
+                                         IsRoundingEnabled="True"
+                                         ColorComponent="Component2"
+                                         ColorModel="Hsva"
+                                         HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                         IsVisible="False" />
+                            <ColorSlider x:Name="Component3Slider"
+                                         Grid.Column="0"
+                                         Grid.Row="0"
+                                         IsRoundingEnabled="True"
+                                         ColorComponent="Component3"
+                                         ColorModel="Hsva"
+                                         HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                         IsVisible="False" />
+
+                            <!-- RGB -->
+                            <ColorSlider x:Name="RedSlider"
+                                         Grid.Column="0"
+                                         Grid.Row="0"
+                                         IsRoundingEnabled="True"
+                                         ColorComponent="Component1"
+                                         ColorModel="Rgba"
+                                         HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                         IsVisible="False" />
+                            <ColorSlider x:Name="GreenSlider"
+                                         Grid.Column="0"
+                                         Grid.Row="0"
+                                         IsRoundingEnabled="True"
+                                         ColorComponent="Component2"
+                                         ColorModel="Rgba"
+                                         HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                         IsVisible="False" />
+                            <ColorSlider x:Name="BlueSlider"
+                                         Grid.Column="0"
+                                         Grid.Row="0"
+                                         IsRoundingEnabled="True"
+                                         ColorComponent="Component3"
+                                         ColorModel="Rgba"
+                                         HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                         IsVisible="False" />
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

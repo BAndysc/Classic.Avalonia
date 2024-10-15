@@ -1,0 +1,58 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme">
+
+  <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%" x:Key="ActiveTitleBarBrush">
+    <GradientStops>
+      <GradientStop Offset="0" Color="{DynamicResource {x:Static classic:SystemColors.ActiveCaptionColorKey}}" />
+      <GradientStop Offset="1" Color="{DynamicResource {x:Static classic:SystemColors.GradientActiveCaptionColorKey}}" />
+    </GradientStops>
+  </LinearGradientBrush>
+
+  <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%" x:Key="InactiveTitleBarBrush">
+    <GradientStops>
+      <GradientStop Offset="0" Color="{DynamicResource {x:Static classic:SystemColors.InactiveCaptionColorKey}}" />
+      <GradientStop Offset="1" Color="{DynamicResource {x:Static classic:SystemColors.GradientInactiveCaptionColorKey}}" />
+    </GradientStops>
+  </LinearGradientBrush>
+
+  <ControlTheme x:Key="{x:Type utils:AutoAttachTitleBar}" TargetType="utils:AutoAttachTitleBar">
+    <Setter Property="Height" Value="{DynamicResource {x:Static classic:SystemParameters.WindowCaptionHeightKey}}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border x:Name="PART_GradientBar" IsHitTestVisible="False" />
+
+          <DockPanel Margin="2,0,0,0">
+            <utils:CaptionButtonsEx Name="PART_CaptionButtons" DockPanel.Dock="Right" />
+
+            <utils:WindowIconRenderer
+              RenderOptions.BitmapInterpolationMode="None"
+              IsHitTestVisible="False"
+              IsVisible="{Binding $parent[Window].Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
+              Source="{Binding $parent[Window].Icon}" Width="16" Height="16" />
+
+            <TextBlock Text="{Binding $parent[Window].Title}"
+                       VerticalAlignment="Center"
+                       RenderOptions.TextRenderingMode="Alias"
+                       FontFamily="{DynamicResource {x:Static classic:NonClientMetrics.CaptionFontKey}}"
+                       FontSize="{DynamicResource {x:Static classic:NonClientMetrics.CaptionFontSizeKey}}"
+                       IsHitTestVisible="False"
+                       Foreground="{DynamicResource {x:Static classic:SystemColors.ActiveCaptionTextBrushKey}}" FontWeight="Bold" />
+          </DockPanel>
+
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Border#PART_GradientBar">
+      <Setter Property="Background" Value="{StaticResource InactiveTitleBarBrush}" />
+    </Style>
+
+    <Style Selector="^:active /template/ Border#PART_GradientBar">
+      <Setter Property="Background" Value="{StaticResource ActiveTitleBarBrush}" />
+    </Style>
+  </ControlTheme>
+
+</ResourceDictionary>

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <WarningsAsErrors>nullable</WarningsAsErrors>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.1.4"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.1.4"/>
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.4"/>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Remove="icon.png" />
+      <AvaloniaResource Include="icon.png" />
+      <None Remove="icon32.png" />
+      <AvaloniaResource Include="icon32.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AvaloniaResource>
+    </ItemGroup>
+</Project>

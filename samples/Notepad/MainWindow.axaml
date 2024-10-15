@@ -1,0 +1,74 @@
+<classic:ClassicWindow xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+        xmlns:notepad="clr-namespace:Notepad"
+        xmlns:classic="clr-namespace:Classic.Avalonia.Theme;assembly=Classic.Avalonia.Theme"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Notepad.MainWindow"
+        x:DataType="notepad:NotepadViewModel"
+        Icon="icon.png"
+        Width="600"
+        Height="480"
+        x:Name="Root"
+        Title="Notepad">
+    <DockPanel>
+      <Menu DockPanel.Dock="Top">
+        <MenuItem Header="File">
+          <MenuItem Header="New" InputGesture="Ctrl+N" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Open..." InputGesture="Ctrl+O" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Save" InputGesture="Ctrl+S" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Save As..." Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <Separator />
+          <MenuItem Header="Page Setup..." Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Print..." InputGesture="Ctrl+P" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <Separator />
+          <MenuItem Header="Exit" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+        </MenuItem>
+        <MenuItem Header="Edit">
+          <MenuItem Header="Undo" InputGesture="Ctrl+Z" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <Separator />
+          <MenuItem Header="Cut" InputGesture="Ctrl+Z" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Copy" InputGesture="Ctrl+C" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Paste" InputGesture="Ctrl+V" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Delete" InputGesture="Delete" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <Separator />
+          <MenuItem Header="Find..." InputGesture="Ctrl+F" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Find Next" InputGesture="F3" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <Separator />
+          <MenuItem Header="Replace..." InputGesture="Ctrl+H" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Go to..." InputGesture="Ctrl+G" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <Separator />
+          <MenuItem Header="Select All" InputGesture="Ctrl+A" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <MenuItem Header="Time/Date" InputGesture="F5" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+        </MenuItem>
+        <MenuItem Header="Format">
+          <MenuItem Header="Word Wrap" />
+          <MenuItem Header="Set Font..." Command="{CompiledBinding SelectFont}" CommandParameter="{Binding #Root}" />
+        </MenuItem>
+        <MenuItem Header="View">
+          <MenuItem Header="Status Bar" />
+        </MenuItem>
+        <MenuItem Header="Help">
+          <MenuItem Header="Help Topics" Command="{CompiledBinding NotImplemented}" CommandParameter="{Binding #Root}" />
+          <Separator />
+          <MenuItem Header="About Notepad" Command="{CompiledBinding About}"  CommandParameter="{Binding #Root}"/>
+        </MenuItem>
+      </Menu>
+      <commonControls:StatusBar DockPanel.Dock="Bottom">
+        <commonControls:StatusBarItem commonControls:StatusBar.Size="10*" />
+        <commonControls:StatusBarItem>
+          Line: 120, Col: 15
+        </commonControls:StatusBarItem>
+      </commonControls:StatusBar>
+      <TextBox AcceptsReturn="True"
+               AcceptsTab="True"
+               FontFamily="{CompiledBinding Font}"
+               FontSize="{CompiledBinding FontSize}"
+               FontStyle="{CompiledBinding FontStyle}"
+               FontWeight="{CompiledBinding FontWeight}"
+               ScrollViewer.HorizontalScrollBarVisibility="Visible"
+               ScrollViewer.VerticalScrollBarVisibility="Visible" />
+    </DockPanel>
+</classic:ClassicWindow>

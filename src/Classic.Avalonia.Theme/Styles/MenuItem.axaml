@@ -1,0 +1,173 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:conv="using:Avalonia.Controls.Converters"
+                    xmlns:sys="using:System"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
+
+  <ControlTheme x:Key="{x:Type MenuItem}"
+                TargetType="MenuItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="6 0" />
+    <Setter Property="Height" Value="19" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="root"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="19" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto"
+                                SharedSizeGroup="MenuItemIGT" />
+              <ColumnDefinition Width="16" />
+            </Grid.ColumnDefinitions>
+            <ContentControl Grid.Column="0"
+                            x:Name="PART_ToggleIconPresenter"
+                            IsVisible="False"
+                            Margin="0"
+                            Width="16"
+                            Height="16" />
+            <classic:ClassicBorderDecorator Grid.Column="0"
+                                            Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                            Name="PART_IconBorder"
+                                            BorderThickness="1">
+              <ContentControl Name="PART_IconPresenter"
+                              Width="16"
+                              Height="16"
+                              Margin="0,0,1,1"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              RenderOptions.BitmapInterpolationMode="None"
+                              Content="{TemplateBinding Icon}" />
+            </classic:ClassicBorderDecorator>
+            <ContentPresenter Name="PART_HeaderPresenter"
+                              Grid.Column="1"
+                              Margin="{TemplateBinding Padding}"
+                              VerticalAlignment="Center"
+                              Content="{TemplateBinding Header}"
+                              ContentTemplate="{TemplateBinding HeaderTemplate}">
+              <ContentPresenter.DataTemplates>
+                <DataTemplate DataType="sys:String">
+                  <AccessText Text="{Binding}" />
+                </DataTemplate>
+              </ContentPresenter.DataTemplates>
+            </ContentPresenter>
+            <TextBlock x:Name="PART_InputGestureText"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       Text="{TemplateBinding InputGesture,
+                                              Converter={StaticResource KeyGestureConverter}}" />
+            <Path Name="rightArrow"
+                  Grid.Column="3"
+                  Margin="10,0,0,0"
+                  VerticalAlignment="Center"
+                  Data="M0,0L4,3.5 0,7z"
+                  Fill="{DynamicResource ThemeForegroundBrush}" />
+            <Popup Name="PART_Popup"
+                   IsLightDismissEnabled="False"
+                   IsOpen="{TemplateBinding IsSubMenuOpen,
+                                            Mode=TwoWay}"
+                   VerticalOffset="-3"
+                   HorizontalOffset="-3"
+                   Placement="RightEdgeAlignedTop">
+              <classic:ClassicBorderDecorator BorderStyle="AltRaised"
+                                              Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                              BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                              BorderThickness="2">
+                <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+                  <ItemsPresenter Name="PART_ItemsPresenter"
+                                  Margin="1"
+                                  Grid.IsSharedSizeScope="True"
+                                  RenderOptions.TextRenderingMode="Alias"
+                                  ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </ScrollViewer>
+              </classic:ClassicBorderDecorator>
+            </Popup>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ classic|ClassicBorderDecorator#PART_IconBorder">
+      <Setter Property="BorderStyle" Value="None" />
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^:icon /template/ classic|ClassicBorderDecorator#PART_IconBorder">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector="^:separator">
+      <Setter Property="Height" Value="10" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Separator />
+        </ControlTemplate>
+      </Setter>
+    </Style>
+
+    <Style Selector="^:selected /template/ Border#root">
+      <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}" />
+    </Style>
+
+    <Style Selector="^:selected /template/ classic|ClassicBorderDecorator#PART_IconBorder">
+      <Setter Property="BorderStyle" Value="ThinRaised" />
+    </Style>
+
+    <Style Selector="^:selected">
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+      <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+      </Style>
+      <Style Selector="^ /template/ TextBlock#PART_InputGestureText">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:selected /template/ Path#rightArrow">
+      <Setter Property="Fill" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+    </Style>
+
+    <Style Selector="^:empty /template/ Path#rightArrow">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+    </Style>
+    
+    <Style Selector="^:toggle /template/ ContentControl#PART_ToggleIconPresenter, ^:radio /template/ ContentControl#PART_ToggleIconPresenter">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:toggle /template/ ContentPresenter#PART_IconPresenter, ^:radio /template/ ContentPresenter#PART_IconPresenter">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:checked:toggle /template/ ContentControl#PART_ToggleIconPresenter">
+      <Setter Property="Content">
+        <Template>
+          <Path VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Width="7"
+                Height="7"
+                Data="M 0 2.0 L 0 4.8 L 2.5 7.4 L 7.1 2.8 L 7.1 0 L 2.5 4.6 Z"
+                Fill="{Binding $parent[MenuItem].Foreground}" />
+        </Template>
+      </Setter>
+    </Style>
+    <Style Selector="^:checked:radio /template/ ContentControl#PART_ToggleIconPresenter">
+      <Setter Property="Content">
+        <Template>
+          <Ellipse Fill="{Binding $parent[MenuItem].Foreground}"
+                   HorizontalAlignment="Right"
+                   Margin="4" Width="6" Height="6" />
+        </Template>
+      </Setter>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

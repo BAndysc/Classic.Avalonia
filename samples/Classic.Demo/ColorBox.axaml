@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Classic.Demo"
+        xmlns:classic="clr-namespace:Classic.Avalonia.Theme;assembly=Classic.Avalonia.Theme">
+  <Design.PreviewWith>
+    <controls:ColorBox />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|ColorBox">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel>
+          <classic:ClassicBorderDecorator Background="{TemplateBinding Color}"
+                                          BorderStyle="Sunken"
+                                          BorderThickness="2"
+                                          Width="16"
+                                          Height="16"
+                                          Margin="0,0,4,0"
+          />
+          <TextBlock VerticalAlignment="Center" Text="{TemplateBinding ColorName}" />
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

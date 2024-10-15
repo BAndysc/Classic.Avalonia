@@ -1,0 +1,291 @@
+<ClassicWindow xmlns="https://github.com/avaloniaui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                xmlns:avaloniaExplorer="clr-namespace:AvaloniaExplorer"
+                xmlns:panels="clr-namespace:AvaloniaExplorer.Panels"
+                mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                x:Class="AvaloniaExplorer.MainWindow"
+                Icon="Icons/page16.gif"
+                Width="800"
+                Height="600"
+                x:DataType="avaloniaExplorer:MainWindowViewModel"
+                Title="Avalonia Internet Explorer">
+
+    <DockPanel Margin="0,1,0,0">
+        <ClassicBorderDecorator DockPanel.Dock="Top" BorderThickness="2" BorderStyle="Etched">
+            <StackPanel Orientation="Vertical" Margin="0,2">
+                <DockPanel>
+                    <commonControls:RebarHandle />
+                    <Border DockPanel.Dock="Right" Background="Black" Margin="0,-2">
+                        <Image Source="Icons/avalonia.png" Width="19" Height="20" Margin="14,0" />
+                    </Border>
+                    <Separator Theme="{StaticResource VerticalSeparator}" Margin="0,-2" DockPanel.Dock="Right" />
+                    <Menu>
+                        <MenuItem Header="File">
+                            <MenuItem Header="New">
+                                <MenuItem Header="Window" InputGesture="Ctrl+N" />
+                                <Separator />
+                                <MenuItem Header="Message" />
+                                <MenuItem Header="Post" />
+                                <MenuItem Header="Contact" />
+                                <MenuItem Header="Internet Call" />
+                            </MenuItem>
+                            <MenuItem Header="Open..." InputGesture="Ctrl+O" />
+                            <MenuItem Header="Edit" IsEnabled="False" />
+                            <MenuItem Header="Save" InputGesture="Ctrl+S" />
+                            <MenuItem Header="Save As..." />
+                            <Separator />
+                            <MenuItem Header="Page Setup..." IsEnabled="False" />
+                            <MenuItem Header="Print..." InputGesture="Ctrl+P" IsEnabled="False" />
+                            <Separator />
+                            <MenuItem Header="Send" />
+                            <MenuItem Header="Import And Export..." />
+                            <Separator />
+                            <MenuItem Header="Properties" />
+                            <MenuItem Header="Work offline" />
+                            <MenuItem Header="Close" />
+                        </MenuItem>
+                        <MenuItem Header="Edit">
+                            <MenuItem Header="Cut" InputGesture="Ctrl+X" />
+                            <MenuItem Header="Copy" InputGesture="Ctrl+C" />
+                            <MenuItem Header="Paste" InputGesture="Ctrl+V" />
+                            <Separator />
+                            <MenuItem Header="Select All" InputGesture="Ctrl+A" />
+                            <Separator />
+                            <MenuItem Header="Find (on This Page)..." InputGesture="Ctrl+F" />
+                        </MenuItem>
+                        <MenuItem Header="View">
+                            <MenuItem Header="Toolbars">
+                                <MenuItem Header="Standard Buttons" />
+                                <MenuItem Header="Address Bar" />
+                                <MenuItem Header="Links" />
+                                <MenuItem Header="Radio" />
+                                <Separator />
+                                <MenuItem Header="Customize" />
+                            </MenuItem>
+                            <MenuItem Header="Status Bar" />
+                            <MenuItem Header="Explorer Bar">
+                                <MenuItem Header="Search" InputGesture="Ctrl+E" />
+                                <MenuItem Header="Favourites" InputGesture="Ctrl+I" />
+                                <MenuItem Header="History" InputGesture="Ctrl+H" />
+                                <MenuItem Header="Folders" />
+                                <Separator />
+                                <MenuItem Header="Tip of the Dat" />
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem Header="Go To">
+                                <MenuItem Header="Back" InputGesture="Alt+Left" />
+                                <MenuItem Header="Forward" InputGesture="Alt+Right" />
+                                <MenuItem Header="Home Page" InputGesture="Alt+Home" />
+                            </MenuItem>
+                            <MenuItem Header="Stop" InputGesture="Escape" />
+                            <MenuItem Header="Refresh" InputGesture="F5" />
+                            <Separator />
+                            <MenuItem Header="Text Size">
+                                <MenuItem Header="Largest" />
+                                <MenuItem Header="Larger" />
+                                <MenuItem Header="Medium" />
+                                <MenuItem Header="Smaller" />
+                                <MenuItem Header="Smallest" />
+                            </MenuItem>
+                            <MenuItem Header="Encoding">
+                                <MenuItem Header="Auto-Select" />
+                                <Separator />
+                                <MenuItem Header="Central European (Windows)" />
+                                <MenuItem Header="Western European (Windows)" />
+                                <MenuItem Header="Unicode (UTF-8)" />
+                                <MenuItem Header="More..." />
+                                <Separator />
+                                <MenuItem Header="Left-To-Right Document" />
+                                <MenuItem Header="Right-To-Left Document" />
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem Header="Source" />
+                            <MenuItem Header="Script Debugger">
+                                <MenuItem Header="Open" />
+                                <MenuItem Header="Break at Next Statement" />
+                            </MenuItem>
+                            <MenuItem Header="Full Screen" InputGesture="F11" />
+                        </MenuItem>
+                        <MenuItem Header="Favorites">
+                            <MenuItem Header="Add to Favorites..." />
+                            <MenuItem Header="Organize Favorites" />
+                            <Separator />
+                            <MenuItem Header="Channels">
+                                <MenuItem.Icon>
+                                    <Image Source="Icons/folder16.gif" />
+                                </MenuItem.Icon>
+                                <MenuItem Header="(Empty)" IsEnabled="False" />
+                            </MenuItem>
+                            <MenuItem Header="Links">
+                                <MenuItem.Icon>
+                                    <Image Source="Icons/folder16.gif" />
+                                </MenuItem.Icon>
+                                <MenuItem Header="(Empty)" IsEnabled="False" />
+                            </MenuItem>
+                            <MenuItem Header="Media">
+                                <MenuItem.Icon>
+                                    <Image Source="Icons/folder16.gif" />
+                                </MenuItem.Icon>
+                                <MenuItem Header="(Empty)" IsEnabled="False" />
+                            </MenuItem>
+                            <MenuItem Header="WaveTop">
+                                <MenuItem.Icon>
+                                    <Image Source="Icons/folder16.gif" />
+                                </MenuItem.Icon>
+                                <MenuItem Header="(Empty)" IsEnabled="False" />
+                            </MenuItem>
+                            <MenuItem Header="MSN">
+                                <MenuItem.Icon>
+                                    <Image Source="Icons/page16.gif" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="My Documents">
+                                <MenuItem.Icon>
+                                    <Image Source="Icons/documents16.gif" />
+                                </MenuItem.Icon>
+                                <MenuItem Header="(Empty)" IsEnabled="False" />
+                            </MenuItem>
+                            <MenuItem Header="Avalonia">
+                                <MenuItem.Icon>
+                                    <Image Source="Icons/page16.gif" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Web Events">
+                                <MenuItem.Icon>
+                                    <Image Source="Icons/page16.gif" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="Tools">
+                            <MenuItem Header="Mail and News">
+                                <MenuItem Header="Read Mail" />
+                                <MenuItem Header="New Message..." />
+                                <MenuItem Header="Send a Link..." />
+                                <MenuItem Header="Send Page..." />
+                                <Separator />
+                                <MenuItem Header="Read News" />
+                            </MenuItem>
+                            <MenuItem Header="Synchronize..." />
+                            <MenuItem Header="Windows Update" />
+                            <Separator />
+                            <MenuItem Header="Show Related Links" />
+                            <Separator />
+                            <MenuItem Header="Internet Options..." Click="InternetOptions" />
+                        </MenuItem>
+                        <MenuItem Header="Help">
+                            <MenuItem Header="Contents and Index" />
+                            <MenuItem Header="Tip of the Day" />
+                            <MenuItem Header="For Netscape Users" />
+                            <MenuItem Header="Tour" />
+                            <MenuItem Header="Online Support" />
+                            <MenuItem Header="Send Feedback" />
+                            <Separator />
+                            <MenuItem Header="About Internet Explorer" Click="OpenAbout" />
+                        </MenuItem>
+                    </Menu>
+                </DockPanel>
+                <Separator />
+                <commonControls:ToolBar TextPlacement="{CompiledBinding ToolbarTextPlacement}" Size="{CompiledBinding ToolbarSize}" GrayscaleIcons="True">
+                    <commonControls:RebarHandle />
+                    <commonControls:ToolBarButton Text="Back" LargeIcon="Icons/back24.gif" SmallIcon="Icons/back16.gif" IsEnabled="{CompiledBinding CanGoBack}" PreferText="True" Click="GoBack" />
+                    <commonControls:ToolBarButton Text="Forward" LargeIcon="Icons/forward24.gif" SmallIcon="Icons/forward16.gif" IsEnabled="{CompiledBinding CanGoForward}" Click="GoForward" />
+                    <commonControls:ToolBarButton Text="Stop" LargeIcon="Icons/stop24.gif" SmallIcon="Icons/stop16.gif" Click="Stop" />
+                    <commonControls:ToolBarButton Text="Refresh" LargeIcon="Icons/refresh24.gif" SmallIcon="Icons/refresh16.gif" Click="Refresh" />
+                    <commonControls:ToolBarButton Text="Home" LargeIcon="Icons/home24.gif" SmallIcon="Icons/home16.gif" Click="Home" />
+                    <Separator />
+                    <commonControls:ToolBarButton IsToggleButton="True" IsChecked="{CompiledBinding IsSearchOpened}" PreferText="True" Text="Search" LargeIcon="Icons/search24.gif" SmallIcon="Icons/search16.gif" Click="Search" />
+                    <commonControls:ToolBarButton IsToggleButton="True" IsChecked="{CompiledBinding IsFavoritesOpened}" PreferText="True" Text="Favorites" LargeIcon="Icons/favorites24.gif" SmallIcon="Icons/favorites16.gif" />
+                    <commonControls:ToolBarButton IsToggleButton="True" IsChecked="{CompiledBinding IsHistoryOpened}" PreferText="True" Text="History" LargeIcon="Icons/history24.gif" SmallIcon="Icons/history16.gif" />
+                    <Separator />
+                    <commonControls:ToolBarButton Text="Mail" LargeIcon="Icons/mail24.gif" SmallIcon="Icons/mail16.gif">
+                        <commonControls:ToolBarButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Read Mail" />
+                                <MenuItem Header="New Message..." />
+                                <MenuItem Header="Send a Link..." />
+                                <MenuItem Header="Send Page" />
+                                <Separator />
+                                <MenuItem Header="Read News"/>
+                            </MenuFlyout>
+                        </commonControls:ToolBarButton.Flyout>
+                    </commonControls:ToolBarButton>
+                    <commonControls:ToolBarButton Text="Print" LargeIcon="Icons/print24.gif" SmallIcon="Icons/print16.gif" Click="Print" />
+                    <commonControls:ToolBarButton Text="Edit" LargeIcon="Icons/edit24.gif" SmallIcon="Icons/edit16.gif" IsEnabled="False" />
+                    <commonControls:ToolBar.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem IsChecked="{CompiledBinding IsSmallIcons, Mode=TwoWay}" GroupName="Size" Header="Small icons" ToggleType="Radio" />
+                            <MenuItem IsChecked="{CompiledBinding IsLargeIcons, Mode=TwoWay}" GroupName="Size" Header="Large icons" ToggleType="Radio" />
+                            <Separator />
+                            <MenuItem IsChecked="{CompiledBinding IsTextDown, Mode=TwoWay}" GroupName="Text" Header="Text down" ToggleType="Radio" />
+                            <MenuItem IsChecked="{CompiledBinding IsTextRight, Mode=TwoWay}" GroupName="Text" Header="Text right" ToggleType="Radio" />
+                            <MenuItem IsChecked="{CompiledBinding IsTextNo, Mode=TwoWay}" GroupName="Text" Header="No text" ToggleType="Radio" />
+                            <MenuItem IsChecked="{CompiledBinding IsTextSelective, Mode=TwoWay}" GroupName="Text" Header="Selective text" ToggleType="Radio" />
+                        </ContextMenu>
+                    </commonControls:ToolBar.ContextMenu>
+                </commonControls:ToolBar>
+                <Separator />
+                <commonControls:ToolBar TextPlacement="Right" Size="Small" GrayscaleIcons="False">
+                    <commonControls:RebarHandle />
+                    <Label HorizontalAlignment="Left">Links</Label>
+                    <commonControls:ToolBarButton Text="Best of the Web" SmallIcon="Icons/page16.gif" Command="{Binding LoadLink}" CommandParameter="https://theoldnet.com/get?url=http%3A%2F%2Fwww.microsoft.com%2Fisapi%2Fredir.dll%3Fprd%3Die%26pver%3D6%26ar%3DIStart&amp;year=2002scripts=false&amp;decode=false" />
+                    <!-- <commonControls:ToolBarButton Text="Channel Guide" SmallIcon="Icons/page16.gif" /> -->
+                    <commonControls:ToolBarButton Text="Avalonia" SmallIcon="Icons/page16.gif" Command="{Binding LoadLink}" CommandParameter="https://avaloniaui.net/" />
+                    <!-- <commonControls:ToolBarButton Text="Customize Links" SmallIcon="Icons/page16.gif" /> -->
+                    <commonControls:ToolBarButton Text="Free HotMail" SmallIcon="Icons/page16.gif" Command="{Binding LoadLink}" CommandParameter="https://theoldnet.com/get?url=hotmail.com&amp;year=2000&amp;scripts=false&amp;decode=false" />
+                    <!-- <commonControls:ToolBarButton Text="Internet Start" SmallIcon="Icons/page16.gif" /> -->
+                    <commonControls:ToolBarButton Text="Microsoft" SmallIcon="Icons/page16.gif" Command="{Binding LoadLink}" CommandParameter="https://theoldnet.com/get?url=microsoft.com&amp;year=1999&amp;scripts=false&amp;decode=false" />
+                    <commonControls:ToolBarButton Text="Windows Update" SmallIcon="Icons/page16.gif" Command="{Binding LoadLink}" CommandParameter="https://windowsupdaterestored.com/" />
+                    <commonControls:ToolBarButton Text="Windows" SmallIcon="Icons/page16.gif" Command="{Binding LoadLink}" CommandParameter="https://theoldnet.com/get?url=microsoft.com&amp;year=2001&amp;scripts=false&amp;decode=false" />
+                </commonControls:ToolBar>
+                <Separator />
+                <commonControls:ToolBar TextPlacement="Right" Size="Small" GrayscaleIcons="True">
+                    <commonControls:RebarHandle />
+                    <Label HorizontalAlignment="Left">Address</Label>
+                    <TextBox HorizontalAlignment="Stretch" Text="{CompiledBinding Url}" x:Name="AddressBox">
+                        <TextBox.KeyBindings>
+                            <KeyBinding Gesture="Enter" Command="{CompiledBinding Go}" />
+                        </TextBox.KeyBindings>
+                    </TextBox>
+                    <commonControls:ToolBarButton SmallIcon="Icons/go16.gif" Text="Go" Command="{CompiledBinding Go}" />
+                </commonControls:ToolBar>
+            </StackPanel>
+        </ClassicBorderDecorator>
+        <commonControls:StatusBar DockPanel.Dock="Bottom" Margin="0,2,0,0">
+            <commonControls:StatusBarItem commonControls:StatusBar.Size="*">
+                <Image Source="Icons/page16.gif" Width="16" Height="16" HorizontalAlignment="Left" Margin="0,-2,0,0" />
+            </commonControls:StatusBarItem>
+            <commonControls:StatusBarItem commonControls:StatusBar.Size="100" Padding="0">
+                <ProgressBar Value="{CompiledBinding Progress}"
+                             Minimum="0"
+                             Maximum="100"
+                             BorderThickness="0"
+                             MinHeight="0"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch" />
+            </commonControls:StatusBarItem>
+            <commonControls:StatusBarItem commonControls:StatusBar.Size="24">
+            </commonControls:StatusBarItem>
+            <commonControls:StatusBarItem commonControls:StatusBar.Size="24">
+            </commonControls:StatusBarItem>
+            <commonControls:StatusBarItem commonControls:StatusBar.Size="100">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Icons/web16.gif" Width="16" Height="16" Margin="0,-2,0,0" />
+                    <TextBlock>Internet</TextBlock>
+                </StackPanel>
+            </commonControls:StatusBarItem>
+        </commonControls:StatusBar>
+        <Grid ColumnDefinitions="Auto,0,*" Name="MainGrid">
+            <panels:SearchPanel IsVisible="{CompiledBinding IsSearchOpened}" />
+            <panels:HistoryPanel IsVisible="{CompiledBinding IsHistoryOpened}" />
+            <panels:FavoritesPanel IsVisible="{CompiledBinding IsFavoritesOpened}" />
+            <GridSplitter Grid.Column="1" />
+            <ClassicBorderDecorator BorderStyle="Sunken" BorderThickness="2" Grid.Column="2" Margin="2">
+                <WebView x:Name="WebView" Url="https://avaloniaui.net/" />
+            </ClassicBorderDecorator>
+        </Grid>
+    </DockPanel>
+
+</ClassicWindow>

@@ -1,0 +1,172 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    x:ClassModifier="internal">
+  <Design.PreviewWith>
+          <ComboBox Width="200" IsEnabled="False"></ComboBox>
+  </Design.PreviewWith>
+  <StreamGeometry x:Key="DownArrowGeometry">M 0 0 L 3.5 4 L 7 0 Z</StreamGeometry>
+
+  <ControlTheme x:Key="ComboBoxTransparentButtonStyle"
+       TargetType="{x:Type ToggleButton}">
+    <Setter Property="MinWidth"
+            Value="0"/>
+    <Setter Property="MinHeight"
+            Value="0"/>
+    <Setter Property="Background"
+            Value="Transparent"/>
+    <Setter Property="BorderBrush"
+            Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
+    <Setter Property="BorderThickness"
+            Value="2"/>
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                <DockPanel Background="{TemplateBinding Background}"
+                           LastChildFill="false">
+                    <classic:ClassicBorderDecorator Name="Border"
+                                                  DockPanel.Dock="Right"
+                                                  Width="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"
+                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                                  BorderBrush="{TemplateBinding BorderBrush}">
+                        <Path
+                              Fill="{TemplateBinding Foreground}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{StaticResource DownArrowGeometry}"/>
+                    </classic:ClassicBorderDecorator>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+    <Style Selector="^ /template/ classic|ClassicBorderDecorator#Border">
+            <Setter Property="BorderStyle"
+                    Value="AltRaised"/>
+    </Style>
+    <Style Selector="^:pressed /template/ classic|ClassicBorderDecorator#Border">
+      <Setter Property="BorderStyle"
+              Value="AltPressed"/>
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"/>
+    </Style>
+</ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ComboBox}"
+                TargetType="ComboBox">
+    <Setter Property="FocusAdorner"
+            Value="{controls:ClassicalFocusAdorner MarginLeft=4, MarginBottom=4, MarginTop=4, MarginRight=21}"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+    <Setter Property="Margin"
+            Value="0,0,0,0"/>
+    <Setter Property="Padding"
+            Value="1,1"/>
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+            Value="Auto"/>
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+            Value="Auto"/>
+    <Setter Property="VerticalContentAlignment"
+            Value="Center"/>
+
+    <!-- <Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}" /> -->
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}"
+            BorderThickness="{TemplateBinding BorderThickness}"
+            BorderBrush="{TemplateBinding BorderBrush}">
+        <Grid>
+            <classic:ClassicBorderDecorator Name="Border"
+                                          Background="{TemplateBinding Background}"
+                                          BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                          BorderThickness="2"
+                                          BorderStyle="Sunken">
+                    <Popup Name="PART_Popup"
+                           WindowManagerAddShadowHint="True"
+                           IsLightDismissEnabled="True"
+                           Placement="Bottom"
+                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                           MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                           PlacementTarget="{TemplateBinding}"
+                           IsOpen="{TemplateBinding IsDropDownOpen,
+                                            Mode=TwoWay}"
+                           Focusable="False">
+                <Border x:Name="DropDownBorder"
+                        Background="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"
+                        BorderThickness="1"
+                        RenderOptions.TextRenderingMode="Alias"
+                        BorderBrush="{DynamicResource {x:Static classic:SystemColors.WindowFrameBrushKey}}">
+                    <ScrollViewer Name="DropDownScrollViewer"
+                                  HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                  VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                  IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">
+                      <Grid >
+                        <Canvas Height="0" Width="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Rectangle
+                                Name="OpaqueRect"
+                                Height="{Binding ElementName=DropDownBorder,Path=Bounds.Height}"
+                                Width="{Binding ElementName=DropDownBorder,Path=Bounds.Width}"
+                                Fill="{Binding ElementName=DropDownBorder,Path=Background}" />
+                        </Canvas>
+                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" KeyboardNavigation.TabNavigation="Contained" />
+                      </Grid>
+                    </ScrollViewer>
+                </Border>
+                </Popup>
+            </classic:ClassicBorderDecorator>
+            <DockPanel Margin="2">
+                <!-- saves space for the button which will be drawn on top -->
+                <Control DockPanel.Dock="Right"
+                                  Width="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"/>
+                <Border x:Name="SelectedItemBorder"
+                        Margin="{TemplateBinding Padding}">
+                        <Panel>
+                                <TextBlock Name="PlaceholderTextBlock"
+                                           Margin="1,1,1,1"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           Foreground="{TemplateBinding PlaceholderForeground}"
+                                           IsVisible="{TemplateBinding SelectionBoxItem,
+                                                   Converter={x:Static ObjectConverters.IsNull}}"
+                                           Text="{TemplateBinding PlaceholderText}" />
+                                <ContentPresenter Margin="1,1,1,1"
+                                                  Content="{TemplateBinding SelectionBoxItem}"
+                                                  ContentTemplate="{TemplateBinding ItemTemplate}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                        </Panel>
+                </Border>
+            </DockPanel>
+            <ToggleButton Name="toggle"
+                          Margin="2"
+                          MinWidth="0"
+                          MinHeight="0"
+                          Focusable="False"
+                          Theme="{StaticResource ComboBoxTransparentButtonStyle}"
+                          IsChecked="{TemplateBinding IsDropDownOpen,
+                                                      Mode=TwoWay}"
+                          ClickMode="Press"/>
+        </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:disabled">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+            <Setter Property="Background"
+                    Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+    </Style>
+    <Style Selector="^:focus">
+            <Style Selector="^ /template/ Border#SelectedItemBorder">
+                    <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+                    <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}" />
+            </Style>
+</Style>
+  </ControlTheme>
+</ResourceDictionary>

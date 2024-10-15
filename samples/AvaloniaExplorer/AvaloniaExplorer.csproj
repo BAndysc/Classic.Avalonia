@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.1.4"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.1.4"/>
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.4"/>
+        <PackageReference Include="WebView.Avalonia" Version="11.0.0.1" />
+        <PackageReference Include="WebView.Avalonia.Desktop" Version="11.0.0.1" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj" />
+      <ProjectReference Include="..\..\src\Classic.CommonControls.Avalonia\Classic.CommonControls.Avalonia.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Icons\*.gif" />
+      <AvaloniaResource Include="Icons\*.gif" />
+      <None Remove="Icons\cpl\*.gif" />
+      <AvaloniaResource Include="Icons\cpl\*.gif" />
+      <None Remove="Icons\avalonia.png" />
+      <AvaloniaResource Include="Icons\avalonia.png" />
+    </ItemGroup>
+</Project>

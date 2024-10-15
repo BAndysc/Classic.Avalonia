@@ -1,0 +1,16 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:classic="clr-namespace:Classic.Avalonia.Theme;assembly=Classic.Avalonia.Theme"
+             x:Class="Notepad.App"
+             RequestedThemeVariant="Default">
+
+    <Application.Styles>
+        <classic:ClassicTheme />
+    </Application.Styles>
+
+    <Application.Resources>
+        <ControlTheme x:Key="{x:Type Window}"
+                      TargetType="Window"
+                      BasedOn="{StaticResource ClassicWindow}" />
+    </Application.Resources>
+</Application>

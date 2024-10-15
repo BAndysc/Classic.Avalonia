@@ -1,0 +1,124 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme">
+
+  <ResourceDictionary.ThemeDictionaries>
+    <ResourceDictionary x:Key="Default">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StandardWindows.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Standard}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StandardWindows.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Classic}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/ClassicWindows.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Brick}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Brick.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Marine}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Marine.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Wheat}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Wheat.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Sprouce}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Sprouce.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Plum}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Plum.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Rose}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Rose.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Storm}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Storm.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Desert}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Desert.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Eggplant}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Eggplant.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.Pumpkin}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Pumpkin.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="{x:Static classic:ClassicTheme.StarsAndStripes}">
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StarsAndStripes.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+  </ResourceDictionary.ThemeDictionaries>
+
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ActiveBorderBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ActiveBorderColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ActiveCaptionBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ActiveCaptionColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ActiveCaptionTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ActiveCaptionTextColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.AppWorkspaceBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.AppWorkspaceColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ControlBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ControlColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ControlDarkBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ControlDarkColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ControlDarkDarkBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ControlLightBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ControlLightColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ControlLightLightBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ControlLightLightColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ControlTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ControlTextColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.DesktopBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.DesktopColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.GradientActiveCaptionBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.GradientActiveCaptionColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.GradientInactiveCaptionBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.GradientInactiveCaptionColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.GrayTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.GrayTextColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.HighlightBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.HighlightColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.HighlightTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.HighlightTextColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.HotTrackBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.HotTrackColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.InactiveBorderBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.InactiveBorderColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.InactiveCaptionBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.InactiveCaptionColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.InactiveCaptionTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.InactiveCaptionTextColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.InfoBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.InfoColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.InfoTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.InfoTextColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.MenuBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.MenuColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.MenuBarBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.MenuBarColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.MenuHighlightBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.MenuHighlightColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.MenuTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.MenuTextColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.ScrollBarBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ScrollBarColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.WindowBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.WindowColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.WindowFrameBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.WindowFrameColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.WindowTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.WindowTextColorKey}}" />
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.InactiveSelectionHighlightBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ControlColorKey}}" /> <!-- On high contrast: HighlightColorKey -->
+  <SolidColorBrush x:Key="{x:Static classic:SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="{DynamicResource {x:Static classic:SystemColors.ControlTextColorKey}}" /> <!-- On high contrast: HighlightColorTextKey -->
+</ResourceDictionary>

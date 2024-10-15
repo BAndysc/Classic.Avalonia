@@ -1,0 +1,82 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <FocusAdornerTemplate  x:Key="TabItemFocusVisual">
+    <Rectangle Margin="4,4,4,2"
+               StrokeThickness="1"
+               Stroke="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"
+               StrokeDashArray="1,2"/>
+  </FocusAdornerTemplate>
+
+  <ControlTheme x:Key="{x:Type TabItem}"
+                TargetType="TabItem">
+    <Setter Property="FocusAdorner"
+            Value="{StaticResource TabItemFocusVisual}"/>
+    <Setter Property="Padding"
+            Value="6,0,6,0"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+    <Setter Property="HorizontalContentAlignment"
+            Value="Stretch"/>
+    <Setter Property="VerticalContentAlignment"
+            Value="Stretch"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <classic:ClassicBorderDecorator x:Name="ClassicBorder"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                      BorderThickness="2">
+
+          <!--                             HorizontalAlignment="{Binding Path=HorizontalContentAlignment,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                            VerticalAlignment="{Binding Path=VerticalContentAlignment,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+ -->
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}" />
+        </classic:ClassicBorderDecorator>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:selected">
+      <Setter Property="ZIndex" Value="1" />
+    </Style>
+    <Style Selector="^ /template/ classic|ClassicBorderDecorator#ClassicBorder">
+      <Setter Property="BorderStyle" Value="TabTop" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Bottom] /template/ classic|ClassicBorderDecorator#ClassicBorder">
+      <Setter Property="BorderStyle" Value="TabBottom" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Left] /template/ classic|ClassicBorderDecorator#ClassicBorder">
+      <Setter Property="BorderStyle" Value="TabLeft" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right] /template/ classic|ClassicBorderDecorator#ClassicBorder">
+      <Setter Property="BorderStyle" Value="TabRight" />
+    </Style>
+
+    <Style Selector="^[TabStripPlacement=Top]:selected">
+      <Setter Property="Margin" Value="-2" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Bottom]:selected">
+      <Setter Property="Margin" Value="-2" />
+    </Style>
+
+    <Style Selector="^[TabStripPlacement=Left]:selected">
+      <Setter Property="Padding" Value="11,2,14,2" />
+      <Setter Property="Margin" Value="-2" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right]:selected">
+      <Setter Property="Padding" Value="14,2,11,2" />
+      <Setter Property="Margin" Value="-2" />
+    </Style>
+
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

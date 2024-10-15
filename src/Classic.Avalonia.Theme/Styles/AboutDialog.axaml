@@ -1,0 +1,44 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dialogs="clr-namespace:Classic.CommonControls.Dialogs;assembly=Classic.CommonControls.Avalonia">
+  <Design.PreviewWith>
+    <dialogs:AboutDialog>
+      <dialogs:AboutDialog.DataContext>
+        <dialogs:AboutDialogViewModel Title="Microsoft (R) Notepad"
+                                      Copyright="Copyright (C) 1981-1998 Microsoft Corp."
+                                      />
+      </dialogs:AboutDialog.DataContext>
+    </dialogs:AboutDialog>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="{x:Type dialogs:AboutDialog}"
+                TargetType="dialogs:AboutDialog">
+    <Setter Property="Padding" Value="11" />
+    <Setter Property="Template">
+      <ControlTemplate x:DataType="dialogs:AboutDialogViewModel">
+        <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="68,252">
+          <Image Source="{CompiledBinding Icon}" Width="32" Height="32" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
+          <StackPanel Grid.Column="1">
+            <TextBlock Text="{CompiledBinding Title}" />
+            <TextBlock Text="{CompiledBinding OperatingSystem}" />
+            <TextBlock Text="{CompiledBinding Copyright}" />
+            <Border Height="36" />
+            <TextBlock Text="This product is licensed to:" />
+            <TextBlock Text="{CompiledBinding Username}" />
+            <Border Height="30" />
+            <Separator />
+            <Border Height="8" />
+            <Grid ColumnDefinitions="*,5,Auto" RowDefinitions="*,Auto">
+              <TextBlock Text="{CompiledBinding OperatingSystemName, StringFormat=Physical memory available to {0}:}" Grid.Column="0" Grid.Row="0" />
+              <TextBlock Text="System resources:" Grid.Column="0" Grid.Row="1" />
+              <TextBlock Text="{CompiledBinding TotalMemory, StringFormat={}{0} MB}" Grid.Column="2" Grid.Row="0" />
+              <TextBlock Text="{CompiledBinding FreeResources, StringFormat={}{0}% Free}" Grid.Column="2" Grid.Row="1" />
+            </Grid>
+            <Border Height="20" />
+            <Button Command="{CompiledBinding Close}" Width="75" HorizontalAlignment="Right" IsDefault="True" IsCancel="True">OK</Button>
+          </StackPanel>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

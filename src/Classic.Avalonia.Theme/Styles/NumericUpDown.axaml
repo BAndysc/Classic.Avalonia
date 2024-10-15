@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+  <Design.PreviewWith>
+    <NumericUpDown Value="200" />
+  </Design.PreviewWith>
+  <ControlTheme x:Key="{x:Type NumericUpDown}"
+                TargetType="NumericUpDown">
+    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+    <Setter Property="BorderBrush" Value="{x:Static ClassicBorderDecorator.ClassicBorderBrush}" />
+    <Setter Property="BorderThickness" Value="2" />
+    <Setter Property="Padding" Value="2,0" />
+    <Setter Property="Height" Value="20" /> <!-- fix this: the height should be autocalculated, but ButtonSpinner reports too high Desired height  -->
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ButtonSpinner Name="PART_Spinner"
+                       HorizontalContentAlignment="Stretch"
+                       VerticalContentAlignment="Stretch"
+                       IsTabStop="False"
+                       AllowSpin="{TemplateBinding AllowSpin}"
+                       Background="{TemplateBinding Background}"
+                       BorderBrush="{TemplateBinding BorderBrush}"
+                       BorderThickness="{TemplateBinding BorderThickness}"
+                       ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
+                       ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
+          <TextBox Name="PART_TextBox"
+                   MinWidth="20"
+                   Padding="{TemplateBinding Padding}"
+                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                   AcceptsReturn="False"
+                   Background="{TemplateBinding Background}"
+                   BorderThickness="0"
+                   DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                   IsReadOnly="{TemplateBinding IsReadOnly}"
+                   Text="{TemplateBinding Text}"
+                   TextAlignment="{TemplateBinding TextAlignment}"
+                   TextWrapping="NoWrap"
+                   Watermark="{TemplateBinding Watermark}"
+                   InnerLeftContent="{Binding InnerLeftContent, RelativeSource={RelativeSource TemplatedParent}}"
+                   InnerRightContent="{Binding InnerRightContent, RelativeSource={RelativeSource TemplatedParent}}"
+                   />
+        </ButtonSpinner>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

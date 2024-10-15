@@ -1,0 +1,594 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    x:ClassModifier="internal">
+  <ControlTheme x:Key="&#269;"
+         TargetType="{x:Type RepeatButton}">
+    <Setter Property="IsTabStop"
+            Value="False"/>
+    <Setter Property="Focusable"
+            Value="False"/>
+    <Setter Property="Background"
+            Value="Transparent"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type RepeatButton}">
+          <Border Background="{TemplateBinding Background}"/>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </ControlTheme>
+  <ControlTheme x:Key="&#270;"
+         TargetType="{x:Type Thumb}">
+      <Setter Property="Foreground"
+              Value="{x:Null}"/>
+      <Setter Property="Background"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+      <Setter Property="Height"
+              Value="21"/>
+      <Setter Property="Width"
+              Value="11"/>
+      <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="{x:Type Thumb}">
+                  <classic:ClassicBorderDecorator BorderStyle="Raised"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                                BorderThickness="3">
+                      <Rectangle Name="ForegroundRect"
+                                 Fill="{TemplateBinding Foreground}"
+                                 Opacity="0.5"
+                                 Margin="-1"/>
+                  </classic:ClassicBorderDecorator>
+              </ControlTemplate>
+          </Setter.Value>
+      </Setter>
+      <Style Selector="^:pressed">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="&#271;"
+                TargetType="{x:Type Thumb}">
+      <Setter Property="Foreground"
+              Value="{x:Null}"/>
+      <Setter Property="Background"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+      <Setter Property="Height"
+              Value="21"/>
+      <Setter Property="Width"
+              Value="11"/>
+      <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="{x:Type Thumb}">
+                  <Canvas UseLayoutRounding="True">
+                      <!-- Fill Background Area including base border -->
+                      <Path Fill="{TemplateBinding Background}"
+                            Data="M 11 21 L 0 21 L 0 6 L 5 1 L 6 1 L 11 6 z"/>
+                      <!-- LeftTip/Left-OuterLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 0.5 20 L 0.5 5.5 L 5 0.5 L 5.5 0.5"/>
+                      <!-- Bottom/Right/RightTip-OuterLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 5.5 0.5 L 6 0.5 L 10.5 5.5 L 10.5 20.5 L 0 20.5"/>
+                      <!-- LeftTip/Left-InnerLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 1.5 19 L 1.5 5.5 L 5 1.5 L 5.5 1.5"/>
+                      <!-- Bottom/Right/RightTip-InnerLine-->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 5.5 1.5 L 6 1.5 L 9.5 5.5 L 9.5 19.5 L 1.0 19.5"/>
+                      <!-- Fill Inner Area -->
+                      <Path Fill="{TemplateBinding Foreground}"
+                            Opacity="0.5"
+                            Data="M 9 19 L 2 19 L 2 6 L 5.5 2 L 9 6 z"/>
+                  </Canvas>
+              </ControlTemplate>
+          </Setter.Value>
+      </Setter>
+      <Style Selector="^:pressed">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="&#272;"
+                TargetType="{x:Type Thumb}">
+      <Setter Property="Foreground"
+              Value="{x:Null}"/>
+      <Setter Property="Background"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+      <Setter Property="Height"
+              Value="21"/>
+      <Setter Property="Width"
+              Value="11"/>
+      <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="{x:Type Thumb}">
+                  <Canvas UseLayoutRounding="True">
+                      <!-- Fill Background Area including base border -->
+                      <Path Fill="{TemplateBinding Background}"
+                            Data="M 11 0 L 0 0 L 0 15 L 5 21 L 6 21 L 11 15 z"/>
+                      <!-- Top/Left/LeftTip OuterLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 10 0.5 L 0.5 0.5 L 0.5 15.5 L 5 20.5 L 5.5 20.5"/>
+                      <!-- Right/RightTip OuterLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 5.5 20.5 L 6 20.5 L 10.5 15.5 L 10.5 0"/>
+                      <!-- Top/Left/LeftTip InnerLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 9 1.5 L 1.5 1.5 L 1.5 15.5 L 5 19.5 L 5.5 19.5"/>
+                      <!-- Right/RightTip InnerLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 5.5 19.5 L 6 19.5 L 9.5 15.5 L 9.5 1"/>
+                      <!-- Fill Inner Area -->
+                      <Path Fill="{TemplateBinding Foreground}"
+                            Opacity="0.5"
+                            Data="M 9 2 L 2 2 L 2 15 L 5.5 19 L 9 15 z"/>
+                  </Canvas>
+              </ControlTemplate>
+          </Setter.Value>
+      </Setter>
+      <Style Selector="^:pressed">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="&#273;"
+                TargetType="{x:Type Thumb}">
+      <Setter Property="Foreground"
+              Value="{x:Null}"/>
+      <Setter Property="Background"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+      <Setter Property="Width"
+              Value="21"/>
+      <Setter Property="Height"
+              Value="11"/>
+      <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="{x:Type Thumb}">
+                  <classic:ClassicBorderDecorator BorderStyle="Raised"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                                BorderThickness="3">
+                      <Rectangle
+                                 Fill="{TemplateBinding Foreground}"
+                                 Opacity="0.5"
+                                 Margin="-1"/>
+                  </classic:ClassicBorderDecorator>
+              </ControlTemplate>
+          </Setter.Value>
+      </Setter>
+      <Style Selector="^:pressed">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="&#274;"
+                TargetType="{x:Type Thumb}">
+      <Setter Property="Foreground"
+              Value="{x:Null}"/>
+      <Setter Property="Background"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+      <Setter Property="Width"
+              Value="21"/>
+      <Setter Property="Height"
+              Value="11"/>
+      <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="{x:Type Thumb}">
+                  <Canvas UseLayoutRounding="True">
+                      <!-- Fill Background Area including base border -->
+                      <Path Fill="{TemplateBinding Background}"
+                            Data="M 21 11 L 21 0 L 6 0 L 0 5 L 0 6 L 6 11 z"/>
+                      <!-- TopTip/Top OuterLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 20 0.5 L 5.5 0.5 L 0.5 5 L 0.5 5.5 "/>
+                      <!-- Right/Bottom/BottomTip OuterLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 0.5 5.5 L 0.5 6 L 5.5 10.5 L 20.5 10.5 L 20.5 0 "/>
+                      <!-- TopTip/Top InnerLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 19 1.5 L 5.5 1.5 L 1.5 5 L 1.5 5.5 "/>
+                      <!-- Right/Bottom/BottomTip InnerLine-->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 1.5 5.5 L 1.5 6 L 5.5 9.5 L 19.5 9.5 L 19.5 1.0 "/>
+                      <!-- Fill Inner Area -->
+                      <Path Fill="{TemplateBinding Foreground}"
+                            Opacity="0.5"
+                            Data="M 19 9 L 19 2 L 6 2 L 2 5.5 L 6 9 z"/>
+                  </Canvas>
+              </ControlTemplate>
+          </Setter.Value>
+      </Setter>
+      <Style Selector="^:pressed">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="&#275;"
+                TargetType="{x:Type Thumb}">
+      <Setter Property="BorderThickness"
+              Value="0,0,0,0"/>
+      <Setter Property="Foreground"
+              Value="{x:Null}"/>
+      <Setter Property="Background"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+      <Setter Property="Width"
+              Value="21"/>
+      <Setter Property="Height"
+              Value="11"/>
+      <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="{x:Type Thumb}">
+                  <Canvas UseLayoutRounding="True">
+                      <!-- Fill Background Area including base border -->
+                      <Path Fill="{TemplateBinding Background}"
+                            Data="M 0 11 L 0 0 L 15 0 L 21 5 L 21 6 L 15 11 z"/>
+                      <!-- Left/Top/TopTip OuterLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 0.5 10 L 0.5 0.5 L 15.5 0.5 L 20.5 5 L 20.5 5.5 "/>
+                      <!-- Bottom/BottomTip OuterLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 20.5 5.5 L 20.5 6 L 15.5 10.5 L 0 10.5 "/>
+                      <!-- Left/Top/TopTip InnerLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 1.5 9 L 1.5 1.5 L 15.5 1.5 L 19.5 5 L 19.5 5.5 "/>
+                      <!-- Bottom/BottomTip InnerLine -->
+                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+                            StrokeThickness="1.0"
+                            Data="M 19.5 5.5 L 19.5 6 L 15.5 9.5 L 1 9.5 "/>
+                      <!-- Fill Inner Area -->
+                      <Path Fill="{TemplateBinding Foreground}"
+                            Opacity="0.5"
+                            Data="M 2 9 L 2 2 L 15 2 L 19 5.5 L 15 9 "/>
+                  </Canvas>
+              </ControlTemplate>
+          </Setter.Value>
+      </Setter>
+      <Style Selector="^:pressed">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+      </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type Slider}"
+         TargetType="{x:Type Slider}">
+    <Setter Property="IsSnapToTickEnabled"
+            Value="True"/>
+    <Setter Property="Background"
+            Value="Transparent"/>
+    <Setter Property="FocusAdorner"
+            Value="{controls:ClassicalFocusAdorner}" />
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+      <Style Selector="^:horizontal">
+        <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="{x:Type Slider}">
+                  <Border Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          Width="{TemplateBinding Width}">
+                      <Grid>
+                          <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="*"/>
+                          </Grid.ColumnDefinitions>
+                          <Grid.RowDefinitions>
+                              <RowDefinition Height="Auto"/>
+                              <RowDefinition Height="Auto"
+                                             MinHeight="{TemplateBinding Slider.MinHeight}"/>
+                              <RowDefinition Height="Auto"/>
+                          </Grid.RowDefinitions>
+                          <!--
+                               #
+                               # Top TickMark: Will be shown only when Slider.TickPlacement = TopLeft or Both
+                               #
+                           -->
+                          <TickBar x:Name="TopTick"
+                                   Placement="Top"
+                                   Fill="{TemplateBinding Foreground}"
+                                   Height="4"
+                                   IsVisible="False"/>
+                          <!--
+                               #
+                               # Slider TrackBackground
+                               #
+                               # Draw Track Background. Usually, the track image is smaller than the size of
+                               # the channel. So, we need to put the background at center of the channel.
+                               #
+                           -->
+                          <classic:ClassicBorderDecorator Name="TrackBackground"
+                                                        Margin="0,0,0,1"
+                                                        Height="4"
+                                                        Grid.Row="1"
+                                                        BorderStyle="Sunken"
+                                                        BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                                        BorderThickness="2">
+                              <!--
+                                   #
+                                   # SelectionRangeElement
+                                   #
+                               -->
+                              <Canvas Margin="-2">
+                                  <!--
+                                       #
+                                       # SelectionRangeElement
+                                       #
+                                   -->
+                                  <Rectangle x:Name="PART_SelectionRange"
+                                             Fill="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"
+                                             Height="4.0"
+                                             Opacity="0"/>
+                              </Canvas>
+                          </classic:ClassicBorderDecorator>
+
+                          <!--
+                               #
+                               # MainPartsPanel
+                               # ==============
+                               #   This is a panel that hold 2 transparent RepeatButtons and Thumb.
+                               #   This part usually lay on top of the Track background.
+                             -->
+                          <Track Grid.Row="1"
+                                 Minimum="{TemplateBinding Minimum}"
+                                 Maximum="{TemplateBinding Maximum}"
+                                 Orientation="{TemplateBinding Orientation}"
+                                 Value="{TemplateBinding Value, Mode=TwoWay}"
+                                 Name="PART_Track">
+                              <Track.DecreaseButton>
+                                  <RepeatButton Theme="{StaticResource &#269;}"
+                                                Name="PART_DecreaseButton"/>
+                              </Track.DecreaseButton>
+                              <Track.IncreaseButton>
+                                  <RepeatButton Theme="{StaticResource &#269;}"
+                                                Name="PART_IncreaseButton"/>
+                              </Track.IncreaseButton>
+                              <Track.Thumb>
+                                  <Thumb x:Name="thumb"
+                                         Theme="{StaticResource &#270;}"/>
+                              </Track.Thumb>
+                          </Track>
+
+                          <!--
+                               #
+                               # Bottom TickMark: Will be shown only when Slider.TickPlacement = BottomRight or Both
+                               #
+                           -->
+                          <TickBar x:Name="BottomTick"
+                                   Fill="{TemplateBinding Foreground}"
+                                   Placement="Bottom"
+                                   Height="4"
+                                   IsVisible="False"
+                                   Grid.Row="2"/>
+                      </Grid>
+                  </Border>
+              </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+
+        <!-- ShowTickMarkBands and Reposition the Track-->
+        <Style Selector="^[TickPlacement=TopLeft]">
+          <Style Selector="^ /template/ TickBar#TopTick">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+          <Style Selector="^ /template/ Thumb#thumb">
+            <Setter Property="Theme" Value="{StaticResource &#271;}" />
+          </Style>
+          <Style Selector="^ /template/ classic|ClassicBorderDecorator#TrackBackground">
+            <Setter Property="Margin" Value="0,3,0,0" />
+          </Style>
+        </Style>
+        <Style Selector="^[TickPlacement=BottomRight]">
+          <Style Selector="^ /template/ TickBar#BottomTick">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+          <Style Selector="^ /template/ Thumb#thumb">
+            <Setter Property="Theme" Value="{StaticResource &#272;}" />
+          </Style>
+          <Style Selector="^ /template/ classic|ClassicBorderDecorator#TrackBackground">
+            <Setter Property="Margin" Value="0,0,0,3" />
+          </Style>
+        </Style>
+        <Style Selector="^[TickPlacement=Outside]">
+          <Style Selector="^ /template/ TickBar#TopTick">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+          <Style Selector="^ /template/ TickBar#BottomTick">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+        </Style>
+        <!-- Display SelectionRange background -->
+        <!-- <Trigger Property="IsSelectionRangeEnabled" -->
+        <!--          Value="true"> -->
+        <!--     <Setter TargetName="PART_SelectionRange" -->
+        <!--             Property="Visibility" -->
+        <!--             Value="Visible"/> -->
+        <!-- </Trigger>      -->
+      </Style>
+      <Style Selector="^:vertical">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Slider}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Height="{TemplateBinding Height}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"
+                                                  MinWidth="{TemplateBinding Slider.MinWidth}"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!--
+                                 #
+                                 # Left TickMark: Will be shown only when Slider.TickPlacement = TopLeft or Both
+                                 #
+                              -->
+                            <TickBar x:Name="LeftTick"
+                                     Placement="Left"
+                                     Fill="{TemplateBinding Foreground}"
+                                     Width="4"
+                                     IsVisible="False"/>
+                            <!--
+                                 #
+                                 # Slider Track Background
+                                 #
+                                 # Draw Track Background. Usually, the track image is smaller than the size of
+                                 # the channel. So, we need to put the background at center of the channel.
+                                 #
+                             -->
+                            <classic:ClassicBorderDecorator Name="TrackBackground"
+                                                          Margin="0,0,1,0"
+                                                          Width="4"
+                                                          Grid.Column="1"
+                                                          BorderStyle="Sunken"
+                                                          BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                                          BorderThickness="2">
+                                <Canvas Margin="-2">
+                                    <!--
+                                     #
+                                     # SelectionRangeElement
+                                     #
+                                 -->
+                                    <Rectangle x:Name="PART_SelectionRange"
+                                               Fill="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"
+                                               Width="4.0"
+                                               Opacity="0"/>
+                                </Canvas>
+                            </classic:ClassicBorderDecorator>
+
+                            <!--
+                                 #
+                                 # MainPartsPanel
+                                 # ==============
+                                 #   This is a panel that hold 2 transparent RepeatButtons and Thumb.
+                                 #   This part usually lay on top of the Track background.
+                             -->
+                            <Track Grid.Column="1"
+                                   Minimum="{TemplateBinding Minimum}"
+                                   Maximum="{TemplateBinding Maximum}"
+                                   Orientation="{TemplateBinding Orientation}"
+                                   Value="{TemplateBinding Value, Mode=TwoWay}"
+                                   Name="PART_Track">
+                                <Track.DecreaseButton>
+                                    <RepeatButton Theme="{StaticResource &#269;}"
+                                                  Name="PART_DecreaseButton" />
+                                </Track.DecreaseButton>
+                                <Track.IncreaseButton>
+                                    <RepeatButton Theme="{StaticResource &#269;}"
+                                                  Name="PART_IncreaseButton"/>
+                                </Track.IncreaseButton>
+                                <Track.Thumb>
+                                    <Thumb x:Name="thumb"
+                                           Theme="{StaticResource &#273;}"/>
+                                </Track.Thumb>
+                            </Track>
+
+                            <!--
+                                 #
+                                 # Right TickMark: Will be shown only when Slider.TickPlacement = BottomRight or Both
+                                 #
+                             -->
+                            <TickBar x:Name="RightTick"
+                                     Fill="{TemplateBinding Foreground}"
+                                     Placement="Right"
+                                     Width="4"
+                                     IsVisible="False"
+                                     Grid.Column="2"
+                                     Grid.RowSpan="3"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!-- ShowTickMarkBands and Reposition the Track-->
+        <Style Selector="^[TickPlacement=TopLeft]">
+          <Style Selector="^ /template/ TickBar#LeftTick">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+          <Style Selector="^ /template/ Thumb#thumb">
+            <Setter Property="Theme" Value="{StaticResource &#274;}" />
+          </Style>
+          <Style Selector="^ /template/ classic|ClassicBorderDecorator#TrackBackground">
+            <Setter Property="Margin" Value="3,0,0,0" />
+          </Style>
+        </Style>
+        <Style Selector="^[TickPlacement=BottomRight]">
+          <Style Selector="^ /template/ TickBar#RightTick">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+          <Style Selector="^ /template/ Thumb#thumb">
+            <Setter Property="Theme" Value="{StaticResource &#275;}" />
+          </Style>
+          <Style Selector="^ /template/ classic|ClassicBorderDecorator#TrackBackground">
+            <Setter Property="Margin" Value="0,0,3,0" />
+          </Style>
+        </Style>
+        <Style Selector="^[TickPlacement=Outside]">
+          <Style Selector="^ /template/ TickBar#LeftTick">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+          <Style Selector="^ /template/ TickBar#RightTick">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+        </Style>
+          <!-- Display SelectionRange background -->
+          <!-- <Trigger Property="IsSelectionRangeEnabled" -->
+          <!--          Value="true"> -->
+          <!--     <Setter TargetName="PART_SelectionRange" -->
+          <!--             Property="Visibility" -->
+          <!--             Value="Visible"/> -->
+          <!-- </Trigger> -->
+      </Style>
+      <Style Selector="^ /template/ TickBar">
+        <Setter Property="Ticks" Value="{Binding $parent[Slider].Ticks}" />
+        <Setter Property="TickFrequency" Value="{Binding $parent[Slider].TickFrequency}" />
+        <Setter Property="Orientation" Value="{Binding $parent[Slider].Orientation}" />
+        <Setter Property="Minimum" Value="{Binding $parent[Slider].Minimum}" />
+        <Setter Property="Maximum" Value="{Binding $parent[Slider].Maximum}" />
+      </Style>
+  </ControlTheme>
+</ResourceDictionary>

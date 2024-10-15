@@ -1,0 +1,86 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    x:ClassModifier="internal">
+  <Design.PreviewWith>
+    <DropDownButton Content="Selected item">
+    </DropDownButton>
+  </Design.PreviewWith>
+  <ControlTheme x:Key="{x:Type DropDownButton}"
+                TargetType="DropDownButton">
+    <Setter Property="FocusAdorner"
+            Value="{controls:ClassicalFocusAdorner MarginBottom=4, MarginLeft=4, MarginRight=4, MarginTop=4}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    <Setter Property="BorderThickness"
+            Value="3"/>
+    <Setter Property="HorizontalContentAlignment"
+            Value="Center"/>
+    <Setter Property="VerticalContentAlignment"
+            Value="Center"/>
+    <Setter Property="Padding"
+            Value="4,1,4,3"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate>
+            <ClassicBorderDecorator x:Name="ContentContainer"
+                                          Background="{TemplateBinding Background}"
+                                          BorderThickness="{TemplateBinding BorderThickness}">
+                <Grid Name="InnerGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Grid.Column="0"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      RecognizesAccessKey="True" />
+
+                    <PathIcon Name="DropDownGlyph"
+                              Grid.Column="1"
+                              Width="7"
+                              Height="7"
+                              Margin="0,0,2,0"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Center"
+                              IsHitTestVisible="False"
+                              UseLayoutRounding="False" />
+
+                </Grid>
+            </ClassicBorderDecorator>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+
+    <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+      <Setter Property="Data" Value="M 0 0 L 3.5 4 L 7 0 Z" />
+    </Style>
+
+    <Style Selector="^ /template/ ClassicBorderDecorator#ContentContainer">
+        <Setter Property="BorderStyle" Value="Raised" />
+    </Style>
+    <Style Selector="^[IsKeyboardFocusWithin=True] /template/ ClassicBorderDecorator#ContentContainer">
+        <Setter Property="BorderStyle" Value="RaisedFocused" />
+    </Style>
+    <Style Selector="^[IsDefault=True] /template/ ClassicBorderDecorator#ContentContainer">
+        <Setter Property="BorderStyle" Value="RaisedFocused" />
+    </Style>
+    <Style Selector="^:pressed /template/ ClassicBorderDecorator#ContentContainer">
+        <Setter Property="BorderStyle" Value="RaisedPressed" />
+    </Style>
+    <Style Selector="^:flyout-open /template/ ClassicBorderDecorator#ContentContainer">
+        <Setter Property="BorderStyle" Value="RaisedPressed" />
+    </Style>
+    <Style Selector="^:disabled">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

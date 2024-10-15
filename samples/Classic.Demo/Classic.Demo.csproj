@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.1.4" />
+        <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.1.4" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.1.4" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.1.4"/>
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.4"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <None Remove="icon16.png" />
+        <AvaloniaResource Include="icon16.png" />
+        <None Remove="Icons/*.png" />
+        <AvaloniaResource Include="Icons/*.png" />
+        <None Remove="Icons/*.gif" />
+        <AvaloniaResource Include="Icons/*.gif" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Classic.Avalonia.Theme.ColorPicker\Classic.Avalonia.Theme.ColorPicker.csproj" />
+      <ProjectReference Include="..\..\src\Classic.Avalonia.Theme.DataGrid\Classic.Avalonia.Theme.DataGrid.csproj" />
+      <ProjectReference Include="..\..\src\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj" />
+    </ItemGroup>
+</Project>

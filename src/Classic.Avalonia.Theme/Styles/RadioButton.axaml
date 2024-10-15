@@ -1,0 +1,84 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <ControlTheme x:Key="{x:Type RadioButton}"
+                TargetType="RadioButton">
+    <Setter Property="VerticalAlignment"
+            Value="Center" />
+    <Setter Property="VerticalContentAlignment"
+            Value="Center" />
+    <Setter Property="FocusAdorner"
+            Value="{controls:ClassicalFocusAdorner MarginLeft=14}"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+    <Setter Property="BorderBrush"
+            Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
+    <Setter Property="BorderThickness"
+            Value="4,4,5,5" />
+    <Setter Property="Padding"
+            Value="2,0,0,0"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <classic:BulletDecorator Background="Transparent">
+          <classic:BulletDecorator.Bullet>
+            <!-- Draw Checkmark border and tick mark -->
+            <classic:ClassicBorderDecorator x:Name="Border"
+                                          Width="13"
+                                          Height="13"
+                                          BorderStyle="RadioButton"
+                                          Background="{TemplateBinding Background}"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          BorderThickness="{TemplateBinding BorderThickness}">
+              <Ellipse x:Name="checkMark"
+                       Fill="{TemplateBinding Foreground}"
+                       Width="4"
+                       Height="4"/>
+            </classic:ClassicBorderDecorator>
+          </classic:BulletDecorator.Bullet>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            RecognizesAccessKey="True"/>
+        </classic:BulletDecorator>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Ellipse#checkMark">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ Ellipse#checkMark">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^:checked /template/ Ellipse#checkMark">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:pressed /template/ classic|ClassicBorderDecorator#Border">
+      <Setter Property="Background"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+      <Style Selector="^ /template/ classic|ClassicBorderDecorator#Border">
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+      </Style>
+      <Style Selector="^ /template/ Ellipse#checkMark">
+        <Setter Property="Fill"
+                Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+      </Style>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="FlatRadioButton" BasedOn="{StaticResource {x:Type RadioButton}}"
+                TargetType="RadioButton">
+      <Setter Property="BorderBrush" Value="Black" />
+  </ControlTheme>
+</ResourceDictionary>

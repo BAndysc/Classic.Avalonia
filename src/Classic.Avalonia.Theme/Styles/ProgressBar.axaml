@@ -1,0 +1,123 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:converters1="clr-namespace:Classic.Avalonia.Theme.Converters"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
+                    x:ClassModifier="internal">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="10">
+        <ProgressBar MinWidth="200" VerticalAlignment="Center" IsIndeterminate="True" />
+        <ProgressBar MinWidth="200" VerticalAlignment="Center" Value="5" Maximum="10" />
+        <ProgressBar MinWidth="200" VerticalAlignment="Center" Value="50" />
+        <ProgressBar MinWidth="200" VerticalAlignment="Center" Value="50" Minimum="25" Maximum="75" />
+        <ProgressBar MinHeight="200" HorizontalAlignment="Left" IsIndeterminate="True" Orientation="Vertical" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <converters:StringFormatConverter x:Key="StringFormatConverter" />
+
+  <ControlTheme x:Key="{x:Type ProgressBar}"
+                TargetType="ProgressBar">
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"/>
+    <Setter Property="BorderBrush"
+            Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
+    <Setter Property="BorderThickness"
+            Value="1"/>
+    <Setter Property="MinWidth"
+            Value="20"/>
+    <Setter Property="MinHeight"
+            Value="20"/>
+    <Setter Property="Template">
+      <ControlTemplate TargetType="ProgressBar">
+          <classic:ClassicBorderDecorator BorderStyle="ThinPressed"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        x:Name="TemplateRoot">
+            <LayoutTransformControl x:Name="PART_LayoutTransformControl">
+              <DockPanel x:Name="PART_Track"
+                         Margin="0,0,2,2"
+                         ClipToBounds="True"
+                         LastChildFill="false">
+                <Border x:Name="PART_Indicator">
+                  <Rectangle x:Name="PART_IndicatorFill">
+                    <Rectangle.Fill>
+                      <MultiBinding>
+                        <MultiBinding.Converter>
+                          <converters1:ProgressBarBrushConverter/>
+                        </MultiBinding.Converter>
+                        <Binding Path="Foreground"
+                                 RelativeSource="{RelativeSource TemplatedParent}"/>
+                        <Binding Path="IsIndeterminate"
+                                 RelativeSource="{RelativeSource TemplatedParent}"/>
+                        <Binding Path="Bounds.Width"
+                                 ElementName="PART_Indicator"/>
+                        <Binding Path="Bounds.Height"
+                                 ElementName="PART_Indicator"/>
+                        <Binding Path="Bounds.Width"
+                                 ElementName="PART_Track"/>
+                      </MultiBinding>
+                    </Rectangle.Fill>
+                  </Rectangle>
+                </Border>
+              </DockPanel>
+            </LayoutTransformControl>
+          </classic:ClassicBorderDecorator>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:vertical">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+    <Style Selector="^:horizontal">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+
+    <Style Selector="^:vertical /template/ LayoutTransformControl#PART_LayoutTransformControl">
+      <Setter Property="LayoutTransform">
+        <Setter.Value>
+          <RotateTransform Angle="90" />
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+    <Style Selector="^:horizontal:indeterminate /template/ Border#PART_Indicator">
+      <Style.Animations>
+        <Animation Easing="{Binding $self, Converter={x:Static converters1:ProgressBarEasingConverter.Instance}}"
+                   IterationCount="Infinite"
+                   Duration="0:0:6">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.X" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.X" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+      <Setter Property="Width" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+    <Style Selector="^:vertical:indeterminate /template/ Border#PART_Indicator">
+      <Style.Animations>
+        <Animation Easing="LinearEasing"
+                   IterationCount="Infinite"
+                   Duration="0:0:6">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.Y" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.Y" Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+      <Setter Property="Height" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

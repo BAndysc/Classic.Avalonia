@@ -1,0 +1,90 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="using:System"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <Design.PreviewWith>
+    <Border Height="200"
+            Padding="20">
+      <CalendarDatePicker />
+    </Border>
+  </Design.PreviewWith>
+  <ControlTheme x:Key="{x:Type CalendarDatePicker}"
+                TargetType="CalendarDatePicker">
+    <Setter Property="BorderBrush"
+            Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
+    <Setter Property="BorderThickness"
+            Value="2"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+    <Setter Property="Padding"
+            Value="2" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <classic:ClassicBorderDecorator Name="Bd"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderStyle="Sunken">
+          <Grid ColumnDefinitions="*,Auto">
+
+            <TextBox Name="PART_TextBox"
+                     Grid.Column="0"
+                     Padding="{TemplateBinding Padding}"
+                     BorderThickness="0"
+                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                     DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                     UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
+                     Watermark="{TemplateBinding Watermark}">
+            </TextBox>
+
+            <Button Name="PART_Button"
+                    Grid.Column="1"
+                    Width="20"
+                    ClipToBounds="True"
+                    Focusable="False"
+                    Foreground="{TemplateBinding Foreground}">
+              <Path Width="8"
+                    Height="4"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="M 0 0 L 9 0 L 4.5 4.5 z"
+                    Fill="{DynamicResource ThemeForegroundBrush}"
+                    Stretch="Uniform" />
+              <Button.Styles>
+                <Style Selector="Button">
+                  <Setter Property="BorderThickness" Value="2" />
+                </Style>
+                <Style Selector="Button /template/ classic|ClassicBorderDecorator#ContentContainer">
+                  <Setter Property="BorderStyle" Value="AltRaised" />
+                </Style>
+                <Style Selector="Button:pressed">
+                  <Setter Property="BorderThickness" Value="3" />
+                </Style>
+                <Style Selector="Button:pressed /template/ classic|ClassicBorderDecorator#ContentContainer">
+                  <Setter Property="BorderStyle" Value="RaiseReversed" />
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Popup Name="PART_Popup"
+                   PlacementTarget="{Binding #PART_Button}"
+                   IsLightDismissEnabled="False">
+              <Calendar Name="PART_Calendar"
+                        DisplayDate="{TemplateBinding DisplayDate}"
+                        DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
+                        DisplayDateStart="{TemplateBinding DisplayDateStart}"
+                        FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
+                        IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
+                        SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate,
+                                                       Mode=TwoWay}" />
+            </Popup>
+          </Grid>
+        </classic:ClassicBorderDecorator>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

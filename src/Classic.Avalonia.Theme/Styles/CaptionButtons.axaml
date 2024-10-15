@@ -1,0 +1,105 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:theme="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="20">
+        <ThemeVariantScope RequestedThemeVariant="Light">
+          <CaptionButtons Height="40"/>
+        </ThemeVariantScope>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <x:Double x:Key="CaptionButtonWidth">45</x:Double>
+  <x:Double x:Key="CaptionButtonHeight">30</x:Double>
+
+  <ControlTheme x:Key="SimpleCaptionButton" BasedOn="{StaticResource {x:Type Button}}"
+                TargetType="Button">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="14" />
+    <Setter Property="Padding" Value="0" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type CaptionButtons}"
+                TargetType="CaptionButtons">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel VerticalAlignment="Stretch"
+                    Orientation="Horizontal">
+          <Button x:Name="PART_FullScreenButton"
+                  IsVisible="False"
+                  Focusable="False"
+                  Theme="{StaticResource SimpleCaptionButton}">
+            <Viewbox Width="11"
+                     Margin="2">
+              <Path Name="FullScreenButtonPath"
+                    Data="M2048 2048v-819h-205v469l-1493 -1493h469v-205h-819v819h205v-469l1493 1493h-469v205h819z"
+                    Fill="{TemplateBinding Foreground}"
+                    Stretch="UniformToFill" />
+            </Viewbox>
+          </Button>
+          <Button x:Name="PART_MinimizeButton"
+                  Theme="{StaticResource SimpleCaptionButton}"
+                  VerticalContentAlignment="Top"
+                  HorizontalContentAlignment="Left"
+                  Focusable="False"
+                  AutomationProperties.Name="Minimize">
+            <Path Data="M 1 7 L 7 7 L 7 9 L 1 9 z"
+                  Margin="0,-1,0,0" />
+          </Button>
+          <Button x:Name="PART_RestoreButton"
+                  Theme="{StaticResource SimpleCaptionButton}"
+                  VerticalContentAlignment="Top"
+                  HorizontalContentAlignment="Left"
+                  Focusable="False"
+                  AutomationProperties.Name="Maximize">
+            <Path Name="RestoreButtonPath"
+                  Margin="0,-1,0,0"
+                  Data="M 0 0 z L 9 0 L 9 2 L 1 2 L 1 8 L 8 8 L 8 2 L 9 2 L 9 9 L 0 9 L 0 0 z" />
+          </Button>
+          <Button x:Name="PART_CloseButton"
+                  Theme="{StaticResource SimpleCaptionButton}"
+                  Margin="2,0,0,0"
+                  VerticalContentAlignment="Top"
+                  HorizontalContentAlignment="Left"
+                  Focusable="False"
+                  AutomationProperties.Name="Close">
+            <Path Data="M 0 0 L 2 0 L 2 1 L 3 1 L 3 2 L 5 2 L 5 1 L 6 1 L 6 0 L 8 0 L 8 1 L 7 1 L 7 2 L 6 2 L 6 3 L 5 3 L 5 4 L 6 4 L 6 5 L 7 5 L 7 6 L 8 6 L 8 7 L 6 7 L 6 6 L 5 6 L 5 5 L 3 5 L 3 6 L 2 6 L 2 7 L 0 7 L 0 6 L 1 6 L 1 5 L 2 5 L 2 4 L 3 4 L 3 3 L 2 3 L 2 2 L 1 2 L 1 1 L 0 1 L 0 1 z"
+                  Margin="1,0,0,0" />
+          </Button>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:maximized /template/ Path#RestoreButtonPath">
+      <Setter Property="Data" Value="M 2 0 L 8 0 L 8 2 L 3 2 L 3 3 L 6 3 L 6 5 L 7 5 L 7 2 L 8 2 L 8 6 L 6 6 L 6 9 L 0 9 L 0 5 L 1 5 L 1 8 L 5 8 L 5 5 L 0 5 L 0 3 L 2 3 L 2 0 z" />
+    </Style>
+    <Style Selector="^:fullscreen /template/ Path#FullScreenButtonPath">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="Data" Value="M205 1024h819v-819h-205v469l-674 -674l-145 145l674 674h-469v205zM1374 1229h469v-205h-819v819h205v-469l674 674l145 -145z" />
+    </Style>
+    <Style Selector="^:fullscreen /template/ Button#PART_RestoreButton">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:fullscreen /template/ Button#PART_MinimizeButton">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:dialog /template/ Button#PART_MinimizeButton">
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+
+    <Style Selector="^:dialog:cantresize">
+      <Style Selector="^ /template/ Button#PART_MinimizeButton">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^ /template/ Button#PART_RestoreButton">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </Style>
+
+    <Style Selector="^ /template/ Button Path">
+      <Setter Property="Fill" Value="{DynamicResource {x:Static theme:SystemColors.ControlTextBrushKey}}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

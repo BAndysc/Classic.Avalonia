@@ -1,0 +1,111 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
+                    x:ClassModifier="internal">
+  <ControlTheme x:Key="ClassicWindow"
+                TargetType="Window">
+    <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+    <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource HighlightForegroundColor}" />
+    <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+    <Setter Property="MinWidth" Value="150" />
+    <Setter Property="MinHeight" Value="50" />
+    <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+    <Setter Property="SystemDecorations" Value="Full" /> <!-- with Full on Windows 11 we get rounded borders and shadow, which is bad, but unfortunately with None, dragging and resizing doesn't work -->
+    <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+
+    <Style Selector="^.__classic_theme_is_mac">
+      <Setter Property="SystemDecorations" Value="None" /> <!-- on a mac None decorations work fine and we still can drag and resize the window -->
+    </Style>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel RenderOptions.EdgeMode="Aliased"
+               RenderOptions.BitmapInterpolationMode="None"
+               RenderOptions.TextRenderingMode="Alias">
+          <Border Name="PART_TransparencyFallback"
+                  IsHitTestVisible="False"
+                  Margin="2" />
+          <Border Background="{TemplateBinding Background}"
+                  IsHitTestVisible="False"
+                  Margin="2" />
+
+          <Border Margin="{TemplateBinding OffScreenMargin}">
+            <DockPanel Name="RootLayout" Margin="4" ClipToBounds="True">
+
+              <utils:AutoAttachTitleBar DockPanel.Dock="Top" />
+
+              <VisualLayerManager>
+                <VisualLayerManager.ChromeOverlayLayer>
+                  <TitleBar />
+                </VisualLayerManager.ChromeOverlayLayer>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Margin="{TemplateBinding Padding}"
+                                  Background="{TemplateBinding Background}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+              </VisualLayerManager>
+            </DockPanel>
+          </Border>
+
+          <classic:ClassicBorderDecorator Name="Bd"
+                                          BorderStyle="AltRaised"
+                                          IsHitTestVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ classic|ClassicBorderDecorator#Bd">
+      <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <Style Selector="^[WindowState=Maximized]">
+      <Style Selector="^ /template/ DockPanel#RootLayout">
+        <Setter Property="Margin" Value="0"/>
+      </Style>
+      <Style Selector="^ /template/ classic|ClassicBorderDecorator#Bd">
+        <Setter Property="BorderThickness" Value="0"/>
+      </Style>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type Window}"
+                TargetType="Window">
+    <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
+    <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}" />
+    <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel RenderOptions.EdgeMode="Aliased"
+               RenderOptions.BitmapInterpolationMode="None"
+               RenderOptions.TextRenderingMode="Alias">
+          <Border Name="PART_TransparencyFallback"
+                  IsHitTestVisible="False" />
+          <Border Background="{TemplateBinding Background}"
+                  IsHitTestVisible="False" />
+          <Panel Margin="{TemplateBinding WindowDecorationMargin}"
+                 Background="Transparent" />
+          <VisualLayerManager>
+            <VisualLayerManager.ChromeOverlayLayer>
+              <TitleBar />
+            </VisualLayerManager.ChromeOverlayLayer>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+          </VisualLayerManager>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type classic:ClassicWindow}" TargetType="classic:ClassicWindow" BasedOn="{StaticResource ClassicWindow}">
+  </ControlTheme>
+</ResourceDictionary>

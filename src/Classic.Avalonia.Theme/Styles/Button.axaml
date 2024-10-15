@@ -1,0 +1,134 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:windows="clr-namespace:System.Windows"
+                    xmlns:theme="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    x:ClassModifier="internal">
+  <ControlTheme x:Key="BaseButtonStyle"
+                TargetType="Button">
+    <Setter Property="FocusAdorner"
+            Value="{controls:ClassicalFocusAdorner MarginBottom=4, MarginLeft=4, MarginRight=4, MarginTop=4}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static theme:SystemColors.ControlBrushKey}}"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static theme:SystemColors.ControlTextBrushKey}}"/>
+    <Setter Property="BorderThickness"
+            Value="3"/>
+    <Setter Property="HorizontalContentAlignment"
+            Value="Center"/>
+    <Setter Property="VerticalContentAlignment"
+            Value="Center"/>
+    <Setter Property="Padding"
+            Value="4,1,4,3"/>
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <theme:ClassicBorderDecorator x:Name="ContentContainer"
+                                      Background="{TemplateBinding Background}"
+                                      BorderThickness="{TemplateBinding BorderThickness}">
+          <ContentPresenter Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            TextElement.Foreground="{TemplateBinding Foreground}"
+                            RecognizesAccessKey="True"
+                            Name="PART_ContentPresenter"
+                            />
+        </theme:ClassicBorderDecorator>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="Raised" />
+    </Style>
+    <Style Selector="^[IsKeyboardFocusWithin=True] /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="RaisedFocused" />
+    </Style>
+    <Style Selector="^[IsDefault=True] /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="RaisedFocused" />
+    </Style>
+    <Style Selector="^:checked /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="RaiseReversed" />
+      <Setter Property="Background" Value="{DynamicResource DiagonalBrushLight}" />
+    </Style>
+    <Style Selector="^:pressed /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="RaisedPressed" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static theme:SystemColors.GrayTextBrushKey}}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type Button}"
+                TargetType="Button"
+                BasedOn="{StaticResource BaseButtonStyle}"/>
+
+  <ControlTheme x:Key="{x:Type RepeatButton}"
+                TargetType="RepeatButton"
+                BasedOn="{StaticResource BaseButtonStyle}"/>
+
+  <ControlTheme x:Key="{x:Type ToggleButton}"
+                TargetType="ToggleButton"
+                BasedOn="{StaticResource BaseButtonStyle}">
+
+  </ControlTheme>
+
+
+  <!-- Flat style -->
+  <ControlTheme x:Key="FlatButton"
+                TargetType="Button">
+
+    <Setter Property="FocusAdorner"
+            Value="{x:Null}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static theme:SystemColors.ControlBrushKey}}"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static theme:SystemColors.ControlTextBrushKey}}"/>
+    <Setter Property="BorderThickness"
+            Value="1"/>
+    <Setter Property="HorizontalContentAlignment"
+            Value="Center"/>
+    <Setter Property="VerticalContentAlignment"
+            Value="Center"/>
+    <Setter Property="Padding"
+            Value="0,0,1,1"/>
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <theme:ClassicBorderDecorator x:Name="ContentContainer"
+                                      Background="{TemplateBinding Background}"
+                                      BorderThickness="{TemplateBinding BorderThickness}">
+          <ContentPresenter Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            TextElement.Foreground="{TemplateBinding Foreground}"
+                            RecognizesAccessKey="True"
+                            Name="PART_ContentPresenter"
+          />
+        </theme:ClassicBorderDecorator>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="None" />
+    </Style>
+    <Style Selector="^:pointerover /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="ThinRaised" />
+    </Style>
+    <Style Selector="^:checked /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="ThinPressed" />
+      <Setter Property="Background" Value="{DynamicResource DiagonalBrushLight}" />
+    </Style>
+    <Style Selector="^:pressed /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="ThinPressed" />
+    </Style>
+    <Style Selector="^:flyout-open /template/ theme|ClassicBorderDecorator#ContentContainer">
+      <Setter Property="BorderStyle" Value="ThinPressed" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static theme:SystemColors.GrayTextBrushKey}}" />
+    </Style>
+  </ControlTheme>
+
+</ResourceDictionary>

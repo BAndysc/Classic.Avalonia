@@ -1,0 +1,58 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <FocusAdornerTemplate x:Key="ComboBoxItemHighContrastFocusVisual">
+    <Rectangle Margin="0,1,0,1"
+               StrokeThickness="1"
+               Stroke="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}"
+               StrokeDashArray="1,2"/>
+  </FocusAdornerTemplate>
+
+  <ControlTheme x:Key="{x:Type ComboBoxItem}"
+                TargetType="ComboBoxItem">
+    <!-- <Setter Property="HorizontalContentAlignment" -->
+    <!--         Value="{Binding Path=HorizontalContentAlignment,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/> -->
+    <!-- <Setter Property="VerticalContentAlignment" -->
+    <!--         Value="{Binding Path=VerticalContentAlignment,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/> -->
+    <Setter Property="Padding"
+            Value="3,0,3,0"/>
+    <Setter Property="Background"
+            Value="Transparent"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="Bd"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Padding="{TemplateBinding Padding}">
+          <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Name="PART_ContentPresenter"/>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}"/>
+      <Style Selector="^ /template/ Border#Bd">
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"/>
+      </Style>
+    </Style>
+    <Style Selector="^:selected">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}"/>
+      <Style Selector="^ /template/ Border#Bd">
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"/>
+      </Style>
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

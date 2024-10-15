@@ -1,0 +1,87 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dialogs="clr-namespace:Classic.CommonControls.Dialogs;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils">
+
+  <Design.PreviewWith>
+    <dialogs:MessageBox Text="This is text" Buttons="CancelTryContinue" Icon="Information">
+    </dialogs:MessageBox>
+  </Design.PreviewWith>
+
+  <Bitmap x:Key="ALERT_warning">
+    <x:Arguments>
+      <utils:Base64Stream>
+        <x:Arguments>
+          <x:String>R0lGODlhIAAgAPIAAICAAMDAwP//AAAAAICAgCZFySZFySZFySH5BAEAAAUALAAAAAAgACAAAAOmWLq88C3KqYAQYdAt7cUDwY2F94UiOZlfRqRqw55vLH84WNtVjqO8kg/ngqlMmcEgQDOOWMpoC3j8RQe/3TN3xU61m1mXC175xkQqZSYAXM/lmy+5nKsj7It0eGfkL25/RR1DFxlMhX1ChXqMOk5/jmRGkYZKiEODPY5vjFSVenuFg6AgdZw1pZJZL6qrjyKujkU7bl23uF0vuwy7vr/AwXHCxMIKCQA7</x:String>
+        </x:Arguments>
+      </utils:Base64Stream>
+    </x:Arguments>
+  </Bitmap>
+  <Bitmap x:Key="ALERT_info">
+    <x:Arguments>
+      <utils:Base64Stream>
+        <x:Arguments>
+          <x:String>R0lGODlhIAAgAPIAAICAgAAA/8DAwP///wAAACZFySZFySZFySH5BAEAAAUALAAAAAAgACAAAAOoWLpc8PC1SRcUI2sBa32YJooc4DFAOK6beQKsEMyBKhIezNI0O+AT3Y4X8P0aKaOMZhsJgAqhcXpzJanYzNMkXRFnVAIXSwxDyDzzA92bitfUsvsSTyvfjnrb9+Y2R3IxfVE+X3tVEgsEWUZ9LoqMK44UBH9TWx0VBJVYT5Mvm5xOoRGPLw+hKo6ZJygQixmrraAaeLO3sLa3s4u6u62bib+zrMOtwhUJADs=</x:String>
+        </x:Arguments>
+      </utils:Base64Stream>
+    </x:Arguments>
+  </Bitmap>
+  <Bitmap x:Key="ALERT_error">
+    <x:Arguments>
+      <utils:Base64Stream>
+        <x:Arguments>
+          <x:String>R0lGODlhIAAgAPIAAIAAAICAgP8AAAAAAP///yZFySZFySZFySH5BAEAAAUALAAAAAAgACAAAAOrWLpc8PC1SRcUOGNYO9AgCHTNE56ZRH5ou3luLIwUK6NAMNkZ4foinSVEKKKKQA1NwRMgjaBnciN0EJ8aaSina/awTvC225JqceSyeToOeKPnFvedjaPdv7Vrrl6zlQF4J2d2gGl1SIhQhocYhWGJjFZwf46LKYFDUT9tVZM3J1yZmqCdO6VBozt0OKKeDYIyrq8TbiahD4G6JAyBERG6u7ywwcXBwx3GqhUJADs=</x:String>
+        </x:Arguments>
+      </utils:Base64Stream>
+    </x:Arguments>
+  </Bitmap>
+  <Bitmap x:Key="ALERT_question">
+    <x:Arguments>
+      <utils:Base64Stream>
+        <x:Arguments>
+          <x:String>R0lGODlhIAAgAPIAAICAgAAA/8DAwP///wAAACZFySZFySZFySH5BAEAAAUALAAAAAAgACAAAAOxWLpc8PC1SRcUI2sBa32YJooc4DFAOK6beQJsPBIevApBrqsiPdkjXEgX4Gl8FmMmJyKyBEhHzDmgrgiu1FQ3wHGfWGnMi7GywkBZ9yvDPtQadhsCXxbr7rSMib/U/11uYjJkcHkOSk1yN4eDLGZXHQsEhDmJGXkuk4CRkg0El2OZHgSgdVCjL6WmQasRmi8PqyqZnicWEJSYr7eqRxK9wbqCwcIDxMW9pcDJvbbNsbcJADs=</x:String>
+        </x:Arguments>
+      </utils:Base64Stream>
+    </x:Arguments>
+  </Bitmap>
+
+  <ControlTheme x:Key="{x:Type dialogs:MessageBox}"
+                TargetType="dialogs:MessageBox">
+    <Setter Property="Padding" Value="9,10" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel Margin="{TemplateBinding Padding}">
+          <ItemsControl DockPanel.Dock="Bottom" Margin="0,18,0,0" HorizontalAlignment="Center" ItemsSource="{TemplateBinding ButtonsSource}">
+            <ItemsControl.ItemsPanel>
+              <ItemsPanelTemplate>
+                <StackPanel Spacing="6" Orientation="Horizontal" />
+              </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="dialogs:MessageBoxResult">
+                <Button Content="{CompiledBinding}" Width="75" Command="{Binding $parent[dialogs:MessageBox].PickOption}" CommandParameter="{CompiledBinding}" />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+
+          <Image Width="32" Margin="0,0,15,0" Height="32" DockPanel.Dock="Left" />
+
+          <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Margin="0,3,0,0" Text="{TemplateBinding Text}" />
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^[Icon=Error] /template/ Image">
+      <Setter Property="Source" Value="{StaticResource ALERT_error}" />
+    </Style>
+    <Style Selector="^[Icon=Information] /template/ Image">
+      <Setter Property="Source" Value="{StaticResource ALERT_info}" />
+    </Style>
+    <Style Selector="^[Icon=Question] /template/ Image">
+      <Setter Property="Source" Value="{StaticResource ALERT_question}" />
+    </Style>
+    <Style Selector="^[Icon=Warning] /template/ Image">
+      <Setter Property="Source" Value="{StaticResource ALERT_warning}" />
+    </Style>
+  </ControlTheme>
+
+</ResourceDictionary>

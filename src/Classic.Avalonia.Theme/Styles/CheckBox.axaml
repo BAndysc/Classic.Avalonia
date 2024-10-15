@@ -1,0 +1,91 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:theme="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    x:ClassModifier="internal">
+  <ControlTheme x:Key="{x:Type CheckBox}"
+                TargetType="CheckBox">
+    <Setter Property="VerticalAlignment"
+            Value="Center" />
+    <Setter Property="VerticalContentAlignment"
+            Value="Center" />
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static theme:SystemColors.WindowTextBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static theme:SystemColors.WindowBrushKey}}"/>
+    <Setter Property="BorderBrush"
+            Value="{x:Static theme:ClassicBorderDecorator.ClassicBorderBrush}"/>
+    <Setter Property="BorderThickness"
+            Value="2"/>
+    <Setter Property="Padding"
+            Value="2,0,0,0"/>
+    <Setter Property="FocusAdorner"
+            Value="{controls:ClassicalFocusAdorner MarginLeft=14}"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+
+        <theme:BulletDecorator Background="Transparent">
+          <theme:BulletDecorator.Bullet>
+            <!-- Draw Checkmark border and tick mark -->
+            <theme:ClassicBorderDecorator x:Name="CheckMark"
+                                          BorderStyle="Sunken"
+                                          Background="{TemplateBinding Background}"
+                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                          BorderBrush="{TemplateBinding BorderBrush}">
+              <Path x:Name="CheckMarkPath"
+                    Margin="1,1,1,1"
+                    Width="7"
+                    Height="7"
+                    FlowDirection="LeftToRight"
+                    Fill="{TemplateBinding Foreground}"
+                    Data="M 0 2.0 L 0 4.8 L 2.5 7.4 L 7.1 2.8 L 7.1 0 L 2.5 4.6 Z"/>
+            </theme:ClassicBorderDecorator>
+          </theme:BulletDecorator.Bullet>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            IsVisible="{TemplateBinding Content,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Margin="{TemplateBinding Padding}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            TextElement.Foreground="{TemplateBinding Foreground}"
+                            RecognizesAccessKey="True"/>
+        </theme:BulletDecorator>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ Path#CheckMarkPath">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+    <Style Selector="^:checked /template/ Path#CheckMarkPath">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ Path#CheckMarkPath">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ theme|ClassicBorderDecorator#CheckMark">
+      <Setter Property="Background" Value="{DynamicResource {x:Static theme:SystemColors.ControlLightLightBrushKey}}" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ Path#CheckMarkPath">
+      <Setter Property="Fill" Value="{DynamicResource {x:Static theme:SystemColors.ControlDarkBrushKey}}" />
+    </Style>
+    <Style Selector="^:pressed /template/  theme|ClassicBorderDecorator#CheckMark">
+      <Setter Property="Background" Value="{DynamicResource {x:Static theme:SystemColors.ControlBrushKey}}" />
+    </Style>
+    <Style Selector="^:disabled /template/ theme|ClassicBorderDecorator#CheckMark">
+      <Setter Property="Background" Value="{DynamicResource {x:Static theme:SystemColors.ControlBrushKey}}" />
+    </Style>
+    <Style Selector="^:disabled /template/ Path#CheckMarkPath">
+      <Setter Property="Fill" Value="{DynamicResource {x:Static theme:SystemColors.GrayTextBrushKey}}"/>
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static theme:SystemColors.GrayTextBrushKey}}"/>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="FlatCheckBox" BasedOn="{StaticResource {x:Type CheckBox}}"
+                  TargetType="CheckBox">
+    <Setter Property="BorderBrush" Value="Black" />
+    <Setter Property="BorderThickness" Value="2" />
+  </ControlTheme>
+</ResourceDictionary>

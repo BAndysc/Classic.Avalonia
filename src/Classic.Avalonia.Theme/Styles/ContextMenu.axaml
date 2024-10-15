@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <ControlTheme x:Key="{x:Type ContextMenu}"
+                TargetType="ContextMenu">
+    <Setter Property="Padding" Value="4,2" />
+    <Setter Property="TextBlock.FontSize" Value="{DynamicResource FontSizeNormal}" />
+    <Setter Property="TextBlock.FontWeight" Value="Normal" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <classic:ClassicBorderDecorator BorderStyle="AltRaised"
+                                      Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                      BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                      BorderThickness="2">
+          <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            KeyboardNavigation.TabNavigation="Continue" />
+          </ScrollViewer>
+        </classic:ClassicBorderDecorator>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

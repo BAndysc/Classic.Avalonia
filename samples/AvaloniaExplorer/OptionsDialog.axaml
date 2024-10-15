@@ -1,0 +1,518 @@
+<ClassicWindow xmlns="https://github.com/avaloniaui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:avaloniaExplorer="clr-namespace:AvaloniaExplorer"
+               mc:Ignorable="d" d:DesignWidth="405" d:DesignHeight="450"
+               x:Class="AvaloniaExplorer.OptionsDialog"
+               SizeToContent="WidthAndHeight"
+               WindowStartupLocation="CenterOwner"
+               CanResize="False"
+               Title="Internet Options">
+    <ClassicWindow.Styles>
+        <Style Selector="HeaderedContentControl">
+            <Setter Property="Padding" Value="3,7,7,4" />
+        </Style>
+        <Style Selector="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="TreeView CheckBox">
+            <Setter Property="Theme" Value="{StaticResource FlatCheckBox}" />
+        </Style>
+        <Style Selector="TreeView RadioButton">
+            <Setter Property="Theme" Value="{StaticResource FlatRadioButton}" />
+        </Style>
+        <Style Selector="TreeViewItem">
+            <Setter Property="IsExpanded" Value="True" />
+
+            <Style Selector="^ /template/ :is(Control)#PART_LineVert">
+                <Setter Property="IsVisible" Value="False"/>
+            </Style>
+
+            <Style Selector="^ /template/ :is(Control)#PART_LineHoriz">
+                <Setter Property="IsVisible" Value="False"/>
+            </Style>
+
+            <Style Selector="^ /template/ ToggleButton#PART_ExpandCollapseChevron">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
+        <Style Selector="TreeView > TreeViewItem">
+            <Setter Property="Margin" Value="-21,0,0,0" />
+        </Style>
+    </ClassicWindow.Styles>
+    <Panel Width="400">
+        <DockPanel Margin="6,7">
+
+            <avaloniaExplorer:UniformStack Margin="0,5,0,0" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Spacing="7">
+                <Button IsDefault="True" MinWidth="74">OK</Button>
+                <Button IsCancel="True">Cancel</Button>
+                <Button>_Apply</Button>
+            </avaloniaExplorer:UniformStack>
+
+            <TabControl SelectedIndex="0">
+                <TabItem Header="General">
+                    <StackPanel Orientation="Vertical" Margin="10,7,11,6" Spacing="8">
+                        <HeaderedContentControl Header="Home Page">
+                            <DockPanel>
+                                <Image Source="Icons/cpl/1301@32.gif" Width="32" Height="32" VerticalAlignment="Top" />
+                                <StackPanel Orientation="Vertical" Margin="9,0,0,0" Spacing="7">
+                                    <TextBlock>You can change which page to use for your home page.</TextBlock>
+                                    <DockPanel>
+                                        <TextBlock VerticalAlignment="Center">Address:</TextBlock>
+                                        <TextBox Margin="18,0,0,0" Text="https://avaloniaui.net/" />
+                                    </DockPanel>
+                                    <avaloniaExplorer:UniformStack Spacing="6" HorizontalAlignment="Right">
+                                        <Button>Use _Current</Button>
+                                        <Button>Use _Default</Button>
+                                        <Button>Use _Blank</Button>
+                                    </avaloniaExplorer:UniformStack>
+                                </StackPanel>
+                            </DockPanel>
+                        </HeaderedContentControl>
+
+                        <HeaderedContentControl Header="Temporary Internet Files">
+                            <DockPanel>
+                                <Image Source="Icons/cpl/1319@32.gif" Width="32" Height="32" VerticalAlignment="Top" />
+                                <StackPanel Orientation="Vertical" Margin="9,0,0,0" Spacing="7">
+                                    <TextBlock TextWrapping="WrapWithOverflow">Pages you view on the Internet are stored in a special folder for quick viewing later.</TextBlock>
+                                    <avaloniaExplorer:UniformStack HorizontalAlignment="Right" Spacing="6" Margin="40,0,0,0">
+                                        <Button>Delete _Files...</Button>
+                                        <Button>_Settings...</Button>
+                                    </avaloniaExplorer:UniformStack>
+                                </StackPanel>
+                            </DockPanel>
+                        </HeaderedContentControl>
+
+                        <HeaderedContentControl Header="History">
+                            <DockPanel Margin="0,0,0,6">
+                                <Image Source="Icons/cpl/1303@32.gif" Width="32" Height="32" VerticalAlignment="Top" />
+                                <StackPanel Orientation="Vertical" Margin="9,0,0,0" Spacing="8">
+                                    <TextBlock TextWrapping="WrapWithOverflow">The History folder contains links to pages you've visited, for quick access to recently visited pages.</TextBlock>
+                                    <DockPanel LastChildFill="False">
+                                        <TextBlock>Days to keep pages in history:</TextBlock>
+                                        <Button DockPanel.Dock="Right">Clear _History</Button>
+                                        <NumericUpDown DockPanel.Dock="Right" Value="20" Margin="5,0" />
+                                    </DockPanel>
+                                </StackPanel>
+                            </DockPanel>
+                        </HeaderedContentControl>
+
+                        <avaloniaExplorer:UniformStack Spacing="7">
+                            <Button>C_olors...</Button>
+                            <Button>Fo_nts...</Button>
+                            <Button>_Languages...</Button>
+                            <Button>Acc_essibility...</Button>
+                        </avaloniaExplorer:UniformStack>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Security">
+                    <DockPanel Margin="10,9,11,6">
+                        <TextBlock DockPanel.Dock="Top">Select a Web content _zone to specify its security settings.</TextBlock>
+                        <ListBox DockPanel.Dock="Top"
+                                 Margin="0,7,0,6"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                            <ListBoxItem>
+                                <StackPanel Orientation="Vertical" Spacing="3">
+                                    <Image Source="Icons/cpl/1313@32.gif" Width="32" Height="32" />
+                                    <TextBlock HorizontalAlignment="Center">Internet</TextBlock>
+                                </StackPanel>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <StackPanel Orientation="Vertical" Spacing="3">
+                                    <Image Source="Icons/cpl/intranet.gif" Width="32" Height="32" />
+                                    <TextBlock HorizontalAlignment="Center">Local Intranet</TextBlock>
+                                </StackPanel>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <StackPanel Orientation="Vertical" Spacing="3">
+                                    <Image Source="Icons/cpl/4480@32.gif" Width="32" Height="32" />
+                                    <TextBlock HorizontalAlignment="Center">Trusted Sites</TextBlock>
+                                </StackPanel>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <StackPanel Orientation="Vertical" Spacing="3">
+                                    <Image Source="Icons/cpl/4481@32.gif" Width="32" Height="32" />
+                                    <TextBlock HorizontalAlignment="Center">Restricted Sites</TextBlock>
+                                </StackPanel>
+                            </ListBoxItem>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <avaloniaExplorer:UniformStack Spacing="10" HorizontalAlignment="Left" Margin="5,2" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                        <DockPanel DockPanel.Dock="Top" Height="61">
+                            <Image Source="Icons/cpl/1313@32.gif" Width="32" Height="32" VerticalAlignment="Center" />
+                            <Button DockPanel.Dock="Right" VerticalAlignment="Center" MinWidth="85">_Sites...</Button>
+                            <StackPanel Orientation="Vertical" Margin="4,0">
+                                <TextBlock FontWeight="Bold">Internet</TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">This zone contains all Web sited you haven't placed in other zones</TextBlock>
+                            </StackPanel>
+                        </DockPanel>
+                        <HeaderedContentControl Header="Security level for this zone">
+                            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,3,*,19,Auto">
+
+                                <TextBlock Grid.Column="1">Move the slider to set the securit level for this zone.</TextBlock>
+
+                                <Slider Grid.Row="2"
+                                        Orientation="Vertical"
+                                        Minimum="0"
+                                        Maximum="3"
+                                        Value="2"
+                                        Margin="6,0,6,0"
+                                        TickPlacement="Outside"
+                                        TickFrequency="1"
+                                        />
+                                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+                                    <TextBlock FontWeight="Bold">Medium</TextBlock>
+                                    <TextBlock Margin="15,0,0,0">-Safe browsing and still functional</TextBlock>
+                                    <TextBlock Margin="15,0,0,0">-Prompts before downloading potentially unsafe content</TextBlock>
+                                    <TextBlock Margin="15,0,0,0">-Unsigned ActiveX controls will not be downloaded</TextBlock>
+                                    <TextBlock Margin="15,0,0,0">-Appropriate for most Internet sites</TextBlock>
+                                </StackPanel>
+
+                                <avaloniaExplorer:UniformStack Grid.Row="4" Spacing="7" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+                                    <Button MinWidth="105">_Custom Level...</Button>
+                                    <Button IsEnabled="False">_Default Level</Button>
+                                </avaloniaExplorer:UniformStack>
+
+                            </Grid>
+                        </HeaderedContentControl>
+                    </DockPanel>
+                </TabItem>
+                <TabItem Header="Content">
+                    <StackPanel Orientation="Vertical" Margin="10,7,11,6" Spacing="1">
+                        <HeaderedContentControl Header="Content Advisor">
+                            <DockPanel>
+                                <Image Source="Icons/cpl/1306@32.gif" Width="32" Height="32" VerticalAlignment="Top" />
+                                <StackPanel Orientation="Vertical" Margin="9,0,0,0" Spacing="2">
+                                    <TextBlock>Ratings help you control the Internet content that can be viewed on this computer.</TextBlock>
+                                    <avaloniaExplorer:UniformStack HorizontalAlignment="Right" Spacing="7">
+                                        <Button MinWidth="83">_Enable...</Button>
+                                        <Button IsEnabled="False">Se_ttings...</Button>
+                                    </avaloniaExplorer:UniformStack>
+                                </StackPanel>
+                            </DockPanel>
+                        </HeaderedContentControl>
+
+                        <HeaderedContentControl Header="Certificates">
+                            <DockPanel>
+                                <Image Source="Icons/cpl/1310@32.gif" Width="32" Height="32" VerticalAlignment="Top" />
+                                <StackPanel Orientation="Vertical" Margin="9,0,0,0" Spacing="9">
+                                    <TextBlock>Use certificates to positively identity yourself, certification authorities, and publishers.</TextBlock>
+                                    <avaloniaExplorer:UniformStack HorizontalAlignment="Right" Spacing="7">
+                                        <Button MinWidth="83">_Certificates...</Button>
+                                        <Button>Pu_blishers...</Button>
+                                    </avaloniaExplorer:UniformStack>
+                                </StackPanel>
+                            </DockPanel>
+                        </HeaderedContentControl>
+
+                        <HeaderedContentControl Header="Personal information">
+                            <DockPanel>
+                                <Image Source="Icons/cpl/1322@32.gif" Width="32" Height="32" VerticalAlignment="Top" />
+                                <Grid RowDefinitions="Auto,5,Auto,5,Auto" Margin="9,4,0,0" ColumnDefinitions="*,5,Auto">
+
+                                    <TextBlock Grid.Row="0">AutoComplete stores previous entries and suggests matches for what you are typing.</TextBlock>
+                                    <Button VerticalAlignment="Center" Grid.Column="2" Grid.Row="0">A_utoComplete...</Button>
+
+                                    <TextBlock Grid.Row="2">Microsoft Wallet securely stores private information for Internet shopping.</TextBlock>
+                                    <Button VerticalAlignment="Center" Grid.Column="2" Grid.Row="2">_Wallet</Button>
+
+
+                                    <TextBlock Grid.Row="4">Microsoft Profile Assistant stores your personal information.</TextBlock>
+                                    <Button VerticalAlignment="Center" Grid.Column="2" Grid.Row="4">My P_rofile......</Button>
+
+                                </Grid>
+                            </DockPanel>
+                        </HeaderedContentControl>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Connections">
+
+                    <Grid RowDefinitions="Auto,12,*,9,Auto" Margin="10,11,11,16" >
+
+                        <DockPanel DockPanel.Dock="Top">
+                            <Image Source="Icons/cpl/4460@32.gif" Width="32" Height="32" />
+                            <Button DockPanel.Dock="Right" MinWidth="85" Margin="5,0">Set_up...</Button>
+                            <TextBlock Margin="5,0">Use the Connection Wizard to connect your computer to The Internet.</TextBlock>
+                        </DockPanel>
+
+                        <HeaderedContentControl Header="Dial-up setti_ngs" Grid.Row="2">
+
+                            <Grid RowDefinitions="*,10,Auto">
+
+                                <Grid ColumnDefinitions="*,5,80">
+                                    <ListBox />
+                                    <UniformGrid Rows="3" Columns="1" Grid.Column="2">
+                                        <Button>A_dd..</Button>
+                                        <Button IsEnabled="False">_Remove</Button>
+                                        <Button IsEnabled="False">_Settings</Button>
+                                    </UniformGrid>
+                                </Grid>
+
+                                <StackPanel Grid.Row="2" IsEnabled="False" Spacing="4" Margin="2,0">
+                                    <RadioButton IsChecked="True">Never dial a _connection</RadioButton>
+                                    <RadioButton>Dial _whenever a network connection is not present</RadioButton>
+                                    <RadioButton>Always dial my default c_onnection</RadioButton>
+                                    <Grid ColumnDefinitions="90,*,Auto">
+                                        <Label>Current default:</Label>
+                                        <Label Grid.Column="1">None</Label>
+                                        <Button Grid.Column="2">S_et Defualt</Button>
+                                    </Grid>
+                                    <CheckBox>_Perform system security check before dialing</CheckBox>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </HeaderedContentControl>
+
+                        <HeaderedContentControl Header="Local Area Network (LAN) settings" Grid.Row="4">
+                            <avaloniaExplorer:UniformStack Spacing="7" HorizontalAlignment="Right">
+                                <Button>S_haring...</Button>
+                                <Button>_LAN Settings...</Button>
+                            </avaloniaExplorer:UniformStack>
+                        </HeaderedContentControl>
+                    </Grid>
+
+                </TabItem>
+                <TabItem Header="Programs">
+                    <StackPanel Margin="10,8,11,16" Spacing="11">
+                        <HeaderedContentControl Header="Internet programs">
+                            <DockPanel>
+                                <Image Source="Icons/cpl/4490@32.gif" Width="32" Height="32" VerticalAlignment="Top" />
+                                <StackPanel Orientation="Vertical" Margin="9,0,0,4" Spacing="9">
+                                    <TextBlock>You can specify which program Windows automatically uses for each Internet service.</TextBlock>
+                                    <Grid ColumnDefinitions="Auto,12,*" RowDefinitions="Auto,6,Auto,6,Auto,6,Auto,6,Auto,6,Auto">
+                                        <AccessText Grid.Row="0">_HTML editor:</AccessText>
+                                        <ComboBox Grid.Column="2" Grid.Row="0">
+                                            <ComboBoxItem>Avalonia Notepad</ComboBoxItem>
+                                        </ComboBox>
+
+                                        <AccessText Grid.Row="2">_E-mail:</AccessText>
+                                        <ComboBox Grid.Column="2" Grid.Row="2" SelectedIndex="0">
+                                            <ComboBoxItem>Microsoft Outlook</ComboBoxItem>
+                                        </ComboBox>
+
+                                        <AccessText Grid.Row="4">_Newsgroups:</AccessText>
+                                        <ComboBox Grid.Column="2" Grid.Row="4" SelectedIndex="0">
+                                            <ComboBoxItem>Outlook Express</ComboBoxItem>
+                                        </ComboBox>
+
+                                        <AccessText Grid.Row="6">In_ternet call:</AccessText>
+                                        <ComboBox Grid.Column="2" Grid.Row="6" SelectedIndex="0">
+                                            <ComboBoxItem>Microsoft NetMeeting</ComboBoxItem>
+                                        </ComboBox>
+
+                                        <AccessText Grid.Row="8">_Calendar:</AccessText>
+                                        <ComboBox Grid.Column="2" Grid.Row="8">
+                                        </ComboBox>
+
+                                        <AccessText Grid.Row="10">Contact _list:</AccessText>
+                                        <ComboBox Grid.Column="2" Grid.Row="10" SelectedIndex="0">
+                                            <ComboBoxItem>Address Book</ComboBoxItem>
+                                        </ComboBox>
+                                    </Grid>
+                                </StackPanel>
+                            </DockPanel>
+                        </HeaderedContentControl>
+
+                        <DockPanel>
+                            <Button>Reset Web Settings...</Button>
+                            <Border Width="13" />
+                            <TextBlock>You can reset Internet Explorer defaults for home and search pages</TextBlock>
+                        </DockPanel>
+
+                        <CheckBox IsChecked="True">Internet Explorer should check to see whether it is the default browser</CheckBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Advanced">
+                    <Grid RowDefinitions="Auto,5,280,7,Auto" Margin="10,8,11,16" >
+                        <AccessText>_Settings:</AccessText>
+                        <TreeView Grid.Row="2" Background="White">
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Icons/cpl/4497@16.gif" Width="16" Height="16"></Image>
+                                        <TextBlock>Accessibility</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <x:String>Always expand ALT text for images</x:String>
+                                <x:String>Move system caret with focus/selection changes</x:String>
+                            </TreeViewItem>
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Icons/cpl/4482@16.gif" Width="16" Height="16"></Image>
+                                        <TextBlock>Browsing</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <x:String>Always send URLs as UTF-8</x:String>
+                                <x:String>Automatically check for Internet Explorer updates</x:String>
+                                <x:String>Close unused folders in History and Favorites</x:String>
+                                <x:String>Disable script debugging</x:String>
+                                <x:String>Display a notification about every script error</x:String>
+                                <x:String>Enable Install On Demand</x:String>
+                                <x:String>Enable offline items to be synchronized on a schedule</x:String>
+                                <x:String>Enable page hit counting</x:String>
+                                <x:String>Enable page transitions</x:String>
+                                <x:String>Launch browser windows in a separate process</x:String>
+                                <x:String>Notify when downloads complete</x:String>
+                                <x:String>Show friendly HTTP error messages</x:String>
+                                <x:String>Show friendly URLs</x:String>
+
+                                <TreeViewItem>
+                                    <TreeViewItem.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="Icons/cpl/4482@16.gif" Width="16" Height="16"></Image>
+                                            <TextBlock>Underline links</TextBlock>
+                                        </StackPanel>
+                                    </TreeViewItem.Header>
+                                    <TreeViewItem>
+                                        <TreeViewItem.Header>
+                                            <RadioButton>Always</RadioButton>
+                                        </TreeViewItem.Header>
+                                    </TreeViewItem>
+                                    <TreeViewItem>
+                                        <TreeViewItem.Header>
+                                            <RadioButton>Hover</RadioButton>
+                                        </TreeViewItem.Header>
+                                    </TreeViewItem>
+                                    <TreeViewItem>
+                                        <TreeViewItem.Header>
+                                            <RadioButton>Never</RadioButton>
+                                        </TreeViewItem.Header>
+                                    </TreeViewItem>
+                                </TreeViewItem>
+                                <x:String>Use inline AutoComplete for Web addresses</x:String>
+                                <x:String>Use inline AutoComplete in Windows Explorer</x:String>
+                                <x:String>Use smooth scrolling</x:String>
+                                <x:String>Use Web Based FTP</x:String>
+                            </TreeViewItem>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Icons/cpl/4443@16.gif" Width="16" Height="16"></Image>
+                                        <TextBlock>HTTP 1.1 settings</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <x:String>Use HTTP 1.1</x:String>
+                                <x:String>Use HTTP 1.1 through proxy connections</x:String>
+                            </TreeViewItem>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Icons/cpl/4441@16.gif" Width="16" Height="16"></Image>
+                                        <TextBlock>Java VM</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <x:String>Java console enabled (requires restart)</x:String>
+                                <x:String>Java logging enabled</x:String>
+                                <x:String>JIT compiler for virtual machine enabled (requires restart)</x:String>
+                            </TreeViewItem>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Icons/cpl/1312@16.gif" Width="16" Height="16"></Image>
+                                        <TextBlock>Multimedia</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <x:String>Always show Internet Explorer Radio bar</x:String>
+                                <x:String>Play animations</x:String>
+                                <x:String>Play sounds</x:String>
+                                <x:String>Play videos</x:String>
+                                <x:String>Show image download placeholders</x:String>
+                                <x:String>Show pictures</x:String>
+                                <x:String>Smart image dithering</x:String>
+                            </TreeViewItem>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Icons/cpl/4447@16.gif" Width="16" Height="16"></Image>
+                                        <TextBlock>Printing</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <x:String>Print background colors and images</x:String>
+                            </TreeViewItem>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Icons/cpl/4483@16.gif" Width="16" Height="16"></Image>
+                                        <TextBlock>Search from the Address bar:</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <TreeViewItem>
+                                    <TreeViewItem.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="Icons/cpl/4483@16.gif" Width="16" Height="16"></Image>
+                                            <TextBlock>When searching:</TextBlock>
+                                        </StackPanel>
+                                    </TreeViewItem.Header>
+                                    <TreeViewItem>
+                                        <TreeViewItem.Header>
+                                            <RadioButton>Display results, and go to the most likely site</RadioButton>
+                                        </TreeViewItem.Header>
+                                    </TreeViewItem>
+                                    <TreeViewItem>
+                                        <TreeViewItem.Header>
+                                            <RadioButton>Do not search from the Address bar</RadioButton>
+                                        </TreeViewItem.Header>
+                                    </TreeViewItem>
+                                    <TreeViewItem>
+                                        <TreeViewItem.Header>
+                                            <RadioButton>Just display the results in the main window</RadioButton>
+                                        </TreeViewItem.Header>
+                                    </TreeViewItem>
+                                    <TreeViewItem>
+                                        <TreeViewItem.Header>
+                                            <RadioButton>Just go to the most likely site</RadioButton>
+                                        </TreeViewItem.Header>
+                                    </TreeViewItem>
+                                </TreeViewItem>
+                            </TreeViewItem>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Icons/cpl/4442@16.gif" Width="16" Height="16"></Image>
+                                        <TextBlock>Security</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <x:String>Check for publisher's certificate revocation</x:String>
+                                <x:String>Check for server certificate revocation (requires restart]</x:String>
+                                <x:String>Do not save encrypted pages to disk</x:String>
+                                <x:String>Empty Temporary Internet Files folder when browser is closed</x:String>
+                                <x:String>Enable Profile Assistant</x:String>
+                                <x:String>Use Fortezza</x:String>
+                                <x:String>Use PCT 1.0</x:String>
+                                <x:String>Use SSL 2.0</x:String>
+                                <x:String>Use SSL 3.0</x:String>
+                                <x:String>Use TLS 1.0</x:String>
+                                <x:String>Warn about invalid site certificates</x:String>
+                                <x:String>Warn if changing between secure and not secure mode</x:String>
+                                <x:String>Warn if forms submittal is being redirected</x:String>
+                            </TreeViewItem>
+
+                            <TreeView.ItemTemplate>
+                                <TreeDataTemplate>
+                                    <CheckBox Margin="0,1,0,2" Content="{ReflectionBinding .}"></CheckBox>
+                                </TreeDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                        <Button Grid.Row="4" HorizontalAlignment="Right">_Restore Defaults</Button>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Panel>
+</ClassicWindow>

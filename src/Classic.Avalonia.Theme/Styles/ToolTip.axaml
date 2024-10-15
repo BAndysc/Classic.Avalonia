@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <ControlTheme x:Key="{x:Type ToolTip}"
+                TargetType="ToolTip">
+    <Setter Property="BorderThickness"
+            Value="1"/>
+    <Setter Property="BorderBrush"
+            Value="{DynamicResource {x:Static classic:SystemColors.WindowFrameBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static classic:SystemColors.InfoBrushKey}}"/>
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.InfoTextBrushKey}}"/>
+    <!-- <Setter Property="FontFamily" -->
+    <!--         Value="{DynamicResource {x:Static SystemFonts.StatusFontFamilyKey}}"/> -->
+    <!-- <Setter Property="FontSize" -->
+    <!--         Value="{DynamicResource {x:Static SystemFonts.StatusFontSizeKey}}"/> -->
+    <!-- <Setter Property="FontStyle" -->
+    <!--         Value="{DynamicResource {x:Static SystemFonts.StatusFontStyleKey}}"/> -->
+    <!-- <Setter Property="FontWeight" -->
+    <!--         Value="{DynamicResource {x:Static SystemFonts.StatusFontWeightKey}}"/> -->
+    <Setter Property="Padding"
+            Value="1,1,3,1"/>
+    <Setter Property="HorizontalContentAlignment"
+            Value="Left"/>
+    <Setter Property="VerticalContentAlignment"
+            Value="Center"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Padding="{TemplateBinding Padding}"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          RenderOptions.EdgeMode="Aliased"
+                          RenderOptions.BitmapInterpolationMode="None"
+                          RenderOptions.TextRenderingMode="Alias"
+                          CornerRadius="{TemplateBinding CornerRadius}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

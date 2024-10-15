@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme">
+  <ControlTheme x:Key="{x:Type classic:ClassicBorderDecorator}"
+                TargetType="classic:ClassicBorderDecorator">
+    <Setter Property="BorderLightBrush" Value="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}" />
+    <Setter Property="BorderLightLightBrush" Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}" />
+    <Setter Property="BorderDarkBrush" Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}" />
+    <Setter Property="BorderDarkDarkBrush" Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}" />
+    <Setter Property="BorderControlBrush" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
+    <Setter Property="ControlColor" Value="{DynamicResource {x:Static classic:SystemColors.ControlColorKey}}" />
+  </ControlTheme>
+</ResourceDictionary>

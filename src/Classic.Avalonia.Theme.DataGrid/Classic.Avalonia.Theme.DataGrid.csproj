@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <Authors>bandysc</Authors>
+        <Company />
+        <PackageId>Classic.Avalonia.Theme.DataGrid</PackageId>
+        <Product>Classic.Avalonia.Theme.DataGrid</Product>
+        <Description>Classic Windows-like theme for Avalonia</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/BAndysc/Classic.Avalonia</PackageProjectUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/BAndysc/Classic.Avalonia</RepositoryUrl>
+        <PackageTags>avalonia theme classic</PackageTags>
+        <Version>11.1.4.1</Version>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\icon.png">
+            <Pack>True</Pack>
+            <PackagePath />
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.1.4" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj" />
+    </ItemGroup>
+</Project>

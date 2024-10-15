@@ -1,0 +1,90 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+        x:ClassModifier="internal">
+
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/AdornerLayer.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ClassicBorderDecorator.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Button.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/RadioButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Expander.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/RepeatButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ToggleSwitch.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ButtonSpinner.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ToggleButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/DropDownButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/PathIcon.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/CheckBox.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ToolTip.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Label.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ComboBoxItem.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ComboBox.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Window.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Carousel.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/CaptionButtons.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TitleBar.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/AutoAttachTitleBar.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TextBox.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/AutoCompleteBox.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/DataValidationErrors.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/FlyoutPresenter.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/MenuFlyoutPresenter.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/GridSplitter.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/HyperlinkButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ItemsControl.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ListBoxItem.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ListBox.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ScrollBar.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ScrollViewer.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TabStrip.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TabStripItem.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TabControl.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TabItem.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/PopupRoot.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/OverlayPopupHost.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/WindowNotificationManager.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/EmbeddableControlRoot.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TransitioningContentControl.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TreeView.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TreeViewItem.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ProgressBar.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Separator.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Menu.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/MenuItem.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ContextMenu.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/CalendarButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/CalendarDayButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/CalendarItem.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Calendar.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/CalendarDatePicker.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Slider.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/NotificationCard.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/NumericUpDown.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/DateTimePickerShared.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/DatePicker.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TimePicker.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/SplitView.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ManagedFileChooser.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/SplitButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/SelectableTextBlock.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/RefreshContainer.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/RefreshVisualizer.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ThemeVariantScope.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/HeaderedContentControl.axaml"/>
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TextSelectionHandle.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ToolBarIcon.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ToolBarButton.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/StatusBar.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Rebar.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/FontDialog.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/AboutDialog.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/MessageBox.axaml" />
+
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
+  <StyleInclude Source="avares://Classic.Avalonia.Theme/Styles/ToolBar.axaml" />
+</Styles>

@@ -1,0 +1,134 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:theme="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
+                    x:ClassModifier="internal">
+  <ControlTheme x:Key="{x:Type TabControl}"
+                TargetType="TabControl">
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static theme:SystemColors.ControlTextBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static theme:SystemColors.ControlBrushKey}}"/>
+    <Setter Property="BorderBrush"
+            Value="{x:Static theme:ClassicBorderDecorator.ClassicBorderBrush}"/>
+    <Setter Property="BorderThickness"
+            Value="3"/>
+    <Setter Property="Margin"
+            Value="0"/>
+    <Setter Property="Padding"
+            Value="1"/>
+    <Setter Property="MinWidth"
+            Value="10"/>
+    <Setter Property="MinHeight"
+            Value="10"/>
+    <Setter Property="HorizontalContentAlignment"
+            Value="Stretch"/>
+    <Setter Property="VerticalContentAlignment"
+            Value="Stretch"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid KeyboardNavigation.TabNavigation="Local" x:Name="RootGrid"
+              ClipToBounds="true">
+          <!-- <TabPanel x:Name="HeaderPanel" -->
+          <ItemsPresenter Name="PART_ItemsPresenter"
+                          ZIndex="1"
+                          KeyboardNavigation.TabIndex="1"
+                          ItemsPanel="{TemplateBinding ItemsPanel}" />
+            <Grid x:Name="ContentPanel"
+                  KeyboardNavigation.TabNavigation="Local"
+                  KeyboardNavigation.TabIndex="2">
+                <theme:ClassicBorderDecorator BorderStyle="Raised"
+                                              Background="{TemplateBinding Background}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              BorderBrush="{TemplateBinding BorderBrush}">
+                  <ContentPresenter Name="PART_SelectedContentHost"
+                                    Margin="2,2,2,2"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Content="{TemplateBinding SelectedContent}"
+                                    ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                </theme:ClassicBorderDecorator>
+            </Grid>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^[TabStripPlacement=Top]">
+      <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+        <Setter Property="(Grid.Row)" Value="0" />
+        <Setter Property="(Grid.Column)" Value="0" />
+        <Setter Property="Margin" Value="2,2,2,0" />
+      </Style>
+      <Style Selector="^ /template/ Grid#ContentPanel">
+        <Setter Property="(Grid.Column)" Value="0" />
+        <Setter Property="(Grid.Row)" Value="1" />
+      </Style>
+      <Style Selector="^ /template/ Grid#RootGrid">
+        <Setter Property="(utils:GridExtensions.RowDefinitionsEx)" Value="Auto,*" />
+        <Setter Property="(utils:GridExtensions.ColumnDefinitionsEx)" Value="*,0" />
+      </Style>
+    </Style>
+
+    <Style Selector="^[TabStripPlacement=Bottom]">
+      <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+        <Setter Property="(Grid.Row)" Value="1" />
+        <Setter Property="(Grid.Column)" Value="0" />
+        <Setter Property="Margin" Value="2,0,2,2" />
+      </Style>
+      <Style Selector="^ /template/ Grid#ContentPanel">
+        <Setter Property="(Grid.Row)" Value="0" />
+        <Setter Property="(Grid.Column)" Value="0" />
+      </Style>
+      <Style Selector="^ /template/ Grid#RootGrid">
+        <Setter Property="(utils:GridExtensions.RowDefinitionsEx)" Value="*,Auto" />
+        <Setter Property="(utils:GridExtensions.ColumnDefinitionsEx)" Value="*,0" />
+      </Style>
+    </Style>
+
+      <Style Selector="^[TabStripPlacement=Left]">
+        <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+          <Setter Property="(Grid.Row)" Value="0" />
+          <Setter Property="(Grid.Column)" Value="0" />
+          <Setter Property="Margin" Value="2,2,0,2" />
+          <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+              <WrapPanel Orientation="Vertical" />
+            </ItemsPanelTemplate>
+          </Setter>
+        </Style>
+        <Style Selector="^ /template/ Grid#ContentPanel">
+          <Setter Property="(Grid.Row)" Value="0" />
+          <Setter Property="(Grid.Column)" Value="1" />
+        </Style>
+        <Style Selector="^ /template/ Grid#RootGrid">
+          <Setter Property="(utils:GridExtensions.ColumnDefinitionsEx)" Value="Auto,*" />
+          <Setter Property="(utils:GridExtensions.RowDefinitionsEx)" Value="*,0" />
+        </Style>
+    </Style>
+
+      <Style Selector="^[TabStripPlacement=Right]">
+        <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+          <Setter Property="(Grid.Row)" Value="0" />
+          <Setter Property="(Grid.Column)" Value="1" />
+          <Setter Property="Margin" Value="0,2,2,2" />
+          <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+              <WrapPanel Orientation="Vertical" />
+            </ItemsPanelTemplate>
+          </Setter>
+        </Style>
+        <Style Selector="^ /template/ Grid#ContentPanel">
+          <Setter Property="(Grid.Row)" Value="0" />
+          <Setter Property="(Grid.Column)" Value="0" />
+        </Style>
+        <Style Selector="^ /template/ Grid#RootGrid">
+          <Setter Property="(utils:GridExtensions.ColumnDefinitionsEx)" Value="*,Auto" />
+          <Setter Property="(utils:GridExtensions.RowDefinitionsEx)" Value="*,0" />
+        </Style>
+      </Style>
+
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static theme:SystemColors.GrayTextBrushKey}}"/>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

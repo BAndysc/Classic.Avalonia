@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+             xmlns:panels="clr-namespace:AvaloniaExplorer.Panels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaExplorer.Panels.FavoritesPanel">
+    <panels:IePanel Header="Favorites">
+        <DockPanel>
+            <commonControls:ToolBar DockPanel.Dock="Top" GrayscaleIcons="True" Size="Small" TextPlacement="Right">
+                <commonControls:ToolBarButton Text="Add" SmallIcon="../Icons/add_favorite16.gif"/>
+                <commonControls:ToolBarButton Text="Organize..." SmallIcon="../Icons/organize_favorite16.gif"/>
+            </commonControls:ToolBar>
+            <Separator DockPanel.Dock="Top" Margin="0" />
+            <Border Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+        </DockPanel>
+    </panels:IePanel>
+</UserControl>

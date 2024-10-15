@@ -1,0 +1,284 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    x:ClassModifier="internal">
+  <SolidColorBrush x:Key="ScrollBarPageButtonBrush"
+                   Color="{DynamicResource {x:Static classic:SystemColors.ControlLightLightColorKey}}"
+                   Opacity="0.5"/>
+    <ControlTheme x:Key="ScrollBarLineButtonStyle"
+         TargetType="{x:Type RepeatButton}">
+      <Setter Property="Background"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+      <Setter Property="Foreground"
+              Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+      <Setter Property="BorderBrush"
+              Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
+      <Setter Property="BorderThickness"
+              Value="2"/>
+      <Setter Property="MinWidth"
+              Value="0"/>
+      <Setter Property="MinHeight"
+              Value="0"/>
+      <Setter Property="IsTabStop"
+              Value="false"/>
+      <Setter Property="Focusable"
+              Value="false"/>
+      <Setter Property="Template">
+          <Setter.Value>
+              <ControlTemplate TargetType="{x:Type RepeatButton}">
+                  <classic:ClassicBorderDecorator x:Name="ClassicBorder"
+                                                Width="{TemplateBinding Width}"
+                                                Height="{TemplateBinding Height}"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                      <Panel>
+                        <Path HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Name="PART_DisabledShadow"
+                              Margin="1,1,0,0"
+                              Fill="{DynamicResource {x:Static classic:SystemColors.ControlLightLightColorKey}}"
+                              Data="{Binding Path=Content,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Path HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Fill="{TemplateBinding Foreground}"
+                              Data="{Binding Path=Content,RelativeSource={RelativeSource TemplatedParent}}"/>
+                      </Panel>
+                  </classic:ClassicBorderDecorator>
+              </ControlTemplate>
+          </Setter.Value>
+      </Setter>
+      <Style Selector="^ /template/ classic|ClassicBorderDecorator#ClassicBorder">
+        <Setter Property="BorderStyle"
+                Value="AltRaised"/>
+      </Style>
+      <Style Selector="^:pressed /template/ classic|ClassicBorderDecorator#ClassicBorder">
+        <Setter Property="BorderStyle"
+                Value="AltPressed"/>
+      </Style>
+
+      <Style Selector="^ /template/ Path#PART_DisabledShadow">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+
+      <Style Selector="^:disabled">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"/>
+        <Style Selector="^ /template/ Path#PART_DisabledShadow">
+          <Setter Property="IsVisible" Value="True" />
+        </Style>
+      </Style>
+    </ControlTheme>
+
+      <!--
+            ********************************************
+            * HorizontalScrollBar PageLeftButton Style *
+            ********************************************
+        -->
+    <ControlTheme x:Key="HorizontalScrollBarPageButtonStyle"
+                  TargetType="{x:Type RepeatButton}">
+        <Setter Property="IsTabStop"
+                Value="false"/>
+        <Setter Property="Focusable"
+                Value="false"/>
+        <Setter Property="MinHeight"
+                Value="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"/>
+        <Setter Property="MinWidth"
+                Value="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle x:Name="PageButtonBackground" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style Selector="^ /template/ Rectangle#PageButtonBackground">
+          <Setter Property="Fill"
+                  Value="Transparent" />
+        </Style>
+        <Style Selector="^:pressed /template/ Rectangle#PageButtonBackground">
+          <Setter Property="Fill"
+                  Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}" />
+        </Style>
+    </ControlTheme>
+    <!--
+            ******************************************
+            * VerticalScrollBar PageButton Style     *
+            ******************************************
+        -->
+    <ControlTheme x:Key="VerticalScrollBarPageButtonStyle"
+                  TargetType="{x:Type RepeatButton}">
+        <Setter Property="IsTabStop"
+                Value="false"/>
+        <Setter Property="Focusable"
+                Value="false"/>
+        <Setter Property="MinWidth"
+                Value="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"/>
+        <Setter Property="MinHeight"
+                Value="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle x:Name="PageButtonBackground"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style Selector="^ /template/ Rectangle#PageButtonBackground">
+          <Setter Property="Fill"
+                  Value="Transparent" />
+        </Style>
+        <Style Selector="^:pressed /template/ Rectangle#PageButtonBackground">
+          <Setter Property="Fill"
+                  Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="ScrollBarThumb"
+                  TargetType="{x:Type Thumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <classic:ClassicBorderDecorator BorderStyle="Raised"
+                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                                  BorderThickness="3"
+                                                  BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ScrollBar}"
+                TargetType="ScrollBar">
+    <Setter Property="Background"
+            Value="{DynamicResource DiagonalBrush}"/> <!-- {DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}} -->
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+    <Setter Property="BorderThickness"
+            Value="0"/>
+
+    <Style Selector="^:vertical">
+
+      <Setter Property="Width"
+              Value="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"/>
+      <Setter Property="MinWidth"
+              Value="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"/>
+
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Grid Background="{TemplateBinding Background}">
+              <Grid.RowDefinitions>
+                  <RowDefinition MaxHeight="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                  <RowDefinition Height="0.00001*"/>
+                  <RowDefinition MaxHeight="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+              </Grid.RowDefinitions>
+              <Viewbox Stretch="Fill">
+                  <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
+                                Height="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"
+                                MinWidth="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"
+                                Name="PART_LineUpButton"
+                                Content="M 0 4 L 7 4 L 3.5 0 Z"/>
+              </Viewbox>
+              <Rectangle Grid.Row="1"
+                         Fill="Transparent"/>
+
+              <Track Grid.Row="1"
+                     Name="PART_Track"
+                     Maximum="{TemplateBinding Maximum}"
+                     Minimum="{TemplateBinding Minimum}"
+                     Orientation="{TemplateBinding Orientation}"
+                     ViewportSize="{TemplateBinding ViewportSize}"
+                     DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                     Value="{TemplateBinding Value, Mode=TwoWay}"
+                     IsDirectionReversed="true">
+                  <Track.DecreaseButton>
+                      <RepeatButton Theme="{StaticResource VerticalScrollBarPageButtonStyle}"
+                                    Name="PART_PageUpButton"/>
+                  </Track.DecreaseButton>
+                  <Track.IncreaseButton>
+                      <RepeatButton Theme="{StaticResource VerticalScrollBarPageButtonStyle}"
+                                    Name="PART_PageDownButton"/>
+                  </Track.IncreaseButton>
+                  <Track.Thumb>
+                      <Thumb Theme="{StaticResource ScrollBarThumb}"/>
+                  </Track.Thumb>
+              </Track>
+
+              <Viewbox Stretch="Fill"
+                       Grid.Row="2">
+                  <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
+                                Height="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"
+                                MinWidth="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"
+                                Name="PART_LineDownButton"
+                                Content="M 0 0 L 3.5 4 L 7 0 Z"/>
+              </Viewbox>
+          </Grid>
+        </ControlTemplate>
+      </Setter>
+    </Style>
+
+    <Style Selector="^:horizontal">
+
+      <Setter Property="Height"
+              Value="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"/>
+      <Setter Property="MinHeight"
+              Value="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"/>
+
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Grid Background="{TemplateBinding Background}">
+              <Grid.ColumnDefinitions>
+                  <ColumnDefinition MaxWidth="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                  <ColumnDefinition Width="0.00001*"/>
+                  <ColumnDefinition MaxWidth="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+              </Grid.ColumnDefinitions>
+              <Viewbox Stretch="Fill">
+                  <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
+                                Width="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
+                                MinHeight="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"
+                                Name="PART_LineUpButton"
+                                Content="M 0 4 L 4 8 L 4 0 Z"/>
+              </Viewbox>
+              <Rectangle Grid.Column="1"
+                         Fill="Transparent"/>
+              <Track Grid.Column="1"
+                     Maximum="{TemplateBinding Maximum}"
+                     Minimum="{TemplateBinding Minimum}"
+                     Orientation="{TemplateBinding Orientation}"
+                     ViewportSize="{TemplateBinding ViewportSize}"
+                     DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                     Value="{TemplateBinding Value, Mode=TwoWay}"
+                     Name="PART_Track">
+                  <Track.DecreaseButton>
+                      <RepeatButton Theme="{StaticResource HorizontalScrollBarPageButtonStyle}"
+                                    Name="PART_PageUpButton"/>
+                  </Track.DecreaseButton>
+                  <Track.IncreaseButton>
+                      <RepeatButton Theme="{StaticResource HorizontalScrollBarPageButtonStyle}"
+                                    Name="PART_PageDownButton"/>
+                  </Track.IncreaseButton>
+                  <Track.Thumb>
+                      <Thumb Theme="{StaticResource ScrollBarThumb}"/>
+                  </Track.Thumb>
+              </Track>
+
+
+              <Viewbox Stretch="Fill"
+                       Grid.Column="2">
+                  <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
+                                Width="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
+                                MinHeight="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"
+                                Name="PART_LineDownButton"
+                                Content="M 0 0 L 0 8 L 4 4 Z"/>
+              </Viewbox>
+          </Grid>
+        </ControlTemplate>
+      </Setter>
+    </Style>
+
+    <Style Selector="^.__classic_theme_is_empty /template/ RepeatButton#PART_LineUpButton">
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+    <Style Selector="^.__classic_theme_is_empty /template/ RepeatButton#PART_LineDownButton">
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
