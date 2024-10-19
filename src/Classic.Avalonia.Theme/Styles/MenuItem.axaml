@@ -121,7 +121,6 @@
     </Style>
 
     <Style Selector="^:selected">
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
       <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
         <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
       </Style>
