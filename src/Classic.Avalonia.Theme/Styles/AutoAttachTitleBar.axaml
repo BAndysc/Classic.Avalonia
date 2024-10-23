@@ -1,24 +1,24 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
-                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme">
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
 
   <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%" x:Key="ActiveTitleBarBrush">
     <GradientStops>
-      <GradientStop Offset="0" Color="{DynamicResource {x:Static classic:SystemColors.ActiveCaptionColorKey}}" />
-      <GradientStop Offset="1" Color="{DynamicResource {x:Static classic:SystemColors.GradientActiveCaptionColorKey}}" />
+      <GradientStop Offset="0" Color="{DynamicResource {x:Static common:SystemColors.ActiveCaptionColorKey}}" />
+      <GradientStop Offset="1" Color="{DynamicResource {x:Static common:SystemColors.GradientActiveCaptionColorKey}}" />
     </GradientStops>
   </LinearGradientBrush>
 
   <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%" x:Key="InactiveTitleBarBrush">
     <GradientStops>
-      <GradientStop Offset="0" Color="{DynamicResource {x:Static classic:SystemColors.InactiveCaptionColorKey}}" />
-      <GradientStop Offset="1" Color="{DynamicResource {x:Static classic:SystemColors.GradientInactiveCaptionColorKey}}" />
+      <GradientStop Offset="0" Color="{DynamicResource {x:Static common:SystemColors.InactiveCaptionColorKey}}" />
+      <GradientStop Offset="1" Color="{DynamicResource {x:Static common:SystemColors.GradientInactiveCaptionColorKey}}" />
     </GradientStops>
   </LinearGradientBrush>
 
   <ControlTheme x:Key="{x:Type utils:AutoAttachTitleBar}" TargetType="utils:AutoAttachTitleBar">
-    <Setter Property="Height" Value="{DynamicResource {x:Static classic:SystemParameters.WindowCaptionHeightKey}}" />
+    <Setter Property="Height" Value="{DynamicResource {x:Static common:SystemParameters.WindowCaptionHeightKey}}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
@@ -36,10 +36,10 @@
             <TextBlock Text="{Binding $parent[Window].Title}"
                        VerticalAlignment="Center"
                        RenderOptions.TextRenderingMode="Alias"
-                       FontFamily="{DynamicResource {x:Static classic:NonClientMetrics.CaptionFontKey}}"
-                       FontSize="{DynamicResource {x:Static classic:NonClientMetrics.CaptionFontSizeKey}}"
+                       FontFamily="{DynamicResource {x:Static common:NonClientMetrics.CaptionFontKey}}"
+                       FontSize="{DynamicResource {x:Static common:NonClientMetrics.CaptionFontSizeKey}}"
                        IsHitTestVisible="False"
-                       Foreground="{DynamicResource {x:Static classic:SystemColors.ActiveCaptionTextBrushKey}}" FontWeight="Bold" />
+                       Foreground="{DynamicResource {x:Static common:SystemColors.ActiveCaptionTextBrushKey}}" FontWeight="Bold" />
           </DockPanel>
 
         </Panel>

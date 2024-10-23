@@ -3,7 +3,7 @@
                     xmlns:converters="using:Avalonia.Controls.Converters"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:converters1="clr-namespace:Classic.Avalonia.Theme.Converters"
-                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
     <Border Padding="20">
@@ -22,9 +22,9 @@
   <ControlTheme x:Key="{x:Type ProgressBar}"
                 TargetType="ProgressBar">
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}"/>
     <Setter Property="BorderBrush"
             Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
     <Setter Property="BorderThickness"

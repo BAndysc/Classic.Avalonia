@@ -10,6 +10,7 @@ using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Styling;
+using Classic.CommonControls;
 
 namespace Classic.Avalonia.Theme.Controls;
 

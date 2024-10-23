@@ -2,14 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="ClassicWindow"
                 TargetType="Window">
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
     <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource HighlightForegroundColor}" />
     <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
     <Setter Property="MinWidth" Value="150" />
@@ -77,8 +78,8 @@
   <ControlTheme x:Key="{x:Type Window}"
                 TargetType="Window">
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
-    <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
-    <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
+    <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}" />
     <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
     <Setter Property="Template">
       <ControlTemplate>

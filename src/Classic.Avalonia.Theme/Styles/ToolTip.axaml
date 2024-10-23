@@ -1,17 +1,17 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type ToolTip}"
                 TargetType="ToolTip">
     <Setter Property="BorderThickness"
             Value="1"/>
     <Setter Property="BorderBrush"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowFrameBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowFrameBrushKey}}"/>
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.InfoBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.InfoBrushKey}}"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.InfoTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.InfoTextBrushKey}}"/>
     <!-- <Setter Property="FontFamily" -->
     <!--         Value="{DynamicResource {x:Static SystemFonts.StatusFontFamilyKey}}"/> -->
     <!-- <Setter Property="FontSize" -->

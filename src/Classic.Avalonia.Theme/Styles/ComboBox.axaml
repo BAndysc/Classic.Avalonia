@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
@@ -27,8 +28,8 @@
                            LastChildFill="false">
                     <classic:ClassicBorderDecorator Name="Border"
                                                   DockPanel.Dock="Right"
-                                                  Width="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"
-                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                                  Width="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"
+                                                  Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
                                                   BorderThickness="{TemplateBinding BorderThickness}"
                                                   BorderBrush="{TemplateBinding BorderBrush}">
                         <Path
@@ -51,7 +52,7 @@
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Foreground"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}"/>
     </Style>
 </ControlTheme>
 
@@ -60,9 +61,9 @@
     <Setter Property="FocusAdorner"
             Value="{controls:ClassicalFocusAdorner MarginLeft=4, MarginBottom=4, MarginTop=4, MarginRight=21}"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
     <Setter Property="Margin"
             Value="0,0,0,0"/>
     <Setter Property="Padding"
@@ -98,10 +99,10 @@
                                             Mode=TwoWay}"
                            Focusable="False">
                 <Border x:Name="DropDownBorder"
-                        Background="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"
+                        Background="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"
                         BorderThickness="1"
                         RenderOptions.TextRenderingMode="Alias"
-                        BorderBrush="{DynamicResource {x:Static classic:SystemColors.WindowFrameBrushKey}}">
+                        BorderBrush="{DynamicResource {x:Static common:SystemColors.WindowFrameBrushKey}}">
                     <ScrollViewer Name="DropDownScrollViewer"
                                   HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                   VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
@@ -123,7 +124,7 @@
             <DockPanel Margin="2">
                 <!-- saves space for the button which will be drawn on top -->
                 <Control DockPanel.Dock="Right"
-                                  Width="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"/>
+                                  Width="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"/>
                 <Border x:Name="SelectedItemBorder"
                         Margin="{TemplateBinding Padding}">
                         <Panel>
@@ -158,14 +159,14 @@
     </Setter>
     <Style Selector="^:disabled">
             <Setter Property="Foreground"
-                    Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+                    Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}"/>
             <Setter Property="Background"
-                    Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+                    Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
     </Style>
     <Style Selector="^:focus">
             <Style Selector="^ /template/ Border#SelectedItemBorder">
-                    <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
-                    <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}" />
+                    <Setter Property="TextElement.Foreground" Value="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}" />
+                    <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}" />
             </Style>
 </Style>
   </ControlTheme>

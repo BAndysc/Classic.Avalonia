@@ -1,11 +1,12 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <FocusAdornerTemplate  x:Key="TabItemFocusVisual">
     <Rectangle Margin="4,4,4,2"
                StrokeThickness="1"
-               Stroke="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"
+               Stroke="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}"
                StrokeDashArray="1,2"/>
   </FocusAdornerTemplate>
 
@@ -16,9 +17,9 @@
     <Setter Property="Padding"
             Value="6,0,6,0"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}"/>
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
     <Setter Property="HorizontalContentAlignment"
             Value="Stretch"/>
     <Setter Property="VerticalContentAlignment"
@@ -76,7 +77,7 @@
 
     <Style Selector="^:disabled">
       <Setter Property="Foreground"
-              Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}"/>
     </Style>
   </ControlTheme>
 </ResourceDictionary>

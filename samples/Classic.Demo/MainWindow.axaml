@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:classic="clr-namespace:Classic.Avalonia.Theme;assembly=Classic.Avalonia.Theme"
         xmlns:demo="clr-namespace:Classic.Demo"
+        xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
         xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls;assembly=Classic.Avalonia.Theme"
         xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
         xmlns:dialogs="clr-namespace:Classic.CommonControls.Dialogs;assembly=Classic.CommonControls.Avalonia"
@@ -392,38 +393,38 @@
             <TabItem Header="Colors">
               <ScrollViewer VerticalScrollBarVisibility="Visible" MaxHeight="120">
                 <ItemsControl>
-                  <demo:ColorBox ColorName="ActiveBorder" Color="{DynamicResource {x:Static classic:SystemColors.ActiveBorderBrushKey}}" />
-                  <demo:ColorBox ColorName="ActiveCaption" Color="{DynamicResource {x:Static classic:SystemColors.ActiveCaptionBrushKey}}" />
-                  <demo:ColorBox ColorName="ActiveCaptionText" Color="{DynamicResource {x:Static classic:SystemColors.ActiveCaptionTextBrushKey}}" />
-                  <demo:ColorBox ColorName="AppWorkspace" Color="{DynamicResource {x:Static classic:SystemColors.AppWorkspaceBrushKey}}" />
-                  <demo:ColorBox ColorName="Control" Color="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
-                  <demo:ColorBox ColorName="ControlDark" Color="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}" />
-                  <demo:ColorBox ColorName="ControlDarkDark" Color="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}" />
-                  <demo:ColorBox ColorName="ControlLight" Color="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}" />
-                  <demo:ColorBox ColorName="ControlLightLight" Color="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}" />
-                  <demo:ColorBox ColorName="ControlText" Color="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}" />
-                  <demo:ColorBox ColorName="Desktop" Color="{DynamicResource {x:Static classic:SystemColors.DesktopBrushKey}}" />
-                  <demo:ColorBox ColorName="GradientActiveCaption" Color="{DynamicResource {x:Static classic:SystemColors.GradientActiveCaptionBrushKey}}" />
-                  <demo:ColorBox ColorName="GradientInactiveCaption" Color="{DynamicResource {x:Static classic:SystemColors.GradientInactiveCaptionBrushKey}}" />
-                  <demo:ColorBox ColorName="GrayText" Color="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}" />
-                  <demo:ColorBox ColorName="Highlight" Color="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}" />
-                  <demo:ColorBox ColorName="HighlightText" Color="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
-                  <demo:ColorBox ColorName="HotTrack" Color="{DynamicResource {x:Static classic:SystemColors.HotTrackBrushKey}}" />
-                  <demo:ColorBox ColorName="InactiveBorder" Color="{DynamicResource {x:Static classic:SystemColors.InactiveBorderBrushKey}}" />
-                  <demo:ColorBox ColorName="InactiveCaption" Color="{DynamicResource {x:Static classic:SystemColors.InactiveCaptionBrushKey}}" />
-                  <demo:ColorBox ColorName="InactiveCaptionText" Color="{DynamicResource {x:Static classic:SystemColors.InactiveCaptionTextBrushKey}}" />
-                  <demo:ColorBox ColorName="Info" Color="{DynamicResource {x:Static classic:SystemColors.InfoBrushKey}}" />
-                  <demo:ColorBox ColorName="InfoText" Color="{DynamicResource {x:Static classic:SystemColors.InfoTextBrushKey}}" />
-                  <demo:ColorBox ColorName="Menu" Color="{DynamicResource {x:Static classic:SystemColors.MenuBrushKey}}" />
-                  <demo:ColorBox ColorName="MenuBar" Color="{DynamicResource {x:Static classic:SystemColors.MenuBarBrushKey}}" />
-                  <demo:ColorBox ColorName="MenuHighlight" Color="{DynamicResource {x:Static classic:SystemColors.MenuHighlightBrushKey}}" />
-                  <demo:ColorBox ColorName="MenuText" Color="{DynamicResource {x:Static classic:SystemColors.MenuTextBrushKey}}" />
-                  <demo:ColorBox ColorName="ScrollBar" Color="{DynamicResource {x:Static classic:SystemColors.ScrollBarBrushKey}}" />
-                  <demo:ColorBox ColorName="Window" Color="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}" />
-                  <demo:ColorBox ColorName="WindowFrame" Color="{DynamicResource {x:Static classic:SystemColors.WindowFrameBrushKey}}" />
-                  <demo:ColorBox ColorName="WindowText" Color="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}" />
-                  <demo:ColorBox ColorName="InactiveSelectionHighlight" Color="{DynamicResource {x:Static classic:SystemColors.InactiveSelectionHighlightBrushKey}}" />
-                  <demo:ColorBox ColorName="InactiveSelectionHighlightText" Color="{DynamicResource {x:Static classic:SystemColors.InactiveSelectionHighlightTextBrushKey}}" />
+                  <demo:ColorBox ColorName="ActiveBorder" Color="{DynamicResource {x:Static common:SystemColors.ActiveBorderBrushKey}}" />
+                  <demo:ColorBox ColorName="ActiveCaption" Color="{DynamicResource {x:Static common:SystemColors.ActiveCaptionBrushKey}}" />
+                  <demo:ColorBox ColorName="ActiveCaptionText" Color="{DynamicResource {x:Static common:SystemColors.ActiveCaptionTextBrushKey}}" />
+                  <demo:ColorBox ColorName="AppWorkspace" Color="{DynamicResource {x:Static common:SystemColors.AppWorkspaceBrushKey}}" />
+                  <demo:ColorBox ColorName="Control" Color="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
+                  <demo:ColorBox ColorName="ControlDark" Color="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}" />
+                  <demo:ColorBox ColorName="ControlDarkDark" Color="{DynamicResource {x:Static common:SystemColors.ControlDarkDarkBrushKey}}" />
+                  <demo:ColorBox ColorName="ControlLight" Color="{DynamicResource {x:Static common:SystemColors.ControlLightBrushKey}}" />
+                  <demo:ColorBox ColorName="ControlLightLight" Color="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}" />
+                  <demo:ColorBox ColorName="ControlText" Color="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}" />
+                  <demo:ColorBox ColorName="Desktop" Color="{DynamicResource {x:Static common:SystemColors.DesktopBrushKey}}" />
+                  <demo:ColorBox ColorName="GradientActiveCaption" Color="{DynamicResource {x:Static common:SystemColors.GradientActiveCaptionBrushKey}}" />
+                  <demo:ColorBox ColorName="GradientInactiveCaption" Color="{DynamicResource {x:Static common:SystemColors.GradientInactiveCaptionBrushKey}}" />
+                  <demo:ColorBox ColorName="GrayText" Color="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}" />
+                  <demo:ColorBox ColorName="Highlight" Color="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}" />
+                  <demo:ColorBox ColorName="HighlightText" Color="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}" />
+                  <demo:ColorBox ColorName="HotTrack" Color="{DynamicResource {x:Static common:SystemColors.HotTrackBrushKey}}" />
+                  <demo:ColorBox ColorName="InactiveBorder" Color="{DynamicResource {x:Static common:SystemColors.InactiveBorderBrushKey}}" />
+                  <demo:ColorBox ColorName="InactiveCaption" Color="{DynamicResource {x:Static common:SystemColors.InactiveCaptionBrushKey}}" />
+                  <demo:ColorBox ColorName="InactiveCaptionText" Color="{DynamicResource {x:Static common:SystemColors.InactiveCaptionTextBrushKey}}" />
+                  <demo:ColorBox ColorName="Info" Color="{DynamicResource {x:Static common:SystemColors.InfoBrushKey}}" />
+                  <demo:ColorBox ColorName="InfoText" Color="{DynamicResource {x:Static common:SystemColors.InfoTextBrushKey}}" />
+                  <demo:ColorBox ColorName="Menu" Color="{DynamicResource {x:Static common:SystemColors.MenuBrushKey}}" />
+                  <demo:ColorBox ColorName="MenuBar" Color="{DynamicResource {x:Static common:SystemColors.MenuBarBrushKey}}" />
+                  <demo:ColorBox ColorName="MenuHighlight" Color="{DynamicResource {x:Static common:SystemColors.MenuHighlightBrushKey}}" />
+                  <demo:ColorBox ColorName="MenuText" Color="{DynamicResource {x:Static common:SystemColors.MenuTextBrushKey}}" />
+                  <demo:ColorBox ColorName="ScrollBar" Color="{DynamicResource {x:Static common:SystemColors.ScrollBarBrushKey}}" />
+                  <demo:ColorBox ColorName="Window" Color="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}" />
+                  <demo:ColorBox ColorName="WindowFrame" Color="{DynamicResource {x:Static common:SystemColors.WindowFrameBrushKey}}" />
+                  <demo:ColorBox ColorName="WindowText" Color="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}" />
+                  <demo:ColorBox ColorName="InactiveSelectionHighlight" Color="{DynamicResource {x:Static common:SystemColors.InactiveSelectionHighlightBrushKey}}" />
+                  <demo:ColorBox ColorName="InactiveSelectionHighlightText" Color="{DynamicResource {x:Static common:SystemColors.InactiveSelectionHighlightTextBrushKey}}" />
                 </ItemsControl>
               </ScrollViewer>
             </TabItem>

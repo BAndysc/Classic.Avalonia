@@ -1,12 +1,13 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
     <NumericUpDown Value="200" />
   </Design.PreviewWith>
   <ControlTheme x:Key="{x:Type NumericUpDown}"
                 TargetType="NumericUpDown">
-    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}" />
     <Setter Property="BorderBrush" Value="{x:Static ClassicBorderDecorator.ClassicBorderBrush}" />
     <Setter Property="BorderThickness" Value="2" />
     <Setter Property="Padding" Value="2,0" />

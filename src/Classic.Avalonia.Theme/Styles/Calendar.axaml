@@ -1,14 +1,15 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type Calendar}"
                 TargetType="Calendar">
     <!--<Setter Property="Focusable" Value="False" />-->
     <Setter Property="BorderThickness" Value="2" />
-    <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}" />
     <Setter Property="BorderBrush" Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
-    <Setter Property="HeaderBackground" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
+    <Setter Property="HeaderBackground" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
     <Setter Property="Template">
       <ControlTemplate>
         <StackPanel Name="PART_Root"

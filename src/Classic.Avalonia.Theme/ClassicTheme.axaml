@@ -2,24 +2,25 @@
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+        xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
         xmlns:utils="clr-namespace:Classic.CommonControls.Utils;assembly=Classic.CommonControls.Avalonia">
   <Styles.Resources>
     <ResourceDictionary>
 
       <VisualBrush x:Key="DiagonalBrushLight" TileMode="Tile" SourceRect="0,0,2,2" DestinationRect="0,0,2,2">
         <VisualBrush.Visual>
-          <Canvas Width="2" Height="2" Background="{StaticResource {x:Static classic:SystemColors.ControlLightBrushKey}}">
-            <Rectangle Fill="{StaticResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}" Width="1" Height="1" />
-            <Rectangle Fill="{StaticResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}" Width="1" Height="1" Canvas.Left="1" Canvas.Top="1" />
+          <Canvas Width="2" Height="2" Background="{StaticResource {x:Static common:SystemColors.ControlLightBrushKey}}">
+            <Rectangle Fill="{StaticResource {x:Static common:SystemColors.ControlLightLightBrushKey}}" Width="1" Height="1" />
+            <Rectangle Fill="{StaticResource {x:Static common:SystemColors.ControlLightLightBrushKey}}" Width="1" Height="1" Canvas.Left="1" Canvas.Top="1" />
           </Canvas>
         </VisualBrush.Visual>
       </VisualBrush>
 
       <VisualBrush x:Key="DiagonalBrush" TileMode="Tile" SourceRect="0,0,2,2" DestinationRect="0,0,2,2">
         <VisualBrush.Visual>
-          <Canvas Width="2" Height="2" Background="{StaticResource {x:Static classic:SystemColors.ControlBrushKey}}">
-            <Rectangle Fill="{StaticResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}" Width="1" Height="1" />
-            <Rectangle Fill="{StaticResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}" Width="1" Height="1" Canvas.Left="1" Canvas.Top="1" />
+          <Canvas Width="2" Height="2" Background="{StaticResource {x:Static common:SystemColors.ControlBrushKey}}">
+            <Rectangle Fill="{StaticResource {x:Static common:SystemColors.ControlLightLightBrushKey}}" Width="1" Height="1" />
+            <Rectangle Fill="{StaticResource {x:Static common:SystemColors.ControlLightLightBrushKey}}" Width="1" Height="1" Canvas.Left="1" Canvas.Top="1" />
           </Canvas>
         </VisualBrush.Visual>
       </VisualBrush>
@@ -38,14 +39,14 @@
 
   <Style Selector="AccessText:disabled">
     <Setter Property="Effect">
-      <DropShadowEffect OffsetX="1" OffsetY="1" Color="{DynamicResource {x:Static classic:SystemColors.ControlLightLightColorKey}}" BlurRadius="0" Opacity="1" />
+      <DropShadowEffect OffsetX="1" OffsetY="1" Color="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}" BlurRadius="0" Opacity="1" />
     </Setter>
   </Style>
 
   <Style Selector="Path:disabled">
-    <Setter Property="Fill" Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}" />
+    <Setter Property="Fill" Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}" />
     <Setter Property="Effect">
-      <DropShadowEffect OffsetX="1" OffsetY="1" Color="{DynamicResource {x:Static classic:SystemColors.ControlLightLightColorKey}}" BlurRadius="0" Opacity="1" />
+      <DropShadowEffect OffsetX="1" OffsetY="1" Color="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}" BlurRadius="0" Opacity="1" />
     </Setter>
   </Style>
 </Styles>

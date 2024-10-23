@@ -1,16 +1,17 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <SolidColorBrush x:Key="ScrollBarPageButtonBrush"
-                   Color="{DynamicResource {x:Static classic:SystemColors.ControlLightLightColorKey}}"
+                   Color="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}"
                    Opacity="0.5"/>
     <ControlTheme x:Key="ScrollBarLineButtonStyle"
          TargetType="{x:Type RepeatButton}">
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
       <Setter Property="Foreground"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}"/>
       <Setter Property="BorderBrush"
               Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
       <Setter Property="BorderThickness"
@@ -37,7 +38,7 @@
                               VerticalAlignment="Center"
                               Name="PART_DisabledShadow"
                               Margin="1,1,0,0"
-                              Fill="{DynamicResource {x:Static classic:SystemColors.ControlLightLightColorKey}}"
+                              Fill="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}"
                               Data="{Binding Path=Content,RelativeSource={RelativeSource TemplatedParent}}"/>
                         <Path HorizontalAlignment="Center"
                               VerticalAlignment="Center"
@@ -63,7 +64,7 @@
 
       <Style Selector="^:disabled">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}"/>
         <Style Selector="^ /template/ Path#PART_DisabledShadow">
           <Setter Property="IsVisible" Value="True" />
         </Style>
@@ -82,9 +83,9 @@
         <Setter Property="Focusable"
                 Value="false"/>
         <Setter Property="MinHeight"
-                Value="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"/>
         <Setter Property="MinWidth"
-                Value="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RepeatButton}">
@@ -98,7 +99,7 @@
         </Style>
         <Style Selector="^:pressed /template/ Rectangle#PageButtonBackground">
           <Setter Property="Fill"
-                  Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}" />
+                  Value="{DynamicResource {x:Static common:SystemColors.ControlDarkDarkBrushKey}}" />
         </Style>
     </ControlTheme>
     <!--
@@ -113,9 +114,9 @@
         <Setter Property="Focusable"
                 Value="false"/>
         <Setter Property="MinWidth"
-                Value="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"/>
         <Setter Property="MinHeight"
-                Value="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RepeatButton}">
@@ -129,7 +130,7 @@
         </Style>
         <Style Selector="^:pressed /template/ Rectangle#PageButtonBackground">
           <Setter Property="Fill"
-                  Value="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}" />
+                  Value="{DynamicResource {x:Static common:SystemColors.ControlDarkDarkBrushKey}}" />
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="ScrollBarThumb"
@@ -138,7 +139,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <classic:ClassicBorderDecorator BorderStyle="Raised"
-                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                                  Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
                                                   BorderThickness="3"
                                                   BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
                 </ControlTemplate>
@@ -149,31 +150,31 @@
   <ControlTheme x:Key="{x:Type ScrollBar}"
                 TargetType="ScrollBar">
     <Setter Property="Background"
-            Value="{DynamicResource DiagonalBrush}"/> <!-- {DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}} -->
+            Value="{DynamicResource DiagonalBrush}"/> <!-- {DynamicResource {x:Static common:SystemColors.ControlLightBrushKey}} -->
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}"/>
     <Setter Property="BorderThickness"
             Value="0"/>
 
     <Style Selector="^:vertical">
 
       <Setter Property="Width"
-              Value="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"/>
       <Setter Property="MinWidth"
-              Value="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"/>
 
       <Setter Property="Template">
         <ControlTemplate>
           <Grid Background="{TemplateBinding Background}">
               <Grid.RowDefinitions>
-                  <RowDefinition MaxHeight="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                  <RowDefinition MaxHeight="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
                   <RowDefinition Height="0.00001*"/>
-                  <RowDefinition MaxHeight="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                  <RowDefinition MaxHeight="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
               </Grid.RowDefinitions>
               <Viewbox Stretch="Fill">
                   <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
-                                Height="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"
-                                MinWidth="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"
+                                Height="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"
+                                MinWidth="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"
                                 Name="PART_LineUpButton"
                                 Content="M 0 4 L 7 4 L 3.5 0 Z"/>
               </Viewbox>
@@ -205,8 +206,8 @@
               <Viewbox Stretch="Fill"
                        Grid.Row="2">
                   <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
-                                Height="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarButtonHeightKey}}"
-                                MinWidth="{DynamicResource {x:Static classic:SystemParameters.VerticalScrollBarWidthKey}}"
+                                Height="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"
+                                MinWidth="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"
                                 Name="PART_LineDownButton"
                                 Content="M 0 0 L 3.5 4 L 7 0 Z"/>
               </Viewbox>
@@ -218,22 +219,22 @@
     <Style Selector="^:horizontal">
 
       <Setter Property="Height"
-              Value="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"/>
       <Setter Property="MinHeight"
-              Value="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"/>
 
       <Setter Property="Template">
         <ControlTemplate>
           <Grid Background="{TemplateBinding Background}">
               <Grid.ColumnDefinitions>
-                  <ColumnDefinition MaxWidth="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                  <ColumnDefinition MaxWidth="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
                   <ColumnDefinition Width="0.00001*"/>
-                  <ColumnDefinition MaxWidth="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                  <ColumnDefinition MaxWidth="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
               </Grid.ColumnDefinitions>
               <Viewbox Stretch="Fill">
                   <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
-                                Width="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
-                                MinHeight="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"
+                                Width="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
+                                MinHeight="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"
                                 Name="PART_LineUpButton"
                                 Content="M 0 4 L 4 8 L 4 0 Z"/>
               </Viewbox>
@@ -264,8 +265,8 @@
               <Viewbox Stretch="Fill"
                        Grid.Column="2">
                   <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
-                                Width="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
-                                MinHeight="{DynamicResource {x:Static classic:SystemParameters.HorizontalScrollBarHeightKey}}"
+                                Width="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
+                                MinHeight="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"
                                 Name="PART_LineDownButton"
                                 Content="M 0 0 L 0 8 L 4 4 Z"/>
               </Viewbox>

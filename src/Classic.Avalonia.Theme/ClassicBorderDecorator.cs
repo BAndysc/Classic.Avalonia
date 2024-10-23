@@ -30,6 +30,7 @@ using System.Diagnostics;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
+using Classic.CommonControls;
 using Color = Avalonia.Media.Color;
 // ReSharper disable InconsistentNaming
 

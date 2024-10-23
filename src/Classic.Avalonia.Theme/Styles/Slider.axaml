@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="&#269;"
          TargetType="{x:Type RepeatButton}">
@@ -24,7 +25,7 @@
       <Setter Property="Foreground"
               Value="{x:Null}"/>
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
       <Setter Property="Height"
               Value="21"/>
       <Setter Property="Width"
@@ -46,11 +47,11 @@
       </Setter>
       <Style Selector="^:pressed">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
       <Style Selector="^:disabled">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
   </ControlTheme>
   <ControlTheme x:Key="&#271;"
@@ -58,7 +59,7 @@
       <Setter Property="Foreground"
               Value="{x:Null}"/>
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
       <Setter Property="Height"
               Value="21"/>
       <Setter Property="Width"
@@ -71,19 +72,19 @@
                       <Path Fill="{TemplateBinding Background}"
                             Data="M 11 21 L 0 21 L 0 6 L 5 1 L 6 1 L 11 6 z"/>
                       <!-- LeftTip/Left-OuterLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 0.5 20 L 0.5 5.5 L 5 0.5 L 5.5 0.5"/>
                       <!-- Bottom/Right/RightTip-OuterLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkDarkBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 5.5 0.5 L 6 0.5 L 10.5 5.5 L 10.5 20.5 L 0 20.5"/>
                       <!-- LeftTip/Left-InnerLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlLightBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 1.5 19 L 1.5 5.5 L 5 1.5 L 5.5 1.5"/>
                       <!-- Bottom/Right/RightTip-InnerLine-->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 5.5 1.5 L 6 1.5 L 9.5 5.5 L 9.5 19.5 L 1.0 19.5"/>
                       <!-- Fill Inner Area -->
@@ -96,11 +97,11 @@
       </Setter>
       <Style Selector="^:pressed">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
       <Style Selector="^:disabled">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
   </ControlTheme>
   <ControlTheme x:Key="&#272;"
@@ -108,7 +109,7 @@
       <Setter Property="Foreground"
               Value="{x:Null}"/>
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
       <Setter Property="Height"
               Value="21"/>
       <Setter Property="Width"
@@ -121,19 +122,19 @@
                       <Path Fill="{TemplateBinding Background}"
                             Data="M 11 0 L 0 0 L 0 15 L 5 21 L 6 21 L 11 15 z"/>
                       <!-- Top/Left/LeftTip OuterLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 10 0.5 L 0.5 0.5 L 0.5 15.5 L 5 20.5 L 5.5 20.5"/>
                       <!-- Right/RightTip OuterLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkDarkBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 5.5 20.5 L 6 20.5 L 10.5 15.5 L 10.5 0"/>
                       <!-- Top/Left/LeftTip InnerLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlLightBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 9 1.5 L 1.5 1.5 L 1.5 15.5 L 5 19.5 L 5.5 19.5"/>
                       <!-- Right/RightTip InnerLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 5.5 19.5 L 6 19.5 L 9.5 15.5 L 9.5 1"/>
                       <!-- Fill Inner Area -->
@@ -146,11 +147,11 @@
       </Setter>
       <Style Selector="^:pressed">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
       <Style Selector="^:disabled">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
   </ControlTheme>
   <ControlTheme x:Key="&#273;"
@@ -158,7 +159,7 @@
       <Setter Property="Foreground"
               Value="{x:Null}"/>
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
       <Setter Property="Width"
               Value="21"/>
       <Setter Property="Height"
@@ -180,11 +181,11 @@
       </Setter>
       <Style Selector="^:pressed">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
       <Style Selector="^:disabled">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
   </ControlTheme>
   <ControlTheme x:Key="&#274;"
@@ -192,7 +193,7 @@
       <Setter Property="Foreground"
               Value="{x:Null}"/>
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
       <Setter Property="Width"
               Value="21"/>
       <Setter Property="Height"
@@ -205,19 +206,19 @@
                       <Path Fill="{TemplateBinding Background}"
                             Data="M 21 11 L 21 0 L 6 0 L 0 5 L 0 6 L 6 11 z"/>
                       <!-- TopTip/Top OuterLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 20 0.5 L 5.5 0.5 L 0.5 5 L 0.5 5.5 "/>
                       <!-- Right/Bottom/BottomTip OuterLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkDarkBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 0.5 5.5 L 0.5 6 L 5.5 10.5 L 20.5 10.5 L 20.5 0 "/>
                       <!-- TopTip/Top InnerLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlLightBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 19 1.5 L 5.5 1.5 L 1.5 5 L 1.5 5.5 "/>
                       <!-- Right/Bottom/BottomTip InnerLine-->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 1.5 5.5 L 1.5 6 L 5.5 9.5 L 19.5 9.5 L 19.5 1.0 "/>
                       <!-- Fill Inner Area -->
@@ -230,11 +231,11 @@
       </Setter>
       <Style Selector="^:pressed">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
       <Style Selector="^:disabled">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
   </ControlTheme>
   <ControlTheme x:Key="&#275;"
@@ -244,7 +245,7 @@
       <Setter Property="Foreground"
               Value="{x:Null}"/>
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
       <Setter Property="Width"
               Value="21"/>
       <Setter Property="Height"
@@ -257,19 +258,19 @@
                       <Path Fill="{TemplateBinding Background}"
                             Data="M 0 11 L 0 0 L 15 0 L 21 5 L 21 6 L 15 11 z"/>
                       <!-- Left/Top/TopTip OuterLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 0.5 10 L 0.5 0.5 L 15.5 0.5 L 20.5 5 L 20.5 5.5 "/>
                       <!-- Bottom/BottomTip OuterLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkDarkBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkDarkBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 20.5 5.5 L 20.5 6 L 15.5 10.5 L 0 10.5 "/>
                       <!-- Left/Top/TopTip InnerLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlLightBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlLightBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 1.5 9 L 1.5 1.5 L 15.5 1.5 L 19.5 5 L 19.5 5.5 "/>
                       <!-- Bottom/BottomTip InnerLine -->
-                      <Path Stroke="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+                      <Path Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}"
                             StrokeThickness="1.0"
                             Data="M 19.5 5.5 L 19.5 6 L 15.5 9.5 L 1 9.5 "/>
                       <!-- Fill Inner Area -->
@@ -282,11 +283,11 @@
       </Setter>
       <Style Selector="^:pressed">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
       <Style Selector="^:disabled">
         <Setter Property="Foreground"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightBrushKey}}"/>
       </Style>
   </ControlTheme>
   <ControlTheme x:Key="{x:Type Slider}"
@@ -298,7 +299,7 @@
     <Setter Property="FocusAdorner"
             Value="{controls:ClassicalFocusAdorner}" />
       <Setter Property="Foreground"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}"/>
       <Style Selector="^:horizontal">
         <Setter Property="Template">
           <Setter.Value>
@@ -354,7 +355,7 @@
                                        #
                                    -->
                                   <Rectangle x:Name="PART_SelectionRange"
-                                             Fill="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"
+                                             Fill="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}"
                                              Height="4.0"
                                              Opacity="0"/>
                               </Canvas>
@@ -493,7 +494,7 @@
                                      #
                                  -->
                                     <Rectangle x:Name="PART_SelectionRange"
-                                               Fill="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"
+                                               Fill="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}"
                                                Width="4.0"
                                                Opacity="0"/>
                                 </Canvas>

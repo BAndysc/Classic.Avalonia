@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type ContextMenu}"
                 TargetType="ContextMenu">
@@ -10,7 +11,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <classic:ClassicBorderDecorator BorderStyle="AltRaised"
-                                      Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                      Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
                                       BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
                                       BorderThickness="2">
           <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">

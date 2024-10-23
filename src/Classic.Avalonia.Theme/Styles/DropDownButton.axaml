@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
     <DropDownButton Content="Selected item">
@@ -11,9 +12,9 @@
     <Setter Property="FocusAdorner"
             Value="{controls:ClassicalFocusAdorner MarginBottom=4, MarginLeft=4, MarginRight=4, MarginTop=4}"/>
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}"/>
     <Setter Property="BorderThickness"
             Value="3"/>
     <Setter Property="HorizontalContentAlignment"
@@ -60,7 +61,7 @@
     </Setter>
 
     <Style Selector="^ /template/ PathIcon#DropDownGlyph">
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}" />
       <Setter Property="Data" Value="M 0 0 L 3.5 4 L 7 0 Z" />
     </Style>
 
@@ -80,7 +81,7 @@
         <Setter Property="BorderStyle" Value="RaisedPressed" />
     </Style>
     <Style Selector="^:disabled">
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

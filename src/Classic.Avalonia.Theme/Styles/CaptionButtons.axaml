@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:theme="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
     <Border Padding="20">
@@ -99,7 +99,7 @@
     </Style>
 
     <Style Selector="^ /template/ Button Path">
-      <Setter Property="Fill" Value="{DynamicResource {x:Static theme:SystemColors.ControlTextBrushKey}}" />
+      <Setter Property="Fill" Value="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

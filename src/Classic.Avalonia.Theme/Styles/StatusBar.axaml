@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme">
 
   <Design.PreviewWith>
@@ -17,7 +18,7 @@
   <ControlTheme x:Key="{x:Type commonControls:StatusBar}"
                 TargetType="commonControls:StatusBar">
     <Setter Property="Margin" Value="0,2,0,0" />
-    <Setter Property="Height" Value="{DynamicResource {x:Static classic:SystemParameters.MenuBarHeightKey}}" />
+    <Setter Property="Height" Value="{DynamicResource {x:Static common:SystemParameters.MenuBarHeightKey}}" />
     <Setter Property="Template">
       <ControlTemplate>
         <ItemsPresenter Name="PART_ItemsPresenter"
@@ -28,7 +29,7 @@
 
   <ControlTheme x:Key="{x:Type commonControls:StatusBarItem}"
                 TargetType="commonControls:StatusBarItem">
-    <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
     <Setter Property="Margin" Value="0,0,0,0" />
     <Setter Property="Padding" Value="2,0" />

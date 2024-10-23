@@ -1,11 +1,9 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
-                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
-                    xmlns:common="clr-namespace:Classic.Avalonia.Theme.Controls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
   <ControlTheme x:Key="{x:Type commonControls:ToolBarIcon}" TargetType="commonControls:ToolBarIcon">
-    <Setter Property="DisabledColor" Value="{DynamicResource {x:Static classic:SystemColors.GrayTextColorKey}}" />
-    <Setter Property="DisabledShadowColor" Value="{DynamicResource {x:Static classic:SystemColors.ControlLightLightColorKey}}" />
+    <Setter Property="DisabledColor" Value="{DynamicResource {x:Static common:SystemColors.GrayTextColorKey}}" />
+    <Setter Property="DisabledShadowColor" Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}" />
   </ControlTheme>
 </ResourceDictionary>

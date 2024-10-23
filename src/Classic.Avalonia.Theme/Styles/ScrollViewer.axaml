@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="using:Avalonia.Controls.Converters"
-                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type ScrollViewer}"
                 TargetType="ScrollViewer">
@@ -32,7 +32,7 @@
                      Orientation="Vertical"/>
           <Panel Grid.Row="1"
                  Grid.Column="1"
-                 Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+                 Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
         </Grid>
       </ControlTemplate>
     </Setter>

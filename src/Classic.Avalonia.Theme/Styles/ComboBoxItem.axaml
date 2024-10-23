@@ -1,11 +1,11 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <FocusAdornerTemplate x:Key="ComboBoxItemHighContrastFocusVisual">
     <Rectangle Margin="0,1,0,1"
                StrokeThickness="1"
-               Stroke="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}"
+               Stroke="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}"
                StrokeDashArray="1,2"/>
   </FocusAdornerTemplate>
 
@@ -36,23 +36,23 @@
     </Setter>
     <Style Selector="^:pointerover">
       <Setter Property="Foreground"
-              Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}"/>
       <Style Selector="^ /template/ Border#Bd">
         <Setter Property="Background"
-                Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}"/>
       </Style>
     </Style>
     <Style Selector="^:selected">
       <Setter Property="Foreground"
-              Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}"/>
       <Style Selector="^ /template/ Border#Bd">
         <Setter Property="Background"
-                Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}"/>
       </Style>
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Foreground"
-              Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}"/>
     </Style>
   </ControlTheme>
 </ResourceDictionary>

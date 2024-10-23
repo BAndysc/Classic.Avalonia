@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme">
   <Design.PreviewWith>
@@ -62,7 +63,7 @@
                 TargetType="commonControls:ToolBarButton">
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="Background" Value="Transparent" />
-    <!-- <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" /> -->
+    <!-- <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" /> -->
     <Setter Property="Template">
       <ControlTemplate>
         <classic:ClassicBorderDecorator
@@ -237,7 +238,7 @@
         </Style>
         <Style Selector="^:pointerover /template/ classic|ClassicBorderDecorator#PART_Border">
           <Setter Property="Background" Value="Transparent" />
-          <!-- <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" /> -->
+          <!-- <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" /> -->
         </Style>
         <Style Selector="^ /template/ commonControls|ToolBarIcon#PART_Icon">
           <Setter Property="IconStyle" Value="Normal" />
@@ -265,7 +266,7 @@
     </Style>
 
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}" />
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}" />
       <Style Selector="^ /template/ commonControls|ToolBarIcon#PART_Icon">
         <Setter Property="IconStyle" Value="Disabled" />
       </Style>

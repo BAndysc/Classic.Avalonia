@@ -3,6 +3,7 @@
                     xmlns:conv="using:Avalonia.Controls.Converters"
                     xmlns:sys="using:System"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
 
@@ -34,7 +35,7 @@
                             Width="16"
                             Height="16" />
             <classic:ClassicBorderDecorator Grid.Column="0"
-                                            Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                            Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
                                             Name="PART_IconBorder"
                                             BorderThickness="1">
               <ContentControl Name="PART_IconPresenter"
@@ -77,7 +78,7 @@
                    HorizontalOffset="-3"
                    Placement="RightEdgeAlignedTop">
               <classic:ClassicBorderDecorator BorderStyle="AltRaised"
-                                              Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                              Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
                                               BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
                                               BorderThickness="2">
                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
@@ -113,7 +114,7 @@
     </Style>
 
     <Style Selector="^:selected /template/ Border#root">
-      <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}" />
+      <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}" />
     </Style>
 
     <Style Selector="^:selected /template/ classic|ClassicBorderDecorator#PART_IconBorder">
@@ -122,15 +123,15 @@
 
     <Style Selector="^:selected">
       <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}" />
       </Style>
       <Style Selector="^ /template/ TextBlock#PART_InputGestureText">
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}" />
       </Style>
     </Style>
 
     <Style Selector="^:selected /template/ Path#rightArrow">
-      <Setter Property="Fill" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+      <Setter Property="Fill" Value="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}" />
     </Style>
 
     <Style Selector="^:empty /template/ Path#rightArrow">
@@ -138,7 +139,7 @@
     </Style>
 
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}" />
     </Style>
     
     <Style Selector="^:toggle /template/ ContentControl#PART_ToggleIconPresenter, ^:radio /template/ ContentControl#PART_ToggleIconPresenter">

@@ -1,5 +1,5 @@
 // ReSharper disable InconsistentNaming
-namespace Classic.Avalonia.Theme;
+namespace Classic.CommonControls;
 
 internal enum SystemResourceKeyID
 {

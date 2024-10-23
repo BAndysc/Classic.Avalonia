@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:colorPicker="clr-namespace:Classic.Avalonia.Theme.ColorPicker"
                     x:ClassModifier="internal">
     <Design.PreviewWith>
@@ -56,7 +57,7 @@
         </Setter>
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_Selection">
-                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}" />
             </Style>
         </Style>
     </ControlTheme>

@@ -1,12 +1,12 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type AdornerLayer}" TargetType="AdornerLayer">
     <Setter Property="DefaultFocusAdorner">
       <FocusAdornerTemplate>
         <Rectangle Margin="3"
-                   Stroke="{DynamicResource {x:Static classic:SystemColors.ControlTextBrushKey}}"
+                   Stroke="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}"
                    StrokeDashArray="1,2"
                    StrokeThickness="1" />
       </FocusAdornerTemplate>

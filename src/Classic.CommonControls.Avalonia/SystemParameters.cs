@@ -1,4 +1,4 @@
-namespace Classic.Avalonia.Theme;
+namespace Classic.CommonControls;
 
 public static class SystemParameters
 {

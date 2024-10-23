@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:theme="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:converters="clr-namespace:Classic.Avalonia.Theme.Converters"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <converters:BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
   <ControlTheme x:Key="{x:Type HeaderedContentControl}"
@@ -74,7 +75,7 @@
                               FontWeight="{TemplateBinding FontWeight}"
                               FontFamily="{TemplateBinding FontFamily}"
                               FontStyle="{TemplateBinding FontStyle}"
-                              Background="{DynamicResource {x:Static theme:SystemColors.ControlBrushKey}}" /> <!-- workaround for OpacityMask -->
+                              Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" /> <!-- workaround for OpacityMask -->
 
           </Border>
           <!-- Primary content for GroupBox -->

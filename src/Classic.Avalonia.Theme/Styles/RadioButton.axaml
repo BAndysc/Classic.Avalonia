@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type RadioButton}"
                 TargetType="RadioButton">
@@ -12,9 +13,9 @@
     <Setter Property="FocusAdorner"
             Value="{controls:ClassicalFocusAdorner MarginLeft=14}"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
     <Setter Property="BorderBrush"
             Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
     <Setter Property="BorderThickness"
@@ -61,18 +62,18 @@
     </Style>
     <Style Selector="^:pressed /template/ classic|ClassicBorderDecorator#Border">
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Foreground"
-              Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}"/>
       <Style Selector="^ /template/ classic|ClassicBorderDecorator#Border">
         <Setter Property="Background"
-                Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
       </Style>
       <Style Selector="^ /template/ Ellipse#checkMark">
         <Setter Property="Fill"
-                Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+                Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}"/>
       </Style>
     </Style>
   </ControlTheme>

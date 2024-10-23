@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:theme="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
     <TextBox Width="200" Text="Abcd" Height="200" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" />
@@ -91,9 +92,9 @@
     <Setter Property="BorderThickness"
             Value="2"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static theme:SystemColors.WindowTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static theme:SystemColors.WindowBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
     <Setter Property="Padding"
             Value="1"/>
     <Setter Property="KeyboardNavigation.TabNavigation"
@@ -200,10 +201,10 @@
       <Setter Property="BorderStyle" Value="Sunken" />
     </Style>
     <Style Selector="^:disabled /template/ theme|ClassicBorderDecorator#Bd">
-      <Setter Property="Background" Value="{DynamicResource {x:Static theme:SystemColors.ControlBrushKey}}"/>
+      <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static theme:SystemColors.GrayTextBrushKey}}"/>
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}"/>
     </Style>
 
     <Style Selector="^[AcceptsReturn=false]">
@@ -212,8 +213,8 @@
       </Style>
     </Style>
 
-    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static theme:SystemColors.HighlightBrushKey}}" />
-    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource {x:Static theme:SystemColors.HighlightTextBrushKey}}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}" />
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}" />
 
     <Style Selector="^ /template/ DockPanel">
       <Setter Property="Cursor" Value="IBeam" />

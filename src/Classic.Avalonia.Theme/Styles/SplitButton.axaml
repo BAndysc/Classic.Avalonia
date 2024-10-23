@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="using:Avalonia.Controls.Converters"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     x:ClassModifier="internal">
 
@@ -106,8 +107,8 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type SplitButton}" TargetType="SplitButton">
-    <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
-    <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}" />
+    <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
+    <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}" />
     <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowColor}" />
     <Setter Property="BorderThickness" Value="{DynamicResource SplitButtonBorderThemeThickness}" />
     <Setter Property="MinHeight" Value="{DynamicResource SplitButtonMinHeight}" />

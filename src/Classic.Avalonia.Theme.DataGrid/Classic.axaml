@@ -1,6 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:collections="using:Avalonia.Collections"
+        xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
         xmlns:classic="clr-namespace:Classic.Avalonia.Theme;assembly=Classic.Avalonia.Theme">
   <Styles.Resources>
     <Thickness x:Key="DataGridTextColumnCellTextBlockMargin">4,0</Thickness>
@@ -50,7 +51,7 @@
 
     <ControlTheme x:Key="{x:Type DataGridColumnHeader}"
                   TargetType="DataGridColumnHeader">
-      <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
+      <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
       <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
       <Setter Property="HorizontalContentAlignment" Value="Left" />
       <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -192,10 +193,10 @@
       </Setter>
 
       <Style Selector="^:selected">
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}" />
 
         <Style Selector="^ /template/ Rectangle#BackgroundRectangle">
-          <Setter Property="Fill" Value="{DynamicResource {x:Static classic:SystemColors.HighlightBrushKey}}" />
+          <Setter Property="Fill" Value="{DynamicResource {x:Static common:SystemColors.HighlightBrushKey}}" />
         </Style>
       </Style>
 
@@ -276,15 +277,15 @@
 
     <ControlTheme x:Key="{x:Type DataGrid}"
                   TargetType="DataGrid">
-      <Setter Property="RowBackground" Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}" />
+      <Setter Property="RowBackground" Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}" />
       <Setter Property="Background"
-              Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
       <Setter Property="HeadersVisibility" Value="Column" />
       <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
       <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
       <Setter Property="SelectionMode" Value="Extended" />
-      <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
-      <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
+      <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
+      <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
       <Setter Property="BorderBrush"
               Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
       <Setter Property="BorderThickness" Value="2" />
@@ -362,22 +363,22 @@
     <Setter Property="Margin" Value="0,1,0,2" />
     <!-- disable "disabled" look in DataGrid -->
     <Style Selector="^:disabled /template/ classic|ClassicBorderDecorator#CheckMark">
-      <Setter Property="Background" Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}" />
+      <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}" />
     </Style>
     <Style Selector="^:disabled /template/ Path#CheckMarkPath">
-      <Setter Property="Fill" Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+      <Setter Property="Fill" Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     </Style>
   </Style>
 
   <Style Selector="DataGrid:not(:focus-within) DataGridRow:selected">
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.InactiveSelectionHighlightTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.InactiveSelectionHighlightTextBrushKey}}"/>
     <Style Selector="^ /template/ Rectangle#BackgroundRectangle">
       <Setter Property="Fill"
-              Value="{DynamicResource {x:Static classic:SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+              Value="{DynamicResource {x:Static common:SystemColors.InactiveSelectionHighlightBrushKey}}"/>
     </Style>
   </Style>
 </Styles>

@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
-                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
                     xmlns:converters="clr-namespace:Classic.Avalonia.Theme.Converters"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type CalendarItem}"

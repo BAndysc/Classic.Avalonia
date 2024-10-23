@@ -3,6 +3,7 @@
                     xmlns:dialogs="using:Avalonia.Dialogs"
                     xmlns:internal="using:Avalonia.Dialogs.Internal"
                     xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
@@ -115,7 +116,7 @@
               Margin="0,0,6,0"
               BorderThickness="2"
               BorderStyle="Sunken"
-              Background="{DynamicResource {x:Static classic:SystemColors.ControlDarkBrushKey}}"
+              Background="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}"
               DockPanel.Dock="Left">
               <ListBox x:Name="PART_QuickLinks"
                        BorderThickness="0"
@@ -133,7 +134,7 @@
                              Height="48">
                         <DrawingImage Drawing="{Binding IconKey, Converter={StaticResource Icons}}" />
                       </Image>
-                      <TextBlock TextAlignment="Center" Foreground="{DynamicResource {x:Static classic:SystemColors.HighlightTextBrushKey}}" Text="{Binding DisplayName}" TextWrapping="WrapWithOverflow" />
+                      <TextBlock TextAlignment="Center" Foreground="{DynamicResource {x:Static common:SystemColors.HighlightTextBrushKey}}" Text="{Binding DisplayName}" TextWrapping="WrapWithOverflow" />
                     </StackPanel>
                   </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -178,7 +179,7 @@
 
             <classic:ClassicBorderDecorator BorderThickness="2"
                                             Margin="0,0,0,6"
-                                            Background="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"
+                                            Background="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"
                                             BorderStyle="Sunken">
               <DockPanel Grid.IsSharedSizeScope="True" ClipToBounds="True">
                 <Grid HorizontalAlignment="Stretch"
@@ -198,7 +199,7 @@
                   </Grid.ColumnDefinitions>
                   <classic:ClassicBorderDecorator Grid.Column="0" Grid.ColumnSpan="2"
                                                   BorderThickness="3"
-                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}">
+                                                  Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}">
                     <TextBlock Text="{DynamicResource StringManagedFileChooserNameColumn}" />
                   </classic:ClassicBorderDecorator>
                   <GridSplitter Grid.Column="2"
@@ -206,7 +207,7 @@
                                 Background="Transparent" />
                   <classic:ClassicBorderDecorator Grid.Column="3"
                                                   BorderThickness="3"
-                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}">
+                                                  Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}">
                     <TextBlock Text="{DynamicResource StringManagedFileChooserDateModifiedColumn}" />
                   </classic:ClassicBorderDecorator>
                   <GridSplitter Grid.Column="4"
@@ -214,14 +215,14 @@
                                 Background="Transparent" />
                   <classic:ClassicBorderDecorator Grid.Column="5"
                                                   BorderThickness="3"
-                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}">
+                                                  Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}">
                     <TextBlock Text="{DynamicResource StringManagedFileChooserTypeColumn}" />
                   </classic:ClassicBorderDecorator>
                   <GridSplitter Grid.Column="6" ResizeDirection="Columns"
                                 Background="Transparent" />
                   <classic:ClassicBorderDecorator Grid.Column="7"
                                                   BorderThickness="3"
-                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}">
+                                                  Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}">
                     <TextBlock Text="{DynamicResource StringManagedFileChooserSizeColumn}" />
                   </classic:ClassicBorderDecorator>
                   <GridSplitter Grid.Column="8"
@@ -229,7 +230,7 @@
                                 Background="Transparent" />
                   <classic:ClassicBorderDecorator Grid.Column="9"
                                                   BorderThickness="3"
-                                                  Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}" />
+                                                  Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
                 </Grid>
                 <ListBox x:Name="PART_Files"
                          Margin="0,5"

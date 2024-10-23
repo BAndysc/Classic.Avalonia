@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="using:System"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
 
   <ControlTheme x:Key="SimpleTopLevelMenuItem"
@@ -10,7 +11,7 @@
     <Setter Property="Padding" Value="4 0" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="Height"
-            Value="{DynamicResource {x:Static classic:SystemParameters.MenuBarHeightKey}}" />
+            Value="{DynamicResource {x:Static common:SystemParameters.MenuBarHeightKey}}" />
     <Setter Property="Template">
       <ControlTemplate>
         <classic:ClassicBorderDecorator x:Name="ClassicBorder"
@@ -38,7 +39,7 @@
                    OverlayInputPassThroughElement="{Binding $parent[Menu]}">
               <classic:ClassicBorderDecorator Name="SubMenuBorder"
                                             BorderStyle="AltRaised"
-                                            Background="{DynamicResource {x:Static classic:SystemColors.ControlBrushKey}}"
+                                            Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
                                             BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
                                             BorderThickness="2">
                 <ScrollViewer Theme="{StaticResource SimpleMenuScrollViewer}">
@@ -72,14 +73,14 @@
     </Style>
 
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource {x:Static classic:SystemColors.GrayTextBrushKey}}"/>
+      <Setter Property="Foreground" Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}"/>
     </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type Menu}"
                 TargetType="Menu">
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.MenuBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.MenuBrushKey}}"/>
     <!-- <Setter Property="FontFamily" -->
     <!--         Value="{DynamicResource {x:Static classic:SystemFonts.MenuFontFamilyKey}}"/> -->
     <!-- <Setter Property="FontSize" -->
@@ -89,7 +90,7 @@
     <!-- <Setter Property="FontWeight" -->
     <!--         Value="{DynamicResource {x:Static classic:SystemFonts.MenuFontWeightKey}}"/> -->
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.MenuTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.MenuTextBrushKey}}"/>
     <Setter Property="ItemContainerTheme" Value="{StaticResource SimpleTopLevelMenuItem}" />
     <Setter Property="Template">
       <ControlTemplate>

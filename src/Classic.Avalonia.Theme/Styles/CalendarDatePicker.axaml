@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sys="using:System"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
@@ -16,9 +16,9 @@
     <Setter Property="BorderThickness"
             Value="2"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
     <Setter Property="Padding"
             Value="2" />
     <Setter Property="Template">

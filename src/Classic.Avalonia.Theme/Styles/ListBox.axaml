@@ -1,14 +1,15 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type ListBox}"
                 TargetType="ListBox">
 
     <Setter Property="Background"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
     <Setter Property="Foreground"
-            Value="{DynamicResource {x:Static classic:SystemColors.WindowTextBrushKey}}"/>
+            Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     <Setter Property="BorderBrush"
             Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"/>
     <Setter Property="BorderThickness"
@@ -48,7 +49,7 @@
     </Setter>
     <Style Selector="^:disabled /template/ classic|ClassicBorderDecorator#Bd">
             <Setter Property="Background"
-                    Value="{DynamicResource {x:Static classic:SystemColors.WindowBrushKey}}"/>
+                    Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
     </Style>
   </ControlTheme>
 </ResourceDictionary>
