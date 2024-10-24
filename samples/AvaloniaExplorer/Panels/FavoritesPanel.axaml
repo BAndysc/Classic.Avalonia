@@ -13,7 +13,7 @@
                 <commonControls:ToolBarButton Text="Organize..." SmallIcon="../Icons/organize_favorite16.gif"/>
             </commonControls:ToolBar>
             <Separator DockPanel.Dock="Top" Margin="0" />
-            <Border Background="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}" />
+            <Border Background="{DynamicResource {x:Static commonControls:SystemColors.WindowBrushKey}}" />
         </DockPanel>
     </panels:IePanel>
 </UserControl>

@@ -35,6 +35,7 @@
 
             <TextBlock Text="{Binding $parent[Window].Title}"
                        VerticalAlignment="Center"
+                       HorizontalAlignment="Stretch"
                        RenderOptions.TextRenderingMode="Alias"
                        FontFamily="{DynamicResource {x:Static common:NonClientMetrics.CaptionFontKey}}"
                        FontSize="{DynamicResource {x:Static common:NonClientMetrics.CaptionFontSizeKey}}"

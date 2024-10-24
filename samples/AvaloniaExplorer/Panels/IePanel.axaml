@@ -1,6 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:AvaloniaExplorer.Panels">
+        xmlns:controls="using:AvaloniaExplorer.Panels"
+        xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
     <Design.PreviewWith>
         <controls:IePanel />
     </Design.PreviewWith>
@@ -13,7 +14,7 @@
                         <DockPanel DockPanel.Dock="Top" Height="20" Margin="5,0,0,0">
                             <Button DockPanel.Dock="Right" Theme="{DynamicResource FlatButton}" Padding="5,0">
                                 <Path Data="M 0 0 L 2 0 L 2 1 L 3 1 L 3 2 L 5 2 L 5 1 L 6 1 L 6 0 L 8 0 L 8 1 L 7 1 L 7 2 L 6 2 L 6 3 L 5 3 L 5 4 L 6 4 L 6 5 L 7 5 L 7 6 L 8 6 L 8 7 L 6 7 L 6 6 L 5 6 L 5 5 L 3 5 L 3 6 L 2 6 L 2 7 L 0 7 L 0 6 L 1 6 L 1 5 L 2 5 L 2 4 L 3 4 L 3 3 L 2 3 L 2 2 L 1 2 L 1 1 L 0 1 L 0 1 z"
-                                      Fill="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}" />
+                                      Fill="{DynamicResource {x:Static commonControls:SystemColors.ControlTextBrushKey}}" />
                             </Button>
                             <TextBlock DockPanel.Dock="Top" VerticalAlignment="Center" Text="{TemplateBinding Header}" />
                         </DockPanel>
