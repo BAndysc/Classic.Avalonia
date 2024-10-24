@@ -10,7 +10,7 @@ internal class DiagonalLine : Shape
     {
         AffectsGeometry<DiagonalLine>(
             BoundsProperty);
-        StrokeThicknessProperty.OverrideDefaultValue<Line>(1);
+        StrokeThicknessProperty.OverrideDefaultValue<DiagonalLine>(1);
     }
 
     protected override Geometry CreateDefiningGeometry()
