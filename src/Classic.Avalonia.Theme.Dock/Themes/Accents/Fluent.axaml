@@ -1,0 +1,19 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=netstandard">
+
+    <SolidColorBrush x:Key="DockApplicationAccentBrushLow">DarkRed</SolidColorBrush>
+    <SolidColorBrush x:Key="DockApplicationAccentBrushMed">LightBlue</SolidColorBrush>
+    <SolidColorBrush x:Key="DockApplicationAccentBrushHigh">Violet</SolidColorBrush>
+    <SolidColorBrush x:Key="DockApplicationAccentForegroundBrush">MediumPurple</SolidColorBrush>
+    <SolidColorBrush x:Key="DockApplicationAccentBrushIndicator">GreenYellow</SolidColorBrush>
+
+    <SolidColorBrush x:Key="DockThemeBorderLowBrush" Color="Red" />
+    <SolidColorBrush x:Key="DockThemeBackgroundBrush" Color="Blue" />
+    <SolidColorBrush x:Key="DockThemeAccentBrush" Color="Green" />
+    <SolidColorBrush x:Key="DockThemeForegroundBrush" Color="Yellow" />
+    <SolidColorBrush x:Key="DockThemeControlBackgroundBrush" Color="Teal" />
+    <sys:Double x:Key="DockFontSizeNormal">12</sys:Double>
+
+</ResourceDictionary>
+
