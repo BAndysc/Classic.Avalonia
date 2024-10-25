@@ -2,6 +2,8 @@ using System;
 using System.Collections.Specialized;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
+using Avalonia.VisualTree;
 
 namespace AvaloniaVisualBasic.Controls;
 
@@ -43,9 +45,29 @@ public class MDIHostPanel : Panel
         AffectsParentArrange<MDIHostPanel>(WindowLocationProperty, WindowSizeProperty, WindowStateProperty, ZIndexProperty);
     }
 
+    private IDisposable? hostWindowIsActiveDisposable;
+
     public MDIHostPanel()
     {
         Children.CollectionChanged += OnChildrenChanged;
+    }
+
+    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        if (this.GetVisualRoot() is Window window)
+        {
+            hostWindowIsActiveDisposable = window.GetObservable(Window.IsActiveProperty)
+                .Subscribe(new ActionObserver<bool>(@is =>
+                {
+                    InvalidateArrange();
+                }));
+        }
+    }
+
+    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        hostWindowIsActiveDisposable?.Dispose();
+        hostWindowIsActiveDisposable = null;
     }
 
     private void OnChildrenChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -78,7 +100,7 @@ public class MDIHostPanel : Panel
             }
         }
 
-        if (topZ != null)
+        if (topZ != null && this.GetVisualRoot() is Window window && window.IsActive)
             SetIsActive(topZ, true);
 
         foreach (var child in Children)

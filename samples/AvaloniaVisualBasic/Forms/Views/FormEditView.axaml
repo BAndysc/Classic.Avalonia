@@ -3,8 +3,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+             xmlns:controls="clr-namespace:AvaloniaVisualBasic.Controls"
+             xmlns:converters="clr-namespace:AvaloniaVisualBasic.Converters"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaVisualBasic.Forms.Views.FormEditView">
+    <UserControl.Resources>
+        <converters:BoolToBrushConverter ActiveBrush="{DynamicResource ActiveTitleBarBrush}" InactiveBrush="{DynamicResource InactiveTitleBarBrush}" x:Key="TitleBarConverter" />
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="Border#PART_FormTitleBar">
+            <Setter Property="Background" Value="{Binding $parent[controls:MDIWindow].(controls:MDIHostPanel.IsActive), Converter={StaticResource TitleBarConverter}, TargetNullValue={x:True}}" />
+        </Style>
+    </UserControl.Styles>
     <Canvas Background="{DynamicResource {x:Static commonControls:SystemColors.WindowBrushKey}}" ClipToBounds="True">
         <ClassicBorderDecorator Width="300" Height="200"
                                 Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}"
@@ -14,18 +24,7 @@
                                 BorderStyle="AltRaised" BorderThickness="2">
             <DockPanel>
                 <Panel DockPanel.Dock="Top" Margin="0,0,0,1">
-                    <Border IsHitTestVisible="False">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%">
-                                <GradientStops>
-                                    <GradientStop Offset="0"
-                                                  Color="{DynamicResource {x:Static commonControls:SystemColors.ActiveCaptionColorKey}}" />
-                                    <GradientStop Offset="1"
-                                                  Color="{DynamicResource {x:Static commonControls:SystemColors.GradientActiveCaptionColorKey}}" />
-                                </GradientStops>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                    </Border>
+                    <Border IsHitTestVisible="False" Name="PART_FormTitleBar" />
 
                     <DockPanel Margin="2,0,0,0">
                         <CaptionButtons DockPanel.Dock="Right" />
