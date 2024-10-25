@@ -1,0 +1,53 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:AvaloniaVisualBasic.Controls"
+                    xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    x:ClassModifier="internal">
+    <ControlTheme x:Key="{x:Type controls:MDIWindow}"
+                  TargetType="controls:MDIWindow">
+        <Setter Property="MinWidth" Value="70" />
+        <Setter Property="MinHeight" Value="24" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ClassicBorderDecorator Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}"
+                                        Padding="2"
+                                        Name="PART_Border"
+                                        BorderStyle="AltRaised" BorderThickness="2">
+                    <DockPanel ClipToBounds="True">
+                        <Panel DockPanel.Dock="Top" Margin="0,0,0,1">
+                            <Border Name="PART_TitleBar" />
+
+                            <DockPanel Margin="2,0,0,0">
+                                <controls:MDICaptionButtons DockPanel.Dock="Right" />
+
+                                <Image Source="{TemplateBinding Icon}" Width="16" Height="16" IsHitTestVisible="False" />
+
+                                <TextBlock Text="{TemplateBinding Title}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Stretch"
+                                           RenderOptions.TextRenderingMode="Alias"
+                                           FontFamily="{DynamicResource {x:Static commonControls:NonClientMetrics.CaptionFontKey}}"
+                                           FontSize="{DynamicResource {x:Static commonControls:NonClientMetrics.CaptionFontSizeKey}}"
+                                           IsHitTestVisible="False"
+                                           Foreground="{DynamicResource {x:Static commonControls:SystemColors.ActiveCaptionTextBrushKey}}"
+                                           FontWeight="Bold" />
+                            </DockPanel>
+
+                        </Panel>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </DockPanel>
+                </ClassicBorderDecorator>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ Border#PART_TitleBar">
+            <Setter Property="Background" Value="{DynamicResource InactiveTitleBarBrush}" />
+        </Style>
+
+        <Style Selector="^[(controls|MDIHostPanel.IsActive)=True] /template/ Border#PART_TitleBar">
+            <Setter Property="Background" Value="{DynamicResource ActiveTitleBarBrush}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

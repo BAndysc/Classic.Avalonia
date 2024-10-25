@@ -1,0 +1,351 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+             xmlns:avaloniaVisualBasic="clr-namespace:AvaloniaVisualBasic"
+             xmlns:controls="clr-namespace:AvaloniaVisualBasic.Controls"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:viewModels="clr-namespace:AvaloniaVisualBasic.Forms.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1080" d:DesignHeight="551"
+             x:DataType="avaloniaVisualBasic:MainViewViewModel"
+             x:Name="RootView"
+             x:Class="AvaloniaVisualBasic.MainView">
+    <Design.DataContext>
+        <avaloniaVisualBasic:MainViewViewModel />
+    </Design.DataContext>
+    <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <DockPanel>
+            <StackPanel Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}"
+                        Orientation="Vertical" DockPanel.Dock="Top">
+                <ClassicBorderDecorator BorderStyle="ThinRaised" BorderThickness="1" DockPanel.Dock="Top">
+                    <Menu Margin="0,1,0,2">
+                        <MenuItem Header="_File" />
+                        <MenuItem Header="_Edit" />
+                        <MenuItem Header="_View" />
+                        <MenuItem Header="_Project" />
+                        <MenuItem Header="F_ormat" />
+                        <MenuItem Header="_Debug" />
+                        <MenuItem Header="_Run" />
+                        <MenuItem Header="_Query" />
+                        <MenuItem Header="D_iagram" />
+                        <MenuItem Header="_Tools" />
+                        <MenuItem Header="_Add-Ins" />
+                        <MenuItem Header="_Window" />
+                        <MenuItem Header="_Help" />
+                    </Menu>
+                </ClassicBorderDecorator>
+                <ClassicBorderDecorator BorderStyle="ThinRaised" BorderThickness="1" DockPanel.Dock="Top"
+                                        HorizontalAlignment="Left">
+                    <commonControls:ToolBar Size="Small" TextPlacement="NoText" Margin="0,1">
+                        <commonControls:RebarHandle Width="4" Margin="2,0,0,0" />
+                        <commonControls:RebarHandle Width="4"/>
+                        <commonControls:ToolBarButton SmallIcon="Icons/addproject.gif">
+                            <Button.Flyout>
+                                <MenuFlyout />
+                            </Button.Flyout>
+                        </commonControls:ToolBarButton>
+                        <commonControls:ToolBarButton SmallIcon="Icons/addform.gif">
+                            <Button.Flyout>
+                                <MenuFlyout />
+                            </Button.Flyout>
+                        </commonControls:ToolBarButton>
+                        <commonControls:ToolBarButton SmallIcon="Icons/menubar.gif"
+                                                      Command="{CompiledBinding #RootView.((avaloniaVisualBasic:MainViewViewModel)DataContext).OpenMenuEditorCommand}"
+                                                      CommandParameter="{Binding #RootView}"
+                                                      />
+                        <Separator />
+                        <commonControls:ToolBarButton SmallIcon="Icons/open.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/save.gif" />
+                        <Separator />
+                        <commonControls:ToolBarButton SmallIcon="Icons/cut.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/copy.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/paste.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/find.gif" IsEnabled="False" />
+                        <Separator />
+                        <commonControls:ToolBarButton SmallIcon="Icons/undo.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/redo.gif" IsEnabled="False" />
+                        <Separator />
+                        <commonControls:ToolBarButton SmallIcon="Icons/play.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/pause.gif" IsEnabled="False" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/stop.gif" IsEnabled="False" />
+                        <Separator />
+                        <commonControls:ToolBarButton SmallIcon="Icons/projectexplorer.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/properties.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/formlayout.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/objectbrowser.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/toolbox.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/dataview.gif" />
+                        <commonControls:ToolBarButton SmallIcon="Icons/visualcomponent.gif" />
+                        <Separator />
+                        <Image Source="Icons/position.gif" Width="16" Height="16" />
+                        <TextBlock VerticalAlignment="Center">0, 0</TextBlock>
+                        <Border Width="50" />
+                        <Image Source="Icons/size.gif" Width="16" Height="16" />
+                        <TextBlock VerticalAlignment="Center">3000, 3600</TextBlock>
+                        <Border Width="20" />
+                    </commonControls:ToolBar>
+                </ClassicBorderDecorator>
+            </StackPanel>
+
+            <DockControl x:Name="Dock" InitializeLayout="True" InitializeFactory="True">
+                <DockControl.Factory>
+                    <Factory />
+                </DockControl.Factory>
+
+                <RootDock x:Name="Root" Id="Root" IsCollapsable="False" DefaultDockable="{Binding #MainLayout}">
+
+                    <ProportionalDock x:Name="MainLayout" Id="MainLayout" Orientation="Horizontal">
+
+                        <!-- Left Pane -->
+
+                        <ToolDock x:Name="LeftPane" Id="LeftPane" Proportion="0.06" Alignment="Left">
+                            <Tool x:Name="SolutionExplorer" Id="ToolBox" Title=""  CanPin="False"
+                                  x:DataType="Tool">
+                                <DockPanel>
+                                    <ClassicBorderDecorator DockPanel.Dock="Top" BorderStyle="Raised" BorderThickness="3">
+                                        <TextBlock VerticalAlignment="Center" TextAlignment="Center">General</TextBlock>
+                                    </ClassicBorderDecorator>
+                                    <WrapPanel>
+                                        <commonControls:ToolBarButton LargeIcon="Icons/cursor.gif" IsChecked="True" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/picture.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/label.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/textbox.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/groupbox.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/button.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/checkbox.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/radio.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/combo.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/listbox.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/hscroll.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/vscroll.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/timer.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/drives.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/directories.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/files.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/shape.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/line.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/image.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/data.gif" />
+                                        <commonControls:ToolBarButton LargeIcon="Icons/ole.gif" />
+                                        <WrapPanel.Styles>
+                                            <Style Selector="commonControls|ToolBarButton">
+                                                <Setter Property="Size" Value="Large"/>
+                                                <Setter Property="IsToggleButton" Value="True "/>
+                                                <Setter Property="Width" Value="28"/>
+                                                <Setter Property="Height" Value="28"/>
+                                            </Style>
+                                        </WrapPanel.Styles>
+                                    </WrapPanel>
+                                </DockPanel>
+                            </Tool>
+                        </ToolDock>
+
+                        <ProportionalDockSplitter x:Name="LeftSplitter" Id="LeftSplitter" />
+
+                        <!-- Top Pane -->
+
+                        <ProportionalDock x:Name="TopPane" Id="TopPane" Orientation="Vertical">
+
+                            <!-- Right Pane -->
+
+                            <ProportionalDock x:Name="RightPane" Id="RightPane" Orientation="Horizontal">
+
+                                <!-- Documents Pane -->
+
+                                <DocumentDock x:Name="DocumentsPane" Id="DocumentsPane" ActiveDockable="Document1" CanClose="False" CanFloat="False" CanPin="False">
+                                    <DocumentDock.DocumentTemplate>
+                                        <DocumentTemplate>
+                                            <StackPanel x:DataType="Document">
+                                                <TextBlock Text="Title" />
+                                                <TextBox Text="{Binding Title}" />
+                                                <TextBlock Text="Context" />
+                                                <TextBox Text="{Binding Context}" />
+                                            </StackPanel>
+                                        </DocumentTemplate>
+                                    </DocumentDock.DocumentTemplate>
+                                    <Document x:Name="Document1" Id="Document1" Title="Program.cs" CanClose="False" CanFloat="False" CanPin="False"
+                                              x:DataType="Document">
+                                        <ClassicBorderDecorator BorderStyle="Sunken" BorderThickness="2">
+
+                                            <controls:MDIHost ItemsSource="{CompiledBinding #RootView.((avaloniaVisualBasic:MainViewViewModel)DataContext).Windows}">
+
+                                                <controls:MDIHost.ItemContainerTheme>
+                                                    <ControlTheme TargetType="controls:MDIWindow" BasedOn="{StaticResource {x:Type controls:MDIWindow}}" x:DataType="viewModels:BaseEditorWindowViewModel">
+                                                        <Setter Property="Title" Value="{CompiledBinding Title}" />
+                                                        <Setter Property="Icon" Value="{CompiledBinding Icon}" />
+                                                        <Setter Property="CloseCommand" Value="{CompiledBinding #RootView.((avaloniaVisualBasic:MainViewViewModel)DataContext).CloseWindowCommand}" />
+                                                        <Setter Property="CloseCommandParameter" Value="{CompiledBinding .}" />
+                                                    </ControlTheme>
+                                                </controls:MDIHost.ItemContainerTheme>
+
+                                            </controls:MDIHost>
+
+                                        </ClassicBorderDecorator>
+                                    </Document>
+                                </DocumentDock>
+
+                                <ProportionalDockSplitter x:Name="RightSplitter" Id="RightSplitter" />
+
+                                <ProportionalDock Proportion="0.2155" Orientation="Vertical">
+                                    <ToolDock x:Name="ProjectPane" Id="PropertiesPane" Proportion="0.333"
+                                              Alignment="Right">
+                                        <Tool x:Name="Project" Id="Projects" Title="Project Group - Group1" x:DataType="Tool" CanPin="False">
+                                            <DockPanel>
+                                                <commonControls:ToolBar DockPanel.Dock="Top" Size="Small" TextPlacement="NoText">
+                                                    <commonControls:ToolBarButton SmallIcon="Icons/code.gif" />
+                                                    <commonControls:ToolBarButton SmallIcon="Icons/object.gif" />
+                                                    <Separator />
+                                                    <commonControls:ToolBarButton SmallIcon="Icons/folder.gif" IsToggleButton="True" IsChecked="True" />
+                                                </commonControls:ToolBar>
+                                                <TreeView>
+                                                    <TreeViewItem IsExpanded="True">
+                                                        <TreeViewItem.Header>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Image Source="Icons/project.gif" Width="16" Height="16" />
+                                                                <TextBlock Text="Project1 (Project1)" FontWeight="Bold" />
+                                                            </StackPanel>
+                                                        </TreeViewItem.Header>
+                                                        <TreeViewItem IsExpanded="True">
+                                                            <TreeViewItem.Header>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Image Source="Icons/project_folder.gif" Width="16" Height="16" />
+                                                                    <TextBlock Text="Forms" />
+                                                                </StackPanel>
+                                                            </TreeViewItem.Header>
+                                                            <TreeViewItem>
+                                                                <TreeViewItem.Header>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <Image Source="Icons/form.gif" Width="16" Height="16" />
+                                                                        <TextBlock Text="Form1 (Form1)" />
+                                                                    </StackPanel>
+                                                                </TreeViewItem.Header>
+                                                            </TreeViewItem>
+                                                        </TreeViewItem>
+                                                    </TreeViewItem>
+                                                </TreeView>
+                                            </DockPanel>
+                                        </Tool>
+                                    </ToolDock>
+                                    <ProportionalDockSplitter />
+                                    <ToolDock x:Name="PropertiesPane" Id="PropertiesPane" Proportion="0.333"
+                                              Alignment="Right">
+                                        <Tool x:Name="Properties" Id="Projects" Title="Properties - Form1" x:DataType="Tool"  CanPin="False">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="2" />
+                                                    <RowDefinition Height="40" />
+                                                </Grid.RowDefinitions>
+                                                <ComboBox DockPanel.Dock="Top" SelectedIndex="0">
+                                                    <ComboBoxItem />
+                                                    <ComboBox.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                                                <TextBlock FontWeight="Bold">Form1</TextBlock>
+                                                                <TextBlock>Form</TextBlock>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ComboBox.ItemTemplate>
+                                                </ComboBox>
+                                                <TabControl Grid.Row="1">
+                                                    <TabItem Header="Alphabetic">
+                                                        <ListBox SelectedItem="{ReflectionBinding #RootView.DataContext.SelectedProperty}"
+                                                                 ItemsSource="{ReflectionBinding #RootView.DataContext.Properties}">
+                                                            <ListBox.Styles>
+                                                                <Style Selector="ListBoxItem">
+                                                                    <Setter Property="Padding" Value="0"/>
+                                                                </Style>
+                                                            </ListBox.Styles>
+                                                            <ListBox.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Border BorderBrush="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}" BorderThickness="0,0,0,1">
+                                                                        <Grid>
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="80" SharedSizeGroup="Key" />
+                                                                                <ColumnDefinition Width="1" />
+                                                                                <ColumnDefinition Width="Auto" SharedSizeGroup="Value" />
+                                                                            </Grid.ColumnDefinitions>
+                                                                            <TextBlock Text="{Binding Name}" />
+                                                                            <Border Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}" Grid.Column="1" />
+                                                                            <TextBlock Text="{Binding Value}" Grid.Column="2" />
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </DataTemplate>
+                                                            </ListBox.ItemTemplate>
+                                                        </ListBox>
+                                                    </TabItem>
+                                                    <TabItem Header="Categorized">
+
+                                                    </TabItem>
+                                                </TabControl>
+                                                <GridSplitter Grid.Row="2" />
+                                                <ClassicBorderDecorator Grid.Row="3" BorderThickness="1" BorderStyle="Sunken" DataContext="{ReflectionBinding #RootView.DataContext.SelectedProperty}">
+                                                    <DockPanel>
+                                                        <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Text="{Binding Name}" TextWrapping="WrapWithOverflow" />
+                                                        <TextBlock Text="Determines whether a form has a Minimize button." TextWrapping="WrapWithOverflow" />
+                                                    </DockPanel>
+                                                </ClassicBorderDecorator>
+                                            </Grid>
+                                        </Tool>
+                                    </ToolDock>
+                                    <ProportionalDockSplitter />
+                                    <ToolDock x:Name="FormLayoutPane" Id="FormLayoutPane" Proportion="0.33"
+                                              Alignment="Right">
+                                        <Tool x:Name="FormLayout" Id="FormLayout" Title="Form Layout" x:DataType="Tool"  CanPin="False">
+                                            <ClassicBorderDecorator BorderStyle="Sunken" BorderThickness="2" Background="{DynamicResource {x:Static commonControls:SystemColors.WindowBrushKey}}" Padding="20">
+                                                <avaloniaVisualBasic:ProportionPanel Proportion="1.333">
+                                                    <DockPanel>
+                                                        <ClassicBorderDecorator BorderStyle="AltRaised"
+                                                                                BorderThickness="2"
+                                                                                DockPanel.Dock="Bottom"
+                                                                                Height="10" Margin="20,-2"
+                                                                                BorderLightBrush="{DynamicResource {x:Static commonControls:SystemColors.ControlDarkDarkBrushKey}}"
+                                                                                Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}"
+                                                                                Padding="24,14" />
+
+                                                        <ClassicBorderDecorator BorderStyle="AltRaised"
+                                                                                BorderThickness="2"
+                                                                                BorderLightBrush="{DynamicResource {x:Static commonControls:SystemColors.ControlDarkDarkBrushKey}}"
+                                                                                Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}"
+                                                                                Padding="24,14">
+                                                            <ClassicBorderDecorator BorderStyle="Sunken" BorderThickness="2" Background="{DynamicResource {x:Static commonControls:SystemColors.DesktopBrushKey}}">
+                                                                <Canvas ClipToBounds="True">
+                                                                    <Border Canvas.Left="10" Canvas.Top="10" BorderThickness="1" BorderBrush="{DynamicResource {x:Static commonControls:SystemColors.ControlTextBrushKey}}" Width="50" Height="30" Padding="1">
+                                                                        <Border BorderThickness="1" BorderBrush="{DynamicResource {x:Static commonControls:SystemColors.ControlTextBrushKey}}">
+                                                                            <DockPanel>
+                                                                                <Border DockPanel.Dock="Top" BorderThickness="0,0,0,1" Background="Gray" BorderBrush="{DynamicResource {x:Static commonControls:SystemColors.ControlTextBrushKey}}" Height="4" />
+                                                                                <Border Background="White">
+                                                                                    <TextBlock>Form1</TextBlock>
+                                                                                </Border>
+                                                                            </DockPanel>
+                                                                        </Border>
+                                                                    </Border>
+                                                                </Canvas>
+                                                            </ClassicBorderDecorator>
+                                                        </ClassicBorderDecorator>
+                                                    </DockPanel>
+                                                </avaloniaVisualBasic:ProportionPanel>
+                                            </ClassicBorderDecorator>
+                                        </Tool>
+                                    </ToolDock>
+                                </ProportionalDock>
+
+                            </ProportionalDock>
+
+                        </ProportionalDock>
+
+                    </ProportionalDock>
+                </RootDock>
+
+                <DockControl.Styles>
+                    <Style Selector="DocumentTabStrip">
+                        <Setter Property="IsVisible" Value="False" />
+                    </Style>
+                </DockControl.Styles>
+            </DockControl>
+
+        </DockPanel>
+    </Panel>
+</UserControl>

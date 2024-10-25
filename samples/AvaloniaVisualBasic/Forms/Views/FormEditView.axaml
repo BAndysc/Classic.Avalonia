@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaVisualBasic.Forms.Views.FormEditView">
+    <Canvas Background="{DynamicResource {x:Static commonControls:SystemColors.WindowBrushKey}}" ClipToBounds="True">
+        <ClassicBorderDecorator Width="300" Height="200"
+                                Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}"
+                                Padding="2"
+                                Canvas.Left="10"
+                                Canvas.Top="10"
+                                BorderStyle="AltRaised" BorderThickness="2">
+            <DockPanel>
+                <Panel DockPanel.Dock="Top" Margin="0,0,0,1">
+                    <Border IsHitTestVisible="False">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%">
+                                <GradientStops>
+                                    <GradientStop Offset="0"
+                                                  Color="{DynamicResource {x:Static commonControls:SystemColors.ActiveCaptionColorKey}}" />
+                                    <GradientStop Offset="1"
+                                                  Color="{DynamicResource {x:Static commonControls:SystemColors.GradientActiveCaptionColorKey}}" />
+                                </GradientStops>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+
+                    <DockPanel Margin="2,0,0,0">
+                        <CaptionButtons DockPanel.Dock="Right" />
+
+                        <Image Source="/Icons/form.gif" Width="16" Height="16" />
+
+                        <TextBlock Text="Form1"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Stretch"
+                                   RenderOptions.TextRenderingMode="Alias"
+                                   FontFamily="{DynamicResource {x:Static commonControls:NonClientMetrics.CaptionFontKey}}"
+                                   FontSize="{DynamicResource {x:Static commonControls:NonClientMetrics.CaptionFontSizeKey}}"
+                                   IsHitTestVisible="False"
+                                   Foreground="{DynamicResource {x:Static commonControls:SystemColors.ActiveCaptionTextBrushKey}}"
+                                   FontWeight="Bold" />
+                    </DockPanel>
+
+                </Panel>
+                <Border>
+                    <Border.Background>
+                        <VisualBrush SourceRect="0,0,8,8"
+                                     DestinationRect="0,0,8,8"
+                                     TileMode="Tile"
+                                     Stretch="UniformToFill">
+                            <VisualBrush.Visual>
+                                <Canvas Width="8" Height="8" Background="Transparent">
+                                    <Rectangle Height="1" Width="1" Fill="#474747" />
+                                </Canvas>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.Background>
+                </Border>
+            </DockPanel>
+        </ClassicBorderDecorator>
+    </Canvas>
+</UserControl>

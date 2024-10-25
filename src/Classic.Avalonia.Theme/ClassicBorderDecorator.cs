@@ -780,14 +780,14 @@ public sealed class ClassicBorderDecorator : Decorator
         {
             Thickness border = BorderThickness;
 
-            double borderWidth = border.Left + border.Right;
-            double borderHeight = border.Top + border.Bottom;
+            double borderWidth = border.Left + border.Right + Padding.Left + Padding.Right;
+            double borderHeight = border.Top + border.Bottom + Padding.Top + Padding.Bottom;
 
             double x = 0, y = 0, width = 0, height = 0;
             if ((finalSize.Width >= borderWidth) && (finalSize.Height >= borderHeight))
             {
-                x = border.Left;
-                y = border.Top;
+                x = border.Left + Padding.Right;
+                y = border.Top + Padding.Bottom;
                 width = finalSize.Width - borderWidth;
                 height = finalSize.Height - borderHeight;
 

@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaVisualBasic.Forms.Views.MenuEditorView">
+    <UserControl.Styles>
+        <Style Selector="Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
+    <Border Padding="5,8">
+        <StackPanel Orientation="Vertical" Spacing="6">
+            <Grid ColumnDefinitions="50,*,12,75" RowDefinitions="Auto,3,Auto,6,Auto">
+
+                <Label Content="Ca_ption:" Grid.Row="0" Grid.Column="0"/>
+                <TextBox Grid.Row="0" Grid.Column="1" />
+                <Button Content="OK" Grid.Row="0" Grid.Column="3" />
+
+                <Label Content="Na_me:" Grid.Row="2" Grid.Column="0"/>
+                <TextBox Grid.Row="2" Grid.Column="1" />
+                <Button Content="Cancel" Grid.Row="2" Grid.Column="3" />
+
+                <Label Content="Inde_x:" Grid.Row="4" Grid.Column="0"/>
+                <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" LastChildFill="False">
+                    <TextBox Width="40" />
+                    <ComboBox DockPanel.Dock="Right" SelectedIndex="0" Width="125">
+                        <ComboBoxItem>(None)</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="_Shortcut:" Margin="0,0,15,0" DockPanel.Dock="Right"/>
+                </DockPanel>
+            </Grid>
+            <Grid ColumnDefinitions="*,*,*,*">
+                <Label Content="_HelpContextID:" Grid.Column="0"/>
+                <TextBox Grid.Column="1" />
+                <Label Content="Neg_otiatePosition:" Grid.Column="2"/>
+                <ComboBox Grid.Column="3" SelectedIndex="0">
+                    <ComboBoxItem>0 - None</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            <Grid ColumnDefinitions="*,*,*,*">
+                <CheckBox Content="_Checked" Grid.Column="0" />
+                <CheckBox Content="_Enabled" IsChecked="True" Grid.Column="1" />
+                <CheckBox Content="_Visible" IsChecked="True" Grid.Column="2" />
+                <CheckBox Content="_WindowList" Grid.Column="3" />
+            </Grid>
+            <Separator />
+            <Grid ColumnDefinitions="18,5,18,5,18,5,18,14,68,7,68,7,68" Margin="9,0">
+
+                <Button Grid.Column="0" Padding="0">
+                    <Image Source="/Icons/left.gif" Width="9" Height="9" />
+                </Button>
+                <Button Grid.Column="2" Padding="0">
+                    <Image Source="/Icons/right.gif" Width="9" Height="9" />
+                </Button>
+                <Button Grid.Column="4" Padding="0">
+                    <Image Source="/Icons/up.gif" Width="9" Height="9" />
+                </Button>
+                <Button Grid.Column="6" Padding="0">
+                    <Image Source="/Icons/bottom.gif" Width="9" Height="9" />
+                </Button>
+                <Button Grid.Column="8">_Next</Button>
+                <Button Grid.Column="10">_Insert</Button>
+                <Button Grid.Column="12">Dele_te</Button>
+            </Grid>
+            <ListBox Margin="3,0" Height="147" SelectedIndex="0">
+                <ListBoxItem />
+            </ListBox>
+        </StackPanel>
+    </Border>
+</UserControl>

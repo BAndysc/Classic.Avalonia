@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaVisualBasic.Forms.Views.CodeEditorView">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" ColumnDefinitions="10,*,10,*,10" Margin="0,0,0,2">
+            <ComboBox FontWeight="Bold" Grid.Column="1" SelectedIndex="0">
+                <ComboBoxItem>Form</ComboBoxItem>
+            </ComboBox>
+            <ComboBox FontWeight="Bold" Grid.Column="3" SelectedIndex="0">
+                <ComboBoxItem>Load</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <TextBox
+            FontFamily="Menlo"
+            ScrollViewer.HorizontalScrollBarVisibility="Visible"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            AcceptsReturn="True"
+            Padding="10,2,0,2"
+            Text="Private Sub Form_Load()&#xA;&#xA;End Sub">
+            <TextBox.InnerLeftContent>
+                <Border Width="20"
+                        Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}"
+                        BorderThickness="0,0,1,0"
+                        BorderBrush="{DynamicResource {x:Static commonControls:SystemColors.WindowTextBrushKey}}" />
+            </TextBox.InnerLeftContent>
+        </TextBox>
+    </DockPanel>
+</UserControl>

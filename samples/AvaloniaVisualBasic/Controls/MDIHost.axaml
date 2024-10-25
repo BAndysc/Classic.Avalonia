@@ -1,0 +1,23 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:AvaloniaVisualBasic.Controls"
+                    xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    x:ClassModifier="internal">
+    <ControlTheme x:Key="{x:Type controls:MDIHost}"
+                  TargetType="controls:MDIHost">
+        <Setter Property="Background" Value="{DynamicResource {x:Static commonControls:SystemColors.AppWorkspaceBrushKey}}" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <controls:MDIHostPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}">
+                    <ItemsPresenter x:Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"/>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

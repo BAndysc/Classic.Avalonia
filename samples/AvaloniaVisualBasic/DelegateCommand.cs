@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Input;
 
-namespace Notepad;
+namespace AvaloniaVisualBasic;
 
 public class DelegateCommand<T> : ICommand
 {
@@ -27,6 +27,32 @@ public class DelegateCommand<T> : ICommand
     {
         if (parameter is T t)
             command(t);
+    }
+
+    public event EventHandler? CanExecuteChanged;
+}
+
+public class DelegateCommand : ICommand
+{
+    private readonly Action command;
+    private readonly Func<bool>? canExecute;
+
+    public DelegateCommand(Action command, Func<bool>? canExecute)
+    {
+        this.command = command;
+        this.canExecute = canExecute;
+    }
+
+    public bool CanExecute(object? parameter)
+    {
+        if (canExecute == null)
+            return true;
+        return canExecute();
+    }
+
+    public void Execute(object? parameter)
+    {
+        command();
     }
 
     public event EventHandler? CanExecuteChanged;

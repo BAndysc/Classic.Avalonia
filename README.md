@@ -121,6 +121,7 @@ if (font != null)
 
 ## Example Screenshots
 
+![Avalonia Visual Basic](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/avalonia_basic.png)
 ![Avalonia Internet Explorer](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/avalonia_explorer1.png)
 ![Avalonia Notepad](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/notepad.png)
 ![Avalonia Internet Explorer Internet Options](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/avalonia_explorer2.png)
