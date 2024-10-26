@@ -721,7 +721,7 @@ public sealed class ClassicBorderDecorator : Decorator
     /// <returns>The ClassicBorderDecorator's desired size.</returns>
     protected override Size MeasureOverride(Size availableSize)
     {
-        Size borderSize = HelperCollapseThickness(BorderThickness);
+        Size borderSize = HelperCollapseThickness(BorderThickness) + HelperCollapseThickness(Padding);
 
         Size desired;
         Control? child = Child;

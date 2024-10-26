@@ -24,7 +24,15 @@
         </Panel>
       </ControlTemplate>
     </Setter>
- 
+
+    <Style Selector="^ /template/ Border#PART_Background">
+      <Setter Property="Background" Value="{DynamicResource InactiveTitleBarBrush}" />
+    </Style>
+
+    <Style Selector="^:active /template/ Border#PART_Background">
+      <Setter Property="Background" Value="{DynamicResource ActiveTitleBarBrush}" />
+    </Style>
+
     <Style Selector="^:fullscreen">
       <Setter Property="Background" Value="{DynamicResource SystemAccentColor}" />
     </Style>

@@ -3,7 +3,7 @@
   <Styles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://Avalonia.Controls.ProportionalStackPanel/ProportionalStackPanelSplitter.axaml" />
+        <ResourceInclude Source="/Controls/ProportionalStackPanelSplitter.axaml" />
         <ResourceInclude Source="/Controls/DocumentTabStripItem.axaml" />
         <ResourceInclude Source="/Controls/DocumentTabStrip.axaml" />
         <ResourceInclude Source="/Controls/ToolTabStripItem.axaml" />
@@ -25,7 +25,6 @@
         <ResourceInclude Source="/Controls/DockControl.axaml" />
         <ResourceInclude Source="/Controls/HostWindowTitleBar.axaml" />
         <ResourceInclude Source="/Controls/HostWindow.axaml" />
-        <ResourceInclude Source="/Themes/Accents/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

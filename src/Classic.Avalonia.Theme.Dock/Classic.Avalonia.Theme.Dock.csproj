@@ -46,4 +46,13 @@
     <ItemGroup>
         <ProjectReference Include="..\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\*.gif" />
+      <AvaloniaResource Include="Assets\*.gif" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Themes\Accents\Fluent.axaml" />
+    </ItemGroup>
 </Project>

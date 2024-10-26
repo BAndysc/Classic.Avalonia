@@ -33,6 +33,12 @@ For the ColorPicker, install the `Classic.Avalonia.Theme.ColorPicker` package an
 <StyleInclude Source="avares://Classic.Avalonia.Theme.ColorPicker/Classic.axaml"/>
 ```
 
+### Dock
+There is also a classic theme for a fantastic [Wieslaw's Dock control](https://github.com/wieslawsoltes/Dock), install the `Classic.Avalonia.Theme.Dock` package and include the style in `App.axaml`:
+```xml
+<StyleInclude Source="avares://Classic.Avalonia.Theme.Dock/Classic.axaml" />
+```
+
 ### Color Scheme
 
 To customize the color scheme, set the `RequestedThemeVariant` in `App.axaml` or for individual controls:
@@ -121,7 +127,7 @@ if (font != null)
 
 ## Example Screenshots
 
-![Avalonia Visual Basic](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/avalonia_basic.png)
+![Avalonia Visual Basic](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/avalonia_basic.gif)
 ![Avalonia Internet Explorer](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/avalonia_explorer1.png)
 ![Avalonia Notepad](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/notepad.png)
 ![Avalonia Internet Explorer Internet Options](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/avalonia_explorer2.png)

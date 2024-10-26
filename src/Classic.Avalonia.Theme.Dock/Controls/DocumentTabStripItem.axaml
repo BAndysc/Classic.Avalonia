@@ -83,19 +83,16 @@
                       <Setter Property="Width" Value="14" />
                       <Setter Property="Height" Value="14" />
                       <Setter Property="Background" Value="Transparent" />
-                      <Style Selector="^:pointerover">
-                        <Setter Property="Background" Value="{DynamicResource DockApplicationAccentBrushHigh}" />
-                      </Style>
                     </Style>
                   </Button.Styles>
-                  <Path x:Name="PART_ClosePath">
+                  <Path x:Name="PART_ClosePath" Width="8" Height="7">
                     <Path.Styles>
                       <Style Selector="Path">
                         <Setter Property="Margin" Value="2" />
                         <Setter Property="Stretch" Value="Uniform" />
                         <Setter Property="UseLayoutRounding" Value="False" />
                         <Setter Property="Data"
-                                Value="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                                Value="m 0 0 L 2 0 L 2 1 L 3 1 L 3 2 L 5 2 L 5 1 L 6 1 L 6 0 L 8 0 L 8 1 L 7 1 L 7 2 L 6 2 L 6 3 L 5 3 L 5 4 L 6 4 L 6 5 L 7 5 L 7 6 L 8 6 L 8 7 L 6 7 L 6 6 L 5 6 L 5 5 L 3 5 L 3 6 L 2 6 L 2 7 L 0 7 L 0 6 L 1 6 L 1 5 L 2 5 L 2 4 L 3 4 L 3 3 L 2 3 L 2 2 L 1 2 L 1 1 L 0 1 z" />
                       </Style>
                     </Path.Styles>
                   </Path>
@@ -116,34 +113,9 @@
         <Setter Property="BorderStyle" Value="TabTop" />
       </Style>
       <Style Selector="^ /template/ Path#PART_ClosePath">
-        <Setter Property="Fill" Value="{DynamicResource DockApplicationAccentForegroundBrush}" />
+        <Setter Property="Fill" Value="{DynamicResource {x:Static commonControls:SystemColors.WindowTextBrushKey}}" />
       </Style>
     </Style>
-
-
-    <!-- <Style Selector="^:pointerover /template/ Path#PART_ClosePath"> -->
-    <!--   <Setter Property="Fill" Value="{DynamicResource DockApplicationAccentForegroundBrush}" /> -->
-    <!-- </Style> -->
-
-    <!-- <Style Selector="^:not(:active):selected"> -->
-    <!--   <Setter Property="Background" Value="{DynamicResource DockThemeBorderLowBrush}" /> -->
-    <!--   <Setter Property="Foreground" Value="{DynamicResource DockThemeForegroundBrush}" /> -->
-    <!-- </Style> -->
-    <!-- -->
-    <!-- <Style Selector="^:active:selected"> -->
-    <!--   <Setter Property="Background" Value="{DynamicResource DockApplicationAccentBrushLow}" /> -->
-    <!--   <Setter Property="Foreground" Value="{DynamicResource DockApplicationAccentForegroundBrush}" /> -->
-    <!-- </Style> -->
-    <!-- -->
-    <!-- <Style Selector="^:pointerover"> -->
-    <!--   <Setter Property="Background" Value="{DynamicResource DockApplicationAccentBrushMed}" /> -->
-    <!--   <Setter Property="Foreground" Value="{DynamicResource DockApplicationAccentForegroundBrush}" /> -->
-    <!-- </Style> -->
-    <!-- -->
-    <!-- <Style Selector="^:selected:pointerover"> -->
-    <!--   <Setter Property="Background" Value="{DynamicResource DockApplicationAccentBrushLow}" /> -->
-    <!--   <Setter Property="Foreground" Value="{DynamicResource DockApplicationAccentForegroundBrush}" /> -->
-    <!-- </Style> -->
 
   </ControlTheme>
 

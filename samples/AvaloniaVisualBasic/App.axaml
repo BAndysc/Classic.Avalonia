@@ -15,7 +15,7 @@
 
     <Application.Styles>
         <ClassicTheme />
-        <StyleInclude Source="avares://Classic.Avalonia.Theme.Dock/Themes/DockFluentTheme.axaml" />
+        <StyleInclude Source="avares://Classic.Avalonia.Theme.Dock/Classic.axaml" />
     </Application.Styles>
 
     <Application.DataTemplates>

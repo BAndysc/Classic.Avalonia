@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:core="using:Dock.Model.Core"
                     xmlns:controls="clr-namespace:Dock.Model.Controls;assembly=Dock.Model"
-                    xmlns:dock="clr-namespace:Classic.Avalonia.Theme.Dock">
+                    xmlns:dock="clr-namespace:Classic.Avalonia.Theme.Dock"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
   <Design.PreviewWith>
     <HostWindow IsToolWindow="False" Width="300" Height="400" />
   </Design.PreviewWith>
@@ -10,19 +11,24 @@
   <dock:IntLessThanConverter x:Key="LessThan2" TrueIfLessThan="2" />
 
   <ControlTheme x:Key="{x:Type HostWindow}" TargetType="HostWindow">
-
-    <Setter Property="Background" Value="{DynamicResource DockThemeBackgroundBrush}" />
-    <Setter Property="(TextElement.FontSize)" Value="{DynamicResource DockFontSizeNormal}" />
-    <Setter Property="FontFamily" Value="{TemplateBinding FontFamily}" />
-    <Setter Property="TextBlock.Foreground" Value="{DynamicResource DockThemeForegroundBrush}" />
+    <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
     <Setter Property="WindowState" Value="Normal" />
-    <Setter Property="UseLayoutRounding" Value="True" />
+    <Setter Property="UseLayoutRounding" Value="False" />
     <Setter Property="Title" Value="{Binding ActiveDockable.Title}" />
     <Setter Property="Topmost" Value="{Binding Window.Topmost}" x:DataType="controls:IRootDock" />
-    <Setter Property="SystemDecorations" Value="Full" />
     <Setter Property="ToolChromeControlsWholeWindow" Value="{CompiledBinding OpenedDockablesCount, Converter={StaticResource LessThan2}}" x:DataType="controls:IRootDock" />
-    <Setter Property="ExtendClientAreaToDecorationsHint" Value="False" />
-    <Setter Property="ExtendClientAreaChromeHints" Value="PreferSystemChrome" />
+
+    <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+    <Setter Property="SystemDecorations" Value="Full" /> <!-- with Full on Windows 11 we get rounded borders and shadow, which is bad, but unfortunately with None, dragging and resizing doesn't work -->
+    <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+
+    <Style Selector="^.__classic_theme_is_mac">
+      <Setter Property="SystemDecorations" Value="None" /> <!-- on a mac None decorations work fine and we still can drag and resize the window -->
+    </Style>
 
     <Setter Property="Template">
       <ControlTemplate>
@@ -59,12 +65,19 @@
 
     <Style Selector="^:toolwindow">
 
-      <Setter Property="SystemDecorations" Value="Full" />
       <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="0" />
 
       <Style Selector="^:toolchromecontrolswindow">
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
         <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+      </Style>
+
+      <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+      <Setter Property="SystemDecorations" Value="Full" /> <!-- with Full on Windows 11 we get rounded borders and shadow, which is bad, but unfortunately with None, dragging and resizing doesn't work -->
+      <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+
+      <Style Selector="^.__classic_theme_is_mac">
+        <Setter Property="SystemDecorations" Value="None" /> <!-- on a mac None decorations work fine and we still can drag and resize the window -->
       </Style>
 
       <Setter Property="Template">
@@ -73,17 +86,23 @@
             <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
             <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
             <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
-            <VisualLayerManager>
-              <VisualLayerManager.ChromeOverlayLayer>
-                <!-- <TitleBar/> -->
-              </VisualLayerManager.ChromeOverlayLayer>
-              <ContentPresenter Name="PART_ContentPresenter"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Content="{TemplateBinding Content}"
-                                Margin="{TemplateBinding Padding}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-            </VisualLayerManager>
+            <Panel Margin="4">
+              <VisualLayerManager>
+                <VisualLayerManager.ChromeOverlayLayer>
+                  <!-- <TitleBar/> -->
+                </VisualLayerManager.ChromeOverlayLayer>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Content="{TemplateBinding Content}"
+                                  Margin="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+              </VisualLayerManager>
+            </Panel>
+            <ClassicBorderDecorator Name="Bd"
+                                    BorderStyle="AltRaised"
+                                    BorderThickness="2"
+                                    IsHitTestVisible="False" />
           </Panel>
         </ControlTemplate>
       </Setter>
@@ -101,14 +120,10 @@
     </Style>
 
     <Style Selector="^:toolwindow">
-      <Setter Property="Background" Value="{DynamicResource DockThemeBackgroundBrush}" />
-      <Setter Property="TransparencyLevelHint" Value="None"/>
       <Setter Property="Opacity" Value="1.0" />
     </Style>
 
     <Style Selector="^:toolwindow:dragging">
-      <Setter Property="Background" Value="{x:Null}" />
-      <Setter Property="TransparencyLevelHint" Value="Transparent"/>
       <Setter Property="Opacity" Value="0.5" />
     </Style>
 

@@ -12,7 +12,7 @@
 
     <ClassicTheme />
 
-    <StyleInclude Source="avares://Classic.Avalonia.Theme.Dock/Themes/DockFluentTheme.axaml" />
+    <StyleInclude Source="avares://Classic.Avalonia.Theme.Dock/Classic.axaml" />
 
     <Style Selector="TextBlock">
       <Setter Property="HorizontalAlignment" Value="Center" />

@@ -36,12 +36,10 @@
   </MenuFlyout>
 
   <ControlTheme x:Key="ChromeButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}" >
-    <Setter Property="Margin" Value="2 0 0 0" />
-    <Setter Property="Padding" Value="3" />
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Width" Value="18" />
-    <Setter Property="Height" Value="16" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Margin" Value="1" />
+    <Setter Property="Width" Value="13" />
+    <Setter Property="Height" Value="13" />
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type ToolChromeControl}" TargetType="ToolChromeControl">
@@ -78,9 +76,7 @@
                   <Button x:Name="PART_MenuButton"
                           Theme="{StaticResource ChromeButton}"
                           Flyout="{StaticResource ToolChromeControlContextMenu}">
-                    <Viewbox Margin="2">
-                      <Path x:Name="PART_MenuPath" />
-                    </Viewbox>
+                      <Path x:Name="PART_MenuPath" Width="6" Height="3" />
                   </Button>
                   <Button x:Name="PART_PinButton"
                           Command="{Binding Owner.Factory.PinDockable}"
@@ -92,25 +88,19 @@
                         <TemplateBinding Property="IsFloating" Converter="{x:Static BoolConverters.Not}" />
                       </MultiBinding>
                     </Button.IsVisible>
-                    <Viewbox>
-                      <Path x:Name="PART_PinPath" />
-                    </Viewbox>
+                      <Path x:Name="PART_PinPath" Width="6" Height="9" />
                   </Button>
                   <Button x:Name="PART_MaximizeRestoreButton"
                           IsVisible="{TemplateBinding IsFloating}"
                           Theme="{StaticResource ChromeButton}">
-                    <Viewbox>
                       <Path x:Name="PART_MaximizeRestorePath" />
-                    </Viewbox>
                   </Button>
                   <Button x:Name="PART_CloseButton"
                           Command="{Binding Owner.Factory.CloseDockable}"
                           CommandParameter="{Binding ActiveDockable}"
                           IsVisible="{Binding ActiveDockable.CanClose, FallbackValue=False}"
                           Theme="{StaticResource ChromeButton}">
-                    <Viewbox>
-                      <Path x:Name="PART_ClosePath" />
-                    </Viewbox>
+                    <Path x:Name="PART_ClosePath" Width="8" Height="7" />
                   </Button>
                 </StackPanel>
                 <Grid x:Name="PART_Grid" />
@@ -194,12 +184,12 @@
 
     <Style Selector="^/template/ Path">
       <Setter Property="Stretch" Value="UniformToFill" />
-      <Setter Property="Fill" Value="#474747" />
+      <Setter Property="Fill" Value="{DynamicResource {x:Static commonControls:SystemColors.WindowTextBrushKey}}" />
     </Style>
 
     <Style Selector="^/template/ Path#PART_ClosePath">
       <Setter Property="Data"
-              Value="M1169 1024l879 -879l-145 -145l-879 879l-879 -879l-145 145l879 879l-879 879l145 145l879 -879l879 879l145 -145z" />
+              Value="m 0 0 L 2 0 L 2 1 L 3 1 L 3 2 L 5 2 L 5 1 L 6 1 L 6 0 L 8 0 L 8 1 L 7 1 L 7 2 L 6 2 L 6 3 L 5 3 L 5 4 L 6 4 L 6 5 L 7 5 L 7 6 L 8 6 L 8 7 L 6 7 L 6 6 L 5 6 L 5 5 L 3 5 L 3 6 L 2 6 L 2 7 L 0 7 L 0 6 L 1 6 L 1 5 L 2 5 L 2 4 L 3 4 L 3 3 L 2 3 L 2 2 L 1 2 L 1 1 L 0 1 z" />
     </Style>
 
     <Style Selector="^/template/ Path#PART_MaximizeRestorePath">
@@ -207,11 +197,11 @@
     </Style>
 
     <Style Selector="^/template/ Path#PART_PinPath">
-      <Setter Property="Data" Value="m0 1345.575 218.834 0 0-1121.5042 0-177.2397 0-46.8138 673.827 0 416.57 0 32.417 0 0 1345.5577 230.153 0 0 224.0546-672.133 0 0 894.3935-225.764 0 0-894.3935-673.904 0 0-224.0546zm444.598-1121.4996 0 1121.4996 448.063 0 0-1121.4996-448.063 0z" />
+      <Setter Property="Data" Value="M 1 0 L 1 5 L 0 5 L 0 6 L 3 6 L 3 9 L 4 9 L 4 6 L 7 6 L 7 5 L 6 5 L 6 0 L 1 0 L 1 1 L 4 1 L 4 5 L 2 5 L 2 1 L 1 1 z" />
     </Style>
 
     <Style Selector="^/template/ Path#PART_MenuPath">
-      <Setter Property="Data" Value="M 352.041,32.0005L 320,0.000162761L 384,0.000162761L 352.041,32.0005 Z " />
+      <Setter Property="Data" Value="M 0 0 L 0 1 L 1 1 L 1 2 L 2 2 L 2 3 L 4 3 L 4 2 L 5 2 L 5 1 L 6 1 L 6 0 z" />
     </Style>
 
     <Style Selector="^:pinned /template/ Path#PART_PinPath">
@@ -220,10 +210,6 @@
 
     <Style Selector="^:maximized /template/ Path#PART_MaximizeRestorePath">
       <Setter Property="Data" Value="M0,10L0,3 3,3 3,0 10,0 10,2 4,2 4,3 7,3 7,6 6,6 6,5 1,5 1,10z M1,10L7,10 7,7 10,7 10,2 9,2 9,6 6,6 6,9 1,9z" />
-    </Style>
-
-    <Style Selector="^:active /template/ Path">
-      <Setter Property="Fill" Value="{DynamicResource {x:Static commonControls:SystemColors.ActiveCaptionTextBrushKey}}" />
     </Style>
   </ControlTheme>
 

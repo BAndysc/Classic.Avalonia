@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:dmc="clr-namespace:Dock.Model.Controls;assembly=Dock.Model">
+                    xmlns:dmc="clr-namespace:Dock.Model.Controls;assembly=Dock.Model"
+                    xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
   <Design.PreviewWith>
     <Border>
       <PinnedDockControl />
@@ -32,7 +33,7 @@
               </Style>
             </ContentControl.Styles>
           </ContentControl>
-          <GridSplitter Grid.Column="1" Grid.Row="1" Background="{CompiledBinding $parent[Window].Background, TargetNullValue={x:Static Brushes.Transparent}}" />
+          <GridSplitter Grid.Column="1" Grid.Row="1" MinWidth="4" MinHeight="4" Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}" />
         </Grid>
       </ControlTemplate>
     </Setter>
