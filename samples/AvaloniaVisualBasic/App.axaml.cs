@@ -19,17 +19,7 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            var window = new ClassicWindow()
-            {
-                Title = "Project1 - Avalonia Visual Basic [design]",
-                Icon = new WindowIcon(AssetLoader.Open(new Uri("avares://AvaloniaVisualBasic/Icons/vb6.gif"))),
-                Content = new MainView()
-                {
-                    DataContext = new MainViewViewModel()
-                }
-            };
-            window.AttachDevTools();
-            desktop.MainWindow = window;
+            desktop.MainWindow = new MainWindow();
         }
 
         base.OnFrameworkInitializationCompleted();
