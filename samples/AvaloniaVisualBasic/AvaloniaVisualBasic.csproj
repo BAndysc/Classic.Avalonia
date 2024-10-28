@@ -23,8 +23,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Icons\*.gif" />
-      <AvaloniaResource Include="Icons\*.gif" />
+      <None Remove="Icons\**\*.gif" />
+      <AvaloniaResource Include="Icons\**\*.gif" />
     </ItemGroup>
 
 </Project>

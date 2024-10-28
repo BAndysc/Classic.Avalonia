@@ -1,8 +1,9 @@
 namespace Classic.CommonControls;
 
-public enum ToolBarIconStyle
+public enum IconStyle
 {
     Normal,
     Grayscale,
     Disabled,
+    SelectedItem
 }

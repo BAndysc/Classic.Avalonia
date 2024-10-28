@@ -9,7 +9,7 @@ using SkiaSharp;
 
 namespace Classic.CommonControls;
 
-public class ToolBarIcon : Control
+public class IconRenderer : Control
 {
     private static float[] grayscaleMatrix = {
         0.43f, 0.43f, 0.43f, 0.0f, 0.0f,
@@ -19,20 +19,21 @@ public class ToolBarIcon : Control
     };
 
     public static readonly StyledProperty<Bitmap?> SourceProperty =
-        AvaloniaProperty.Register<ToolBarIcon, Bitmap?>(nameof(Source));
+        AvaloniaProperty.Register<IconRenderer, Bitmap?>(nameof(Source));
 
     public static readonly StyledProperty<Bitmap?> LargeSourceProperty =
-        AvaloniaProperty.Register<ToolBarIcon, Bitmap?>(nameof(LargeSource));
+        AvaloniaProperty.Register<IconRenderer, Bitmap?>(nameof(LargeSource));
 
-    public static readonly StyledProperty<ToolBarIconStyle> IconStyleProperty =
-        AvaloniaProperty.Register<ToolBarIcon, ToolBarIconStyle>(nameof(IconStyle));
+    public static readonly StyledProperty<IconStyle> IconStyleProperty =
+        AvaloniaProperty.Register<IconRenderer, IconStyle>(nameof(IconStyle));
 
-    public static readonly StyledProperty<Color> DisabledColorProperty = AvaloniaProperty.Register<ToolBarIcon, Color>(nameof(DisabledColor), Colors.Gray);
-    public static readonly StyledProperty<Color> DisabledShadowColorProperty = AvaloniaProperty.Register<ToolBarIcon, Color>(nameof(DisabledShadowColor), Colors.White);
+    public static readonly StyledProperty<Color> SelectedColorProperty = AvaloniaProperty.Register<IconRenderer, Color>(nameof(SelectedColorProperty), Colors.DarkBlue);
+    public static readonly StyledProperty<Color> DisabledColorProperty = AvaloniaProperty.Register<IconRenderer, Color>(nameof(DisabledColor), Colors.Gray);
+    public static readonly StyledProperty<Color> DisabledShadowColorProperty = AvaloniaProperty.Register<IconRenderer, Color>(nameof(DisabledShadowColor), Colors.White);
 
-    static ToolBarIcon()
+    static IconRenderer()
     {
-        AffectsRender<ToolBarIcon>(IconStyleProperty, DisabledColorProperty, DisabledShadowColorProperty, SourceProperty, LargeSourceProperty);
+        AffectsRender<IconRenderer>(IconStyleProperty, SelectedColorProperty, DisabledColorProperty, DisabledShadowColorProperty, SourceProperty, LargeSourceProperty);
     }
 
     [Content]
@@ -48,7 +49,7 @@ public class ToolBarIcon : Control
         set => SetValue(LargeSourceProperty, value);
     }
 
-    public ToolBarIconStyle IconStyle
+    public IconStyle IconStyle
     {
         get => GetValue(IconStyleProperty);
         set => SetValue(IconStyleProperty, value);
@@ -60,6 +61,12 @@ public class ToolBarIcon : Control
         set => SetValue(DisabledColorProperty, value);
     }
 
+    public Color SelectedColor
+    {
+        get => GetValue(SelectedColorProperty);
+        set => SetValue(SelectedColorProperty, value);
+    }
+
     public Color DisabledShadowColor
     {
         get => GetValue(DisabledShadowColorProperty);
@@ -69,17 +76,24 @@ public class ToolBarIcon : Control
     class CustomDrawOp : ICustomDrawOperation
     {
         private readonly Bitmap bitmap;
-        private readonly ToolBarIconStyle iconStyle;
+        private readonly IconStyle iconStyle;
         private readonly Color lightLightColor;
         private readonly Color grayTextColor;
+        private readonly Color selectedColor;
         public Rect Bounds { get; }
 
-        public CustomDrawOp(Bitmap source, ToolBarIconStyle iconStyle, Rect bounds, Color lightLightColor, Color grayTextColor)
+        public CustomDrawOp(Bitmap source,
+            IconStyle iconStyle,
+            Rect bounds,
+            Color lightLightColor,
+            Color grayTextColor,
+            Color selectedColor)
         {
             this.bitmap = source;
             this.iconStyle = iconStyle;
             this.lightLightColor = lightLightColor;
             this.grayTextColor = grayTextColor;
+            this.selectedColor = selectedColor;
             Bounds = bounds;
         }
 
@@ -112,7 +126,7 @@ public class ToolBarIcon : Control
                 using var skBitmap = SKBitmap.Decode(stream);
 
                 SKPaint? brush = null;
-                if (iconStyle == ToolBarIconStyle.Disabled)
+                if (iconStyle == IconStyle.Disabled)
                 {
                     canvas.DrawImage(SKImage.FromBitmap(skBitmap),Bounds.WithX(1).WithY(1).ToSKRect(), new SKPaint
                     {
@@ -124,7 +138,7 @@ public class ToolBarIcon : Control
                         ColorFilter = SKColorFilter.CreateBlendMode(grayTextColor.ToSKColor(), SKBlendMode.SrcIn)
                     };
                 }
-                else if (iconStyle == ToolBarIconStyle.Grayscale)
+                else if (iconStyle == IconStyle.Grayscale)
                 {
                     brush = new SKPaint
                     {
@@ -133,6 +147,38 @@ public class ToolBarIcon : Control
                 }
 
                 canvas.DrawImage(SKImage.FromBitmap(skBitmap), Bounds.ToSKRect(), brush);
+                if (iconStyle == IconStyle.SelectedItem)
+                {
+                    using var patternBitmap = new SKBitmap((int)Bounds.Width, (int)Bounds.Height);
+                    using var patternCanvas = new SKCanvas(patternBitmap);
+                    using (var paint = new SKPaint())
+                    {
+                        using (var pattern = new SKBitmap(2, 2))
+                        {
+                            pattern.SetPixel(0, 0, selectedColor.ToSKColor());
+                            pattern.SetPixel(1, 1, selectedColor.ToSKColor());
+
+                            // Create a repeating shader from the 2x2 pattern.
+                            paint.Shader = SKShader.CreateBitmap(pattern,
+                                SKShaderTileMode.Repeat,
+                                SKShaderTileMode.Repeat);
+                        }
+
+                        // Step 4: Draw the repeating pattern onto the pattern bitmap.
+                        patternCanvas.DrawRect(new SKRect(0, 0, patternBitmap.Width, patternBitmap.Height), paint);
+                    }
+
+                    // Step 5: Blend the pattern with the original image's alpha channel.
+                    using (var alphaPaint = new SKPaint())
+                    {
+                        alphaPaint.BlendMode = SKBlendMode.DstIn;
+                        patternCanvas.DrawBitmap(skBitmap, Bounds.ToSKRect(), alphaPaint);
+                    }
+
+                    // Step 6: Draw the alpha-masked pattern onto the main canvas.
+                    canvas.DrawBitmap(patternBitmap, new SKPoint(0, 0));
+                }
+
                 canvas.Restore();
             }
         }
@@ -153,6 +199,6 @@ public class ToolBarIcon : Control
                 source = Source;
         }
 
-        context.Custom(new CustomDrawOp(source, IconStyle, new Rect(0, 0, Bounds.Width, Bounds.Height), DisabledShadowColor, DisabledColor));
+        context.Custom(new CustomDrawOp(source, IconStyle, new Rect(0, 0, Bounds.Width, Bounds.Height), DisabledShadowColor, DisabledColor, SelectedColor));
     }
 }

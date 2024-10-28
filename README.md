@@ -99,6 +99,24 @@ The ToolBar supports small and large sizes, various text placements (Down, Right
 
 ![ToolBar Example](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/toolbar.png)
 
+### ListView
+
+A classic ListView which is a ListBox with a predefined template - an icon with text. Supports three views: Icon, SmallIcon, List.
+
+Use `<commonControls:ListView>` with `<commonControls:ListViewItem>` children. If you want to bind a custom objects, use styles to bind text and icon (don't use ItemTemplate):
+```
+<commonControls:ListView.Styles>
+    <Style Selector="commonControls|ListViewItem">
+        <Setter Property="SmallIcon" Value="{Binding SmallIcon}" />
+        <Setter Property="LargeIcon" Value="{Binding LargeIcon}" />
+        <Setter Property="Text" Value="{Binding Text}" />
+    </Style>
+</commonControls:ListView.Styles>
+```
+
+![ToolBar Example](https://raw.githubusercontent.com/BAndysc/Classic.Avalonia/refs/heads/master/samples/examples/listview_icons.gif)
+
+
 ### AboutDialog
 
 For a classic Windows 9x-style 'About' dialog:

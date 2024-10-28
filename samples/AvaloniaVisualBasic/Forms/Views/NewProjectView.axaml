@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             mc:Ignorable="d" d:DesignWidth="440" d:DesignHeight="401"
+             Width="440"
+             Height="400"
+             x:Class="AvaloniaVisualBasic.Forms.Views.NewProjectView">
+
+    <Grid RowDefinitions="64,*,Auto" Margin="6,3">
+
+        <ClassicBorderDecorator BorderStyle="ThinPressed" BorderThickness="1">
+            <Image Source="/Icons/avalonia_visualbasic.gif" Stretch="None" Margin="1" />
+        </ClassicBorderDecorator>
+
+        <TabControl Grid.Row="1" Margin="0,3,0,3" Padding="8,5,8,9">
+
+            <TabItem Header="New">
+
+                <Grid RowDefinitions="*,9,Auto">
+
+                    <commonControls:ListView SelectedIndex="0" View="Icon">
+
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/standard_exe.gif" Text="Standard EXE" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/activex_exe.gif" Text="ActiveX EXE" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/activex_dll.gif" Text="ActiveX DLL" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/activex_control.gif" Text="ActiveX Control" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/wizard.gif" Text="VB Application Wizard" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/wizard.gif" Text="VB Wizard Manager" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/generic.gif" Text="ActiveX Document DLL" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/generic.gif" Text="Addin" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/generic.gif" Text="Data Project" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/generic.gif" Text="DHTML Application" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/generic.gif" Text="IIS Application" />
+                        <commonControls:ListViewItem LargeIcon="/Icons/types/generic.gif" Text="VB Enterprise Edition Controls" />
+                        
+                    </commonControls:ListView>
+
+                    <StackPanel Orientation="Vertical" Spacing="6" Grid.Row="2" HorizontalAlignment="Right" MinWidth="75" Margin="0,0,5,0">
+                        <Button>_Open</Button>
+                        <Button>Cancel</Button>
+                        <Button>_Help</Button>
+                    </StackPanel>
+
+                </Grid>
+
+            </TabItem>
+
+
+            <TabItem Header="Existing">
+
+            </TabItem>
+
+
+            <TabItem Header="Recent">
+
+            </TabItem>
+
+        </TabControl>
+
+        <CheckBox Grid.Row="2" Margin="0,5,0,13">Don't show this dialog in the f_uture</CheckBox>
+
+    </Grid>
+</UserControl>

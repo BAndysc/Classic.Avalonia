@@ -36,6 +36,7 @@
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ItemsControl.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ListBoxItem.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ListBox.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ListView.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ScrollBar.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ScrollViewer.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TabStrip.axaml" />
@@ -74,7 +75,7 @@
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ThemeVariantScope.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/HeaderedContentControl.axaml"/>
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TextSelectionHandle.axaml" />
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ToolBarIcon.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/IconRenderer.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/ToolBarButton.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/StatusBar.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Rebar.axaml" />

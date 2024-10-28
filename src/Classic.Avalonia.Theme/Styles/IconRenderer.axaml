@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
-  <ControlTheme x:Key="{x:Type commonControls:ToolBarIcon}" TargetType="commonControls:ToolBarIcon">
+  <ControlTheme x:Key="{x:Type commonControls:IconRenderer}" TargetType="commonControls:IconRenderer">
+    <Setter Property="SelectedColor" Value="{DynamicResource {x:Static common:SystemColors.HighlightColorKey}}" />
     <Setter Property="DisabledColor" Value="{DynamicResource {x:Static common:SystemColors.GrayTextColorKey}}" />
     <Setter Property="DisabledShadowColor" Value="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}" />
   </ControlTheme>
