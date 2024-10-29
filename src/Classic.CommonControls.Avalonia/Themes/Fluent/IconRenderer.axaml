@@ -1,0 +1,10 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
+  <ControlTheme x:Key="{x:Type commonControls:IconRenderer}" TargetType="commonControls:IconRenderer">
+    <Setter Property="SelectedColor" Value="{DynamicResource SystemAccentColor}" />
+    <Setter Property="DisabledColor" Value="{DynamicResource SystemChromeDisabledLowColor}" />
+    <Setter Property="DisabledShadowColor" Value="{DynamicResource SystemChromeDisabledHighColor}" />
+  </ControlTheme>
+</ResourceDictionary>

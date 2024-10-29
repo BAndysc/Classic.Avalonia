@@ -1,0 +1,110 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
+    <ControlTheme x:Key="FlatCheckBox" BasedOn="{StaticResource {x:Type CheckBox}}"
+                  TargetType="CheckBox">
+    </ControlTheme>
+    <ControlTheme x:Key="FlatRadioButton" BasedOn="{StaticResource {x:Type RadioButton}}"
+                  TargetType="RadioButton">
+    </ControlTheme>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <StaticResource ResourceKey="SystemChromeGrayColor" x:Key="{x:Static common:SystemColors.ActiveBorderColorKey}"/>
+            <StaticResource ResourceKey="SystemAltHighColor" x:Key="{x:Static common:SystemColors.ActiveCaptionColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.ActiveCaptionTextColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumHighColor" x:Key="{x:Static common:SystemColors.AppWorkspaceColorKey}"/>
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.ControlColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumColor" x:Key="{x:Static common:SystemColors.ControlDarkColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumHighColor" x:Key="{x:Static common:SystemColors.ControlDarkDarkColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.ControlLightColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseLowColor" x:Key="{x:Static common:SystemColors.ControlLightLightColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.ControlTextColorKey}"/>
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.DesktopColorKey}" />
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.GradientActiveCaptionColorKey}" />
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.GradientInactiveCaptionColorKey}" />
+            <StaticResource ResourceKey="SystemChromeDisabledLowColor" x:Key="{x:Static common:SystemColors.GrayTextColorKey}"/>
+            <StaticResource ResourceKey="SystemAccentColor" x:Key="{x:Static common:SystemColors.HighlightColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.HighlightTextColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.HotTrackColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.InactiveBorderColorKey}"/>
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.InactiveCaptionColorKey}"/>
+            <StaticResource ResourceKey="SystemChromeGrayColor" x:Key="{x:Static common:SystemColors.InactiveCaptionTextColorKey}"/>
+            <Color x:Key="{x:Static common:SystemColors.InfoColorKey}">#ffffffe1</Color>
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.InfoTextColorKey}" />
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.MenuColorKey}" />
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.MenuBarColorKey}" />
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.MenuHighlightColorKey}" />
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.MenuTextColorKey}" />
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.ScrollBarColorKey}" />
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.WindowColorKey}" />
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.WindowFrameColorKey}" />
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.WindowTextColorKey}" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <StaticResource ResourceKey="SystemChromeGrayColor" x:Key="{x:Static common:SystemColors.ActiveBorderColorKey}"/>
+            <StaticResource ResourceKey="SystemAltHighColor" x:Key="{x:Static common:SystemColors.ActiveCaptionColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.ActiveCaptionTextColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumHighColor" x:Key="{x:Static common:SystemColors.AppWorkspaceColorKey}"/>
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.ControlColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumColor" x:Key="{x:Static common:SystemColors.ControlDarkColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumHighColor" x:Key="{x:Static common:SystemColors.ControlDarkDarkColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.ControlLightColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseLowColor" x:Key="{x:Static common:SystemColors.ControlLightLightColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.ControlTextColorKey}"/>
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.DesktopColorKey}" />
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.GradientActiveCaptionColorKey}" />
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.GradientInactiveCaptionColorKey}" />
+            <StaticResource ResourceKey="SystemChromeDisabledLowColor" x:Key="{x:Static common:SystemColors.GrayTextColorKey}"/>
+            <StaticResource ResourceKey="SystemAccentColor" x:Key="{x:Static common:SystemColors.HighlightColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.HighlightTextColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.HotTrackColorKey}"/>
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.InactiveBorderColorKey}"/>
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.InactiveCaptionColorKey}"/>
+            <StaticResource ResourceKey="SystemChromeGrayColor" x:Key="{x:Static common:SystemColors.InactiveCaptionTextColorKey}"/>
+            <Color x:Key="{x:Static common:SystemColors.InfoColorKey}">#ffffffe1</Color>
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.InfoTextColorKey}" />
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.MenuColorKey}" />
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.MenuBarColorKey}" />
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.MenuHighlightColorKey}" />
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.MenuTextColorKey}" />
+            <StaticResource ResourceKey="SystemBaseMediumLowColor" x:Key="{x:Static common:SystemColors.ScrollBarColorKey}" />
+            <StaticResource ResourceKey="SystemRegionColor" x:Key="{x:Static common:SystemColors.WindowColorKey}" />
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.WindowFrameColorKey}" />
+            <StaticResource ResourceKey="SystemBaseHighColor" x:Key="{x:Static common:SystemColors.WindowTextColorKey}" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ActiveBorderBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ActiveBorderColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ActiveCaptionBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ActiveCaptionColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ActiveCaptionTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ActiveCaptionTextColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.AppWorkspaceBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.AppWorkspaceColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ControlBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ControlColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ControlDarkBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ControlDarkColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ControlDarkDarkBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ControlDarkDarkColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ControlLightBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ControlLightColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ControlLightLightBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ControlTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ControlTextColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.DesktopBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.DesktopColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.GradientActiveCaptionBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.GradientActiveCaptionColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.GradientInactiveCaptionBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.GradientInactiveCaptionColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.GrayTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.GrayTextColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.HighlightBrushKey}" Opacity="0.6" Color="{DynamicResource {x:Static common:SystemColors.HighlightColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.HighlightTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.HighlightTextColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.HotTrackBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.HotTrackColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.InactiveBorderBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.InactiveBorderColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.InactiveCaptionBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.InactiveCaptionColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.InactiveCaptionTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.InactiveCaptionTextColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.InfoBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.InfoColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.InfoTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.InfoTextColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.MenuBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.MenuColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.MenuBarBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.MenuBarColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.MenuHighlightBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.MenuHighlightColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.MenuTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.MenuTextColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.ScrollBarBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ScrollBarColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.WindowBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.WindowFrameBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.WindowFrameColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.WindowTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.WindowTextColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.InactiveSelectionHighlightBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ControlColorKey}}" /> <!-- On high contrast: HighlightColorKey -->
+    <SolidColorBrush x:Key="{x:Static common:SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="{DynamicResource {x:Static common:SystemColors.ControlTextColorKey}}" /> <!-- On high contrast: HighlightColorTextKey -->
+</ResourceDictionary>

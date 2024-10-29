@@ -1,0 +1,27 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
+    <Design.PreviewWith>
+        <Border>
+            <commonControls:RebarHandle />
+        </Border>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type commonControls:RebarHandle}"
+                  TargetType="commonControls:RebarHandle">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Canvas Width="3" Height="15">
+                    <Border Canvas.Left="1" Canvas.Top="1" Width="2" Height="2" Background="{DynamicResource SystemControlForegroundBaseMediumLowBrush}" />
+                    <Border Canvas.Left="1" Canvas.Top="5" Width="2" Height="2" Background="{DynamicResource SystemControlForegroundBaseMediumLowBrush}" />
+                    <Border Canvas.Left="1" Canvas.Top="9" Width="2" Height="2" Background="{DynamicResource SystemControlForegroundBaseMediumLowBrush}" />
+                    <Border Canvas.Left="1" Canvas.Top="13" Width="2" Height="2" Background="{DynamicResource SystemControlForegroundBaseMediumLowBrush}" />
+
+                    <Border Canvas.Left="0" Canvas.Top="0" Width="2" Height="2" Background="{DynamicResource SystemControlForegroundBaseLowBrush}" />
+                    <Border Canvas.Left="0" Canvas.Top="4" Width="2" Height="2" Background="{DynamicResource SystemControlForegroundBaseLowBrush}" />
+                    <Border Canvas.Left="0" Canvas.Top="8" Width="2" Height="2" Background="{DynamicResource SystemControlForegroundBaseLowBrush}" />
+                    <Border Canvas.Left="0" Canvas.Top="12" Width="2" Height="2" Background="{DynamicResource SystemControlForegroundBaseLowBrush}" />
+                </Canvas>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

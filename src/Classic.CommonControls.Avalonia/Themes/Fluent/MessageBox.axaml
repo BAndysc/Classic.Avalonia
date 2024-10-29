@@ -1,0 +1,101 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dialogs="clr-namespace:Classic.CommonControls.Dialogs;assembly=Classic.CommonControls.Avalonia">
+
+  <Design.PreviewWith>
+    <dialogs:MessageBox Text="This is text" Buttons="CancelTryContinue" Icon="Information">
+    </dialogs:MessageBox>
+  </Design.PreviewWith>
+
+  <DrawingImage x:Key="ALERT_error">
+    <DrawingImage.Drawing>
+      <DrawingGroup ClipGeometry="M0,0 V16 H16 V0 H0 Z">
+        <GeometryDrawing Geometry="F1 M16,16z M0,0z M2,8C2,4.68629 4.68629,2 8,2 11.3137,2 14,4.68629 14,8 14,11.3137 11.3137,14 8,14 4.68629,14 2,11.3137 2,8z">
+          <GeometryDrawing.Brush>
+            <LinearGradientBrush StartPoint="3.875,0.125" EndPoint="11.75,15.125" SpreadMethod="Pad" Opacity="1">
+              <GradientStop Color="#FFFFCD0F" Offset="0" />
+              <GradientStop Color="#FFFE8401" Offset="1" />
+            </LinearGradientBrush>
+          </GeometryDrawing.Brush>
+        </GeometryDrawing>
+        <GeometryDrawing Geometry="F1 M16,16z M0,0z M8,10C7.58579,10 7.25,10.3358 7.25,10.75 7.25,11.1642 7.58579,11.5 8,11.5 8.41421,11.5 8.75,11.1642 8.75,10.75 8.75,10.3358 8.41421,10 8,10z M8,4.5C7.75454,4.5,7.55039,4.67688,7.50806,4.91012L7.5,5 7.5,8.5 7.50806,8.58988C7.55039,8.82312 7.75454,9 8,9 8.24546,9 8.44961,8.82312 8.49194,8.58988L8.5,8.5 8.5,5 8.49194,4.91012C8.44961,4.67688,8.24546,4.5,8,4.5z">
+          <GeometryDrawing.Brush>
+            <LinearGradientBrush StartPoint="6,4.5" EndPoint="9.21311,11.8443" SpreadMethod="Pad" Opacity="1">
+              <GradientStop Color="#FF4A4A4A" Offset="0" />
+              <GradientStop Color="#FF212121" Offset="1" />
+            </LinearGradientBrush>
+          </GeometryDrawing.Brush>
+        </GeometryDrawing>
+      </DrawingGroup>
+    </DrawingImage.Drawing>
+  </DrawingImage>
+  <DrawingImage x:Key="ALERT_warning">
+    <DrawingImage.Drawing>
+      <DrawingGroup ClipGeometry="M0,0 V16 H16 V0 H0 Z">
+        <GeometryDrawing Geometry="F1 M16,16z M0,0z M9.09184,2.63831C8.61488,1.78472,7.38669,1.7846,6.90956,2.63809L2.15682,11.1398C1.69103,11.973,2.29333,12.9997,3.2479,12.9997L12.7512,12.9997C13.7056,12.9997,14.3079,11.9732,13.8424,11.14L9.09184,2.63831z">
+          <GeometryDrawing.Brush>
+            <LinearGradientBrush StartPoint="3.87217,0.279033" EndPoint="10.7251,14.525" SpreadMethod="Pad" Opacity="1">
+              <GradientStop Color="#FFFFCD0F" Offset="0" />
+              <GradientStop Color="#FFFE8401" Offset="1" />
+            </LinearGradientBrush>
+          </GeometryDrawing.Brush>
+        </GeometryDrawing>
+        <GeometryDrawing Geometry="F1 M16,16z M0,0z M8.75,10.25C8.75,10.6642 8.41421,11 8,11 7.58579,11 7.25,10.6642 7.25,10.25 7.25,9.83579 7.58579,9.5 8,9.5 8.41421,9.5 8.75,9.83579 8.75,10.25z M7.5,8L7.5,5.5C7.5,5.22386 7.72386,5 8,5 8.27614,5 8.5,5.22386 8.5,5.5L8.5,8C8.5,8.27614 8.27614,8.5 8,8.5 7.72386,8.5 7.5,8.27614 7.5,8z">
+          <GeometryDrawing.Brush>
+            <LinearGradientBrush StartPoint="6,5" EndPoint="8.46575,11.5753" SpreadMethod="Pad" Opacity="1">
+              <GradientStop Color="#FF4A4A4A" Offset="0" />
+              <GradientStop Color="#FF212121" Offset="1" />
+            </LinearGradientBrush>
+          </GeometryDrawing.Brush>
+        </GeometryDrawing>
+      </DrawingGroup>
+    </DrawingImage.Drawing>
+  </DrawingImage>
+  <DrawingImage x:Key="ALERT_info">
+    <DrawingImage.Drawing>
+      <DrawingGroup ClipGeometry="M0,0 V16 H16 V0 H0 Z">
+        <GeometryDrawing Brush="#FF212121" Geometry="F1 M16,16z M0,0z M8.49902,7.49998C8.49902,7.22384 8.27517,6.99998 7.99902,6.99998 7.72288,6.99998 7.49902,7.22384 7.49902,7.49998L7.49902,10.5C7.49902,10.7761 7.72288,11 7.99902,11 8.27517,11 8.49902,10.7761 8.49902,10.5L8.49902,7.49998z M8.74807,5.50001C8.74807,5.91369 8.41271,6.24905 7.99903,6.24905 7.58535,6.24905 7.25,5.91369 7.25,5.50001 7.25,5.08633 7.58535,4.75098 7.99903,4.75098 8.41271,4.75098 8.74807,5.08633 8.74807,5.50001z M8,1C4.13401,1 1,4.13401 1,8 1,11.866 4.13401,15 8,15 11.866,15 15,11.866 15,8 15,4.13401 11.866,1 8,1z M2,8C2,4.68629 4.68629,2 8,2 11.3137,2 14,4.68629 14,8 14,11.3137 11.3137,14 8,14 4.68629,14 2,11.3137 2,8z" />
+      </DrawingGroup>
+    </DrawingImage.Drawing>
+  </DrawingImage>
+
+  <ControlTheme x:Key="{x:Type dialogs:MessageBox}"
+                TargetType="dialogs:MessageBox">
+    <Setter Property="Padding" Value="9,10" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel Margin="{TemplateBinding Padding}">
+          <ItemsControl DockPanel.Dock="Bottom" Margin="0,18,0,0" HorizontalAlignment="Center" ItemsSource="{TemplateBinding ButtonsSource}">
+            <ItemsControl.ItemsPanel>
+              <ItemsPanelTemplate>
+                <StackPanel Spacing="6" Orientation="Horizontal" />
+              </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="dialogs:MessageBoxResult">
+                <Button Content="{CompiledBinding}" Width="75" Command="{CompiledBinding $parent[dialogs:MessageBox].PickOption}" HorizontalContentAlignment="Center" CommandParameter="{CompiledBinding}" />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+
+          <Image Width="32" Margin="0,0,15,0" Height="32" DockPanel.Dock="Left" />
+
+          <TextBlock HorizontalAlignment="Left" TextAlignment="Left" Margin="0,3,0,0" Text="{TemplateBinding Text}" />
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^[Icon=Error] /template/ Image">
+      <Setter Property="Source" Value="{StaticResource ALERT_error}" />
+    </Style>
+    <Style Selector="^[Icon=Information] /template/ Image">
+      <Setter Property="Source" Value="{StaticResource ALERT_info}" />
+    </Style>
+    <Style Selector="^[Icon=Question] /template/ Image">
+      <Setter Property="Source" Value="{StaticResource ALERT_info}" />
+    </Style>
+    <Style Selector="^[Icon=Warning] /template/ Image">
+      <Setter Property="Source" Value="{StaticResource ALERT_warning}" />
+    </Style>
+  </ControlTheme>
+
+</ResourceDictionary>

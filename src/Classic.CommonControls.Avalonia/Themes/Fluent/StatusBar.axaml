@@ -1,0 +1,51 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
+
+  <Design.PreviewWith>
+    <commonControls:StatusBar Width="1000">
+      <commonControls:StatusBarItem commonControls:StatusBar.Size="1*">
+        Saved...
+      </commonControls:StatusBarItem>
+      <commonControls:StatusBarItem>
+        Line: 13, Col: 41
+      </commonControls:StatusBarItem>
+    </commonControls:StatusBar>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="{x:Type commonControls:StatusBar}"
+                TargetType="commonControls:StatusBar">
+    <Setter Property="Margin" Value="0,2,0,0" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ItemsPresenter Name="PART_ItemsPresenter"
+                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type commonControls:StatusBarItem}"
+                TargetType="commonControls:StatusBarItem">
+    <Setter Property="Background" Value="{DynamicResource SystemRegionBrush}" />
+    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="Margin" Value="0,0,0,0" />
+    <Setter Property="Padding" Value="2,0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Margin="{TemplateBinding Padding}"
+                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          ClipToBounds="True"
+                          TextElement.Foreground="{TemplateBinding Foreground}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

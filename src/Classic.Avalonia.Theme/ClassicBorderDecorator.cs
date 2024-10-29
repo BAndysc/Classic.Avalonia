@@ -168,7 +168,6 @@ public sealed class ClassicBorderDecorator : Decorator
     /// </summary>
     public ClassicBorderDecorator()
     {
-        RenderOptions.SetEdgeMode(this, EdgeMode.Aliased);
     }
 
     #endregion Constructors

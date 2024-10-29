@@ -19,7 +19,7 @@
         <Company />
         <PackageId>Classic.CommonControls.Avalonia</PackageId>
         <Product>Classic.CommonControls.Avalonia</Product>
-        <Description>Classic Windows-like controls for Avalonia. Must also reference Classic.Avalonia.Theme</Description>
+        <Description>Classic Windows-like controls for Avalonia. Also reference Classic.Avalonia.Theme for classic look</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/BAndysc/Classic.Avalonia</PackageProjectUrl>
         <PackageIcon>icon.png</PackageIcon>

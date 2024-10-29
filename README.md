@@ -58,9 +58,16 @@ Tahoma is available on Windows and macOS, but not Linux. A free alternative, 'Wi
 
 These controls (excluding `ClassicWindow`) are part of the `Classic.CommonControls.Avalonia` assembly and can be used independently of `Classic.Avalonia.Theme`. Who knows, maybe a Luna theme is coming next?
 
+> #### How to use `Classic.CommonControls.Avalonia` without Classic theme
+> You can use new controls **without** classic theming, i.e. if Classic theme is only one of many themes your app supports, but you still want to use ToolBar or MessageBox control. Just include the following style:
+> ```
+> <StyleInclude Source="avares://Classic.CommonControls.Avalonia/Themes/Fluent.axaml" />
+> ```
+> **!!** Include it **ONLY** if you want to use new controls with `<FluentTheme />`. Don't do it if you use `<ClassicTheme />`
+
 ### ClassicWindow
 
-By default, windows don't have the classic appearance. To enable a classic titlebar, inherit from `ClassicWindow` instead of the `Window` class.
+By default, windows don't have the classic titlebar/chrome. To enable a classic titlebar, inherit from `ClassicWindow` instead of the `Window` class.
 
 If inheriting from `ClassicWindow` isn't feasible (for example, if Classic is just one of multiple themes), you can apply the `ClassicWindow` theme like this:
 ```xml

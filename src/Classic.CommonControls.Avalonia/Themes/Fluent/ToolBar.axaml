@@ -1,0 +1,103 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+        xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
+
+    <Styles.Resources>
+        <ControlTheme x:Key="VerticalSeparator" TargetType="Separator">
+            <Setter Property="Background" Value="{DynamicResource SystemControlForegroundBaseMediumLowBrush}" />
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Width" Value="{DynamicResource MenuFlyoutSeparatorThemeHeight}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="{DynamicResource MenuFlyoutSeparatorThemePadding}" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Padding="{TemplateBinding Margin}"
+                            Height="{TemplateBinding Height}"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Background="{TemplateBinding Background}" />
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+
+        <ControlTheme x:Key="ChevronButtonTheme" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+
+        </ControlTheme>
+
+        <ControlTheme x:Key="{x:Type commonControls:ToolBar}" TargetType="commonControls:ToolBar">
+            <Setter Property="Background"
+                    Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <DockPanel Background="{TemplateBinding Background}">
+                        <!-- ToolbarPanel here so that the button get proper style -->
+                        <commonControls:ToolbarPanel DockPanel.Dock="Right" Spacing="0">
+                            <Button ToolTip.Tip="Expand toolbar"
+                                    Width="11"
+                                    Padding="0"
+                                    Theme="{StaticResource ChevronButtonTheme}"
+                                    IsVisible="{TemplateBinding IsOverflow}">
+                                <Button.Content>
+                                    <Path Width="4"
+                                          Height="5"
+                                          Margin="-4,0,0,0"
+                                          Data="M 4 0 L 6 0 L 6 1 L 7 1 L 7 2 L 8 2 L 8 3 L 7 3 L 7 4 L 6 4 L 6 5 L 4 5 L 4 4 L 5 4 L 5 3 L 6 3 L 6 2 L 5 2 L 5 1 L 4 1 z M 0 0 L 2 0 L 2 1 L 3 1 L 3 2 L 4 2 L 4 3 L 3 3 L 3 4 L 2 4 L 2 5 L 0 5 L 0 4 L 1 4 L 1 3 L 2 3 L 2 2 L 1 2 L 1 1 L 0 1 z"
+                                          Fill="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}" />
+                                </Button.Content>
+                                <Button.Flyout>
+                                    <Flyout>
+                                        <commonControls:ToolbarPanel WrapOnOverflow="True" Name="OverflowPanel" />
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+                        </commonControls:ToolbarPanel>
+                        <commonControls:ToolbarPanel Spacing="0" x:Name="PART_Panel" ClipToBounds="True" IsOverflow="{Binding IsOverflow, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWayToSource}" OutOfBoundsPanel="{Binding #OverflowPanel}" />
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+    </Styles.Resources>
+
+    <Style Selector="commonControls|ToolBar FlyoutPresenter">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
+    </Style>
+    <Style Selector="commonControls|ToolbarPanel > Separator">
+        <Setter Property="Theme" Value="{DynamicResource VerticalSeparator}" />
+    </Style>
+    <Style Selector="commonControls|ToolBar Label">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="commonControls|ToolBar :is(Button)">
+        <Setter Property="Focusable" Value="False" /> <!-- Toolbar buttons were not focusable on old Windows, but it was mainly because all toolbar commands should be accessible via menus -->
+    </Style>
+
+    <Style Selector="commonControls|ToolBar[Size=Small] commonControls|ToolBarButton">
+        <Setter Property="Size" Value="Small" />
+    </Style>
+    <Style Selector="commonControls|ToolBar[Size=Large] commonControls|ToolBarButton">
+        <Setter Property="Size" Value="Large" />
+    </Style>
+    <Style Selector="commonControls|ToolBar[TextPlacement=Right] commonControls|ToolBarButton">
+        <Setter Property="TextPlacement" Value="Right" />
+    </Style>
+    <Style Selector="commonControls|ToolBar[TextPlacement=RightPreferNoText] commonControls|ToolBarButton">
+        <Setter Property="TextPlacement" Value="RightPreferNoText" />
+    </Style>
+    <Style Selector="commonControls|ToolBar[TextPlacement=Down] commonControls|ToolBarButton">
+        <Setter Property="TextPlacement" Value="Down" />
+    </Style>
+    <Style Selector="commonControls|ToolBar[TextPlacement=NoText] commonControls|ToolBarButton">
+        <Setter Property="TextPlacement" Value="NoText" />
+    </Style>
+    <Style Selector="commonControls|ToolBar[GrayscaleIcons=True] commonControls|ToolBarButton">
+        <Setter Property="GrayscaleIcon" Value="True" />
+    </Style>
+</Styles>

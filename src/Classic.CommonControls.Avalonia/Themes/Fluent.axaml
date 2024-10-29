@@ -1,0 +1,17 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/Themes/Fluent/Compatibility.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/IconRenderer.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/ListView.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/MessageBox.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/Rebar.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/StatusBar.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/ToolBarButton.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
+  <StyleInclude Source="/Themes/Fluent/ToolBar.axaml" />
+</Styles>
