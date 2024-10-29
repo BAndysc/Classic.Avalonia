@@ -15,8 +15,6 @@
         x:DataType="demo:MainWindowViewModel"
         WindowStartupLocation="CenterScreen"
         Icon="icon16.png"
-        RenderOptions.TextRenderingMode="Alias"
-        RenderOptions.BitmapInterpolationMode="None"
         Title="Classic.Avalonia.Theme">
 
   <DockPanel>

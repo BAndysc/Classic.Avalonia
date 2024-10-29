@@ -244,7 +244,7 @@
                 <commonControls:ToolBar TextPlacement="Right" Size="Small" GrayscaleIcons="True">
                     <commonControls:RebarHandle />
                     <Label HorizontalAlignment="Left">Address</Label>
-                    <TextBox HorizontalAlignment="Stretch" Text="{CompiledBinding Url}" x:Name="AddressBox">
+                    <TextBox HorizontalAlignment="Stretch" Text="{CompiledBinding Url}" x:Name="AddressBox" VerticalContentAlignment="Center">
                         <TextBox.KeyBindings>
                             <KeyBinding Gesture="Enter" Command="{CompiledBinding Go}" />
                         </TextBox.KeyBindings>
@@ -273,7 +273,7 @@
             <commonControls:StatusBarItem commonControls:StatusBar.Size="100">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Icons/web16.gif" Width="16" Height="16" Margin="0,-2,0,0" />
-                    <TextBlock>Internet</TextBlock>
+                    <TextBlock VerticalAlignment="Center">Internet</TextBlock>
                 </StackPanel>
             </commonControls:StatusBarItem>
         </commonControls:StatusBar>

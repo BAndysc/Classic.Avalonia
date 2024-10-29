@@ -3,6 +3,7 @@
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                xmlns:avaloniaExplorer="clr-namespace:AvaloniaExplorer"
+               xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                mc:Ignorable="d" d:DesignWidth="405" d:DesignHeight="450"
                x:Class="AvaloniaExplorer.OptionsDialog"
                SizeToContent="WidthAndHeight"
@@ -54,7 +55,7 @@
                 <Button>_Apply</Button>
             </avaloniaExplorer:UniformStack>
 
-            <TabControl SelectedIndex="0">
+            <TabControl SelectedIndex="1">
                 <TabItem Header="General">
                     <StackPanel Orientation="Vertical" Margin="10,7,11,6" Spacing="8">
                         <HeaderedContentControl Header="Home Page">
@@ -112,40 +113,21 @@
                 </TabItem>
                 <TabItem Header="Security">
                     <DockPanel Margin="10,9,11,6">
-                        <TextBlock DockPanel.Dock="Top">Select a Web content _zone to specify its security settings.</TextBlock>
-                        <ListBox DockPanel.Dock="Top"
-                                 Margin="0,7,0,6"
-                                 ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                            <ListBoxItem>
-                                <StackPanel Orientation="Vertical" Spacing="3">
-                                    <Image Source="Icons/cpl/1313@32.gif" Width="32" Height="32" />
-                                    <TextBlock HorizontalAlignment="Center">Internet</TextBlock>
-                                </StackPanel>
-                            </ListBoxItem>
-                            <ListBoxItem>
-                                <StackPanel Orientation="Vertical" Spacing="3">
-                                    <Image Source="Icons/cpl/intranet.gif" Width="32" Height="32" />
-                                    <TextBlock HorizontalAlignment="Center">Local Intranet</TextBlock>
-                                </StackPanel>
-                            </ListBoxItem>
-                            <ListBoxItem>
-                                <StackPanel Orientation="Vertical" Spacing="3">
-                                    <Image Source="Icons/cpl/4480@32.gif" Width="32" Height="32" />
-                                    <TextBlock HorizontalAlignment="Center">Trusted Sites</TextBlock>
-                                </StackPanel>
-                            </ListBoxItem>
-                            <ListBoxItem>
-                                <StackPanel Orientation="Vertical" Spacing="3">
-                                    <Image Source="Icons/cpl/4481@32.gif" Width="32" Height="32" />
-                                    <TextBlock HorizontalAlignment="Center">Restricted Sites</TextBlock>
-                                </StackPanel>
-                            </ListBoxItem>
-                            <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <avaloniaExplorer:UniformStack Spacing="10" HorizontalAlignment="Left" Margin="5,2" />
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-                        </ListBox>
+                        <AccessText DockPanel.Dock="Top">Select a Web content _zone to specify its security settings.</AccessText>
+                        <commonControls:ListView DockPanel.Dock="Top"
+                                                 ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                                 Margin="0,7,0,6">
+                            <commonControls:ListViewItem LargeIcon="Icons/cpl/1313@32.gif" Text="Internet" />
+                            <commonControls:ListViewItem LargeIcon="Icons/cpl/intranet.gif" Text="Local Intranet" />
+                            <commonControls:ListViewItem LargeIcon="Icons/cpl/4480@32.gif" Text="Trusted Sites" />
+                            <commonControls:ListViewItem LargeIcon="Icons/cpl/4481@32.gif" Text="Restricted Sites" />
+                            <commonControls:ListView.Styles>
+                                <Style Selector="commonControls|ListViewItem">
+                                    <Setter Property="Width" Value="89" />
+                                    <Setter Property="Margin" Value="0" />
+                                </Style>
+                            </commonControls:ListView.Styles>
+                        </commonControls:ListView>
                         <DockPanel DockPanel.Dock="Top" Height="61">
                             <Image Source="Icons/cpl/1313@32.gif" Width="32" Height="32" VerticalAlignment="Center" />
                             <Button DockPanel.Dock="Right" VerticalAlignment="Center" MinWidth="85">_Sites...</Button>
