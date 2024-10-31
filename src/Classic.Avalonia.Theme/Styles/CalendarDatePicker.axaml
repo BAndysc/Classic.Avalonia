@@ -79,6 +79,8 @@
                         DisplayDateStart="{TemplateBinding DisplayDateStart}"
                         FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                         IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
+                        RenderOptions.TextRenderingMode="Alias"
+                        RenderOptions.EdgeMode="Aliased"
                         SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate,
                                                        Mode=TwoWay}" />
             </Popup>

@@ -21,7 +21,7 @@
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/BAndysc/Classic.Avalonia</RepositoryUrl>
         <PackageTags>avalonia theme classic</PackageTags>
-        <Version>11.1.4.1</Version>
+        <Version>$(ClassicAvaloniaVersion)</Version>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
@@ -41,7 +41,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.1.4" />
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     </ItemGroup>
 
     <ItemGroup>

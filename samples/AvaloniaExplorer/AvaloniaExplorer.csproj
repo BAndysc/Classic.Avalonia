@@ -9,9 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.1.4"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.1.4"/>
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.4"/>
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
         <PackageReference Include="WebView.Avalonia" Version="11.0.0.1" />
         <PackageReference Include="WebView.Avalonia.Desktop" Version="11.0.0.1" />
     </ItemGroup>

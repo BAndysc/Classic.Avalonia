@@ -9,8 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.1.4" />
-        <PackageReference Include="Avalonia.Skia" Version="11.1.4" />
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Skia" Version="$(AvaloniaVersion)" />
     </ItemGroup>
 
     <PropertyGroup>
@@ -25,7 +25,7 @@
         <PackageIcon>icon.png</PackageIcon>
         <RepositoryUrl>https://github.com/BAndysc/Classic.Avalonia</RepositoryUrl>
         <PackageTags>avalonia theme classic controls</PackageTags>
-        <Version>11.1.4.1</Version>
+        <Version>$(ClassicAvaloniaVersion)</Version>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 

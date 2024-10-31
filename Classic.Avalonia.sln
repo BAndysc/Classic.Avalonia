@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "meta", "meta", "{D4C806A7-F
 	ProjectSection(SolutionItems) = preProject
 		icon.png = icon.png
 		README.md = README.md
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classic.Avalonia.Theme.ColorPicker", "src\Classic.Avalonia.Theme.ColorPicker\Classic.Avalonia.Theme.ColorPicker.csproj", "{32326FB6-4E07-4D7C-9F14-1D17F80D7BEF}"
