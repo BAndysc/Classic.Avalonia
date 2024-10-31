@@ -40,7 +40,7 @@
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Dock.Avalonia" Version="11.1.0.4" />
+        <PackageReference Include="Dock.Avalonia" Version="$(DockVersion)" />
     </ItemGroup>
 
     <ItemGroup>

@@ -3,5 +3,6 @@
     <PropertyGroup>
         <AvaloniaVersion>11.2.0</AvaloniaVersion>
         <ClassicAvaloniaVersion>11.2.0.0</ClassicAvaloniaVersion>
+        <DockVersion>11.2.0</DockVersion>
     </PropertyGroup>
 </Project>

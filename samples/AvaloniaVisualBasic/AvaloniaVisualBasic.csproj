@@ -11,10 +11,10 @@
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
         <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
-        <PackageReference Include="Dock.Avalonia" Version="11.1.0.4" />
-        <PackageReference Include="Dock.Model" Version="11.1.0.4" />
-        <PackageReference Include="Dock.Model.Avalonia" Version="11.1.0.4" />
-        <PackageReference Include="Dock.Serializer" Version="11.1.0.4" />
+        <PackageReference Include="Dock.Avalonia" Version="$(DockVersion)" />
+        <PackageReference Include="Dock.Model" Version="$(DockVersion)" />
+        <PackageReference Include="Dock.Model.Avalonia" Version="$(DockVersion)" />
+        <PackageReference Include="Dock.Serializer" Version="$(DockVersion)" />
     </ItemGroup>
 
     <ItemGroup>
