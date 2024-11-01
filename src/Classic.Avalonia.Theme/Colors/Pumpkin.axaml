@@ -42,8 +42,8 @@
 
   <system:Double x:Key="{x:Static common:SystemParameters.WindowCaptionHeightKey}">25</system:Double>
   <system:Double x:Key="{x:Static common:NonClientMetrics.CaptionFontSizeKey}">14</system:Double>
-  <FontFamily x:Key="{x:Static common:NonClientMetrics.CaptionFontKey}">Tahoma</FontFamily>
-  <FontFamily x:Key="ContentControlThemeFontFamily">Tahoma, $Default</FontFamily> <!-- MS Sans Serif -->
+  <FontFamily x:Key="{x:Static common:NonClientMetrics.CaptionFontKey}">fonts:Tahoma#Tahoma, Tahoma, $Default</FontFamily>
+  <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Tahoma#Tahoma, Tahoma, $Default</FontFamily>
   <system:Double x:Key="FontSizeSmall">11</system:Double>
   <system:Double x:Key="FontSizeNormal">13</system:Double>
   <system:Double x:Key="FontSizeLarge">15</system:Double>
