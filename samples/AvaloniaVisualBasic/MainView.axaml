@@ -11,9 +11,6 @@
              x:DataType="avaloniaVisualBasic:MainViewViewModel"
              x:Name="RootView"
              x:Class="AvaloniaVisualBasic.MainView">
-    <Design.DataContext>
-        <avaloniaVisualBasic:MainViewViewModel />
-    </Design.DataContext>
     <Panel HorizontalAlignment="Left" VerticalAlignment="Top">
         <DockPanel>
             <StackPanel Background="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}"
@@ -100,7 +97,7 @@
                         <!-- Left Pane -->
 
                         <ToolDock x:Name="LeftPane" Id="LeftPane" Proportion="0.06" Alignment="Left">
-                            <Tool x:Name="SolutionExplorer" Id="ToolBox" Title=""  CanPin="False"
+                            <Tool x:Name="SolutionExplorer" Id="ToolBox" Title="" CanFloat="{x:Static avaloniaVisualBasic:Static.SupportsWindowing}"  CanPin="False"
                                   x:DataType="Tool">
                                 <DockPanel>
                                     <ClassicBorderDecorator DockPanel.Dock="Top" BorderStyle="Raised" BorderThickness="3">
@@ -190,7 +187,7 @@
                                 <ProportionalDock Proportion="0.2155" Orientation="Vertical">
                                     <ToolDock x:Name="ProjectPane" Id="PropertiesPane" Proportion="0.333"
                                               Alignment="Right">
-                                        <Tool x:Name="Project" Id="Projects" Title="Project Group - Group1" x:DataType="Tool" CanPin="False">
+                                        <Tool x:Name="Project" Id="Projects" Title="Project Group - Group1" x:DataType="Tool" CanFloat="{x:Static avaloniaVisualBasic:Static.SupportsWindowing}" CanPin="False">
                                             <DockPanel>
                                                 <commonControls:ToolBar DockPanel.Dock="Top" Size="Small" TextPlacement="NoText">
                                                     <commonControls:ToolBarButton SmallIcon="Icons/code.gif" />
@@ -230,7 +227,7 @@
                                     <ProportionalDockSplitter />
                                     <ToolDock x:Name="PropertiesPane" Id="PropertiesPane" Proportion="0.333"
                                               Alignment="Right">
-                                        <Tool x:Name="Properties" Id="Projects" Title="Properties - Form1" x:DataType="Tool"  CanPin="False">
+                                        <Tool x:Name="Properties" Id="Projects" Title="Properties - Form1" x:DataType="Tool" CanFloat="{x:Static avaloniaVisualBasic:Static.SupportsWindowing}"  CanPin="False">
                                             <Grid>
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto" />
@@ -259,7 +256,7 @@
                                                                 </Style>
                                                             </ListBox.Styles>
                                                             <ListBox.ItemTemplate>
-                                                                <DataTemplate>
+                                                                <DataTemplate x:DataType="avaloniaVisualBasic:PropertyViewModel">
                                                                     <Border BorderBrush="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}" BorderThickness="0,0,0,1">
                                                                         <Grid>
                                                                             <Grid.ColumnDefinitions>
@@ -282,7 +279,7 @@
                                                 </TabControl>
                                                 <GridSplitter Grid.Row="2" />
                                                 <ClassicBorderDecorator Grid.Row="3" BorderThickness="1" BorderStyle="Sunken" DataContext="{ReflectionBinding #RootView.DataContext.SelectedProperty}">
-                                                    <DockPanel>
+                                                    <DockPanel x:DataType="avaloniaVisualBasic:PropertyViewModel">
                                                         <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Text="{Binding Name}" TextWrapping="WrapWithOverflow" />
                                                         <TextBlock Text="Determines whether a form has a Minimize button." TextWrapping="WrapWithOverflow" />
                                                     </DockPanel>
@@ -293,7 +290,7 @@
                                     <ProportionalDockSplitter />
                                     <ToolDock x:Name="FormLayoutPane" Id="FormLayoutPane" Proportion="0.33"
                                               Alignment="Right">
-                                        <Tool x:Name="FormLayout" Id="FormLayout" Title="Form Layout" x:DataType="Tool"  CanPin="False">
+                                        <Tool x:Name="FormLayout" Id="FormLayout" Title="Form Layout" x:DataType="Tool" CanFloat="{x:Static avaloniaVisualBasic:Static.SupportsWindowing}"  CanPin="False">
                                             <ClassicBorderDecorator BorderStyle="Sunken" BorderThickness="2" Background="{DynamicResource {x:Static commonControls:SystemColors.WindowBrushKey}}" Padding="20">
                                                 <avaloniaVisualBasic:ProportionPanel Proportion="1.333">
                                                     <DockPanel>

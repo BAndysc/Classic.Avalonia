@@ -100,7 +100,7 @@ public class MDIHostPanel : Panel
             }
         }
 
-        if (topZ != null && this.GetVisualRoot() is Window window && window.IsActive)
+        if (topZ != null && (this.GetVisualRoot() is Window { IsActive: true } || this.GetVisualRoot() is not Window))
             SetIsActive(topZ, true);
 
         foreach (var child in Children)

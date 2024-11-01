@@ -7,8 +7,5 @@
         x:Class="AvaloniaVisualBasic.MainWindow"
         Icon="/Icons/vb6.gif"
         Title="Project1 - Avalonia Visual Basic [design]">
-    <ClassicWindow.DataContext>
-        <avaloniaVisualBasic:MainViewViewModel />
-    </ClassicWindow.DataContext>
     <avaloniaVisualBasic:MainView />
 </ClassicWindow>

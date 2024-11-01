@@ -1,30 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <OutputType>WinExe</OutputType>
-        <IsPackable>False</IsPackable>
         <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
-        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
-        <PackageReference Include="Dock.Avalonia" Version="$(DockVersion)" />
-        <PackageReference Include="Dock.Model" Version="$(DockVersion)" />
-        <PackageReference Include="Dock.Model.Avalonia" Version="$(DockVersion)" />
-        <PackageReference Include="Dock.Serializer" Version="$(DockVersion)" />
+        <PackageReference Include="Dock.Avalonia" Version="$(DockVersion)"/>
+        <PackageReference Include="Dock.Model" Version="$(DockVersion)"/>
+        <PackageReference Include="Dock.Model.Avalonia" Version="$(DockVersion)"/>
+        <PackageReference Include="Dock.Serializer" Version="$(DockVersion)"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Classic.Avalonia.Theme.Dock\Classic.Avalonia.Theme.Dock.csproj" />
-        <ProjectReference Include="..\..\src\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj" />
+        <ProjectReference Include="..\..\src\Classic.Avalonia.Theme.Dock\Classic.Avalonia.Theme.Dock.csproj"/>
+        <ProjectReference Include="..\..\src\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Icons\**\*.gif" />
-      <AvaloniaResource Include="Icons\**\*.gif" />
+        <None Remove="Icons\**\*.gif"/>
+        <AvaloniaResource Include="Icons\**\*.gif"/>
     </ItemGroup>
-
 </Project>

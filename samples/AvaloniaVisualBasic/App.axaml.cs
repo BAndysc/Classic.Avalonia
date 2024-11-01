@@ -1,10 +1,9 @@
-using System;
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using Avalonia.Platform;
-using Classic.Avalonia.Theme;
+using Avalonia.Media;
+using Avalonia.Media.Fonts;
 
 namespace AvaloniaVisualBasic;
 
@@ -19,7 +18,20 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow();
+            // Line below is needed to remove Avalonia data validation.
+            // Without this line you will get duplicate validations from both Avalonia and CT
+            BindingPlugins.DataValidators.RemoveAt(0);
+            desktop.MainWindow = new MainWindow
+            {
+                DataContext = new MainViewViewModel()
+            };
+        }
+        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
+        {
+            singleViewPlatform.MainView = new MainView
+            {
+                DataContext = new MainViewViewModel()
+            };
         }
 
         base.OnFrameworkInitializationCompleted();
