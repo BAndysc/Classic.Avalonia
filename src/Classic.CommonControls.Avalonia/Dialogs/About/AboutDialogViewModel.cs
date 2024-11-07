@@ -14,6 +14,13 @@ public class AboutDialogViewModel : INotifyPropertyChanged
         set => SetField(ref title, value);
     }
 
+    private string? subTitle;
+    public string? SubTitle
+    {
+        get => subTitle;
+        set => SetField(ref subTitle, value);
+    }
+
     private string? copyright;
     public string? Copyright
     {
@@ -52,6 +59,7 @@ public class AboutDialogViewModel : INotifyPropertyChanged
         TotalMemory = (int)(memoryMetrics.Total / 1024 / 1024);
 
         Title = options.Title;
+        SubTitle = options.SubTitle;
         Copyright = options.Copyright;
         Icon = options.Icon;
     }

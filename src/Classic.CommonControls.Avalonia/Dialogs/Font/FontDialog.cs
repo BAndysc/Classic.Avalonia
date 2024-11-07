@@ -7,9 +7,9 @@ namespace Classic.CommonControls.Dialogs;
 
 public class FontDialog : TemplatedControl
 {
-    public static async Task<FontDialogResult?> ShowDialog(Window owner)
+    public static async Task<FontDialogResult?> ShowDialog(Window owner, FontDialogResult? initial = null)
     {
-        FontDialogViewModel viewModel = new();
+        FontDialogViewModel viewModel = new(initial);
 
         var window = owner.CreateDefaultWindow();
         window.Title = "Font";

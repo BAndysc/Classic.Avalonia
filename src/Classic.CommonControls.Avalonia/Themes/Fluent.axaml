@@ -11,6 +11,8 @@
         <ResourceInclude Source="/Themes/Fluent/Rebar.axaml" />
         <ResourceInclude Source="/Themes/Fluent/StatusBar.axaml" />
         <ResourceInclude Source="/Themes/Fluent/ToolBarButton.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/AboutDialog.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/FontDialog.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

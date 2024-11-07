@@ -63,6 +63,17 @@ public class FontDialogViewModel : INotifyPropertyChanged
         fontNameText = selectedFont.Name;
     }
 
+    public FontDialogViewModel(FontDialogResult? initial) : this()
+    {
+        if (initial == null)
+            return;
+
+        selectedFont = Fonts.FirstOrDefault(x => x == initial.Family);
+        UpdateFontStyles();
+        selectedFontSize = initial.Size;
+        selectedFontStyle = FontStyles.FirstOrDefault(x => x.FontWeight == initial.Weight && x.FontStyle == initial.Style);
+    }
+
     public void Accept()
     {
         AcceptRequested?.Invoke(

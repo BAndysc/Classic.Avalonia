@@ -9,6 +9,7 @@ namespace Classic.CommonControls.Dialogs;
 public class AboutDialogOptions
 {
     public string Title { get; set; } = "";
+    public string? SubTitle { get; set; } = null;
     public string Copyright { get; set; } = "";
     public IImage? Icon { get; set; }
 }

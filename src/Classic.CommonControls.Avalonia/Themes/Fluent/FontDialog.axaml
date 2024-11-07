@@ -1,0 +1,54 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dialogs="clr-namespace:Classic.CommonControls.Dialogs;assembly=Classic.CommonControls.Avalonia">
+  <Design.PreviewWith>
+    <dialogs:FontDialog>
+      <dialogs:FontDialog.DataContext>
+        <dialogs:FontDialogViewModel />
+      </dialogs:FontDialog.DataContext>
+    </dialogs:FontDialog>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="{x:Type dialogs:FontDialog}" TargetType="dialogs:FontDialog"
+                x:DataType="dialogs:FontDialogViewModel">
+    <Setter Property="Padding" Value="9,12,9,42" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid Margin="{TemplateBinding Padding}" ColumnDefinitions="147,7,93,7,48,7,68" RowDefinitions="Auto,Auto,95,18,Auto,12,Auto,Auto">
+          <TextBlock Text="Font:" Grid.Column="0" Grid.Row="0" />
+          <TextBlock Text="Font style:" Grid.Column="2" Grid.Row="0" />
+          <TextBlock Text="Size:" Grid.Column="4" Grid.Row="0" />
+
+          <TextBox Grid.Column="0" Grid.Row="1" Text="{CompiledBinding FontNameText}" />
+          <TextBox Grid.Column="2" Grid.Row="1" Text="{CompiledBinding SelectedFontStyle.Name}" IsReadOnly="True" />
+          <TextBox Grid.Column="4" Grid.Row="1" Text="{CompiledBinding SelectedFontSize}" />
+
+          <ListBox Grid.Column="0" Grid.Row="2" ItemsSource="{CompiledBinding Fonts}" SelectedItem="{CompiledBinding SelectedFont}" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+          <ListBox Grid.Column="2" Grid.Row="2" ItemsSource="{CompiledBinding FontStyles}" SelectedItem="{CompiledBinding SelectedFontStyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+          <ListBox Grid.Column="4" Grid.Row="2" ItemsSource="{CompiledBinding FontSizes}" SelectedItem="{CompiledBinding SelectedFontSize}" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+
+          <StackPanel Orientation="Vertical" Spacing="3" Grid.Column="6" Grid.Row="1" Grid.RowSpan="2">
+            <Button Command="{CompiledBinding Accept}" Content="OK" />
+            <Button Command="{CompiledBinding Cancel}" Content="Cancel" />
+          </StackPanel>
+
+          <HeaderedContentControl Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4" Header="Sample" HorizontalAlignment="Left">
+            <Border BorderThickness="1" Margin="8" Width="116" Height="37">
+              <TextBlock Text="AaBbAaOo" FontSize="{CompiledBinding SelectedFontSize}"
+                         FontStyle="{CompiledBinding SelectedFontStyle.FontStyle}"
+                         FontWeight="{CompiledBinding SelectedFontStyle.FontWeight}"
+                         FontFamily="{CompiledBinding SelectedFont}"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center" />
+            </Border>
+          </HeaderedContentControl>
+
+          <TextBlock Text="Script:" Grid.Column="2" Grid.Row="6" />
+          <ComboBox Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="7" SelectedIndex="0">
+            <ComboBoxItem>Unicode</ComboBoxItem>
+          </ComboBox>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>
