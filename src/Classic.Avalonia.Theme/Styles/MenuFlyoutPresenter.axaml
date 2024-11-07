@@ -13,6 +13,9 @@
                                       BorderStyle="AltRaised"
                                       Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
                                       BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
+                                      RenderOptions.EdgeMode="Aliased"
+                                      RenderOptions.BitmapInterpolationMode="None"
+                                      RenderOptions.TextRenderingMode="Alias"
                                       BorderThickness="2">
           <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                         Theme="{StaticResource SimpleMenuScrollViewer}"

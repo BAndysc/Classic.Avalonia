@@ -19,7 +19,8 @@
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding CornerRadius}">
+                CornerRadius="{TemplateBinding CornerRadius}"
+                RenderOptions.TextRenderingMode="Alias">
           <Grid>
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="19" />
