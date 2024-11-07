@@ -55,4 +55,11 @@
   <Style Selector="MenuItem:disabled common|IconRenderer">
     <Setter Property="IconStyle" Value="Disabled" />
   </Style>
+  
+  <!-- somehow the shadow color is always black (resource key not found) when the style below was directly in ControlTheme of MenuItem -->
+  <Style Selector="MenuItem:disabled /template/ TextBlock#PART_InputGestureText">
+    <Setter Property="Effect">
+      <DropShadowEffect OffsetX="1" OffsetY="1" Color="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}" BlurRadius="0" Opacity="1" />
+    </Setter>
+  </Style>
 </Styles>
