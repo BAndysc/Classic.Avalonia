@@ -42,7 +42,7 @@
     <Setter Property="Height" Value="13" />
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type ToolChromeControl}" TargetType="ToolChromeControl">
+  <ControlTheme x:Key="{x:Type ToolChromeControl}" TargetType="ToolChromeControl" x:DataType="controls:IToolDock">
 
     <Setter Property="Background" Value="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}" />
     <Setter Property="BorderBrush" Value="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}" />

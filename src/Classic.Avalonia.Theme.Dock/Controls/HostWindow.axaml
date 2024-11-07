@@ -10,7 +10,7 @@
 
   <dock:IntLessThanConverter x:Key="LessThan2" TrueIfLessThan="2" />
 
-  <ControlTheme x:Key="{x:Type HostWindow}" TargetType="HostWindow">
+  <ControlTheme x:Key="{x:Type HostWindow}" TargetType="HostWindow" x:DataType="controls:IRootDock">
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
     <Setter Property="Foreground"
             Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
