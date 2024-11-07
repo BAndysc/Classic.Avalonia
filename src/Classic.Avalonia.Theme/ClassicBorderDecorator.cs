@@ -1087,10 +1087,9 @@ public sealed class ClassicBorderDecorator : Decorator
     {
         if (bounds.Width < 2.0 * (singleThickness.Left + singleThickness.Right) || bounds.Height < 2.0 * (singleThickness.Top + singleThickness.Bottom))
             return;
-        IBrush? dark = DarkBrush, lightLight = LightLightBrush;
 
-        DrawBorderPair(dark, lightLight, singleThickness, dc, ref bounds);
-        DrawBorderPair(lightLight, dark, singleThickness, dc, ref bounds);
+        DrawBorderPair(DarkBrush, LightLightBrush, singleThickness, dc, ref bounds);
+        DrawBorderPair(LightLightBrush, DarkBrush, singleThickness, dc, ref bounds);
     }
 
     // Draw a horizontal separator line

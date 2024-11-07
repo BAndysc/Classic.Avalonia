@@ -64,6 +64,10 @@
             Value="{DynamicResource {x:Static common:SystemColors.WindowTextBrushKey}}"/>
     <Setter Property="Background"
             Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
+    <Setter Property="BorderBrush"
+            Value="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}" />
+    <Setter Property="BorderThickness"
+            Value="2" />
     <Setter Property="Margin"
             Value="0,0,0,0"/>
     <Setter Property="Padding"
@@ -79,14 +83,11 @@
 
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Background="{TemplateBinding Background}"
-            BorderThickness="{TemplateBinding BorderThickness}"
-            BorderBrush="{TemplateBinding BorderBrush}">
         <Grid>
             <classic:ClassicBorderDecorator Name="Border"
                                           Background="{TemplateBinding Background}"
-                                          BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
-                                          BorderThickness="2"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          BorderThickness="{TemplateBinding BorderThickness}"
                                           BorderStyle="Sunken">
                     <Popup Name="PART_Popup"
                            WindowManagerAddShadowHint="True"
@@ -121,7 +122,7 @@
                 </Border>
                 </Popup>
             </classic:ClassicBorderDecorator>
-            <DockPanel Margin="2">
+            <DockPanel Margin="{TemplateBinding BorderThickness}">
                 <!-- saves space for the button which will be drawn on top -->
                 <Control DockPanel.Dock="Right"
                                   Width="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"/>
@@ -129,14 +130,14 @@
                         Margin="{TemplateBinding Padding}">
                         <Panel>
                                 <TextBlock Name="PlaceholderTextBlock"
-                                           Margin="1,1,1,1"
+                                           Margin="{TemplateBinding Padding}"
                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                            Foreground="{TemplateBinding PlaceholderForeground}"
                                            IsVisible="{TemplateBinding SelectionBoxItem,
                                                    Converter={x:Static ObjectConverters.IsNull}}"
                                            Text="{TemplateBinding PlaceholderText}" />
-                                <ContentPresenter Margin="1,1,1,1"
+                                <ContentPresenter Margin="{TemplateBinding Padding}"
                                                   Content="{TemplateBinding SelectionBoxItem}"
                                                   ContentTemplate="{TemplateBinding ItemTemplate}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -145,7 +146,7 @@
                 </Border>
             </DockPanel>
             <ToggleButton Name="toggle"
-                          Margin="2"
+                          Margin="{TemplateBinding BorderThickness}"
                           MinWidth="0"
                           MinHeight="0"
                           Focusable="False"
@@ -154,7 +155,6 @@
                                                       Mode=TwoWay}"
                           ClickMode="Press"/>
         </Grid>
-        </Border>
       </ControlTemplate>
     </Setter>
     <Style Selector="^:disabled">

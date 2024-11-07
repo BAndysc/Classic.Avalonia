@@ -39,6 +39,7 @@
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Header}"
+                            RecognizesAccessKey="True"
                             ContentTemplate="{TemplateBinding HeaderTemplate}" />
         </classic:ClassicBorderDecorator>
       </ControlTemplate>

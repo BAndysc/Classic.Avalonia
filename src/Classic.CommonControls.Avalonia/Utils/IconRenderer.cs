@@ -124,11 +124,29 @@ public class IconRenderer : Control
                 stream.Position = 0;
 
                 using var skBitmap = SKBitmap.Decode(stream);
+                if (iconStyle == IconStyle.Disabled)
+                {
+                    var pixels = skBitmap.Pixels;
+                    bool changed = false;
+                    for (var index = 0; index < skBitmap.Pixels.Length; index++)
+                    {
+                        var pixel = pixels[index];
+                        if ((int)pixel.Red + pixel.Green + pixel.Blue >= (255*3 / 2))
+                        {
+                            pixels[index] = SKColor.Empty;
+                            changed = true;
+                        }
+                    }
+                    if (changed)
+                       skBitmap.Pixels = pixels;
+                }
+
+                using var skImage = SKImage.FromBitmap(skBitmap);
 
                 SKPaint? brush = null;
                 if (iconStyle == IconStyle.Disabled)
                 {
-                    canvas.DrawImage(SKImage.FromBitmap(skBitmap),Bounds.WithX(1).WithY(1).ToSKRect(), new SKPaint
+                    canvas.DrawImage(skImage,Bounds.WithX(1).WithY(1).ToSKRect(), new SKPaint
                     {
                         ColorFilter = SKColorFilter.CreateBlendMode(lightLightColor.ToSKColor(), SKBlendMode.SrcIn)
                     });
@@ -146,7 +164,7 @@ public class IconRenderer : Control
                     };
                 }
 
-                canvas.DrawImage(SKImage.FromBitmap(skBitmap), Bounds.ToSKRect(), brush);
+                canvas.DrawImage(skImage, Bounds.ToSKRect(), brush);
                 if (iconStyle == IconStyle.SelectedItem)
                 {
                     using var patternBitmap = new SKBitmap((int)Bounds.Width, (int)Bounds.Height);

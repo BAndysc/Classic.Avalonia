@@ -52,4 +52,12 @@
                     Value="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"/>
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="FlatListBox" BasedOn="{StaticResource {x:Type ListBox}}"
+                TargetType="ListBox">
+
+          <Setter Property="BorderThickness" Value="1" />
+          <Setter Property="BorderBrush" Value="{DynamicResource {x:Static common:SystemColors.WindowFrameBrushKey}}" />
+
+  </ControlTheme>
 </ResourceDictionary>

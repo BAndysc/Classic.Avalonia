@@ -171,13 +171,11 @@
                   <RowDefinition Height="0.00001*"/>
                   <RowDefinition MaxHeight="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
               </Grid.RowDefinitions>
-              <Viewbox Stretch="Fill">
-                  <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
-                                Height="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"
-                                MinWidth="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"
-                                Name="PART_LineUpButton"
-                                Content="M 0 4 L 7 4 L 3.5 0 Z"/>
-              </Viewbox>
+              <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
+                            Height="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"
+                            MinWidth="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"
+                            Name="PART_LineUpButton"
+                            Content="M 0 4 L 7 4 L 3.5 0 Z"/>
               <Rectangle Grid.Row="1"
                          Fill="Transparent"/>
 
@@ -203,14 +201,12 @@
                   </Track.Thumb>
               </Track>
 
-              <Viewbox Stretch="Fill"
-                       Grid.Row="2">
-                  <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
-                                Height="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"
-                                MinWidth="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"
-                                Name="PART_LineDownButton"
-                                Content="M 0 0 L 3.5 4 L 7 0 Z"/>
-              </Viewbox>
+              <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
+                            Height="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarButtonHeightKey}}"
+                            MinWidth="{DynamicResource {x:Static common:SystemParameters.VerticalScrollBarWidthKey}}"
+                            Name="PART_LineDownButton"
+                            Grid.Row="2"
+                            Content="M 0 0 L 3.5 4 L 7 0 Z"/>
           </Grid>
         </ControlTemplate>
       </Setter>
@@ -231,13 +227,11 @@
                   <ColumnDefinition Width="0.00001*"/>
                   <ColumnDefinition MaxWidth="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
               </Grid.ColumnDefinitions>
-              <Viewbox Stretch="Fill">
-                  <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
-                                Width="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
-                                MinHeight="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"
-                                Name="PART_LineUpButton"
-                                Content="M 0 4 L 4 8 L 4 0 Z"/>
-              </Viewbox>
+              <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
+                            Width="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
+                            MinHeight="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"
+                            Name="PART_LineUpButton"
+                            Content="M 0 4 L 4 8 L 4 0 Z"/>
               <Rectangle Grid.Column="1"
                          Fill="Transparent"/>
               <Track Grid.Column="1"
@@ -262,14 +256,12 @@
               </Track>
 
 
-              <Viewbox Stretch="Fill"
-                       Grid.Column="2">
-                  <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
-                                Width="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
-                                MinHeight="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"
-                                Name="PART_LineDownButton"
-                                Content="M 0 0 L 0 8 L 4 4 Z"/>
-              </Viewbox>
+              <RepeatButton Theme="{StaticResource ScrollBarLineButtonStyle}"
+                            Width="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarButtonWidthKey}}"
+                            MinHeight="{DynamicResource {x:Static common:SystemParameters.HorizontalScrollBarHeightKey}}"
+                            Name="PART_LineDownButton"
+                            Grid.Column="2"
+                            Content="M 0 0 L 0 8 L 4 4 Z"/>
           </Grid>
         </ControlTemplate>
       </Setter>

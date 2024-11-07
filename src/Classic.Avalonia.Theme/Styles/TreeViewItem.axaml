@@ -30,8 +30,8 @@
             Value="13"/>
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Width="19"
-                Height="13"
+        <Border HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
                 Background="Transparent">
           <Border Width="9"
                   Height="9"

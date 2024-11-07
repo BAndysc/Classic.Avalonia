@@ -36,4 +36,13 @@
       </ControlTemplate>
     </Setter>
   </ControlTheme>
+
+<ControlTheme x:Key="FlatFlyoutPresenter"
+              BasedOn="{StaticResource {x:Type FlyoutPresenter}}"
+                TargetType="FlyoutPresenter">
+  <Setter Property="BorderThickness" Value="1" />
+    <Style Selector="^ /template/ ClassicBorderDecorator#LayoutRoot">
+      <Setter Property="BorderBrush" Value="{DynamicResource {x:Static common:SystemColors.WindowFrameBrushKey}}" />
+    </Style>
+  </ControlTheme>
 </ResourceDictionary>

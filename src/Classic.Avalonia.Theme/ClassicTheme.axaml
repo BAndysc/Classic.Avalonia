@@ -38,6 +38,8 @@
   <StyleInclude Source="/Styles/Controls.axaml" />
 
   <Style Selector="AccessText:disabled">
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static common:SystemColors.GrayTextBrushKey}}"/>
     <Setter Property="Effect">
       <DropShadowEffect OffsetX="1" OffsetY="1" Color="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}" BlurRadius="0" Opacity="1" />
     </Setter>
@@ -48,5 +50,9 @@
     <Setter Property="Effect">
       <DropShadowEffect OffsetX="1" OffsetY="1" Color="{DynamicResource {x:Static common:SystemColors.ControlLightLightColorKey}}" BlurRadius="0" Opacity="1" />
     </Setter>
+  </Style>
+
+  <Style Selector="MenuItem:disabled common|IconRenderer">
+    <Setter Property="IconStyle" Value="Disabled" />
   </Style>
 </Styles>
