@@ -7,6 +7,7 @@
         <ResourceInclude Source="/Themes/Fluent/IconRenderer.axaml" />
         <ResourceInclude Source="/Themes/Fluent/ListView.axaml" />
         <ResourceInclude Source="/Themes/Fluent/MessageBox.axaml" />
+        <ResourceInclude Source="/Themes/Fluent/InputBox.axaml" />
         <ResourceInclude Source="/Themes/Fluent/Rebar.axaml" />
         <ResourceInclude Source="/Themes/Fluent/StatusBar.axaml" />
         <ResourceInclude Source="/Themes/Fluent/ToolBarButton.axaml" />

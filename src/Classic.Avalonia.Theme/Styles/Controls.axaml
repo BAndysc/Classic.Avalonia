@@ -82,6 +82,7 @@
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/FontDialog.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/AboutDialog.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/MessageBox.axaml" />
+        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/InputBox.axaml" />
 
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
