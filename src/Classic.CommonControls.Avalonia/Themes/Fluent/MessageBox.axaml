@@ -96,6 +96,9 @@
     <Style Selector="^[Icon=Warning] /template/ Image">
       <Setter Property="Source" Value="{StaticResource ALERT_warning}" />
     </Style>
+    <Style Selector="^[Icon=None] /template/ Image">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
   </ControlTheme>
 
 </ResourceDictionary>

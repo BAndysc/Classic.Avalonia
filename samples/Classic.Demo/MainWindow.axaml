@@ -239,6 +239,7 @@
               <TextBox x:Name="MessageBoxCaption" Grid.Column="2" Grid.Row="0" Text="MessageBox Tester" />
               <TextBox x:Name="MessageBoxText" Grid.Column="2" Grid.Row="2" Text="This is a test of Classic MessageBox"/>
               <ComboBox x:Name="MessageBoxIcon" SelectedIndex="0" Grid.Column="2" Grid.Row="4">
+                <ComboBoxItem><dialogs:MessageBoxIcon>None</dialogs:MessageBoxIcon></ComboBoxItem>
                 <ComboBoxItem><dialogs:MessageBoxIcon>Information</dialogs:MessageBoxIcon></ComboBoxItem>
                 <ComboBoxItem><dialogs:MessageBoxIcon>Error</dialogs:MessageBoxIcon></ComboBoxItem>
                 <ComboBoxItem><dialogs:MessageBoxIcon>Question</dialogs:MessageBoxIcon></ComboBoxItem>
