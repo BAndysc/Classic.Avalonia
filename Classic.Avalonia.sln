@@ -39,8 +39,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaVisualBasic.Browser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaVisualBasic.Desktop", "samples\AvaloniaVisualBasic.Desktop\AvaloniaVisualBasic.Desktop.csproj", "{449BF35B-347B-4F68-856A-7A026DF37543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaVisualBasic.iOS", "samples\AvaloniaVisualBasic.iOS\AvaloniaVisualBasic.iOS.csproj", "{44B1D38F-186B-4E36-AD3B-E87C9CB20447}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,10 +97,6 @@ Global
 		{449BF35B-347B-4F68-856A-7A026DF37543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{449BF35B-347B-4F68-856A-7A026DF37543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{449BF35B-347B-4F68-856A-7A026DF37543}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44B1D38F-186B-4E36-AD3B-E87C9CB20447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44B1D38F-186B-4E36-AD3B-E87C9CB20447}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44B1D38F-186B-4E36-AD3B-E87C9CB20447}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44B1D38F-186B-4E36-AD3B-E87C9CB20447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{79FAE5F5-DDB1-433C-9AA0-50E5D792D94A} = {FCE8132A-42D8-4E01-9F73-AF96EFAB4E72}
@@ -114,6 +108,5 @@ Global
 		{281010B8-DA50-45BC-BA4F-84D81CB66FAA} = {5D1C447A-34BE-4DE3-A1D0-FCB0036F21BA}
 		{DD602FDF-B38A-4E78-8F79-611EC759DBC7} = {5D1C447A-34BE-4DE3-A1D0-FCB0036F21BA}
 		{449BF35B-347B-4F68-856A-7A026DF37543} = {5D1C447A-34BE-4DE3-A1D0-FCB0036F21BA}
-		{44B1D38F-186B-4E36-AD3B-E87C9CB20447} = {5D1C447A-34BE-4DE3-A1D0-FCB0036F21BA}
 	EndGlobalSection
 EndGlobal
