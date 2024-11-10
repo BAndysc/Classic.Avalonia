@@ -30,12 +30,15 @@
           <Border Name="PART_TransparencyFallback"
                   IsHitTestVisible="False"
                   Margin="2" />
-          <Border Background="{TemplateBinding Background}"
+          <Border Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
                   IsHitTestVisible="False"
                   Margin="2" />
 
           <Border Margin="{TemplateBinding OffScreenMargin}">
-            <DockPanel Name="RootLayout" Margin="4" ClipToBounds="True">
+            <DockPanel Name="RootLayout"
+                       Background="{TemplateBinding Background}"
+                       Margin="4"
+                       ClipToBounds="True">
 
               <utils:AutoAttachTitleBar DockPanel.Dock="Top" />
 
