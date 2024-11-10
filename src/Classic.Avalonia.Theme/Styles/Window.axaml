@@ -36,7 +36,6 @@
 
           <Border Margin="{TemplateBinding OffScreenMargin}">
             <DockPanel Name="RootLayout"
-                       Background="{TemplateBinding Background}"
                        Margin="4"
                        ClipToBounds="True">
 
