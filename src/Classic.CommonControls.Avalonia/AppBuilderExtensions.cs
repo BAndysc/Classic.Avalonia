@@ -10,7 +10,7 @@ public static class AppBuilderExtensions
 {
     public static AppBuilder UseMessageBoxSounds(this AppBuilder builder)
     {
-        string? tempChimeFileName = null;
+        //string? tempChimeFileName = null;
         string? tempChordFileName = null;
         string? tempDingFileName = null;
 
@@ -38,7 +38,7 @@ public static class AppBuilderExtensions
                 if (resourceStream != null)
                 {
                     var array = new byte[resourceStream.Length];
-                    resourceStream.Read(array, 0, array.Length);
+                    int read = resourceStream.Read(array, 0, array.Length);
                     fileName = Path.GetTempFileName();
                     File.WriteAllBytes(fileName, array);
                     if (msgBox.Icon is MessageBoxIcon.Error or MessageBoxIcon.Warning)

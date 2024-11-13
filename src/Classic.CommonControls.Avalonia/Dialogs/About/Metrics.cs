@@ -44,16 +44,16 @@ internal class MemoryMetricsClient
 
         using(var process = Process.Start(info))
         {
-            output = process.StandardOutput.ReadToEnd();
+            output = process?.StandardOutput.ReadToEnd();
         }
 
-        var lines = output.Trim().Split('\n');
-        var freeMemoryParts = lines[0].Split(['='], StringSplitOptions.RemoveEmptyEntries);
-        var totalMemoryParts = lines[1].Split(['='], StringSplitOptions.RemoveEmptyEntries);
+        var lines = output?.Trim().Split('\n');
+        var freeMemoryParts = lines?[0].Split(['='], StringSplitOptions.RemoveEmptyEntries);
+        var totalMemoryParts = lines?[1].Split(['='], StringSplitOptions.RemoveEmptyEntries);
 
         var metrics = new MemoryMetrics();
-        metrics.Total = Math.Round(double.Parse(totalMemoryParts[1]) / 1024, 0);
-        metrics.Free = Math.Round(double.Parse(freeMemoryParts[1]) / 1024, 0);
+        metrics.Total = Math.Round(double.Parse(totalMemoryParts?[1] ?? "0") / 1024, 0);
+        metrics.Free = Math.Round(double.Parse(freeMemoryParts?[1] ?? "0") / 1024, 0);
         metrics.Used = metrics.Total - metrics.Free;
 
         return metrics;
@@ -71,13 +71,13 @@ internal class MemoryMetricsClient
 
         using(var process = Process.Start(info))
         {
-            output = process.StandardOutput.ReadToEnd();
+            output = process?.StandardOutput.ReadToEnd();
         }
 
-        var memory = output.Split([' '], StringSplitOptions.RemoveEmptyEntries);
+        var memory = output?.Split([' '], StringSplitOptions.RemoveEmptyEntries);
 
         var metrics = new MemoryMetrics();
-        metrics.Total = double.Parse(memory[1]);
+        metrics.Total = double.Parse(memory?[1] ?? "0");
 
         return metrics;
     }
@@ -94,14 +94,14 @@ internal class MemoryMetricsClient
 
         using(var process = Process.Start(info))
         {
-            output = process.StandardOutput.ReadToEnd();
+            output = process?.StandardOutput.ReadToEnd();
         }
 
-        var lines = output.Split('\n');
-        var memory = lines[1].Split([' '], StringSplitOptions.RemoveEmptyEntries);
+        var lines = output?.Split('\n');
+        var memory = lines?[1].Split([' '], StringSplitOptions.RemoveEmptyEntries);
 
         var metrics = new MemoryMetrics();
-        metrics.Total = double.Parse(memory[1]);
+        metrics.Total = double.Parse(memory?[1] ?? "0");
 
         return metrics;
     }

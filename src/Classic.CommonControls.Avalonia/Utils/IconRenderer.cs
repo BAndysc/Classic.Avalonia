@@ -101,7 +101,7 @@ public class IconRenderer : Control
 
         public bool HitTest(Point p) => true;
 
-        public bool Equals(ICustomDrawOperation other) => false;
+        public bool Equals(ICustomDrawOperation? other) => false;
 
         /// <summary>
         /// This method handles the rendering of the chart using SkiaSharp.

@@ -25,9 +25,9 @@ internal class BorderGapMaskConverter : IMultiValueConverter
             values[0] == null ||
             values[1] == null ||
             values[2] == null ||
-            !doubleType.IsAssignableFrom(values[0].GetType()) ||
-            !doubleType.IsAssignableFrom(values[1].GetType()) ||
-            !doubleType.IsAssignableFrom(values[2].GetType()) )
+            !doubleType.IsInstanceOfType(values[0]) ||
+            !doubleType.IsInstanceOfType(values[1]) ||
+            !doubleType.IsInstanceOfType(values[2]) )
         {
             return AvaloniaProperty.UnsetValue;
         }
@@ -42,9 +42,9 @@ internal class BorderGapMaskConverter : IMultiValueConverter
         // Conversion
         //
 
-        double headerWidth = (double)values[0];
-        double borderWidth = (double)values[1];
-        double borderHeight = (double)values[2];
+        double headerWidth = (double?)values[0] ?? 0;
+        double borderWidth = (double?)values[1] ?? 0;
+        double borderHeight = (double?)values[2] ?? 0;
 
         // Doesn't make sense to have a Grid
         // with 0 as width or height

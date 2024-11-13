@@ -26,11 +26,11 @@ internal class ProgressBarBrushConverter : IMultiValueConverter
             (values[2] == null)  ||
             (values[3] == null) ||
             (values[4] == null) ||
-            !typeof(IBrush).IsAssignableFrom(values[0].GetType()) ||
-            !typeof(bool).IsAssignableFrom(values[1].GetType()) ||
-            !doubleType.IsAssignableFrom(values[2].GetType()) ||
-            !doubleType.IsAssignableFrom(values[3].GetType()) ||
-            !doubleType.IsAssignableFrom(values[4].GetType()))
+            values[0] is not IBrush ||
+            values[1] is not bool ||
+            !doubleType.IsInstanceOfType(values[2]) ||
+            !doubleType.IsInstanceOfType(values[3]) ||
+            !doubleType.IsInstanceOfType(values[4]))
         {
             return null;
         }
@@ -39,11 +39,11 @@ internal class ProgressBarBrushConverter : IMultiValueConverter
         // Conversion
         //
 
-        IBrush brush = (Brush)values[0];
-        bool isIndeterminate = (bool)values[1];
-        double width = (double)values[2];
-        double height = (double)values[3];
-        double trackWidth = (double)values[4];
+        IBrush brush = (Brush)values[0]!;
+        bool isIndeterminate = (bool)values[1]!;
+        double width = (double)values[2]!;
+        double height = (double)values[3]!;
+        double trackWidth = (double)values[4]!;
 
         // if an invalid height, return a null brush
         if (width <= 0.0 || Double.IsInfinity(width) || Double.IsNaN(width) ||

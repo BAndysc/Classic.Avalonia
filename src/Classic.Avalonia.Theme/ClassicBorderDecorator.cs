@@ -555,8 +555,8 @@ public sealed class ClassicBorderDecorator : Decorator
     /// <summary>
     /// AvaloniaProperty for <see cref="BorderBrush" /> property.
     /// </summary>
-    public static readonly StyledProperty<IBrush> BorderBrushProperty =
-            AvaloniaProperty.Register<ClassicBorderDecorator, IBrush>(
+    public static readonly StyledProperty<IBrush?> BorderBrushProperty =
+            AvaloniaProperty.Register<ClassicBorderDecorator, IBrush?>(
                     nameof(BorderBrush),
                     ClassicBorderBrush);
 
@@ -1211,7 +1211,7 @@ public sealed class ClassicBorderDecorator : Decorator
     private Geometry GetShadow1(Rect bounds)
     {
         // Assumed to always be called after GetHighlight1
-        Debug.Assert(_tabCache != null, "_tabCache is null.  GetShadow1 should only be called after GetHighlight1");
+        _tabCache = _tabCache ?? throw new Exception("_tabCache is null.  GetShadow1 should only be called after GetHighlight1");
 
         if (_tabCache.Shadow1 == null)
         {
@@ -1224,7 +1224,7 @@ public sealed class ClassicBorderDecorator : Decorator
     private Geometry GetHighlight2(Rect bounds)
     {
         // Assumed to always be called after GetHighlight1
-        Debug.Assert(_tabCache != null, "_tabCache is null.  GetHighlight2 should only be called after GetHighlight1");
+        _tabCache = _tabCache ?? throw new Exception("_tabCache is null.  GetHighlight2 should only be called after GetHighlight1");
 
         if (_tabCache.Highlight2 == null)
         {
@@ -1237,7 +1237,7 @@ public sealed class ClassicBorderDecorator : Decorator
     private Geometry GetShadow2(Rect bounds)
     {
         // Assumed to always be called after GetHighlight1
-        Debug.Assert(_tabCache != null, "_tabCache is null.  GetHighlight2 should only be called after GetHighlight1");
+        _tabCache = _tabCache ?? throw new Exception("_tabCache is null.  GetHighlight2 should only be called after GetHighlight1");
 
         if (_tabCache.Shadow2 == null)
         {
@@ -1265,6 +1265,9 @@ public sealed class ClassicBorderDecorator : Decorator
                     break;
                 case ClassicBorderStyle.TabBottom:
                     _tabCache.Transform = new MatrixTransform(new Matrix(-1.0, 0.0, 0.0, -1.0, xOffset, yOffset));
+                    break;
+                default:
+                    _tabCache.Transform = new MatrixTransform(Matrix.Identity);
                     break;
             }
             _tabCache.xOffset = xOffset;
@@ -1419,7 +1422,7 @@ public sealed class ClassicBorderDecorator : Decorator
 
     private T GetResourceOrDefault<T>(object key, T defaultValue)
     {
-        if (Application.Current.TryGetResource(key, out var res))
+        if (Application.Current!.TryGetResource(key, out var res))
             if (res is T resT)
                 return resT;
         return defaultValue;

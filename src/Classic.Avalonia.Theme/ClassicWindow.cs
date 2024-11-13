@@ -113,7 +113,7 @@ public class ClassicWindow : Window
         }
     }
 
-    private void OnActivated(object sender, EventArgs e)
+    private void OnActivated(object? sender, EventArgs e)
     {
         // Fix for macOS: enable resizing despite SystemDecorations = None
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) && CanResize)

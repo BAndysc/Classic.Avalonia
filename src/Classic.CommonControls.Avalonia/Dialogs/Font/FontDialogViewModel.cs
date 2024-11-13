@@ -11,14 +11,14 @@ public class FontDialogViewModel : INotifyPropertyChanged
     public ObservableCollection<LegacyFontStyle> FontStyles { get; } = new();
     public List<double> FontSizes { get; } = new() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
 
-    private FontFamily selectedFont;
-    public FontFamily SelectedFont
+    private FontFamily? selectedFont;
+    public FontFamily? SelectedFont
     {
         get => selectedFont;
         set
         {
             SetField(ref selectedFont, value);
-            SetField(ref fontNameText, value.Name, nameof(FontNameText));
+            SetField(ref fontNameText, value?.Name, nameof(FontNameText));
             UpdateFontStyles();
         }
     }
@@ -37,8 +37,8 @@ public class FontDialogViewModel : INotifyPropertyChanged
         set => SetField(ref selectedFontSize, value);
     }
 
-    private string fontNameText;
-    public string FontNameText
+    private string? fontNameText;
+    public string? FontNameText
     {
         get => fontNameText;
         set
@@ -68,7 +68,7 @@ public class FontDialogViewModel : INotifyPropertyChanged
         if (initial == null)
             return;
 
-        selectedFont = Fonts.FirstOrDefault(x => x == initial.Family);
+        selectedFont = Fonts.FirstOrDefault(x => x == initial.Family) ?? Fonts.FirstOrDefault();
         UpdateFontStyles();
         selectedFontSize = initial.Size;
         selectedFontStyle = FontStyles.FirstOrDefault(x => x.FontWeight == initial.Weight && x.FontStyle == initial.Style);
@@ -76,6 +76,9 @@ public class FontDialogViewModel : INotifyPropertyChanged
 
     public void Accept()
     {
+        if (SelectedFont == null)
+            return;
+
         AcceptRequested?.Invoke(
             new FontDialogResult(SelectedFont,
                 SelectedFontStyle?.FontStyle ?? FontStyle.Normal,
@@ -108,6 +111,9 @@ public class FontDialogViewModel : INotifyPropertyChanged
     private void UpdateFontStyles()
     {
         FontStyles.Clear();
+        if (selectedFont == null)
+            return;
+
         foreach (var style in styles)
         {
             foreach (var weight in weights)

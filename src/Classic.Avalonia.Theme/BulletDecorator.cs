@@ -99,7 +99,7 @@ namespace Classic.Avalonia.Theme;
         /// It should be aligned to BulletDecorator.Child which is the second visual child.
         /// </summary>
         /// <value></value>
-        public Control Bullet
+        public Control? Bullet
         {
             get => _bullet;
             set
@@ -117,12 +117,15 @@ namespace Classic.Avalonia.Theme;
 
                     _bullet = value;
 
-                    LogicalChildren.Add(value);
-                    // notify the visual layer about the new child.
-                    VisualChildren.Add(value);
+                    if (value != null)
+                    {
+                        LogicalChildren.Add(value);
+                        // notify the visual layer about the new child.
+                        VisualChildren.Add(value);
+                    }
 
                     // If we decorator content exists we need to move it at the end of the visual tree
-                    Control child = Child;
+                    Control? child = Child;
                     if (child != null)
                     {
                         VisualChildren.Remove(child);
@@ -169,8 +172,8 @@ namespace Classic.Avalonia.Theme;
         {
                 Size bulletSize = new Size();
                 Size contentSize = new Size();
-                Control bullet = Bullet;
-                Control content = Child;
+                Control? bullet = Bullet;
+                Control? content = Child;
 
                 // If we have bullet we should measure it first
                 if (bullet != null)
@@ -200,8 +203,8 @@ namespace Classic.Avalonia.Theme;
         /// <param name="arrangeSize">Size that BulletDecorator will assume to position children.</param>
         protected override Size ArrangeOverride(Size arrangeSize)
         {
-                Control bullet = Bullet;
-                Control content = Child;
+                Control? bullet = Bullet;
+                Control? content = Child;
                 double contentOffsetX = 0;
 
                 double bulletOffsetY = 0;
@@ -376,7 +379,7 @@ namespace Classic.Avalonia.Theme;
         //-------------------------------------------------------------------
 
         #region Private Members
-        Control _bullet = null;
+        Control? _bullet = null;
         #endregion Private Members
 
     }

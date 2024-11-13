@@ -52,9 +52,9 @@ public class InputBox : TemplatedControl, ICommand
         textBox?.Focus();
     }
 
-    public bool CanExecute(object parameter) => true;
+    public bool CanExecute(object? parameter) => true;
 
-    public void Execute(object parameter) => TextRequest?.Invoke(Text);
+    public void Execute(object? parameter) => TextRequest?.Invoke(Text);
 
     public event EventHandler? CanExecuteChanged;
 
