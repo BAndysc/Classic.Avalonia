@@ -11,14 +11,14 @@ public class FontDialogViewModel : INotifyPropertyChanged
     public ObservableCollection<LegacyFontStyle> FontStyles { get; } = new();
     public List<double> FontSizes { get; } = new() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
 
-    private FontFamily? selectedFont;
-    public FontFamily? SelectedFont
+    private FontFamily selectedFont;
+    public FontFamily SelectedFont
     {
         get => selectedFont;
         set
         {
             SetField(ref selectedFont, value);
-            SetField(ref fontNameText, value?.Name, nameof(FontNameText));
+            SetField(ref fontNameText, value.Name, nameof(FontNameText));
             UpdateFontStyles();
         }
     }
@@ -37,8 +37,8 @@ public class FontDialogViewModel : INotifyPropertyChanged
         set => SetField(ref selectedFontSize, value);
     }
 
-    private string? fontNameText;
-    public string? FontNameText
+    private string fontNameText;
+    public string FontNameText
     {
         get => fontNameText;
         set
@@ -68,7 +68,13 @@ public class FontDialogViewModel : INotifyPropertyChanged
         if (initial == null)
             return;
 
-        selectedFont = Fonts.FirstOrDefault(x => x == initial.Family) ?? Fonts.FirstOrDefault();
+        if (Fonts.FirstOrDefault(x => x == initial.Family) is { } font)
+            selectedFont = font;
+        else
+        {
+            Fonts.Add(initial.Family);
+            selectedFont = initial.Family;
+        }
         UpdateFontStyles();
         selectedFontSize = initial.Size;
         selectedFontStyle = FontStyles.FirstOrDefault(x => x.FontWeight == initial.Weight && x.FontStyle == initial.Style);
