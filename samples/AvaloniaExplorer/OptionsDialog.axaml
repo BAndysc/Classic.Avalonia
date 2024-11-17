@@ -12,7 +12,7 @@
                Title="Internet Options">
     <ClassicWindow.Styles>
         <Style Selector="HeaderedContentControl">
-            <Setter Property="Padding" Value="3,7,7,4" />
+            <Setter Property="Padding" Value="11,15,15,12" />
         </Style>
         <Style Selector="TextBlock">
             <Setter Property="VerticalAlignment" Value="Center" />

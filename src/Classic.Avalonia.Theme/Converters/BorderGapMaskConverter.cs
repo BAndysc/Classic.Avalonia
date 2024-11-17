@@ -21,13 +21,15 @@ internal class BorderGapMaskConverter : IMultiValueConverter
 
         if (parameter == null ||
             values == null ||
-            values.Count != 3 ||
+            values.Count != 4 ||
             values[0] == null ||
             values[1] == null ||
             values[2] == null ||
+            values[3] == null ||
             !doubleType.IsInstanceOfType(values[0]) ||
             !doubleType.IsInstanceOfType(values[1]) ||
-            !doubleType.IsInstanceOfType(values[2]) )
+            !doubleType.IsInstanceOfType(values[2]) ||
+            !doubleType.IsInstanceOfType(values[3]) )
         {
             return AvaloniaProperty.UnsetValue;
         }
@@ -43,8 +45,9 @@ internal class BorderGapMaskConverter : IMultiValueConverter
         //
 
         double headerWidth = (double?)values[0] ?? 0;
-        double borderWidth = (double?)values[1] ?? 0;
-        double borderHeight = (double?)values[2] ?? 0;
+        double headerHeight = (double?)values[1] ?? 0;
+        double borderWidth = (double?)values[2] ?? 0;
+        double borderHeight = (double?)values[3] ?? 0;
 
         // Doesn't make sense to have a Grid
         // with 0 as width or height
@@ -80,7 +83,7 @@ internal class BorderGapMaskConverter : IMultiValueConverter
         grid.ColumnDefinitions.Add(colDef3);
         RowDefinition rowDef1 = new RowDefinition();
         RowDefinition rowDef2 = new RowDefinition();
-        rowDef1.Height = new GridLength(borderHeight / 2);
+        rowDef1.Height = new GridLength(Math.Max(0, headerHeight - lineWidth));
         rowDef2.Height = new GridLength(1, GridUnitType.Star);
         grid.RowDefinitions.Add(rowDef1);
         grid.RowDefinitions.Add(rowDef2);

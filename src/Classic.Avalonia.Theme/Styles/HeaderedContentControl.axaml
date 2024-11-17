@@ -2,99 +2,81 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:theme="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:converters="clr-namespace:Classic.Avalonia.Theme.Converters"
-                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
-  <converters:BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
-  <ControlTheme x:Key="{x:Type HeaderedContentControl}"
-                TargetType="HeaderedContentControl">
-    <Setter Property="BorderBrush"
-            Value="{x:Static theme:ClassicBorderDecorator.ClassicBorderBrush}"/>
-    <Setter Property="BorderThickness"
-            Value="2"/>
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid>
-          <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="6"/>
-              <ColumnDefinition Width="Auto"/>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="6"/>
-          </Grid.ColumnDefinitions>
-          <Grid.RowDefinitions>
-              <RowDefinition Height="Auto"/>
-              <RowDefinition Height="Auto"/>
-              <RowDefinition Height="*"/>
-              <RowDefinition Height="6"/>
-          </Grid.RowDefinitions>
-          <!-- Border for the background with the same CornerRadius as the Border with the Header
-               Using this because if the background is set in the Border with the Header the opacity
-                 mask will be applied to the background as well. -->
-          <Border Grid.Row="1"
-                  Grid.RowSpan="3"
-                  Grid.Column="0"
-                  Grid.ColumnSpan="4"
-                  BorderThickness="{TemplateBinding BorderThickness}"
-                  BorderBrush="Transparent"
-                  Background="{TemplateBinding Background}"/>
+    <Design.PreviewWith>
+        <HeaderedContentControl Header="Header of the control" Margin="10">
+            <Border Width="200" Height="200" Background="Red" />
+        </HeaderedContentControl>
+    </Design.PreviewWith>
+    <converters:BorderGapMaskConverter x:Key="BorderGapMaskConverter" />
+    <ControlTheme x:Key="{x:Type HeaderedContentControl}"
+                  TargetType="HeaderedContentControl">
+        <Setter Property="BorderBrush"
+                Value="{x:Static theme:ClassicBorderDecorator.ClassicBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="2" />
+        <Setter Property="Padding"
+                Value="8" />
+        <Setter Property="ClipToBounds"
+                Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Background="{TemplateBinding Background}">
+                    <Panel
+                        Margin="0,7,0,0"
+                        ClipToBounds="{TemplateBinding ClipToBounds}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          ClipToBounds="{TemplateBinding ClipToBounds}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}"
+                                          RecognizesAccessKey="True"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          FontSize="{TemplateBinding FontSize}"
+                                          FontWeight="{TemplateBinding FontWeight}"
+                                          FontFamily="{TemplateBinding FontFamily}"
+                                          FontStyle="{TemplateBinding FontStyle}" />
+                    </Panel>
 
-          <theme:ClassicBorderDecorator Grid.Row="1"
-                  Grid.RowSpan="3"
-                  Grid.ColumnSpan="4"
-                  x:Name="Border"
-                  BorderThickness="{TemplateBinding BorderThickness}"
-                  BorderBrush="{TemplateBinding BorderBrush}"
-                  BorderStyle="Etched">
-            <!-- https://github.com/AvaloniaUI/Avalonia/issues/11388 -->
-            <!-- can't use VisualBrush for the OpacityMask, so a workaround - header content presenter has background set, but in general this is not correct -->
-            <!-- <theme:ClassicBorderDecorator.OpacityMask> -->
-              <!--     <MultiBinding Converter="{StaticResource BorderGapMaskConverter}" -->
-              <!--                   ConverterParameter="7"> -->
-              <!--         <Binding ElementName="Header" -->
-              <!--                  Path="Bounds.Width"/> -->
-              <!--         <Binding ElementName="Border" -->
-              <!--                  Path="Bounds.Width"/> -->
-              <!--         <Binding ElementName="Border" -->
-              <!--                  Path="Bounds.Height"/> -->
-              <!--     </MultiBinding> -->
-              <!-- </theme:ClassicBorderDecorator.OpacityMask> -->
-          </theme:ClassicBorderDecorator>
 
-          <!-- ContentPresenter for the header -->
-          <Border x:Name="Header"
-                  Padding="3,0,3,0"
-                  Grid.Row="0"
-                  Grid.RowSpan="2"
-                  Grid.Column="1">
-            <ContentPresenter Name="PART_HeaderPresenter"
-                              Content="{TemplateBinding Header}"
-                              RecognizesAccessKey="True"
-                              ContentTemplate="{TemplateBinding HeaderTemplate}"
-                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                              FontSize="{TemplateBinding FontSize}"
-                              FontWeight="{TemplateBinding FontWeight}"
-                              FontFamily="{TemplateBinding FontFamily}"
-                              FontStyle="{TemplateBinding FontStyle}"
-                              Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" /> <!-- workaround for OpacityMask -->
+                    <theme:ClassicBorderDecorator x:Name="Border"
+                                                  Margin="0,7,0,0"
+                                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                                  BorderStyle="Etched">
 
-          </Border>
-          <!-- Primary content for GroupBox -->
-          <ContentPresenter Name="PART_ContentPresenter"
-                            Grid.Row="2"
-                            Grid.Column="1"
-                            Grid.ColumnSpan="2"
-                            Margin="{TemplateBinding Padding}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Content="{TemplateBinding Content}"
-                            RecognizesAccessKey="True"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            FontSize="{TemplateBinding FontSize}"
-                            FontWeight="{TemplateBinding FontWeight}"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            FontStyle="{TemplateBinding FontStyle}"/>
-      </Grid>
-      </ControlTemplate>
-    </Setter>
-  </ControlTheme>
+                        <theme:ClassicBorderDecorator.OpacityMask>
+                            <MultiBinding Converter="{StaticResource BorderGapMaskConverter}"
+                                          ConverterParameter="7">
+                                <Binding ElementName="Header"
+                                         Path="Bounds.Width" />
+                                <Binding ElementName="Header"
+                                         Path="Bounds.Height" />
+                                <Binding ElementName="Border"
+                                         Path="Bounds.Width" />
+                                <Binding ElementName="Border"
+                                         Path="Bounds.Height" />
+                            </MultiBinding>
+                        </theme:ClassicBorderDecorator.OpacityMask>
+                    </theme:ClassicBorderDecorator>
+
+                    <Border x:Name="Header"
+                            Margin="5,0,0,0"
+                            Padding="3,0,3,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                        <ContentPresenter Name="PART_HeaderPresenter"
+                                          Content="{TemplateBinding Header}"
+                                          RecognizesAccessKey="True"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          FontSize="{TemplateBinding FontSize}"
+                                          FontWeight="{TemplateBinding FontWeight}"
+                                          FontFamily="{TemplateBinding FontFamily}"
+                                          FontStyle="{TemplateBinding FontStyle}" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
 </ResourceDictionary>
