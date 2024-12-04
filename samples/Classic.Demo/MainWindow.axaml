@@ -300,7 +300,7 @@
           <TextBox Text="Lorem ipsum dolor sit amet.."/>
           <ComboBox ItemsSource="abcdefgh" SelectedIndex="1" />
           <ComboBox ItemsSource="abcdefgh" IsEnabled="False" SelectedIndex="0" />
-          <AutoCompleteBox ItemsSource="{Binding People}" ValueMemberBinding="{ReflectionBinding FirstName}">
+          <AutoCompleteBox ItemsSource="{Binding People}" ValueMemberBinding="{Binding FirstName}">
             <AutoCompleteBox.ItemTemplate>
               <DataTemplate x:DataType="demo:PersonViewModel">
                 <TextBlock Text="{Binding FirstName}"/>
