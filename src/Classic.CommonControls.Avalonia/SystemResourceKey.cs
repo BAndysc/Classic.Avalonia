@@ -261,7 +261,10 @@ internal enum SystemResourceKeyID
     InactiveSelectionHighlightBrush,
     InactiveSelectionHighlightTextBrush,
 
-    InternalSystemColorsExtendedEnd
+    InternalSystemColorsExtendedEnd,
+
+    // Classic.Avalonia Custom
+    FontAliasing
 }
 
 public class SystemResourceKey

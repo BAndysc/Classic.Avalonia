@@ -52,6 +52,14 @@ While Windows 9x used the bitmap font MS Sans Serif for its distinctive appearan
 
 Tahoma is available on Windows and macOS, but not Linux. A free alternative, 'Wine Tahoma Regular,' is distributed under the GNU Lesser General Public License, but I’m unsure if it’s compatible with the MIT license. Any insights would be appreciated.
 
+#### Font aliasing
+
+For the old look and feel, Classic.Avalonia disables antialiasing (smoothing) for font rendering. If for some reason, you would like to use Classic.Avalonia **with** font antialiasing, set property `FontAliasing` on the `ClassicTheme`:
+
+```
+<classic:ClassicTheme FontAliasing="False" />
+```
+
 ## Custom Controls
 
 `Classic.Avalonia` introduces several custom controls with a classic appearance and behavior.

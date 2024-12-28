@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}"
                 TargetType="MenuFlyoutPresenter">
@@ -15,7 +16,7 @@
                                       BorderBrush="{x:Static classic:ClassicBorderDecorator.ClassicBorderBrush}"
                                       RenderOptions.EdgeMode="Aliased"
                                       RenderOptions.BitmapInterpolationMode="None"
-                                      RenderOptions.TextRenderingMode="Alias"
+                                      utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}"
                                       BorderThickness="2">
           <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                         Theme="{StaticResource SimpleMenuScrollViewer}"

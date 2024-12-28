@@ -4,6 +4,7 @@
                     xmlns:sys="using:System"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
                     x:ClassModifier="internal">
   <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
 
@@ -20,7 +21,7 @@
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}"
-                RenderOptions.TextRenderingMode="Alias">
+                utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
           <Grid>
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="19" />
@@ -86,7 +87,6 @@
                   <ItemsPresenter Name="PART_ItemsPresenter"
                                   Margin="1"
                                   Grid.IsSharedSizeScope="True"
-                                  RenderOptions.TextRenderingMode="Alias"
                                   ItemsPanel="{TemplateBinding ItemsPanel}" />
                 </ScrollViewer>
               </classic:ClassicBorderDecorator>

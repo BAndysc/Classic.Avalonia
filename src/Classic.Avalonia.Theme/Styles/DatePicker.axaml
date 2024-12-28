@@ -3,6 +3,7 @@
                     xmlns:sys="using:System"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
     <Border Padding="20">
@@ -166,7 +167,7 @@
                      Placement="Bottom"
                      PlacementTarget="{Binding #PART_FlyoutButton}"
                      WindowManagerAddShadowHint="False">
-                <DatePickerPresenter Name="PART_PickerPresenter" RenderOptions.TextRenderingMode="Alias" />
+                <DatePickerPresenter Name="PART_PickerPresenter" utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}" />
               </Popup>
             </Grid>
           </classic:ClassicBorderDecorator>

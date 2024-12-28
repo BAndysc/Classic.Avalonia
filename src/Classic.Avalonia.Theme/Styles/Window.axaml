@@ -26,7 +26,7 @@
       <ControlTemplate>
         <Panel RenderOptions.EdgeMode="Aliased"
                RenderOptions.BitmapInterpolationMode="None"
-               RenderOptions.TextRenderingMode="Alias">
+               utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
           <Border Name="PART_TransparencyFallback"
                   IsHitTestVisible="False"
                   Margin="2" />
@@ -88,7 +88,7 @@
       <ControlTemplate>
         <Panel RenderOptions.EdgeMode="Aliased"
                RenderOptions.BitmapInterpolationMode="None"
-               RenderOptions.TextRenderingMode="Alias">
+               utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
           <Border Name="PART_TransparencyFallback"
                   IsHitTestVisible="False" />
           <Border Background="{TemplateBinding Background}"

@@ -37,7 +37,6 @@
                           ContentTemplate="{TemplateBinding ContentTemplate}"
                           RenderOptions.EdgeMode="Aliased"
                           RenderOptions.BitmapInterpolationMode="None"
-                          RenderOptions.TextRenderingMode="Alias"
                           CornerRadius="{TemplateBinding CornerRadius}" />
       </ControlTemplate>
     </Setter>

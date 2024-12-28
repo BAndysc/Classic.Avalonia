@@ -5,6 +5,7 @@
                     xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
     <dialogs:ManagedFileChooser Width="555" Height="384"/>
@@ -80,7 +81,7 @@
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}"
                 Padding="{TemplateBinding Padding}"
-                RenderOptions.TextRenderingMode="Alias">
+                utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
           <DockPanel Margin="5">
             <DockPanel Margin="0,0,75,5"
                        DockPanel.Dock="Top">

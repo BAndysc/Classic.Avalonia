@@ -7,6 +7,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
 using Avalonia.Metadata;
 using Avalonia.Styling;
+using Classic.CommonControls;
 
 [assembly: XmlnsDefinition("https://github.com/avaloniaui", "Classic.Avalonia.Theme")]
 
@@ -14,6 +15,7 @@ namespace Classic.Avalonia.Theme;
 
 public class ClassicTheme : Styles
 {
+    public static readonly StyledProperty<bool> FontAliasingProperty = AvaloniaProperty.Register<ClassicTheme, bool>(nameof(FontAliasing), defaultValue: true);
     public static ThemeVariant Standard { get; } = new("Standard", ThemeVariant.Light);
     public static ThemeVariant Classic { get; } = new("Classic", ThemeVariant.Light);
     public static ThemeVariant Brick { get; } = new("Brick", ThemeVariant.Light);
@@ -52,6 +54,11 @@ public class ClassicTheme : Styles
                 window.Classes.Add("__classic_theme_is_mac");
             });
         }
+
+        FontAliasingProperty.Changed.AddClassHandler<ClassicTheme>((theme, e) =>
+        {
+            theme.Resources[SystemParameters.FontAliasingKey] = e.GetNewValue<bool>();
+        });
     }
 
     /// <summary>
@@ -61,5 +68,11 @@ public class ClassicTheme : Styles
     public ClassicTheme(IServiceProvider? sp = null)
     {
         AvaloniaXamlLoader.Load(sp, this);
+    }
+
+    public bool FontAliasing
+    {
+        get => GetValue(FontAliasingProperty);
+        set => SetValue(FontAliasingProperty, value);
     }
 }

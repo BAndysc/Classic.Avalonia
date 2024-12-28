@@ -3,6 +3,7 @@
                     xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     xmlns:controls="clr-namespace:Classic.Avalonia.Theme.Controls"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
           <ComboBox Width="200" IsEnabled="False"></ComboBox>
@@ -102,7 +103,7 @@
                 <Border x:Name="DropDownBorder"
                         Background="{DynamicResource {x:Static common:SystemColors.WindowBrushKey}}"
                         BorderThickness="1"
-                        RenderOptions.TextRenderingMode="Alias"
+                        utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}"
                         BorderBrush="{DynamicResource {x:Static common:SystemColors.WindowFrameBrushKey}}">
                     <ScrollViewer Name="DropDownScrollViewer"
                                   HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"

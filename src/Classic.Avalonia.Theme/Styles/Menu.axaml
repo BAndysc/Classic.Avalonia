@@ -46,7 +46,6 @@
                   <ItemsPresenter Name="PART_ItemsPresenter"
                                   Margin="1"
                                   Grid.IsSharedSizeScope="True"
-                                  RenderOptions.TextRenderingMode="Alias"
                                   ItemsPanel="{TemplateBinding ItemsPanel}" />
                 </ScrollViewer>
               </classic:ClassicBorderDecorator>

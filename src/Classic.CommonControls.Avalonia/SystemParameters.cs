@@ -121,4 +121,7 @@ public static class SystemParameters
     public static SystemResourceKey MenuPopupAnimationKey { get; } = new(SystemResourceKeyID.MenuPopupAnimation);
     public static SystemResourceKey ToolTipPopupAnimationKey { get; } = new(SystemResourceKeyID.ToolTipPopupAnimation);
     public static SystemResourceKey PowerLineStatusKey { get; } = new(SystemResourceKeyID.PowerLineStatus);
+
+    // Classic.Avalonia Custom
+    public static SystemResourceKey FontAliasingKey { get; } = new(SystemResourceKeyID.FontAliasing);
 }
