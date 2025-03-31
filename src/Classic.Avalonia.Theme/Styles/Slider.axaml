@@ -292,8 +292,6 @@
   </ControlTheme>
   <ControlTheme x:Key="{x:Type Slider}"
          TargetType="{x:Type Slider}">
-    <Setter Property="IsSnapToTickEnabled"
-            Value="True"/>
     <Setter Property="Background"
             Value="Transparent"/>
     <Setter Property="FocusAdorner"
