@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using Avalonia;
 using Classic.CommonControls.Utils;
 using Avalonia.Controls;
 using Avalonia.Threading;
@@ -9,6 +10,14 @@ namespace Classic.Avalonia.Theme;
 public class ClassicWindow : Window
 {
     protected override Type StyleKeyOverride => typeof(ClassicWindow);
+
+    public static readonly StyledProperty<bool> RoundCornersProperty = AvaloniaProperty.Register<ClassicWindow, bool>("RoundCorners", defaultValue: false);
+
+    public bool RoundCorners
+    {
+        get { return (bool)GetValue(RoundCornersProperty); }
+        set { SetValue(RoundCornersProperty, value); }
+    }
 
     private static class NativeWindows
     {
@@ -91,9 +100,17 @@ public class ClassicWindow : Window
         base.ExtendClientAreaToDecorationsChanged(isExtended);
 
         // Fix for Windows: disable rounded corners
+        if (!RoundCorners)
+        {
+            DisableRoundedCorners(this);
+        }
+    }
+
+    public static void DisableRoundedCorners(Window w)
+    {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            if (TryGetPlatformHandle() is { } handle)
+            if (w.TryGetPlatformHandle() is { } handle)
             {
                 unsafe
                 {

@@ -25,7 +25,7 @@
           <ToolTabStrip x:Name="PART_TabStrip"
                         ItemsSource="{Binding VisibleDockables}"
                         SelectedItem="{Binding ActiveDockable, Mode=TwoWay}"
-                        Margin="0,-1,0,0"
+                        Margin="1,-1,1,1"
                         DockPanel.Dock="Bottom"
                         DockProperties.IsDropArea="True" />
           <Border x:Name="PART_Border">

@@ -10,15 +10,15 @@
   <x:Boolean x:Key="UseSystemFocusVisuals">True</x:Boolean>
   <Thickness x:Key="TextControlBorderThemeThickness">1</Thickness>
   <Thickness x:Key="TextControlBorderThemeThicknessFocused">2</Thickness>
-  <Thickness x:Key="TextControlThemePadding">10,6,6,5</Thickness>
+  <Thickness x:Key="TextControlThemePadding">3</Thickness>
   <sys:Double x:Key="IconElementThemeHeight">20</sys:Double>
   <sys:Double x:Key="IconElementThemeWidth">20</sys:Double>
   <sys:Double x:Key="RefreshVisualizerIndicatorSize">24</sys:Double>
   <Thickness x:Key="ButtonPadding">8,5,8,6</Thickness>
 
   <!-- Override system shape defaults -->
-  <CornerRadius x:Key="ControlCornerRadius">3</CornerRadius>
-  <CornerRadius x:Key="OverlayCornerRadius">5</CornerRadius>
+  <CornerRadius x:Key="ControlCornerRadius">0</CornerRadius>
+  <CornerRadius x:Key="OverlayCornerRadius">0</CornerRadius>
 
   <!-- ScrollBar animation -->
   <TransformOperations x:Key="VerticalSmallScrollThumbScaleTransform">scaleX(0.125) translateX(-2px)</TransformOperations>
@@ -33,7 +33,7 @@
   <Thickness x:Key="AutoCompleteListMargin">0,2,0,2</Thickness>
   <Thickness x:Key="AutoCompleteListBorderThemeThickness">1</Thickness>
   <Thickness x:Key="AutoCompleteListPadding">-1,0,-1,0</Thickness>
-  <x:Double x:Key="TextControlThemeMinHeight">32</x:Double>
+  <x:Double x:Key="TextControlThemeMinHeight">21</x:Double>
   <x:Double x:Key="TextControlThemeMinWidth">64</x:Double>
   <x:Double x:Key="FlyoutThemeMaxWidth">456</x:Double>
   <Thickness x:Key="DateTimeFlyoutButtonBorderThickness">0</Thickness>
@@ -132,7 +132,7 @@
       <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="{DynamicResource SystemAccentColor}" />
       <SolidColorBrush x:Key="SystemControlHighlightAltAccentBrush" Color="{DynamicResource SystemAccentColor}" />
       <SolidColorBrush x:Key="SystemControlHighlightAltAltHighBrush" Color="{StaticResource SystemAltHighColor}" />
-      <SolidColorBrush x:Key="SystemControlHighlightAltBaseHighBrush" Color="{StaticResource SystemBaseHighColor}" />
+      <SolidColorBrush x:Key="SystemControlHighlightAltBaseHighBrush" Color="{StaticResource SystemAltHighColor}" />
       <SolidColorBrush x:Key="SystemControlHighlightAltBaseLowBrush" Color="{StaticResource SystemBaseLowColor}" />
       <SolidColorBrush x:Key="SystemControlHighlightAltBaseMediumBrush" Color="{StaticResource SystemBaseMediumColor}" />
       <SolidColorBrush x:Key="SystemControlHighlightAltBaseMediumHighBrush"

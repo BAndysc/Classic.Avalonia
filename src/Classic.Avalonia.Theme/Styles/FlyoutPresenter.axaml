@@ -11,6 +11,10 @@
     <Setter Property="Background" Value="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}" />
     <Setter Property="BorderThickness" Value="2" />
     <Setter Property="Padding" Value="2" />
+    <Setter Property="MinWidth" Value="{DynamicResource FlyoutThemeMinWidth}" />
+    <Setter Property="MaxWidth" Value="{DynamicResource FlyoutThemeMaxWidth}" />
+    <Setter Property="MinHeight" Value="{DynamicResource FlyoutThemeMinHeight}" />
+    <Setter Property="MaxHeight" Value="{DynamicResource FlyoutThemeMaxHeight}" />
     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
     <Setter Property="Template">

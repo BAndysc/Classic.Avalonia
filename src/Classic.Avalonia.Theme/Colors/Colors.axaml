@@ -1,89 +1,103 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
-
+  <!-- MergeResourceInclude doesn't work with FluentCompatibility.axaml -->
   <ResourceDictionary.ThemeDictionaries>
     <ResourceDictionary x:Key="Default">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StandardWindows.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StandardWindows.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Standard}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StandardWindows.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StandardWindows.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Classic}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/ClassicWindows.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/ClassicWindows.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Brick}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Brick.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Brick.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Marine}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Marine.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Marine.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Wheat}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Wheat.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Wheat.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Sprouce}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Sprouce.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Sprouce.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Plum}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Plum.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Plum.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Rose}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Rose.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Rose.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Storm}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Storm.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Storm.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Desert}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Desert.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Desert.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Eggplant}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Eggplant.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Eggplant.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.Pumpkin}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Pumpkin.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/Pumpkin.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static ClassicTheme.StarsAndStripes}">
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StarsAndStripes.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Colors/StarsAndStripes.axaml" />
+        <ResourceInclude Source="avares://Classic.Avalonia.Theme/Fluent/Fluent.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 

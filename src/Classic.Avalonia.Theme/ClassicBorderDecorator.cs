@@ -189,6 +189,20 @@ public sealed class ClassicBorderDecorator : Decorator
         set => SetValue(BackgroundProperty, value);
     }
 
+    /// <summary>
+    /// Gets or sets the radius of the border rounded corners.
+    /// </summary>
+    public CornerRadius CornerRadius
+    {
+        get => this.GetValue<CornerRadius>(CornerRadiusProperty);
+        set => this.SetValue<CornerRadius>(CornerRadiusProperty, value);
+    }
+
+    /// <summary>
+    /// Defines the <see cref="CornerRadius"/> property.
+    /// </summary>
+    public static readonly StyledProperty<CornerRadius> CornerRadiusProperty =
+        AvaloniaProperty.Register<ClassicBorderDecorator, CornerRadius>(nameof(CornerRadius));
 
     #region HlS Color Space Conversions
     // Provided by the Sparkle team's ColorUtility class

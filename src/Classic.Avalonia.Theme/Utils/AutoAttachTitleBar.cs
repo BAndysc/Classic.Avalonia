@@ -10,7 +10,7 @@ namespace Classic.Avalonia.Theme.Utils;
 
 [TemplatePart("PART_CaptionButtons", typeof(CaptionButtons), IsRequired = true)]
 [PseudoClasses(":minimized", ":normal", ":maximized", ":fullscreen")]
-internal class AutoAttachTitleBar : TemplatedControl
+public class AutoAttachTitleBar : TemplatedControl
 {
     private IDisposable? _disposables;
     private CaptionButtons? _captionButtons;

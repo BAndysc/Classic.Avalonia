@@ -75,6 +75,7 @@ public class ToolBarButton : Button
 
     static ToolBarButton()
     {
+        TextProperty.Changed.AddClassHandler<ToolBarButton>((button, e) => button.UpdatePseudoClass());
         SmallIconProperty.Changed.AddClassHandler<ToolBarButton>((button, e) => button.UpdatePseudoClass());
         LargeIconProperty.Changed.AddClassHandler<ToolBarButton>((button, e) => button.UpdatePseudoClass());
         IsCheckedProperty.Changed.AddClassHandler<ToolBarButton>((button, e) => button.UpdatePseudoClass());
@@ -98,6 +99,8 @@ public class ToolBarButton : Button
 
     private void UpdatePseudoClass()
     {
+        PseudoClasses.Set(":text", !string.IsNullOrEmpty(Text));
+        PseudoClasses.Set(":icon", SmallIcon != null || LargeIcon != null);
         PseudoClasses.Set(":noicon", SmallIcon == null && LargeIcon == null);
         PseudoClasses.Set(":checked", IsToggleButton && IsChecked);
         PseudoClasses.Set(":unchecked", IsToggleButton && !IsChecked);

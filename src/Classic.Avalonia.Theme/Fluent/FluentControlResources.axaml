@@ -694,21 +694,21 @@
       <!-- Resources for TreeViewItem.xaml -->
       <StaticResource x:Key="TreeViewItemBackground" ResourceKey="SystemControlTransparentRevealBackgroundBrush" />
       <StaticResource x:Key="TreeViewItemBackgroundPointerOver"
-                      ResourceKey="SystemControlHighlightListLowRevealBackgroundBrush" />
+                      ResourceKey="TreeViewItemBackground" />
       <StaticResource x:Key="TreeViewItemBackgroundPressed"
-                      ResourceKey="SystemControlHighlightListMediumRevealBackgroundBrush" />
+                      ResourceKey="TreeViewItemBackground" />
       <StaticResource x:Key="TreeViewItemBackgroundDisabled" ResourceKey="SystemControlTransparentBrush" />
       <StaticResource x:Key="TreeViewItemBackgroundSelected"
                       ResourceKey="SystemControlHighlightAccent3RevealBackgroundBrush" />
       <StaticResource x:Key="TreeViewItemBackgroundSelectedPointerOver"
-                      ResourceKey="SystemControlHighlightAccent2RevealBackgroundBrush" />
+                      ResourceKey="TreeViewItemBackgroundSelected" />
       <StaticResource x:Key="TreeViewItemBackgroundSelectedPressed"
-                      ResourceKey="SystemControlHighlightListMediumRevealBackgroundBrush" />
+                      ResourceKey="TreeViewItemBackgroundSelected" />
       <StaticResource x:Key="TreeViewItemBackgroundSelectedDisabled"
                       ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
       <StaticResource x:Key="TreeViewItemForeground" ResourceKey="SystemControlForegroundBaseHighBrush" />
-      <StaticResource x:Key="TreeViewItemForegroundPointerOver" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
-      <StaticResource x:Key="TreeViewItemForegroundPressed" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="TreeViewItemForegroundPointerOver" ResourceKey="TreeViewItemForeground" />
+      <StaticResource x:Key="TreeViewItemForegroundPressed" ResourceKey="TreeViewItemForeground" />
       <StaticResource x:Key="TreeViewItemForegroundDisabled" ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
       <StaticResource x:Key="TreeViewItemForegroundSelected" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
       <StaticResource x:Key="TreeViewItemForegroundSelectedPointerOver"
@@ -719,15 +719,15 @@
                       ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
       <StaticResource x:Key="TreeViewItemBorderBrush" ResourceKey="SystemControlTransparentBrush" />
       <StaticResource x:Key="TreeViewItemBorderBrushPointerOver"
-                      ResourceKey="SystemControlHighlightAltTransparentRevealBorderBrush" />
+                      ResourceKey="TreeViewItemBorderBrush" />
       <StaticResource x:Key="TreeViewItemBorderBrushPressed"
-                      ResourceKey="SystemControlHighlightAltTransparentRevealBorderBrush" />
+                      ResourceKey="TreeViewItemBorderBrush" />
       <StaticResource x:Key="TreeViewItemBorderBrushDisabled" ResourceKey="SystemControlTransparentBrush" />
       <StaticResource x:Key="TreeViewItemBorderBrushSelected" ResourceKey="SystemControlTransparentBrush" />
       <StaticResource x:Key="TreeViewItemBorderBrushSelectedPointerOver"
-                      ResourceKey="SystemControlBackgroundTransparentRevealBorderBrush" />
+                      ResourceKey="TreeViewItemBorderBrushSelected" />
       <StaticResource x:Key="TreeViewItemBorderBrushSelectedPressed"
-                      ResourceKey="SystemControlBackgroundTransparentRevealBorderBrush" />
+                      ResourceKey="TreeViewItemBorderBrushSelected" />
       <StaticResource x:Key="TreeViewItemBorderBrushSelectedDisabled" ResourceKey="SystemControlTransparentBrush" />
       <Thickness x:Key="TreeViewItemBorderThemeThickness">1</Thickness>
       <x:Double x:Key="TreeViewItemMinHeight">32</x:Double>
@@ -1526,14 +1526,14 @@
       <StaticResource x:Key="TreeViewItemBackgroundSelectedDisabled"
                       ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
       <StaticResource x:Key="TreeViewItemForeground" ResourceKey="SystemControlForegroundBaseHighBrush" />
-      <StaticResource x:Key="TreeViewItemForegroundPointerOver" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
-      <StaticResource x:Key="TreeViewItemForegroundPressed" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="TreeViewItemForegroundPointerOver" ResourceKey="TreeViewItemForeground" />
+      <StaticResource x:Key="TreeViewItemForegroundPressed" ResourceKey="TreeViewItemForeground" />
       <StaticResource x:Key="TreeViewItemForegroundDisabled" ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
-      <StaticResource x:Key="TreeViewItemForegroundSelected" ResourceKey="SystemControlHighlightAltBaseLowBrush" />
+      <StaticResource x:Key="TreeViewItemForegroundSelected" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
       <StaticResource x:Key="TreeViewItemForegroundSelectedPointerOver"
-                      ResourceKey="SystemControlHighlightAltBaseLowBrush" />
+                      ResourceKey="TreeViewItemForegroundSelected" />
       <StaticResource x:Key="TreeViewItemForegroundSelectedPressed"
-                      ResourceKey="SystemControlHighlightAltBaseLowBrush" />
+                      ResourceKey="TreeViewItemForegroundSelected" />
       <StaticResource x:Key="TreeViewItemForegroundSelectedDisabled"
                       ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
       <StaticResource x:Key="TreeViewItemBorderBrush" ResourceKey="SystemControlTransparentBrush" />

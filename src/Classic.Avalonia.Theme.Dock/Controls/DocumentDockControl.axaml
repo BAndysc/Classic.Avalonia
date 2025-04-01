@@ -11,7 +11,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <DockableControl TrackingMode="Visible">
-          <DocumentControl IsActive="{Binding IsActive}" />
+          <DocumentControl Name="PART_DocumentControl" IsActive="{Binding IsActive}" />
         </DockableControl>
       </ControlTemplate>
     </Setter>

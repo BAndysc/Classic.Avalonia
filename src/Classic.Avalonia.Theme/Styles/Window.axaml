@@ -70,7 +70,7 @@
 
     <Style Selector="^[WindowState=Maximized]">
       <Style Selector="^ /template/ DockPanel#RootLayout">
-        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Margin" Value="{Binding $parent[Window].OffScreenMargin}"/>
       </Style>
       <Style Selector="^ /template/ classic|ClassicBorderDecorator#Bd">
         <Setter Property="BorderThickness" Value="0"/>

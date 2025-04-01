@@ -277,8 +277,8 @@
                               VerticalScrollBarVisibility="Hidden">
                   <DateTimePickerPanel Name="PART_SecondSelector"
                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
-                                       PanelType="Second"
                                        ShouldLoop="True" />
+                  <!-- PanelType="Second" -->
                 </ScrollViewer>
                 <RepeatButton Name="PART_SecondUpButton"
                               Theme="{StaticResource SimpleDateTimePickerUpButton}" />

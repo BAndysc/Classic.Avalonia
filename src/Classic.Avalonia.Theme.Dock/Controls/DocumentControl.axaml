@@ -37,7 +37,7 @@
               </Style>
             </DocumentTabStrip.Styles>
           </DocumentTabStrip>
-          <Border x:Name="PART_Border">
+          <ClassicBorderDecorator x:Name="PART_Border" BorderStyle="Sunken" BorderThickness="2" Background="{DynamicResource {x:Static commonControls:SystemColors.WindowBrushKey}}">
             <DockableControl DataContext="{Binding ActiveDockable}"
                              TrackingMode="Visible">
               <ContentControl x:Name="PART_ContentPresenter"
@@ -49,16 +49,10 @@
                 </ContentControl.ContentTemplate>
               </ContentControl>
             </DockableControl>
-          </Border>
+          </ClassicBorderDecorator>
         </DockPanel>
       </ControlTemplate>
     </Setter>
-
-    <Style Selector="^/template/ Border#PART_Border">
-      <Setter Property="BorderBrush" Value="{DynamicResource {x:Static commonControls:SystemColors.ControlBrushKey}}" />
-      <Setter Property="BorderThickness" Value="1,1,1,1" />
-    </Style>
-
   </ControlTheme>
 
 </ResourceDictionary>

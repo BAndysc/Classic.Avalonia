@@ -12,7 +12,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <DockableControl TrackingMode="Visible">
-          <ItemsControl ItemsSource="{Binding VisibleDockables}">
+          <ItemsControl ItemsSource="{Binding VisibleDockables}" Name="PART_ContentControl">
             <ItemsControl.Styles>
               <Style Selector="ItemsControl > ContentPresenter">
                 <Setter x:DataType="core:IDock" Property="(ProportionalStackPanel.Proportion)" Value="{Binding Proportion}" />

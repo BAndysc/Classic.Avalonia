@@ -4,7 +4,7 @@ using Avalonia.Media;
 
 namespace Classic.Avalonia.Theme.Utils;
 
-internal class FontUtils
+public class FontUtils
 {
     public static readonly AttachedProperty<bool?> FontAliasingProperty = AvaloniaProperty.RegisterAttached<FontUtils, Control, bool?>("FontAliasing");
 

@@ -111,7 +111,7 @@
 
     <Setter Property="Template">
       <ControlTemplate>
-        <DockPanel HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+        <DockPanel HorizontalAlignment="Stretch"
                    VerticalAlignment="{TemplateBinding VerticalAlignment}">
 
           <TextBlock Name="floatingWatermark"
@@ -208,6 +208,7 @@
     </Style>
 
     <Style Selector="^[AcceptsReturn=false]">
+      <Setter Property="VerticalContentAlignment" Value="Center" />
       <Style Selector="^ /template/ TextPresenter#PART_TextPresenter">
         <Setter Property="VerticalAlignment" Value="Center" />
       </Style>

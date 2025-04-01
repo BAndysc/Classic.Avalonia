@@ -34,6 +34,8 @@ public class IconRenderer : Control
     static IconRenderer()
     {
         AffectsRender<IconRenderer>(IconStyleProperty, SelectedColorProperty, DisabledColorProperty, DisabledShadowColorProperty, SourceProperty, LargeSourceProperty);
+        AffectsArrange<IconRenderer>(SourceProperty, LargeSourceProperty);
+        AffectsMeasure<IconRenderer>(SourceProperty, LargeSourceProperty);
     }
 
     [Content]
@@ -75,6 +77,7 @@ public class IconRenderer : Control
 
     class CustomDrawOp : ICustomDrawOperation
     {
+        private readonly Visual visual;
         private readonly Bitmap bitmap;
         private readonly IconStyle iconStyle;
         private readonly Color lightLightColor;
@@ -82,13 +85,34 @@ public class IconRenderer : Control
         private readonly Color selectedColor;
         public Rect Bounds { get; }
 
-        public CustomDrawOp(Bitmap source,
+        private static Dictionary<CacheKey, SKPaint> cache = new();
+        private static SKPaint grayscalePaint;
+        private record struct CacheKey(BitmapInterpolationMode mode, Color? colorFilter, SKBlendMode? blendMode);
+        private static SKPaint GetPaint(BitmapInterpolationMode mode, Color? colorFilter, SKBlendMode? blendMode)
+        {
+            var key = new CacheKey(mode, colorFilter, blendMode);
+            if (cache.TryGetValue(key, out var paint))
+                return paint;
+
+            paint = new SKPaint();
+            if (colorFilter != null)
+                paint.ColorFilter = SKColorFilter.CreateBlendMode(colorFilter.Value.ToSKColor(), blendMode ?? SKBlendMode.SrcIn);
+            if (blendMode != null)
+                paint.BlendMode = blendMode.Value;
+            paint.FilterQuality = mode.ToSKFilterQuality();
+            cache[key] = paint;
+            return paint;
+        }
+
+        public CustomDrawOp(Visual visual,
+            Bitmap source,
             IconStyle iconStyle,
             Rect bounds,
             Color lightLightColor,
             Color grayTextColor,
             Color selectedColor)
         {
+            this.visual = visual;
             this.bitmap = source;
             this.iconStyle = iconStyle;
             this.lightLightColor = lightLightColor;
@@ -103,6 +127,14 @@ public class IconRenderer : Control
 
         public bool Equals(ICustomDrawOperation? other) => false;
 
+        static CustomDrawOp()
+        {
+            grayscalePaint = new SKPaint
+            {
+                ColorFilter =  SKColorFilter.CreateColorMatrix(grayscaleMatrix)
+            };
+        }
+
         /// <summary>
         /// This method handles the rendering of the chart using SkiaSharp.
         /// </summary>
@@ -111,11 +143,10 @@ public class IconRenderer : Control
         {
             if (context.TryGetFeature(typeof(ISkiaSharpApiLeaseFeature)) is ISkiaSharpApiLeaseFeature leaseFeature)
             {
+                var interpolation = RenderOptions.GetBitmapInterpolationMode(visual);
                 using var lease = leaseFeature.Lease();
                 var canvas = lease.SkCanvas;
                 canvas.Save();
-
-                using SKColorFilter colorFilter = SKColorFilter.CreateColorMatrix(grayscaleMatrix);
 
                 SKRect bounds = Bounds.ToSKRect();
 
@@ -128,7 +159,7 @@ public class IconRenderer : Control
                 {
                     var pixels = skBitmap.Pixels;
                     bool changed = false;
-                    for (var index = 0; index < skBitmap.Pixels.Length; index++)
+                    for (var index = 0; index < pixels.Length; index++)
                     {
                         var pixel = pixels[index];
                         if ((int)pixel.Red + pixel.Green + pixel.Blue >= (255*3 / 2))
@@ -143,25 +174,17 @@ public class IconRenderer : Control
 
                 using var skImage = SKImage.FromBitmap(skBitmap);
 
-                SKPaint? brush = null;
+                SKPaint? brush = GetPaint(interpolation, null, null);
                 if (iconStyle == IconStyle.Disabled)
                 {
-                    canvas.DrawImage(skImage,Bounds.WithX(1).WithY(1).ToSKRect(), new SKPaint
-                    {
-                        ColorFilter = SKColorFilter.CreateBlendMode(lightLightColor.ToSKColor(), SKBlendMode.SrcIn)
-                    });
+                    canvas.DrawImage(skImage,Bounds.WithX(1).WithY(1).ToSKRect(),
+                        GetPaint(interpolation, lightLightColor, default));
 
-                    brush = new SKPaint
-                    {
-                        ColorFilter = SKColorFilter.CreateBlendMode(grayTextColor.ToSKColor(), SKBlendMode.SrcIn)
-                    };
+                    brush = GetPaint(interpolation, grayTextColor, default);
                 }
                 else if (iconStyle == IconStyle.Grayscale)
                 {
-                    brush = new SKPaint
-                    {
-                        ColorFilter = colorFilter
-                    };
+                    brush = grayscalePaint;
                 }
 
                 canvas.DrawImage(skImage, Bounds.ToSKRect(), brush);
@@ -169,29 +192,25 @@ public class IconRenderer : Control
                 {
                     using var patternBitmap = new SKBitmap((int)Bounds.Width, (int)Bounds.Height);
                     using var patternCanvas = new SKCanvas(patternBitmap);
-                    using (var paint = new SKPaint())
+                    var paint = GetPaint(interpolation, default, default);
+                    using (var pattern = new SKBitmap(2, 2))
                     {
-                        using (var pattern = new SKBitmap(2, 2))
-                        {
-                            pattern.SetPixel(0, 0, selectedColor.ToSKColor());
-                            pattern.SetPixel(1, 1, selectedColor.ToSKColor());
+                        pattern.SetPixel(0, 0, selectedColor.ToSKColor());
+                        pattern.SetPixel(1, 1, selectedColor.ToSKColor());
 
-                            // Create a repeating shader from the 2x2 pattern.
-                            paint.Shader = SKShader.CreateBitmap(pattern,
-                                SKShaderTileMode.Repeat,
-                                SKShaderTileMode.Repeat);
-                        }
+                        // Create a repeating shader from the 2x2 pattern.
+                        paint.Shader = SKShader.CreateBitmap(pattern,
+                            SKShaderTileMode.Repeat,
+                            SKShaderTileMode.Repeat);
 
                         // Step 4: Draw the repeating pattern onto the pattern bitmap.
                         patternCanvas.DrawRect(new SKRect(0, 0, patternBitmap.Width, patternBitmap.Height), paint);
                     }
 
                     // Step 5: Blend the pattern with the original image's alpha channel.
-                    using (var alphaPaint = new SKPaint())
-                    {
-                        alphaPaint.BlendMode = SKBlendMode.DstIn;
-                        patternCanvas.DrawBitmap(skBitmap, Bounds.ToSKRect(), alphaPaint);
-                    }
+                    var alphaPaint = GetPaint(interpolation, default, SKBlendMode.DstIn);
+                    alphaPaint.BlendMode = SKBlendMode.DstIn;
+                    patternCanvas.DrawBitmap(skBitmap, Bounds.ToSKRect(), alphaPaint);
 
                     // Step 6: Draw the alpha-masked pattern onto the main canvas.
                     canvas.DrawBitmap(patternBitmap, new SKPoint(0, 0));
@@ -217,6 +236,30 @@ public class IconRenderer : Control
                 source = Source;
         }
 
-        context.Custom(new CustomDrawOp(source, IconStyle, new Rect(0, 0, Bounds.Width, Bounds.Height), DisabledShadowColor, DisabledColor, SelectedColor));
+        context.Custom(new CustomDrawOp(this, source, IconStyle, new Rect(0, 0, Bounds.Width, Bounds.Height), DisabledShadowColor, DisabledColor, SelectedColor));
+    }
+
+    /// <summary>Measures the control.</summary>
+    /// <param name="availableSize">The available size.</param>
+    /// <returns>The desired size of the control.</returns>
+    protected override Size MeasureOverride(Size availableSize)
+    {
+        var stretch = Stretch.Fill;
+        IImage? source = this.Source ?? LargeSource;
+        Size size = new Size();
+        if (source != null)
+            size = stretch.CalculateSize(availableSize, source.Size);
+        return size;
+    }
+
+    /// <inheritdoc />
+    protected override Size ArrangeOverride(Size finalSize)
+    {
+        var stretch = Stretch.Fill;
+        IImage? source = this.Source ?? LargeSource;
+        if (source == null)
+            return new Size();
+        Size size = source.Size;
+        return stretch.CalculateSize(finalSize, size);
     }
 }
