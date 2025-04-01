@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net8.0;net9.0</TargetFrameworks>
+        <TargetFrameworks>net8.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
@@ -45,10 +45,10 @@
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Dock.Avalonia" Version="$(DockVersion)" />
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\..\Dock\src\Dock.Avalonia\Dock.Avalonia.csproj" />
         <ProjectReference Include="..\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj" />
     </ItemGroup>
 
