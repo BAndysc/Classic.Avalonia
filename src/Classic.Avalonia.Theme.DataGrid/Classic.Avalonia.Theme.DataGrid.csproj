@@ -5,6 +5,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
+        <RestoreAdditionalProjectSources>
+            https://nuget-feed-all.avaloniaui.net/v3/index.json;
+        </RestoreAdditionalProjectSources>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
@@ -44,10 +47,10 @@
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Avalonia.Controls.DataGrid\src\Avalonia.Controls.DataGrid\Avalonia.Controls.DataGrid.csproj" />
       <ProjectReference Include="..\Classic.Avalonia.Theme\Classic.Avalonia.Theme.csproj" />
     </ItemGroup>
 </Project>

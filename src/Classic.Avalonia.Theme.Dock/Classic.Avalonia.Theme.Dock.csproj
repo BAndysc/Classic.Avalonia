@@ -6,6 +6,9 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <RestoreAdditionalProjectSources>
+            https://nuget-feed-all.avaloniaui.net/v3/index.json;
+        </RestoreAdditionalProjectSources>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
