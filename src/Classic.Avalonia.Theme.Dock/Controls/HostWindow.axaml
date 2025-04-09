@@ -3,7 +3,8 @@
                     xmlns:core="using:Dock.Model.Core"
                     xmlns:controls="clr-namespace:Dock.Model.Controls;assembly=Dock.Model"
                     xmlns:dock="clr-namespace:Classic.Avalonia.Theme.Dock"
-                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia">
+                    xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils;assembly=Classic.Avalonia.Theme">
   <Design.PreviewWith>
     <HostWindow IsToolWindow="False" Width="300" Height="400" />
   </Design.PreviewWith>
@@ -32,7 +33,9 @@
 
     <Setter Property="Template">
       <ControlTemplate>
-        <Panel>
+        <Panel RenderOptions.EdgeMode="Aliased"
+               RenderOptions.BitmapInterpolationMode="None"
+               utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
           <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
           <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
           <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
@@ -82,7 +85,9 @@
 
       <Setter Property="Template">
         <ControlTemplate>
-          <Panel>
+          <Panel RenderOptions.EdgeMode="Aliased"
+                 RenderOptions.BitmapInterpolationMode="None"
+                 utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
             <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
             <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
             <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
