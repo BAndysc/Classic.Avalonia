@@ -39,7 +39,7 @@ internal class ProgressBarBrushConverter : IMultiValueConverter
         // Conversion
         //
 
-        IBrush brush = (Brush)values[0]!;
+        IBrush brush = (IBrush)values[0]!;
         bool isIndeterminate = (bool)values[1]!;
         double width = (double)values[2]!;
         double height = (double)values[3]!;
