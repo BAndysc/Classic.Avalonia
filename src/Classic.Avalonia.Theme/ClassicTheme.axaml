@@ -3,9 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:classic="clr-namespace:Classic.Avalonia.Theme"
         xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
-        xmlns:utils="clr-namespace:Classic.CommonControls.Utils;assembly=Classic.CommonControls.Avalonia">
+        xmlns:utils="clr-namespace:Classic.CommonControls.Utils;assembly=Classic.CommonControls.Avalonia"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime">
   <Styles.Resources>
     <ResourceDictionary>
+      <system:Boolean x:Key="{x:Static common:SystemParameters.FontAliasingKey}">True</system:Boolean>
 
       <VisualBrush x:Key="DiagonalBrushLight" TileMode="Tile" SourceRect="0,0,2,2" DestinationRect="0,0,2,2">
         <VisualBrush.Visual>
