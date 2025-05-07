@@ -55,6 +55,7 @@
           <classic:ClassicBorderDecorator x:Name="ContentContainer"
                                           Background="{TemplateBinding Background}"
                                           BorderThickness="3"
+                                          MinWidth="15"
                                           BorderBrush="{TemplateBinding BorderBrush}">
             <Panel Name="PART_MovingKnobs">
               <ContentPresenter x:Name="PART_OffContentPresenter"
