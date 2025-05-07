@@ -805,7 +805,7 @@ public sealed class ClassicBorderDecorator : Decorator
                 }
             }
 
-            Rect childArrangeRect = new Rect(x, y, width, height);
+            Rect childArrangeRect = new Rect(x, y, Math.Max(0, width), Math.Max(0, height));
 
             //Position the child
             child.Arrange(childArrangeRect);
