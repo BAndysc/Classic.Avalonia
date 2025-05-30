@@ -123,7 +123,7 @@ public class IconRenderer : Control
 
         public void Dispose() { }
 
-        public bool HitTest(Point p) => true;
+        public bool HitTest(Point p) => Bounds.Contains(p);
 
         public bool Equals(ICustomDrawOperation? other) => false;
 
