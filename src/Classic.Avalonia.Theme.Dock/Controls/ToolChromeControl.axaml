@@ -70,6 +70,7 @@
               <DockPanel LastChildFill="True" Margin="0 0">
                 <Panel DockPanel.Dock="Left">
                   <TextBlock x:Name="PART_Title"
+                             Padding="2,0,0,0"
                              Text="{Binding ActiveDockable.Title, FallbackValue=TITLE}" />
                 </Panel>
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
@@ -100,7 +101,7 @@
                           CommandParameter="{Binding ActiveDockable}"
                           IsVisible="{Binding ActiveDockable.CanClose, FallbackValue=False}"
                           Theme="{StaticResource ChromeButton}">
-                    <Path x:Name="PART_ClosePath" Width="8" Height="7" />
+                    <Path x:Name="PART_ClosePath" Width="8" Height="7" Margin="-1,-2,0,0" />
                   </Button>
                 </StackPanel>
                 <Grid x:Name="PART_Grid" />
