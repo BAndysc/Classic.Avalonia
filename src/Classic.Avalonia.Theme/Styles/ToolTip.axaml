@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
                     x:ClassModifier="internal">
   <ControlTheme x:Key="{x:Type ToolTip}"
                 TargetType="ToolTip">
@@ -37,6 +38,7 @@
                           ContentTemplate="{TemplateBinding ContentTemplate}"
                           RenderOptions.EdgeMode="Aliased"
                           RenderOptions.BitmapInterpolationMode="None"
+                          utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}"
                           CornerRadius="{TemplateBinding CornerRadius}" />
       </ControlTemplate>
     </Setter>
