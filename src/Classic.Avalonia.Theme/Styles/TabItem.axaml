@@ -61,7 +61,7 @@
     </Style>
 
     <Style Selector="^[TabStripPlacement=Top]:selected">
-      <Setter Property="Margin" Value="-2" />
+      <Setter Property="Margin" Value="-2,-2,-2,-1" />
     </Style>
     <Style Selector="^[TabStripPlacement=Bottom]:selected">
       <Setter Property="Margin" Value="-2" />
@@ -69,7 +69,7 @@
 
     <Style Selector="^[TabStripPlacement=Left]:selected">
       <Setter Property="Padding" Value="11,2,14,2" />
-      <Setter Property="Margin" Value="-2" />
+      <Setter Property="Margin" Value="-2,-2,-1,-2" />
     </Style>
     <Style Selector="^[TabStripPlacement=Right]:selected">
       <Setter Property="Padding" Value="14,2,11,2" />

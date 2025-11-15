@@ -1137,7 +1137,7 @@ public sealed class ClassicBorderDecorator : Decorator
         double innerRadius = outerRadius - 1.0;
         Size outerCorner = new Size(outerRadius, outerRadius), innerCorner = new Size(innerRadius, innerRadius);
 
-        double left = bounds.Left, right = bounds.Right, top = bounds.Top, bottom = bounds.Bottom - 1.0;
+        double left = bounds.Left, right = bounds.Right, top = bounds.Top, bottom = bounds.Bottom;
 
         PathFigure figure = new PathFigure();
         //Start at bottom left, tracing the outside clockwise
@@ -1169,7 +1169,7 @@ public sealed class ClassicBorderDecorator : Decorator
         double innerRadius = outerRadius - 1.0;
         Size outerCorner = new Size(outerRadius, outerRadius), innerCorner = new Size(innerRadius, innerRadius);
 
-        double right = bounds.Right, top = bounds.Top, bottom = bounds.Bottom - 1.0;
+        double right = bounds.Right, top = bounds.Top, bottom = bounds.Bottom;
 
         PathFigure figure = new PathFigure();
         //Start at bottom left, tracing the outside clockwise
