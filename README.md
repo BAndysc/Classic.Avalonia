@@ -84,7 +84,7 @@ Theme="{StaticResource ClassicWindow}"
 
 **Note**: On Windows 11, the default `Window` class results in rounded corners, which may detract from the classic look. Inherit from `ClassicWindow` to avoid this.
 
-#### ❓ TitleBar Icon Sie problem
+#### ❓ TitleBar Icon Size problem
 
 Avalonia accepts .ico files as window icons, but the way it handles them varies across platforms. On Windows, Avalonia loads and stores the actual .ico file.
 Because of that, ClassicTheme can pick up the correct icon size and display it in the title bar. However, on macOS and Linux, where .ico is not a native format, 
