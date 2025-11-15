@@ -41,9 +41,9 @@ public class MessageBox : TemplatedControl
         set => SetAndRaise(ButtonsSourceProperty, ref buttonsSource, value);
     }
 
-    public void PickOption(MessageBoxResult result)
+    public void PickOption(object result)
     {
-        AcceptRequest?.Invoke(result);
+        AcceptRequest?.Invoke((MessageBoxResult)result);
     }
 
     static MessageBox()

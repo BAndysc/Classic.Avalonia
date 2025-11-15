@@ -59,7 +59,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
               <DataTemplate x:DataType="dialogs:MessageBoxResult">
-                <Button Content="{CompiledBinding}" Width="75" Command="{Binding $parent[dialogs:MessageBox].PickOption}" CommandParameter="{CompiledBinding}" />
+                <Button Content="{CompiledBinding}" Width="75" Command="{CompiledBinding $parent[dialogs:MessageBox].PickOption}" CommandParameter="{CompiledBinding}" />
               </DataTemplate>
             </ItemsControl.ItemTemplate>
           </ItemsControl>
