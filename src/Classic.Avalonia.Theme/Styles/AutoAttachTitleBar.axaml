@@ -24,7 +24,7 @@
         <Panel>
           <Border x:Name="PART_GradientBar" IsHitTestVisible="False" />
 
-          <DockPanel Margin="2,0,0,0">
+          <DockPanel Margin="2,0,2,0">
             <utils:CaptionButtonsEx Name="PART_CaptionButtons" DockPanel.Dock="Right" />
 
             <utils:WindowIconRenderer
