@@ -200,21 +200,21 @@
                                                         <TreeViewItem.Header>
                                                             <StackPanel Orientation="Horizontal">
                                                                 <Image Source="Icons/project.gif" Width="16" Height="16" />
-                                                                <TextBlock Text="Project1 (Project1)" FontWeight="Bold" />
+                                                                <TextBlock Text="Project1 (Project1)" FontWeight="Bold" Margin="4,1,0,0" />
                                                             </StackPanel>
                                                         </TreeViewItem.Header>
                                                         <TreeViewItem IsExpanded="True">
                                                             <TreeViewItem.Header>
                                                                 <StackPanel Orientation="Horizontal">
                                                                     <Image Source="Icons/project_folder.gif" Width="16" Height="16" />
-                                                                    <TextBlock Text="Forms" />
+                                                                    <TextBlock Text="Forms" Margin="4,1,0,0" />
                                                                 </StackPanel>
                                                             </TreeViewItem.Header>
                                                             <TreeViewItem>
                                                                 <TreeViewItem.Header>
                                                                     <StackPanel Orientation="Horizontal">
                                                                         <Image Source="Icons/form.gif" Width="16" Height="16" />
-                                                                        <TextBlock Text="Form1 (Form1)" />
+                                                                        <TextBlock Text="Form1 (Form1)" Margin="4,1,0,0" />
                                                                     </StackPanel>
                                                                 </TreeViewItem.Header>
                                                             </TreeViewItem>

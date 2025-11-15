@@ -64,8 +64,8 @@
     <Setter Property="Template">
       <ControlTemplate>
         <utils:TreeViewItemPanel>
-          <utils:DiagonalLine StrokeThickness="1" Stroke="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}" StrokeDashArray="1,1" RenderOptions.EdgeMode="Aliased" Name="PART_LineVert" Width="0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="9,0,0,0" />
-          <utils:DiagonalLine StrokeThickness="1" Stroke="{DynamicResource {x:Static common:SystemColors.ControlTextBrushKey}}" StrokeDashArray="1,1" RenderOptions.EdgeMode="Aliased" Name="PART_LineHoriz" Height="0" Width="11" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" />
+          <utils:DiagonalLine StrokeThickness="1" Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}" StrokeDashArray="1,1" StrokeDashOffset="1" RenderOptions.EdgeMode="Aliased" Name="PART_LineVert" Width="0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="10,-1,0,0" />
+          <utils:DiagonalLine StrokeThickness="1" Stroke="{DynamicResource {x:Static common:SystemColors.ControlDarkBrushKey}}" StrokeDashArray="1,1" StrokeDashOffset="1" RenderOptions.EdgeMode="Aliased" Name="PART_LineHoriz" Height="0" Width="11" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,8,0,0" />
           <Grid Name="PART_RootLayout">
             <Grid.ColumnDefinitions>
               <ColumnDefinition MinWidth="19"
@@ -113,8 +113,8 @@
 
     <Style Selector="^:nth-last-child(1) /template/ utils|DiagonalLine#PART_LineVert">
       <Setter Property="VerticalAlignment" Value="Top"/>
-      <Setter Property="Height" Value="6" />
-      <Setter Property="Margin" Value="9,1,0,0" />
+      <Setter Property="Height" Value="10" />
+      <Setter Property="Margin" Value="10,-1,0,0" />
     </Style>
 
     <!-- <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter"> -->
