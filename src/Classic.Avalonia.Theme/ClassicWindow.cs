@@ -1,7 +1,10 @@
 using System;
 using System.Runtime.InteropServices;
+using Avalonia;
 using Classic.CommonControls.Utils;
 using Avalonia.Controls;
+using Avalonia.Media;
+using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 
 namespace Classic.Avalonia.Theme;
@@ -9,6 +12,12 @@ namespace Classic.Avalonia.Theme;
 public class ClassicWindow : Window
 {
     protected override Type StyleKeyOverride => typeof(ClassicWindow);
+
+    public static readonly AttachedProperty<WindowIcon?> SmallIconProperty = AvaloniaProperty.RegisterAttached<ClassicWindow, Window, WindowIcon?>("SmallIcon");
+
+    public static WindowIcon? GetSmallIcon(AvaloniaObject element) => element.GetValue(SmallIconProperty);
+
+    public static void SetSmallIcon(AvaloniaObject element, WindowIcon? value) => element.SetValue(SmallIconProperty, value);
 
     private static class NativeWindows
     {

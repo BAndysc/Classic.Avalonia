@@ -84,6 +84,21 @@ Theme="{StaticResource ClassicWindow}"
 
 **Note**: On Windows 11, the default `Window` class results in rounded corners, which may detract from the classic look. Inherit from `ClassicWindow` to avoid this.
 
+#### ❓ TitleBar Icon Sie problem
+
+Avalonia accepts .ico files as window icons, but the way it handles them varies across platforms. On Windows, Avalonia loads and stores the actual .ico file.
+Because of that, ClassicTheme can pick up the correct icon size and display it in the title bar. However, on macOS and Linux, where .ico is not a native format, 
+Avalonia converts the .ico file to a bitmap internally, which causes it to lose the multiple sizes embedded in the original file. As a result, ClassicTheme no longer
+has access to the 16×16 icon needed for the title bar. This leads to a suboptimal appearance of the title-bar icon (blurry due to downscaling a larger image).
+
+To fix this issue, you can provide a 16×16 PNG icon explicitly:
+```xml
+<classic:ClassicWindow ...
+    ClassicWindow.SmallIcon="/path_to_16x16_icon.png">
+```
+
+If you want consistent appearance across all platforms, please provide this small 16×16 icon, even if you already use an .ico file for the main Icon property.
+
 ### MessageBox
 
 For a classic Windows-style MessageBox:

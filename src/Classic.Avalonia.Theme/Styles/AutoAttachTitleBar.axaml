@@ -31,7 +31,9 @@
               RenderOptions.BitmapInterpolationMode="None"
               IsHitTestVisible="False"
               IsVisible="{Binding $parent[Window].Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
-              Source="{Binding $parent[Window].Icon}" Width="16" Height="16" />
+              Source="{Binding $parent[Window].Icon}"
+              SourceOverride="{Binding (ClassicWindow.SmallIcon), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, FallbackValue={x:Null}}"
+              Width="16" Height="16" />
 
             <TextBlock Text="{Binding $parent[Window].Title}"
                        VerticalAlignment="Center"
