@@ -13,9 +13,6 @@ public partial class MainWindow : ClassicWindow
     public MainWindow()
     {
         InitializeComponent();
-#if DEBUG
-        this.AttachDevTools();
-#endif
 
         Activated += OnActivated;
 
@@ -37,9 +34,6 @@ public partial class MainWindow : ClassicWindow
                 Title = "New Project",
                 CanResize = false,
             };
-#if DEBUG
-            window.AttachDevTools();
-#endif
             window.ShowDialog(this);
         }
     }

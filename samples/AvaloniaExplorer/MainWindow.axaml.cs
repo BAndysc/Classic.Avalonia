@@ -23,9 +23,6 @@ public partial class MainWindow : ClassicWindow
         WebView.WebViewNewWindowRequested += WebViewOnWebViewNewWindowRequested;
         WebView.NavigationCompleted += NavigationCompleted;
         WebView.NavigationStarting += NavigationStarting;
-#if DEBUG
-        this.AttachDevTools();
-#endif
     }
 
     private void NavigationStarting(object? sender, WebViewUrlLoadingEventArg e)

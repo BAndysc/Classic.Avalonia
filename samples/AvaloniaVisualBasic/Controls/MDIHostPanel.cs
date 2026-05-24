@@ -2,8 +2,6 @@ using System;
 using System.Collections.Specialized;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
-using Avalonia.VisualTree;
 
 namespace AvaloniaVisualBasic.Controls;
 
@@ -54,7 +52,7 @@ public class MDIHostPanel : Panel
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
-        if (this.GetVisualRoot() is Window window)
+        if (TopLevel.GetTopLevel(this) is Window window)
         {
             hostWindowIsActiveDisposable = window.GetObservable(Window.IsActiveProperty)
                 .Subscribe(new ActionObserver<bool>(@is =>
@@ -100,7 +98,8 @@ public class MDIHostPanel : Panel
             }
         }
 
-        if (topZ != null && (this.GetVisualRoot() is Window { IsActive: true } || this.GetVisualRoot() is not Window))
+        var topLevel = TopLevel.GetTopLevel(this);
+        if (topZ != null && (topLevel is Window { IsActive: true } || topLevel is not Window))
             SetIsActive(topZ, true);
 
         foreach (var child in Children)

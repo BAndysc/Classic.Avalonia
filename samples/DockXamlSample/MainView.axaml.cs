@@ -15,6 +15,7 @@ using Dock.Model.Avalonia.Controls;
 using Dock.Model.Avalonia.Json;
 using Dock.Model.Core;
 using Dock.Serializer;
+using Dock.Serializer.SystemTextJson;
 
 namespace DockXamlSample;
 
