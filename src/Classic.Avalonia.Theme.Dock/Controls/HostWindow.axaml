@@ -23,12 +23,11 @@
     <Setter Property="Topmost" Value="{Binding Window.Topmost}" x:DataType="controls:IRootDock" />
     <Setter Property="ToolChromeControlsWholeWindow" Value="{CompiledBinding OpenedDockablesCount, Converter={StaticResource LessThan2}}" x:DataType="controls:IRootDock" />
 
-    <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
-    <Setter Property="SystemDecorations" Value="Full" /> <!-- with Full on Windows 11 we get rounded borders and shadow, which is bad, but unfortunately with None, dragging and resizing doesn't work -->
+    <Setter Property="WindowDecorations" Value="Full" /> <!-- with Full on Windows 11 we get rounded borders and shadow, which is bad, but unfortunately with None, dragging and resizing doesn't work -->
     <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
 
     <Style Selector="^.__classic_theme_is_mac">
-      <Setter Property="SystemDecorations" Value="None" /> <!-- on a mac None decorations work fine and we still can drag and resize the window -->
+      <Setter Property="WindowDecorations" Value="None" /> <!-- on a mac None decorations work fine and we still can drag and resize the window -->
     </Style>
 
     <Setter Property="Template">
@@ -72,15 +71,13 @@
 
       <Style Selector="^:toolchromecontrolswindow">
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-        <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
       </Style>
 
-      <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
-      <Setter Property="SystemDecorations" Value="Full" /> <!-- with Full on Windows 11 we get rounded borders and shadow, which is bad, but unfortunately with None, dragging and resizing doesn't work -->
+      <Setter Property="WindowDecorations" Value="Full" /> <!-- with Full on Windows 11 we get rounded borders and shadow, which is bad, but unfortunately with None, dragging and resizing doesn't work -->
       <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
 
       <Style Selector="^.__classic_theme_is_mac">
-        <Setter Property="SystemDecorations" Value="None" /> <!-- on a mac None decorations work fine and we still can drag and resize the window -->
+        <Setter Property="WindowDecorations" Value="None" /> <!-- on a mac None decorations work fine and we still can drag and resize the window -->
       </Style>
 
       <Setter Property="Template">
