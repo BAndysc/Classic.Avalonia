@@ -1,6 +1,5 @@
 ﻿using Avalonia;
 using System;
-using Avalonia.WebView.Desktop;
 using Classic.CommonControls;
 
 namespace AvaloniaExplorer;
@@ -19,6 +18,5 @@ class Program
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .UseMessageBoxSounds()
-            .LogToTrace()
-            .UseDesktopWebView();
+            .LogToTrace();
 }

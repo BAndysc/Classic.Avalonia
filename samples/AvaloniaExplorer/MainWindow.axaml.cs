@@ -7,25 +7,23 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Threading;
 using Classic.CommonControls.Dialogs;
-using WebKit;
-using WebViewCore.Enums;
-using WebViewCore.Events;
 
 namespace AvaloniaExplorer;
 
 public partial class MainWindow : ClassicWindow
 {
-    private IDisposable finishLoadingBar;
+    private IDisposable? finishLoadingBar;
 
     public MainWindow()
     {
         InitializeComponent();
-        WebView.WebViewNewWindowRequested += WebViewOnWebViewNewWindowRequested;
+        WebView.NewWindowRequested += WebViewOnWebViewNewWindowRequested;
         WebView.NavigationCompleted += NavigationCompleted;
-        WebView.NavigationStarting += NavigationStarting;
+        WebView.NavigationStarted += NavigationStarting;
+        LoadUrl(new Uri("https://avaloniaui.net/"));
     }
 
-    private void NavigationStarting(object? sender, WebViewUrlLoadingEventArg e)
+    private void NavigationStarting(object? sender, WebViewNavigationStartingEventArgs e)
     {
         if (DataContext is not MainWindowViewModel vm)
             return;
@@ -34,15 +32,10 @@ public partial class MainWindow : ClassicWindow
         finishLoadingBar = null;
         UpdateBackForward();
 
-        if (e.RawArgs is WKNavigationAction webkit)
-        {
-            if (webkit.NavigationType == WKNavigationType.Other)
-                return;
-        }
-        vm.Url = e.Url?.ToString();
+        vm.Url = e.Request?.ToString();
     }
 
-    private void NavigationCompleted(object? sender, WebViewUrlLoadedEventArg e)
+    private void NavigationCompleted(object? sender, WebViewNavigationCompletedEventArgs e)
     {
         if (DataContext is not MainWindowViewModel vm)
             return;
@@ -59,8 +52,8 @@ public partial class MainWindow : ClassicWindow
     {
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.CanGoBack = WebView.IsCanGoBack;
-            vm.CanGoForward = WebView.IsCanGoForward;
+            vm.CanGoBack = WebView.CanGoBack;
+            vm.CanGoForward = WebView.CanGoForward;
         }
     }
 
@@ -69,7 +62,7 @@ public partial class MainWindow : ClassicWindow
         base.OnDataContextChanged(e);
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.LoadUriRequest += url => WebView.Url = url;
+            vm.LoadUriRequest += url => WebView.Source = url;
             vm.PropertyChanged += (_, prop) =>
             {
                 if (prop.PropertyName == nameof(MainWindowViewModel.OpenedPanel))
@@ -88,20 +81,22 @@ public partial class MainWindow : ClassicWindow
         }
     }
 
-    private void WebViewOnWebViewNewWindowRequested(object? sender, WebViewNewWindowEventArgs e)
+    private void WebViewOnWebViewNewWindowRequested(object? sender, WebViewNewWindowRequestedEventArgs e)
     {
-        if (e.UrlLoadingStrategy == UrlRequestStrategy.OpenInNewWindow)
+        e.Handled = true;
+        if (e.Request is not null)
         {
             var newWindow = new MainWindow();
             newWindow.ShowActivated = true;
+            newWindow.DataContext = new MainWindowViewModel();
             newWindow.Show();
-            newWindow.LoadUrl(e.Url);
+            newWindow.LoadUrl(e.Request);
         }
     }
 
     private void LoadUrl(Uri uri)
     {
-        WebView.Url = uri;
+        WebView.Source = uri;
     }
 
     private void GoBack(object? sender, RoutedEventArgs e)
@@ -127,12 +122,12 @@ public partial class MainWindow : ClassicWindow
 
     private void Refresh(object? sender, RoutedEventArgs e)
     {
-        WebView.Reload();
+        WebView.Refresh();
     }
 
     private void Home(object? sender, RoutedEventArgs e)
     {
-        WebView.Url = new Uri("https://avaloniaui.net/");
+        WebView.Source = new Uri("https://avaloniaui.net/");
     }
 
     private void Search(object? sender, RoutedEventArgs e)

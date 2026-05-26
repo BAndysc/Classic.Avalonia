@@ -283,7 +283,7 @@
             <panels:FavoritesPanel IsVisible="{CompiledBinding IsFavoritesOpened}" />
             <GridSplitter Grid.Column="1" />
             <ClassicBorderDecorator BorderStyle="Sunken" BorderThickness="2" Grid.Column="2" Margin="2">
-                <WebView x:Name="WebView" Url="https://avaloniaui.net/" />
+                <NativeWebView x:Name="WebView" />
             </ClassicBorderDecorator>
         </Grid>
     </DockPanel>
