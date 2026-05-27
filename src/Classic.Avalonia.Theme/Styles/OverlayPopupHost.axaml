@@ -8,16 +8,16 @@
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <!--  Do not forget to update Templated_Control_With_Popup_In_Template_Should_Set_TemplatedParent test  -->
-        <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
-          <VisualLayerManager Name="PART_VisualLayerManager">
+        <VisualLayerManager Name="PART_VisualLayerManager">
+          <!--  Do not forget to update Templated_Control_With_Popup_In_Template_Should_Set_TemplatedParent test  -->
+          <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
             <ContentPresenter Name="PART_ContentPresenter"
                               Padding="{TemplateBinding Padding}"
                               Background="{TemplateBinding Background}"
                               Content="{TemplateBinding Content}"
                               ContentTemplate="{TemplateBinding ContentTemplate}" />
-          </VisualLayerManager>
-        </LayoutTransformControl>
+          </LayoutTransformControl>
+        </VisualLayerManager>
       </ControlTemplate>
     </Setter>
   </ControlTheme>

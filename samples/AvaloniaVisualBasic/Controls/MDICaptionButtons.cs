@@ -1,16 +1,63 @@
 using System;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Chrome;
+using Avalonia.Controls.Metadata;
+using Avalonia.Controls.Primitives;
+using Avalonia.Interactivity;
 using Avalonia.VisualTree;
+using Classic.Avalonia.Theme.Utils;
 
 namespace AvaloniaVisualBasic.Controls;
 
-public class MDICaptionButtons : CaptionButtons
+[TemplatePart(PART_CloseButton, typeof(Button))]
+[TemplatePart(PART_RestoreButton, typeof(Button))]
+[TemplatePart(PART_MinimizeButton, typeof(Button))]
+[PseudoClasses(pseudoClassMinimized, pseudoClassNormal, pseudoClassMaximized, pseudoClassFullscreen)]
+public class MDICaptionButtons : TemplatedControl
 {
-    protected override Type StyleKeyOverride => typeof(CaptionButtons);
+    private const string PART_CloseButton = "PART_CloseButton";
+    private const string PART_RestoreButton = "PART_RestoreButton";
+    private const string PART_MinimizeButton = "PART_MinimizeButton";
+    
+    private const string pseudoClassMinimized = ":minimized";
+    private const string pseudoClassNormal = ":normal";
+    private const string pseudoClassMaximized = ":maximized";
+    private const string pseudoClassFullscreen = ":fullscreen";
+
+    protected override Type StyleKeyOverride => typeof(CaptionButtonsEx);
 
     private IDisposable? _disposables;
+
+    private Button? _closeButton;
+    private Button? _minimizeButton;
+    private Button? _restoreButton;
+
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+
+        DetachButtonHandlers();
+
+        _closeButton    = e.NameScope.Find<Button>(PART_CloseButton);
+        _minimizeButton = e.NameScope.Find<Button>(PART_MinimizeButton);
+        _restoreButton  = e.NameScope.Find<Button>(PART_RestoreButton);
+
+        AttachButtonHandlers();
+    }
+
+    private void AttachButtonHandlers()
+    {
+        if (_closeButton    != null) _closeButton.Click    += OnCloseClick;
+        if (_minimizeButton != null) _minimizeButton.Click += OnMinimizeClick;
+        if (_restoreButton  != null) _restoreButton.Click  += OnRestoreClick;
+    }
+
+    private void DetachButtonHandlers()
+    {
+        if (_closeButton    != null) _closeButton.Click    -= OnCloseClick;
+        if (_minimizeButton != null) _minimizeButton.Click -= OnMinimizeClick;
+        if (_restoreButton  != null) _restoreButton.Click  -= OnRestoreClick;
+    }
 
     private void Attach(MDIWindow hostWindow)
     {
@@ -19,10 +66,10 @@ public class MDICaptionButtons : CaptionButtons
             _disposables = hostWindow.GetObservable(MDIHostPanel.WindowStateProperty)
                 .Subscribe(new ActionObserver<WindowState>(x =>
                 {
-                    PseudoClasses.Set(":minimized", x == WindowState.Minimized);
-                    PseudoClasses.Set(":normal", x == WindowState.Normal);
-                    PseudoClasses.Set(":maximized", x == WindowState.Maximized);
-                    PseudoClasses.Set(":fullscreen", x == WindowState.FullScreen);
+                    PseudoClasses.Set(pseudoClassMinimized, x == WindowState.Minimized);
+                    PseudoClasses.Set(pseudoClassNormal, x == WindowState.Normal);
+                    PseudoClasses.Set(pseudoClassMaximized, x == WindowState.Maximized);
+                    PseudoClasses.Set(pseudoClassFullscreen, x == WindowState.FullScreen);
                 }));
         }
     }
@@ -46,19 +93,19 @@ public class MDICaptionButtons : CaptionButtons
     protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnDetachedFromVisualTree(e);
+        DetachButtonHandlers();
+        _closeButton = _minimizeButton = _restoreButton = null;
         Detach();
     }
 
-    protected override void OnClose()
+    private void OnCloseClick(object? sender, RoutedEventArgs e)
     {
-        base.OnClose();
         if (FindHost() is { } window)
             window.CloseCommand?.Execute(window.CloseCommandParameter);
     }
 
-    protected override void OnMinimize()
+    private void OnMinimizeClick(object? sender, RoutedEventArgs e)
     {
-        base.OnMinimize();
         if (FindHost() is { } window)
         {
             if (MDIHostPanel.GetWindowState(window) == WindowState.Minimized)
@@ -79,9 +126,8 @@ public class MDICaptionButtons : CaptionButtons
         }
     }
 
-    protected override void OnRestore()
+    private void OnRestoreClick(object? sender, RoutedEventArgs e)
     {
-        base.OnRestore();
         if (FindHost() is { } window)
         {
             if (MDIHostPanel.GetWindowState(window) == WindowState.Maximized)
