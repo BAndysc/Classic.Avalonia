@@ -24,27 +24,27 @@
     </Style>
     <Setter Property="Template">
       <ControlTemplate>
-        <Panel RenderOptions.EdgeMode="Aliased"
-               RenderOptions.BitmapInterpolationMode="None"
-               utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
-          <Border Name="PART_TransparencyFallback"
-                  IsHitTestVisible="False"
-                  Margin="2" />
-          <Border Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
-                  IsHitTestVisible="False"
-                  Margin="2" />
+        <VisualLayerManager>
+          <VisualLayerManager.ChromeOverlayLayer>
+            <TitleBar />
+          </VisualLayerManager.ChromeOverlayLayer>
+          <Panel RenderOptions.EdgeMode="Aliased"
+                 RenderOptions.BitmapInterpolationMode="None"
+                 utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
+            <Border Name="PART_TransparencyFallback"
+                    IsHitTestVisible="False"
+                    Margin="2" />
+            <Border Background="{DynamicResource {x:Static common:SystemColors.ControlBrushKey}}"
+                    IsHitTestVisible="False"
+                    Margin="2" />
 
-          <Border Margin="{TemplateBinding OffScreenMargin}">
-            <DockPanel Name="RootLayout"
-                       Margin="4"
-                       ClipToBounds="True">
+            <Border Margin="{TemplateBinding OffScreenMargin}">
+              <DockPanel Name="RootLayout"
+                         Margin="4"
+                         ClipToBounds="True">
 
-              <utils:AutoAttachTitleBar DockPanel.Dock="Top" Margin="0,0,0,1" />
+                <utils:AutoAttachTitleBar DockPanel.Dock="Top" Margin="0,0,0,1" />
 
-              <VisualLayerManager>
-                <VisualLayerManager.ChromeOverlayLayer>
-                  <TitleBar />
-                </VisualLayerManager.ChromeOverlayLayer>
                 <ContentPresenter Name="PART_ContentPresenter"
                                   Margin="{TemplateBinding Padding}"
                                   Background="{TemplateBinding Background}"
@@ -52,15 +52,15 @@
                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                   Content="{TemplateBinding Content}"
                                   ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  ClipToBounds="True"/>
-              </VisualLayerManager>
-            </DockPanel>
-          </Border>
+                                  ClipToBounds="True" />
+              </DockPanel>
+            </Border>
 
-          <classic:ClassicBorderDecorator Name="Bd"
-                                          BorderStyle="AltRaised"
-                                          IsHitTestVisible="False" />
-        </Panel>
+            <classic:ClassicBorderDecorator Name="Bd"
+                                            BorderStyle="AltRaised"
+                                            IsHitTestVisible="False" />
+          </Panel>
+        </VisualLayerManager>
       </ControlTemplate>
     </Setter>
 
@@ -86,27 +86,27 @@
     <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Panel RenderOptions.EdgeMode="Aliased"
-               RenderOptions.BitmapInterpolationMode="None"
-               utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
-          <Border Name="PART_TransparencyFallback"
-                  IsHitTestVisible="False" />
-          <Border Background="{TemplateBinding Background}"
-                  IsHitTestVisible="False" />
-          <Panel Margin="{TemplateBinding WindowDecorationMargin}"
-                 Background="Transparent" />
-          <VisualLayerManager>
-            <VisualLayerManager.ChromeOverlayLayer>
-              <TitleBar />
-            </VisualLayerManager.ChromeOverlayLayer>
+        <VisualLayerManager>
+          <VisualLayerManager.ChromeOverlayLayer>
+            <TitleBar />
+          </VisualLayerManager.ChromeOverlayLayer>
+          <Panel RenderOptions.EdgeMode="Aliased"
+                 RenderOptions.BitmapInterpolationMode="None"
+                 utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
+            <Border Name="PART_TransparencyFallback"
+                    IsHitTestVisible="False" />
+            <Border Background="{TemplateBinding Background}"
+                    IsHitTestVisible="False" />
+            <Panel Margin="{TemplateBinding WindowDecorationMargin}"
+                   Background="Transparent" />
             <ContentPresenter Name="PART_ContentPresenter"
                               Margin="{TemplateBinding Padding}"
                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                               Content="{TemplateBinding Content}"
                               ContentTemplate="{TemplateBinding ContentTemplate}" />
-          </VisualLayerManager>
-        </Panel>
+          </Panel>
+        </VisualLayerManager>
       </ControlTemplate>
     </Setter>
   </ControlTheme>

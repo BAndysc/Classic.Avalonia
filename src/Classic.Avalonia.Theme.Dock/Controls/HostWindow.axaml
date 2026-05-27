@@ -33,24 +33,24 @@
 
     <Setter Property="Template">
       <ControlTemplate>
-        <Panel RenderOptions.EdgeMode="Aliased"
-               RenderOptions.BitmapInterpolationMode="None"
-               utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
-          <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
-          <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
-          <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
-          <VisualLayerManager>
-            <VisualLayerManager.ChromeOverlayLayer>
-              <HostWindowTitleBar Name="PART_TitleBar" />
-            </VisualLayerManager.ChromeOverlayLayer>
+        <VisualLayerManager>
+          <VisualLayerManager.ChromeOverlayLayer>
+            <HostWindowTitleBar Name="PART_TitleBar" />
+          </VisualLayerManager.ChromeOverlayLayer>
+          <Panel RenderOptions.EdgeMode="Aliased"
+                 RenderOptions.BitmapInterpolationMode="None"
+                 utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
+            <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+            <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+            <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
             <ContentPresenter Name="PART_ContentPresenter"
                               ContentTemplate="{TemplateBinding ContentTemplate}"
                               Content="{TemplateBinding Content}"
                               Margin="{TemplateBinding Padding}"
                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-          </VisualLayerManager>
-        </Panel>
+          </Panel>
+        </VisualLayerManager>
       </ControlTemplate>
     </Setter>
 
@@ -85,30 +85,30 @@
 
       <Setter Property="Template">
         <ControlTemplate>
-          <Panel RenderOptions.EdgeMode="Aliased"
-                 RenderOptions.BitmapInterpolationMode="None"
-                 utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
-            <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
-            <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
-            <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
-            <Panel Margin="4">
-              <VisualLayerManager>
-                <VisualLayerManager.ChromeOverlayLayer>
-                  <!-- <TitleBar/> -->
-                </VisualLayerManager.ChromeOverlayLayer>
+          <VisualLayerManager>
+            <VisualLayerManager.ChromeOverlayLayer>
+              <!-- <TitleBar/> -->
+            </VisualLayerManager.ChromeOverlayLayer>
+            <Panel RenderOptions.EdgeMode="Aliased"
+                   RenderOptions.BitmapInterpolationMode="None"
+                   utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
+              <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+              <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+              <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
+              <Panel Margin="4">
                 <ContentPresenter Name="PART_ContentPresenter"
                                   ContentTemplate="{TemplateBinding ContentTemplate}"
                                   Content="{TemplateBinding Content}"
                                   Margin="{TemplateBinding Padding}"
                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-              </VisualLayerManager>
+              </Panel>
+              <ClassicBorderDecorator Name="Bd"
+                                      BorderStyle="AltRaised"
+                                      BorderThickness="2"
+                                      IsHitTestVisible="False" />
             </Panel>
-            <ClassicBorderDecorator Name="Bd"
-                                    BorderStyle="AltRaised"
-                                    BorderThickness="2"
-                                    IsHitTestVisible="False" />
-          </Panel>
+          </VisualLayerManager>
         </ControlTemplate>
       </Setter>
 
