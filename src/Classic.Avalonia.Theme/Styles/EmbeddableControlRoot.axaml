@@ -9,18 +9,18 @@
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Panel>
-          <Border Name="PART_TransparencyFallback"
-                  IsHitTestVisible="False" />
-          <Border Background="{TemplateBinding Background}">
-            <VisualLayerManager>
+        <VisualLayerManager>
+          <Panel>
+            <Border Name="PART_TransparencyFallback"
+                    IsHitTestVisible="False" />
+            <Border Background="{TemplateBinding Background}">
               <ContentPresenter Name="PART_ContentPresenter"
                                 Margin="{TemplateBinding Padding}"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
-            </VisualLayerManager>
-          </Border>
-        </Panel>
+            </Border>
+          </Panel>
+        </VisualLayerManager>
       </ControlTemplate>
     </Setter>
   </ControlTheme>
