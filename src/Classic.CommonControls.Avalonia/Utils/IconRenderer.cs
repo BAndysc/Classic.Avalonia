@@ -99,7 +99,6 @@ public class IconRenderer : Control
                 paint.ColorFilter = SKColorFilter.CreateBlendMode(colorFilter.Value.ToSKColor(), blendMode ?? SKBlendMode.SrcIn);
             if (blendMode != null)
                 paint.BlendMode = blendMode.Value;
-            paint.FilterQuality = mode.ToSKFilterQuality();
             cache[key] = paint;
             return paint;
         }
@@ -144,11 +143,10 @@ public class IconRenderer : Control
             if (context.TryGetFeature(typeof(ISkiaSharpApiLeaseFeature)) is ISkiaSharpApiLeaseFeature leaseFeature)
             {
                 var interpolation = BitmapInterpolationMode.None;
+                var sampling = interpolation.ToSKSamplingOptions();
                 using var lease = leaseFeature.Lease();
                 var canvas = lease.SkCanvas;
                 canvas.Save();
-
-                SKRect bounds = Bounds.ToSKRect();
 
                 var stream = new MemoryStream();
                 bitmap.Save(stream);
@@ -178,7 +176,7 @@ public class IconRenderer : Control
                 if (iconStyle == IconStyle.Disabled)
                 {
                     canvas.DrawImage(skImage,Bounds.WithX(1).WithY(1).ToSKRect(),
-                        GetPaint(interpolation, lightLightColor, default));
+                        sampling, GetPaint(interpolation, lightLightColor, default));
 
                     brush = GetPaint(interpolation, grayTextColor, default);
                 }
@@ -187,7 +185,7 @@ public class IconRenderer : Control
                     brush = grayscalePaint;
                 }
 
-                canvas.DrawImage(skImage, Bounds.ToSKRect(), brush);
+                canvas.DrawImage(skImage, Bounds.ToSKRect(), sampling, brush);
                 if (iconStyle == IconStyle.SelectedItem)
                 {
                     using var patternBitmap = new SKBitmap((int)Bounds.Width, (int)Bounds.Height);
@@ -210,7 +208,8 @@ public class IconRenderer : Control
                     // Step 5: Blend the pattern with the original image's alpha channel.
                     var alphaPaint = GetPaint(interpolation, default, SKBlendMode.DstIn);
                     alphaPaint.BlendMode = SKBlendMode.DstIn;
-                    patternCanvas.DrawBitmap(skBitmap, Bounds.ToSKRect(), alphaPaint);
+                    using var skBitmapAsImage = SKImage.FromBitmap(skBitmap);
+                    patternCanvas.DrawImage(skBitmapAsImage, Bounds.ToSKRect(), sampling, alphaPaint);
 
                     // Step 6: Draw the alpha-masked pattern onto the main canvas.
                     canvas.DrawBitmap(patternBitmap, new SKPoint(0, 0));

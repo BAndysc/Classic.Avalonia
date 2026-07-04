@@ -95,9 +95,9 @@ public class ClassicWindow : Window
         }
     }
 
-    protected override void ExtendClientAreaToDecorationsChanged(bool isExtended)
+    protected override void OnOpened(EventArgs e)
     {
-        base.ExtendClientAreaToDecorationsChanged(isExtended);
+        base.OnOpened(e);
 
         // Fix for Windows: disable rounded corners
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))

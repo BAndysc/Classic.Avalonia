@@ -5,6 +5,7 @@
              xmlns:commonControls="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
              xmlns:controls="clr-namespace:AvaloniaVisualBasic.Controls"
              xmlns:converters="clr-namespace:AvaloniaVisualBasic.Converters"
+             xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils;assembly=Classic.Avalonia.Theme"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaVisualBasic.Forms.Views.FormEditView">
     <UserControl.Resources>
@@ -27,7 +28,7 @@
                     <Border IsHitTestVisible="False" Name="PART_FormTitleBar" />
 
                     <DockPanel Margin="2,0,0,0">
-                        <CaptionButtons DockPanel.Dock="Right" />
+                        <utils:CaptionButtonsEx DockPanel.Dock="Right" />
 
                         <Image Source="/Icons/form.gif" Width="16" Height="16" />
 

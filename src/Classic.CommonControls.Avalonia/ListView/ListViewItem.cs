@@ -5,6 +5,7 @@ using Avalonia.Controls.Mixins;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media.Imaging;
+using Avalonia.VisualTree;
 
 namespace Classic.CommonControls;
 
@@ -110,7 +111,7 @@ public class ListViewItem : TemplatedControl, ISelectable
             e.InitialPressMouseButton is MouseButton.Left or MouseButton.Right)
         {
             var point = e.GetCurrentPoint(this);
-            var settings = TopLevel.GetTopLevel(e.Source as Visual)?.PlatformSettings;
+            var settings = this.GetPlatformSettings();
             var tapSize = settings?.GetTapSize(point.Pointer.Type) ?? new Size(4, 4);
             var tapRect = new Rect(_pointerDownPoint, new Size())
                 .Inflate(new Thickness(tapSize.Width, tapSize.Height));

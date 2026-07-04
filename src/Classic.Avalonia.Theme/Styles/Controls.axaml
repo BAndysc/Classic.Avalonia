@@ -24,7 +24,6 @@
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Window.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/Carousel.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/CaptionButtons.axaml" />
-        <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TitleBar.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/AutoAttachTitleBar.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/TextBox.axaml" />
         <MergeResourceInclude Source="avares://Classic.Avalonia.Theme/Styles/AutoCompleteBox.axaml" />

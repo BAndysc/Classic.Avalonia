@@ -8,7 +8,7 @@
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <VisualLayerManager IsPopup="True">
+        <VisualLayerManager Name="PART_VisualLayerManager">
           <!--  Do not forget to update Templated_Control_With_Popup_In_Template_Should_Set_TemplatedParent test  -->
           <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
             <ContentPresenter Name="PART_ContentPresenter"

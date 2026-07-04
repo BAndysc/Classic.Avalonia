@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using AvaloniaWebView;
 
 namespace AvaloniaExplorer;
 
@@ -10,6 +9,10 @@ public partial class App : Application
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
+
+#if DEBUG
+        this.AttachDeveloperTools();
+#endif
     }
 
     public override void OnFrameworkInitializationCompleted()
@@ -21,8 +24,6 @@ public partial class App : Application
                 DataContext = new MainWindowViewModel()
             };
         }
-
-        AvaloniaWebViewBuilder.Initialize(default);
 
         base.OnFrameworkInitializationCompleted();
     }

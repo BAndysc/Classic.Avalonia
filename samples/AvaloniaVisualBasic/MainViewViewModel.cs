@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Avalonia.Controls;
-using Avalonia.VisualTree;
 using AvaloniaVisualBasic.Forms.ViewModels;
 using Classic.Avalonia.Theme;
 
@@ -95,7 +94,7 @@ public class MainViewViewModel : INotifyPropertyChanged
                 CanResize = false,
                 Content = new MenuEditorViewModel(),
                 SizeToContent = SizeToContent.WidthAndHeight
-            }.ShowDialog(host.GetVisualRoot() as Window);
+            }.ShowDialog(TopLevel.GetTopLevel(host) as Window);
         }, _ => true);
     }
 

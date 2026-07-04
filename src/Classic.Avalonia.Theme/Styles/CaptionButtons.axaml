@@ -1,12 +1,13 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:utils="clr-namespace:Classic.Avalonia.Theme.Utils"
                     xmlns:common="clr-namespace:Classic.CommonControls;assembly=Classic.CommonControls.Avalonia"
                     x:ClassModifier="internal">
   <Design.PreviewWith>
     <Border Padding="20">
       <StackPanel Spacing="20">
         <ThemeVariantScope RequestedThemeVariant="Light">
-          <CaptionButtons Height="40"/>
+          <utils:CaptionButtonsEx Height="40"/>
         </ThemeVariantScope>
       </StackPanel>
     </Border>
@@ -22,8 +23,8 @@
     <Setter Property="Padding" Value="0" />
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type CaptionButtons}"
-                TargetType="CaptionButtons">
+  <ControlTheme x:Key="{x:Type utils:CaptionButtonsEx}"
+                TargetType="utils:CaptionButtonsEx">
     <Setter Property="Template">
       <ControlTemplate>
         <StackPanel VerticalAlignment="Stretch"
