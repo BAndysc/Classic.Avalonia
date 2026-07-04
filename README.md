@@ -2,6 +2,10 @@
 
 ### 📢 If you have used Classic.Avalonia, share your app [here](https://github.com/BAndysc/Classic.Avalonia/discussions/2)!
 
+## Avalonia 12
+
+Thanks to the great work of [definability](https://github.com/definability), the Classic.Avalonia theme is now available for Avalonia 12. The new controls have not yet been styled, so Classic.Avalonia is currently released as a pre-release package, version `12.0.1-beta1`.
+
 ## Overview
 
 This project brings the classic Windows 9x theme to Avalonia. It is inspired by the [WPF Classic Theme](https://github.com/dotnet/wpf/tree/main/src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Classic/Themes), with enhancements and additional controls for a more authentic look and feel. Check out the screenshots below for a preview!
