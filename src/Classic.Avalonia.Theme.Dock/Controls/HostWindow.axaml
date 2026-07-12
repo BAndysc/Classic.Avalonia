@@ -32,7 +32,7 @@
 
     <Setter Property="Template">
       <ControlTemplate>
-        <VisualLayerManager>
+        <VisualLayerManager Name="PART_VisualLayerManager">
           <Panel RenderOptions.EdgeMode="Aliased"
                  RenderOptions.BitmapInterpolationMode="None"
                  utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">
@@ -79,7 +79,7 @@
 
       <Setter Property="Template">
         <ControlTemplate>
-          <VisualLayerManager>
+          <VisualLayerManager Name="PART_VisualLayerManager">
             <Panel RenderOptions.EdgeMode="Aliased"
                    RenderOptions.BitmapInterpolationMode="None"
                    utils:FontUtils.FontAliasing="{DynamicResource {x:Static common:SystemParameters.FontAliasingKey}}">

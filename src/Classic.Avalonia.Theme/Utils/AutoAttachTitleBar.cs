@@ -8,7 +8,7 @@ namespace Classic.Avalonia.Theme.Utils;
 
 [TemplatePart(PART_CaptionButtons, typeof(CaptionButtonsEx), IsRequired = true)]
 [PseudoClasses(pseudoClassMinimized, pseudoClassNormal, pseudoClassMaximized, pseudoClassFullscreen, pseudoClassActive)]
-internal class AutoAttachTitleBar : TemplatedControl
+public class AutoAttachTitleBar : TemplatedControl
 {
     private const string PART_CaptionButtons = "PART_CaptionButtons";
     

@@ -9,7 +9,7 @@
     <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <VisualLayerManager>
+        <VisualLayerManager Name="PART_VisualLayerManager">
           <Panel>
             <Border Name="PART_TransparencyFallback"
                     IsHitTestVisible="False" />
