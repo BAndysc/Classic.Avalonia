@@ -72,7 +72,7 @@
                                 <MenuItem Header="History" InputGesture="Ctrl+H" />
                                 <MenuItem Header="Folders" />
                                 <Separator />
-                                <MenuItem Header="Tip of the Dat" />
+                                <MenuItem Header="Tip of the Day" />
                             </MenuItem>
                             <Separator />
                             <MenuItem Header="Go To">
